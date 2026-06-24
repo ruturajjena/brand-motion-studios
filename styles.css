@@ -234,6 +234,7 @@ img, svg { display: block; max-width: 100%; }
 .field { display: flex; flex-direction: column; gap: 8px; }
 .field--full { grid-column: 1 / -1; }
 .field label { font-size: 14px; font-weight: 600; color: var(--text-dim); }
+.field__opt { color: var(--text-faint); font-weight: 500; }
 .field input, .field select, .field textarea {
   width: 100%; padding: 14px 16px; border-radius: var(--radius-sm);
   background: var(--surface); border: 1px solid var(--border); color: var(--text);
@@ -269,6 +270,24 @@ button.field--full { width: 100%; }
   display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
   margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
   color: var(--text-faint); font-size: 13.5px;
+}
+
+/* ---------- Floating WhatsApp button ---------- */
+.wa-fab {
+  position: fixed; bottom: 22px; right: 22px; z-index: 90;
+  width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
+  background: #25d366; color: #06381f; box-shadow: 0 10px 30px -6px rgba(37,211,102,.55);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.wa-fab::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(37,211,102,.45); animation: wa-pulse 2.4s var(--ease) infinite;
+}
+.wa-fab:hover { transform: scale(1.08); box-shadow: 0 14px 36px -6px rgba(37,211,102,.7); }
+@keyframes wa-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,.45); }
+  70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
 
 /* ---------- Reveal animation ---------- */

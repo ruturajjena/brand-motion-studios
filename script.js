@@ -52,7 +52,8 @@
   var yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  /* ---- Contact form -> opens email client (no backend needed) ---- */
+  /* ---- Contact form -> opens WhatsApp with a pre-filled message ---- */
+  var WHATSAPP_NUMBER = '918260170130'; // country code + number, digits only
   var form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function (e) {
@@ -62,23 +63,20 @@
       var service = form.service.value;
       var message = (form.message.value || '').trim();
 
-      if (!name || !email) {
-        alert('Please add your name and email so we can reply.');
+      if (!name) {
+        alert('Please add your name so we know who we’re chatting with.');
         return;
       }
 
-      var subject = 'New project enquiry — ' + service;
-      var body =
+      var text =
+        'Hi Brand Motion Studios! 👋\n\n' +
         'Name: ' + name + '\n' +
-        'Email: ' + email + '\n' +
-        'Service: ' + service + '\n\n' +
-        'Details:\n' + (message || '(none provided)');
+        (email ? 'Email: ' + email + '\n' : '') +
+        'Interested in: ' + service + '\n\n' +
+        (message ? 'Project details: ' + message : 'I’d love to discuss a project.');
 
-      var mailto = 'mailto:studiosbrandmotion@gmail.com'
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(body);
-
-      window.location.href = mailto;
+      var wa = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
+      window.open(wa, '_blank', 'noopener');
     });
   }
 })();
