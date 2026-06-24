@@ -208,6 +208,17 @@ img, svg { display: block; max-width: 100%; }
 .work-card__link--muted { color: var(--text-faint); }
 .work-card--cta { background: var(--grad-soft); border-style: dashed; border-color: var(--border-strong); }
 
+/* ---------- Reels ---------- */
+.reels__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px; align-items: start; justify-items: center;
+}
+.reels__grid .instagram-media {
+  margin: 0 auto !important; min-width: 0 !important; width: 100% !important;
+  max-width: 360px !important;
+}
+.reels__cta { text-align: center; margin-top: 40px; }
+
 /* ---------- Process ---------- */
 .steps { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: step; }
 .step { padding: 30px 26px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); position: relative; }
