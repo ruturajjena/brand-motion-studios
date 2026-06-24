@@ -47,7 +47,8 @@ python3 -m http.server 8000
 ## Editing tips
 
 - **Add a portfolio item:** copy a `.work-card` block in the Work section of `index.html`.
-- **Change colors:** edit the CSS variables at the top of `styles.css` (`--violet`, `--cyan`, `--grad`).
+- **Change colors:** edit the CSS variables at the top of `styles.css` (`--gold`, `--silver`, `--grad`).
+- **Logo:** save your logo PNG as `assets/logo.png` — it's used as the social-share / link-preview image. The gold-B / silver-M monogram in the nav and the favicon are vector recreations and need no file.
 - **Contact form:** submits via the visitor's email client to `studiosbrandmotion@gmail.com`.
   To collect submissions on a server instead, swap the form handler in `script.js`
   for a service like [Formspree](https://formspree.io).

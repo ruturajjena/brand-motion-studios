@@ -1,10 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#a78bfa"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0d488"/>
+      <stop offset="1" stop-color="#b8893b"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef0f3"/>
+      <stop offset="1" stop-color="#9aa0a8"/>
     </linearGradient>
   </defs>
-  <rect width="40" height="40" rx="10" fill="#08080c"/>
-  <path d="M12 27V13l8 9 8-9v14" fill="none" stroke="url(#g)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="64" height="64" rx="14" fill="#060606"/>
+  <text x="9" y="46" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="700" fill="url(#gold)">B</text>
+  <text x="33" y="46" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="700" fill="url(#silver)">M</text>
 </svg>
