@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Library — Brand Motion Studios</title>
+  <meta name="description" content="A private library of reusable AI prompts used by Brand Motion Studios." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#060606" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Brand Motion Studios home">
+        <svg class="brand__mark" viewBox="0 0 62 44" width="48" height="34" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0d488" />
+              <stop offset="1" stop-color="#b8893b" />
+            </linearGradient>
+            <linearGradient id="bm-silver" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef0f3" />
+              <stop offset="1" stop-color="#9aa0a8" />
+            </linearGradient>
+          </defs>
+          <text x="0" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-gold)">B</text>
+          <text x="28" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-silver)">M</text>
+        </svg>
+        <span class="brand__text">Brand Motion<span class="brand__accent"> Studios</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#reels">Reels</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">Start a project</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="prompt-page">
+    <div class="container">
+      <header class="prompt-page__head reveal">
+        <p class="eyebrow">Internal · Prompt Library</p>
+        <h1 class="section__title">Reusable <span class="grad-text">prompts</span></h1>
+        <p class="section__lead">A growing collection of prompts we reuse for websites, videos and campaigns. Click <strong>Copy</strong> on any card to grab the full text.</p>
+      </header>
+
+      <div class="prompt-list">
+
+        <!-- ===== Prompt: cosmos-landing ===== -->
+        <article class="prompt-card reveal" id="cosmos-landing">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">cosmos-landing</span>
+              <span class="prompt-card__tag">Website</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-cosmos-landing">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Comprehensive brief for a premium, dark-themed business site with a cosmic particle background — the prompt behind the Brand Motion Studios landing page.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-cosmos-landing">Here's a comprehensive prompt you can use to generate similar websites:
+
+---
+
+**Website Generation Prompt**
+
+Create a premium, dark-themed business website with the following structure and aesthetic:
+
+## Design &amp; Visual Style
+- **Color Palette:** Deep blacks (#060606), golds (#d4af37, #f0d488), silvers (#cdd1d8), whites for text
+- **Typography:** Space Grotesk for headlines, Inter for body text
+- **Layout:** Dark modern with subtle luxury feel, smooth animations and transitions
+- **Background:** Fixed canvas with:
+  - Drifting starfield across entire page
+  - Glowing particle orb behind hero section that fades on scroll
+  - Soft grid overlay and minimal blur glows
+  - Respects `prefers-reduced-motion`
+
+## Page Sections (in order)
+1. **Navigation** — Sticky header with logo, nav links, CTA button; glassmorphic blur on scroll
+2. **Hero** — Large headline with accent gradient, subheadline, two CTAs, trust badges/client chips
+3. **Stats Grid** — 4 key metrics with numbers and labels
+4. **Services/Features** — 3-card grid with icons, descriptions, and checklists; featured card has special styling
+5. **Work/Portfolio** — 3-card grid (2 case studies + CTA card) with gradient overlays and tags
+6. **Social/Reels** — Embedded Instagram grid section
+7. **Process/Steps** — 4-step numbered timeline (Discovery → Concept → Production → Launch)
+8. **About** — Left text + right panel with value propositions in key/value rows
+9. **Contact Form** — 2-column form (name, email, service dropdown, message) that opens WhatsApp pre-filled on submit
+10. **Footer** — Brand info, nav links, social icons, copyright
+
+## Key Features
+- **Reveal animations** — Elements fade in and slide up on scroll with staggered timing
+- **Hover effects** — Cards lift, borders highlight, buttons glow
+- **Responsive design** — Mobile-first, adapts to tablet and desktop
+- **Form handling** — Contact form triggers WhatsApp Business link with pre-filled message
+- **Smooth scrolling** — Native and via CSS
+- **No dependencies** — Vanilla JS, pure CSS (can use Tailwind or write custom)
+
+## Tone &amp; Copy Style
+- Professional but approachable
+- Action-oriented ("We make brands move", "Start your project")
+- Trust-building (mention awards, clients, guarantees, custom work)
+- Clear value propositions and service descriptions
+
+## Technical Requirements
+- Single-page or multi-page structure
+- CSS animations (no heavy JS libraries unless necessary)
+- Mobile hamburger menu that works smoothly
+- SEO-friendly (semantic HTML, meta tags, structured data)
+- GitHub Pages ready (optional)
+- Optional: Canvas-based particle engine for the background
+
+## Optional Enhancements
+- Dark/light mode toggle
+- Advanced particle morphing (orb → helix → wave as user scrolls)
+- Video backgrounds on sections
+- Live counters or stats animations
+- Newsletter signup
+- Testimonials carousel
+
+---
+
+**Usage:** You can copy this prompt and:
+- Give it to Claude to generate a complete HTML/CSS/JS site
+- Customize the color palette, text, and services to your brand
+- Use it as a brief for a designer
+- Modify sections to match your specific industry (replace "Services" with your offerings, etc.)
+
+The structure is flexible — remove/add sections as needed for your business model.</pre>
+        </article>
+
+      </div>
+
+      <a href="index.html" class="prompt-back">← Back to site</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Copy-to-clipboard for prompt cards
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        var text = target.textContent;
+        var label = btn.querySelector('.copy-btn__label');
+        var done = function () {
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+        } else { fallback(text, done); }
+      });
+    });
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>
