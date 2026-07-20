@@ -1,12 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import BuyButton from "@/components/BuyButton";
-import {
-  CATEGORIES,
-  PRODUCTS,
-  formatPrice,
-  getProduct,
-} from "@/lib/products";
+import PreviewThumb from "@/components/PreviewThumb";
+import UnlockButtons from "@/components/UnlockButtons";
+import { PRODUCTS, formatPrice, getProduct } from "@/lib/products";
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -42,9 +38,16 @@ export default async function ProductPage({
 
       <div className="mt-8 grid gap-12 lg:grid-cols-[1fr_380px]">
         <div>
-          <span className="rounded-full border border-line px-3 py-1 text-xs uppercase tracking-wider text-ink-faint">
-            {CATEGORIES[product.category].label}
-          </span>
+          <div className="flex flex-wrap gap-1.5">
+            {product.tags.map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-line px-2.5 py-1 text-[11px] uppercase tracking-wider text-ink-faint"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
           <h1 className="mt-4 font-display text-4xl font-bold sm:text-5xl">
             <span className="grad-text">{product.name}</span>
           </h1>
@@ -53,8 +56,12 @@ export default async function ProductPage({
             {product.description}
           </p>
 
+          <div className="mt-10">
+            <PreviewThumb product={product} />
+          </div>
+
           {product.previewUrl && (
-            <div className="card mt-10 overflow-hidden rounded-2xl">
+            <div className="card mt-6 overflow-hidden rounded-2xl">
               <div className="flex items-center justify-between border-b border-line px-5 py-3">
                 <span className="text-sm text-ink-faint">Live reference build</span>
                 <a
@@ -77,14 +84,34 @@ export default async function ProductPage({
 
         <aside className="h-fit lg:sticky lg:top-24">
           <div className="card rounded-2xl p-7">
-            <p className="font-display text-4xl font-bold text-gold-bright">
-              {formatPrice(product.price)}
-            </p>
+            <div className="flex items-baseline gap-3">
+              {product.prices.prompt && (
+                <p className="font-display text-3xl font-bold text-gold-bright">
+                  {formatPrice(product.prices.prompt)}
+                  <span className="ml-1 text-sm font-normal text-ink-faint">
+                    prompt
+                  </span>
+                </p>
+              )}
+              {product.prices.source && (
+                <p className="font-display text-3xl font-bold text-silver">
+                  {formatPrice(product.prices.source)}
+                  <span className="ml-1 text-sm font-normal text-ink-faint">
+                    source
+                  </span>
+                </p>
+              )}
+            </div>
             <p className="mt-1 text-sm text-ink-faint">
-              One-time purchase · instant Stripe checkout
+              One-time purchase or All-Access subscription
             </p>
             <div className="mt-6">
-              <BuyButton slug={product.slug} />
+              <UnlockButtons
+                slug={product.slug}
+                name={product.name}
+                prices={product.prices}
+                size="lg"
+              />
             </div>
             <h2 className="mt-8 font-display text-sm font-bold uppercase tracking-wider text-ink-dim">
               What&apos;s included

@@ -1,11 +1,20 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import { CATEGORIES, PRODUCTS, type Category } from "@/lib/products";
+import { PRODUCTS, type Product } from "@/lib/products";
 
 export const metadata = { title: "Store" };
 
-const isCategory = (v: string | undefined): v is Category =>
-  v !== undefined && v in CATEGORIES;
+const FILTERS: Record<string, { label: string; test: (p: Product) => boolean }> = {
+  prompts: { label: "Prompts", test: (p) => p.prices.prompt !== undefined },
+  "source-code": {
+    label: "Source Code",
+    test: (p) => p.prices.source !== undefined,
+  },
+  design: {
+    label: "Design",
+    test: (p) => p.tags.some((t) => ["design tokens", "css", "figma-ready"].includes(t)),
+  },
+};
 
 export default async function StorePage({
   searchParams,
@@ -13,24 +22,19 @@ export default async function StorePage({
   searchParams: Promise<{ category?: string }>;
 }) {
   const { category } = await searchParams;
-  const active = isCategory(category) ? category : undefined;
-  const products = active
-    ? PRODUCTS.filter((p) => p.category === active)
-    : PRODUCTS;
+  const active = category && FILTERS[category] ? category : undefined;
+  const products = active ? PRODUCTS.filter(FILTERS[active].test) : PRODUCTS;
 
   return (
     <div className="mx-auto w-full max-w-6xl px-6 py-16">
       <h1 className="font-display text-4xl font-bold">
-        {active ? (
-          <span className="grad-text">{CATEGORIES[active].label}</span>
-        ) : (
-          <span className="grad-text">Everything in the store</span>
-        )}
+        <span className="grad-text">
+          {active ? FILTERS[active].label : "Everything in the store"}
+        </span>
       </h1>
       <p className="mt-3 max-w-xl text-ink-dim">
-        {active
-          ? CATEGORIES[active].blurb
-          : "Prompt packs, design systems and complete source code — every product backed by a live reference build."}
+        Every website comes with a preview of the real build — unlock the
+        prompt behind it, the complete source code, or both.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-2">
@@ -44,7 +48,7 @@ export default async function StorePage({
         >
           All
         </Link>
-        {(Object.keys(CATEGORIES) as Category[]).map((key) => (
+        {Object.entries(FILTERS).map(([key, f]) => (
           <Link
             key={key}
             href={`/store?category=${key}`}
@@ -54,7 +58,7 @@ export default async function StorePage({
                 : "border-line text-ink-dim hover:text-ink"
             }`}
           >
-            {CATEGORIES[key].label}
+            {f.label}
           </Link>
         ))}
       </div>

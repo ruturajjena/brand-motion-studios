@@ -1,18 +1,15 @@
 import { NextResponse } from "next/server";
-import { getProduct } from "@/lib/products";
+import { ALL_ACCESS, getProduct, type Item } from "@/lib/products";
 import { getStripe } from "@/lib/stripe";
 
+const ITEMS: Item[] = ["prompt", "source"];
+
 export async function POST(req: Request) {
-  let slug: unknown;
+  let body: { slug?: unknown; item?: unknown; plan?: unknown };
   try {
-    ({ slug } = await req.json());
+    body = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
-  }
-
-  const product = typeof slug === "string" ? getProduct(slug) : undefined;
-  if (!product) {
-    return NextResponse.json({ error: "Unknown product" }, { status: 404 });
   }
 
   const origin =
@@ -21,6 +18,42 @@ export async function POST(req: Request) {
     "https://brandmotion.in";
 
   try {
+    // All-Access subscription
+    if (body.plan === "all-access") {
+      const session = await getStripe().checkout.sessions.create({
+        mode: "subscription",
+        line_items: [
+          {
+            quantity: 1,
+            price_data: {
+              currency: "usd",
+              unit_amount: ALL_ACCESS.price,
+              recurring: { interval: "month" },
+              product_data: {
+                name: ALL_ACCESS.name,
+                description: ALL_ACCESS.blurb,
+              },
+            },
+          },
+        ],
+        metadata: { plan: "all-access" },
+        success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${origin}/store`,
+      });
+      return NextResponse.json({ url: session.url });
+    }
+
+    // One-time item purchase
+    const product =
+      typeof body.slug === "string" ? getProduct(body.slug) : undefined;
+    const item = ITEMS.includes(body.item as Item)
+      ? (body.item as Item)
+      : undefined;
+    const price = product && item ? product.prices[item] : undefined;
+    if (!product || !item || !price) {
+      return NextResponse.json({ error: "Unknown product" }, { status: 404 });
+    }
+
     const session = await getStripe().checkout.sessions.create({
       mode: "payment",
       line_items: [
@@ -28,15 +61,15 @@ export async function POST(req: Request) {
           quantity: 1,
           price_data: {
             currency: "usd",
-            unit_amount: product.price,
+            unit_amount: price,
             product_data: {
-              name: product.name,
+              name: `${product.name} — ${item === "prompt" ? "Prompt pack" : "Source code"}`,
               description: product.tagline,
             },
           },
         },
       ],
-      metadata: { slug: product.slug },
+      metadata: { slug: product.slug, item },
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/store/${product.slug}`,
     });

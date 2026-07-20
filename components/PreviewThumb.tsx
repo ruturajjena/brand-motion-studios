@@ -1,20 +1,40 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import type { Product } from "@/lib/products";
 
 /**
- * Design preview box (getlayers-style card thumbnail).
+ * Design preview box (getlayers-style thumbnail).
  *
- * Shows a real screenshot of the product's reference build
- * (captured at 1280x800, stored in /public/previews/<slug>.webp).
- * The product detail page embeds the fully live build; cards stay light.
+ * Upload a screen recording to public/previews/<slug>.mp4 (or .webm) and it
+ * plays automatically (muted loop) — the 1280x800 screenshot in the same
+ * folder is the poster/fallback. No recording yet → screenshot only.
  */
 export default function PreviewThumb({ product }: { product: Product }) {
+  const dir = join(process.cwd(), "public", "previews");
+  const video = [".mp4", ".webm"]
+    .map((ext) => `${product.slug}${ext}`)
+    .find((f) => existsSync(join(dir, f)));
+  const poster = existsSync(join(dir, `${product.slug}.webp`))
+    ? `/previews/${product.slug}.webp`
+    : undefined;
+
   return (
     <div className="preview-thumb relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-line bg-black">
-      {product.previewUrl ? (
+      {video ? (
+        <video
+          src={`/previews/${video}`}
+          poster={poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover object-top"
+        />
+      ) : poster ? (
         <>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`/previews/${product.slug}.webp`}
+            src={poster}
             alt={`${product.name} design preview`}
             loading="lazy"
             className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
@@ -22,7 +42,7 @@ export default function PreviewThumb({ product }: { product: Product }) {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         </>
       ) : (
-        /* Products without a reference build get a token-swatch tile */
+        /* No media yet — token-swatch tile */
         <div className="flex h-full w-full flex-col justify-between bg-[radial-gradient(ellipse_120%_80%_at_50%_-10%,rgba(212,175,55,0.22),transparent_60%)] p-5">
           <div className="flex gap-2">
             {["#d4af37", "#f0d488", "#cdd1d8", "#0e0e10"].map((c) => (

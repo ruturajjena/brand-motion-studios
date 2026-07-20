@@ -1,0 +1,172 @@
+# The Rajmahal Palace — Google Flow (Veo) Prompt Pack
+### Scroll-driven cinematic palace-hotel website · 6 clips · max 10s each
+### Style reference: The Leela Palace Udaipur / Taj Lake Palace — royal Indian heritage luxury
+
+---
+
+## How to use this pack
+
+1. **Paste the Global Style Block at the END of every prompt.** Veo has no memory between generations — this block keeps the architecture, color grade and lighting consistent so all 6 clips feel like one palace, not six.
+2. **Generate at the highest resolution Flow allows** (4K if available).
+3. **Every clip uses ONE slow camera move in ONE direction, constant speed, no cuts.** The website will scrub these videos frame-by-frame with scroll — a cut or reversing motion will feel broken. Regenerate any clip where Flow adds a cut.
+4. **No people, no text, no logos** in any clip.
+5. Name exports exactly as labeled — Claude Code will wire them by filename.
+
+---
+
+## 🎨 GLOBAL STYLE BLOCK (append to every prompt)
+
+> Royal Indian palace-hotel aesthetic in the style of Rajasthani and Mughal heritage architecture: rose-pink sandstone and white Makrana marble, onion domes and chhatris (domed pavilions), scalloped cusped arches, jharokha balconies with intricate jali lattice screens, hand-carved stone elephant and horse statues, frescoed walls with gold leaf, brass urns with floating marigolds and rose petals. Set on a serene lake with lush royal gardens — fountains, reflecting pools, peacocks, mango and neem trees. Cinematic color grade: warm regal gold highlights, deep teal-sapphire shadows, gentle film grain, high dynamic range. Shot on cinema camera, 35mm anamorphic lens. Photorealistic, 8K architectural photography quality. Slow, perfectly smooth, constant-speed camera motion with zero shake. No people, no text, no watermarks.
+
+---
+
+## Clip `01-hero-aerial.mp4` (10s) — THE REVEAL
+
+**Prompt:**
+Top-down aerial drone shot, God's-eye view directly above a magnificent Indian lake palace hotel at golden hour. The frame reveals the full property: a symmetrical palace of pink sandstone and white marble with clusters of onion domes and chhatris, a grand central courtyard with a charbagh garden (four-quadrant Mughal garden) split by water channels and fountains, a large ornate swimming pool bordered by carved stone elephants spouting water, and the palace edges meeting a mirror-still lake reflecting the amber sky. The drone slowly and steadily descends straight down from very high altitude, domes and carved details growing larger. Constant descent speed, no rotation, no tilt.
+
+---
+
+## Clip `02-arrival-gate.mp4` (10s) — THE GRAND ENTRANCE
+
+**Prompt:**
+Slow forward dolly shot moving along a royal arrival path toward a monumental palace gateway: a towering cusped arch of carved sandstone flanked by two life-size hand-carved marble elephant statues with brass howdahs, rose petals scattered on polished stone, tall brass torch lamps with real flames flickering in slow motion, rows of royal palms and frangipani. Through the arch, a glimpse of a sunlit courtyard with a marble fountain perfectly centered in frame. Late afternoon light rakes gold across the carvings. Single continuous forward push at constant speed, ending just before passing through the arch.
+
+---
+
+## Clip `03-durbar-lobby.mp4` (10s) — THE DURBAR HALL
+
+**Prompt:**
+Slow forward glide through an opulent palace durbar hall lobby: a soaring dome ceiling painted with intricate frescoes and gold leaf, an enormous Belgian crystal chandelier, polished white marble floor inlaid with black and jade geometric patterns reflecting everything like water, scalloped marble arches on both sides, carved stone deity and horse statues in illuminated alcoves, a grand brass urn overflowing with marigolds and lotus at center. Beyond the far arches, the shimmering lake glows in golden light. Sheer silk drapes breathe gently. Camera pushes forward toward the lake view at constant speed.
+
+---
+
+## Clip `04-royal-suite.mp4` (10s) — THE MAHARAJA SUITE
+
+**Prompt:**
+Slow lateral dolly right-to-left through a maharaja palace suite at dusk: a four-poster bed with carved teak columns and embroidered silk canopy in ivory and gold, hand-painted miniature frescoes on the walls, a jharokha bay window with jali lattice framing the lake and sunset, a freestanding copper-and-marble bathtub near the window with rose petals floating on the water, warm candlelight and brass lanterns glowing, a Persian rug over marble floors. Golden-blue dusk light streams through the lattice casting intricate shadow patterns that drift slowly. Constant-speed glide, no rotation.
+
+---
+
+## Clip `05-pool-gardens.mp4` (10s) — THE ROYAL POOL & GARDENS
+
+**Prompt:**
+Slow low tracking shot gliding left-to-right at water level along a grand palace swimming pool at golden hour: mirror-still turquoise water reflecting scalloped marble arcades and domes, carved stone elephant statues gently spouting arcs of water in silky slow motion, floating trays of marigolds and rose petals drifting past the lens, a colonnaded pavilion at the far end, manicured Mughal gardens with fountains and a peacock walking in the distance. Warm underwater lighting beginning to glow. Steady dolly movement, constant speed throughout.
+
+---
+
+## Clip `06-night-finale.mp4` (10s) — THE PALACE AT NIGHT
+
+**Prompt:**
+Slow rising and pulling-back aerial drone shot of the entire lake palace at night: every dome, chhatri and archway outlined in warm golden facade lighting, hundreds of brass oil lamps (diyas) tracing the courtyard water channels like rivers of fire, the pool glowing sapphire, fountains lit from within, and the palace's full reflection shimmering perfectly on the still black lake with a silver moon-path across the water. Camera ascends and retreats in one continuous constant-speed move until the whole glowing palace floats like a jewel in darkness. Clean starry sky above.
+
+---
+
+## Bonus: still-image prompts (poster / OG image / mobile hero)
+
+Use Flow's image mode with the Global Style Block plus:
+
+- **Poster/OG:** "Wide symmetrical architectural photograph of the lake palace facade at golden hour reflected perfectly in still water, domes and chhatris against an amber sky, magazine cover quality"
+- **Mobile hero (9:16):** "Vertical top-down aerial of the charbagh courtyard garden with water channels, fountains and the elephant-statue pool, golden hour"
+
+---
+
+Build me an ultra-premium, scroll-driven cinematic website for a fictional Indian lake-palace hotel called "The Rajmahal Palace." The entire site is one continuous scroll experience where video, imagery and typography reveal themselves as the user scrolls — think Apple product pages meets Aman Resorts meets a royal Indian palace.
+
+0. Assets provided (in /assets/video/)
+
+File                      Content                                                    Behavior
+01-hero-aerial.mp4        Top-down drone descent revealing the palace                Scroll-scrubbed
+02-arrival-gate.mp4       Dolly toward grand entrance arch with elephant statues     Scroll-scrubbed
+03-durbar-lobby.mp4       Glide through the durbar hall lobby                        Autoplay loop
+04-royal-suite.mp4        Lateral glide through the maharaja suite                   Autoplay loop
+05-pool-gardens.mp4       Water-level glide along the royal pool                     Autoplay loop
+06-night-finale.mp4       Night pull-back aerial of the glowing palace               Scroll-scrubbed
+poster.jpg                First frame of clip 01                                     Hero poster / instant load
+
+If any asset is missing, build with a graceful placeholder (deep sapphire gradient + gold shimmer) so the site still works, and log which files are absent.
+
+1. Tech stack
+
+- Single self-contained project: vanilla HTML + CSS + JS (no framework, no build step) OR Vite + vanilla if you prefer — but final output must run by opening index.html or a simple static server.
+- GSAP + ScrollTrigger (CDN) for all scroll animations, pinning, and scrubbing.
+- Lenis (CDN) for buttery smooth-scroll with inertia — this is non-negotiable for the premium feel. Wire Lenis to ScrollTrigger properly (lenis.on('scroll', ScrollTrigger.update)).
+- Fonts from Google Fonts: Fraunces (display serif, use optical sizing + light weights for huge headlines) and Inter or Manrope (UI sans). Load with font-display: swap and preload.
+
+2. Design system
+
+- Palette: near-black sapphire background #0A0E1A, ivory text #F5F0E8, royal gold accent #C9A96E, deep teal secondary #1B3A4B. Gold is used sparingly — hairlines, numerals, hover states — never large fills.
+- Typography scale: hero headline 8–12vw Fraunces Light with tight tracking; section titles 4–5vw; body max 65ch, 1.7 line-height. Use real typographic details: hanging small-caps eyebrow labels (letter-spacing: 0.35em), old-style numerals for section numbers (01 / 06), thin gold rules.
+- Texture: subtle film-grain overlay (CSS or tiny looping noise) at ~3% opacity over everything; soft vignette on video sections.
+- Spacing: enormous whitespace. Sections breathe. Nothing cramped.
+- Custom cursor: small gold dot that expands into a thin gold ring with the word "SCROLL" or "VIEW" on interactive elements. Disable on touch devices.
+
+3. Scroll architecture (the core of the site)
+
+Use ScrollTrigger pinning so each chapter locks to the viewport while its animation plays out, then releases.
+
+Scroll-scrubbed video technique (clips 01, 02, 06)
+- Pin the section for ~300–400vh of scroll distance.
+- Map scroll progress → video.currentTime (duration × progress). Use requestAnimationFrame lerp toward the target time (lerp factor ~0.1) so scrubbing feels weighted and cinematic, never jittery.
+- Videos must be muted, playsinline, preload="auto". Important: instruct me in the README to re-encode the scrub videos with dense keyframes for smooth seeking, and include the exact ffmpeg command: ffmpeg -i in.mp4 -vf scale=1920:-2 -g 1 -crf 20 -movflags +faststart -an out.mp4.
+- Show a minimal gold progress hairline on the side of pinned sections indicating chapter progress.
+
+Autoplay sections (clips 03, 04, 05)
+- Lazy-load with IntersectionObserver; play only when ≥50% visible, pause when leaving (battery + performance).
+- Video sits behind a dark gradient scrim so overlaid text always passes contrast.
+
+4. Page structure & choreography (section by section)
+
+Preloader
+- Full-screen sapphire. The palace name "RAJMAHAL" letters fade up one by one in Fraunces with a gold hairline drawing itself beneath, plus a 0–100 counter in old-style numerals. Exit: curtain wipe upward revealing the hero. Keep it under 2.5s or tied to actual asset load, whichever is longer.
+
+Chapter 1 — Hero (01-hero-aerial.mp4, scrubbed)
+- Opens on poster.jpg instantly, video takes over when ready.
+- Centered headline: "Where Kings Once Dreamed" — each word masked and rising with a stagger (SplitText-style; implement your own splitter, don't rely on the paid plugin).
+- As the user scrolls and the drone descends, the headline drifts up and fades, replaced mid-scrub by a second line: "Now, You Will." in italic Fraunces.
+- Thin scroll cue at bottom: animated gold line + "Scroll to descend".
+
+Chapter 2 — Arrival (02-arrival-gate.mp4, scrubbed)
+- Eyebrow: "01 — THE ARRIVAL". As the camera dollies toward the arch, large words slide in from alternating sides pinned to scrub progress: "Through gates carved by a hundred hands".
+- At scroll end, a gold jali-inspired lattice pattern (inline SVG) briefly overlays and dissolves as transition into the next chapter.
+
+Chapter 3 — The Durbar Hall (03-durbar-lobby.mp4, loop)
+- Split layout: video left 60%, text right 40% on ivory panel that slides in.
+- Text reveals line-by-line on scroll (masked line reveals, 0.06s stagger).
+- Animated counters counting up on entry: "1743 — Year Founded · 92 — Royal Suites · 14 — Acres of Gardens" in gold old-style numerals.
+
+Chapter 4 — The Maharaja Suite (04-royal-suite.mp4, loop)
+- Full-bleed video with parallax (video moves at 0.85× scroll speed inside a clipped container).
+- Horizontal-scroll strip inside the pin: 3 suite cards (name, one poetic line, "From ₹—/night") that translate horizontally as the user scrolls vertically. Cards have 1px gold borders, lift + gold glow on hover.
+
+Chapter 5 — Pool & Gardens (05-pool-gardens.mp4, loop)
+- Video revealed through an expanding clip-path: starts as a scalloped-arch shaped window (Mughal cusped arch via CSS clip-path/SVG) that expands to full-bleed as you scroll. This is the signature transition of the site — make it flawless.
+- Floating keywords drift at different parallax depths over the water: "Stillness", "Marigold", "Dawn".
+
+Chapter 6 — Night Finale (06-night-finale.mp4, scrubbed)
+- As the drone pulls away, the closing line fades in word-by-word: "Some places you visit. This one, you remember."
+- At scroll end, CTA appears: a large "Reserve Your Stay" button — ivory text, 1px gold border, on hover the border draws itself around the perimeter and fills with a slow gold sheen sweep.
+
+Footer
+- Ivory background inversion (smooth color-theme flip via scroll). Elegant sitemap, contact, a thin repeating jali border pattern, and a tiny line: "A fictional concept property — designed & built with Claude."
+
+5. Micro-interactions & polish (everywhere)
+- All headlines: masked line/word reveals on first scroll into view. Never plain fade-ins.
+- Images/videos: subtle scale from 1.08 → 1.0 as they enter.
+- Nav: transparent, appears after leaving hero, shrinks on scroll-down / reappears on scroll-up; links get an underline that draws left-to-right in gold.
+- Magnetic hover on the CTA button (element gently follows cursor within ~12px).
+- Section numbers (01–06) fixed at viewport edge, crossfading as chapters change.
+- prefers-reduced-motion: disable scrubbing pins and heavy motion, fall back to static posters + simple fades. This must genuinely work.
+
+6. Performance & responsiveness
+- Lighthouse 90+ on desktop is the target. Preload only clip 01; everything else lazy.
+- Mobile: scroll-scrubbing videos on iOS can be unreliable — on touch devices ≤768px, replace scrubbed sections with the poster frame + a slow Ken Burns zoom and keep the text choreography. Loops still autoplay (muted, playsinline).
+- No layout shift: reserve aspect-ratio boxes for all media.
+- Test checklist in README: Chrome, Safari (Lenis + pinning quirks), iOS Safari.
+
+7. Deliverables
+- Complete project with clean, commented code (index.html, styles.css, main.js, /assets/).
+- README.md with: how to run, the ffmpeg re-encode command, where to drop the 6 videos, and how to tweak scrub distance per chapter.
+- After building, review your own work against this spec section by section and fix gaps before telling me you're done.
+
+Build it to feel like a ₹80,000-a-night hotel spent real money on its website. Every detail — easing curves (use power2.out/expo.out, never linear), stagger timing, gold restraint — should whisper luxury, not shout it.

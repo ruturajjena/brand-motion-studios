@@ -1,32 +1,29 @@
-export type Category = "prompts" | "design" | "source-code";
+export type Item = "prompt" | "source";
 
 export type Product = {
   slug: string;
   name: string;
   tagline: string;
   description: string;
-  category: Category;
-  /** Price in USD cents (Stripe unit_amount). */
-  price: number;
+  /** Prices in USD cents per purchasable item. Omit an item to hide its button. */
+  prices: { prompt?: number; source?: number };
   /** Live demo built from this product — legacy pages served from /public. */
   previewUrl?: string;
+  tags: string[];
   includes: string[];
   featured?: boolean;
 };
 
-export const CATEGORIES: Record<Category, { label: string; blurb: string }> = {
-  prompts: {
-    label: "Prompts",
-    blurb: "Battle-tested AI prompt packs that produce premium, ready-to-ship websites.",
-  },
-  design: {
-    label: "Design",
-    blurb: "Polished visual systems — layouts, tokens and asset packs you can lift straight into your brand.",
-  },
-  "source-code": {
-    label: "Source Code",
-    blurb: "Complete, production-ready sites. Clean HTML/CSS/JS you own outright.",
-  },
+/** All-Access subscription — unlocks every prompt & source pack. USD cents / month. */
+export const ALL_ACCESS = {
+  name: "All-Access Pass",
+  price: 1900,
+  blurb: "Every prompt pack and source download, including everything we release while you're subscribed.",
+};
+
+export const ITEM_LABELS: Record<Item, string> = {
+  prompt: "Copy prompt",
+  source: "Source code",
 };
 
 export const PRODUCTS: Product[] = [
@@ -35,10 +32,10 @@ export const PRODUCTS: Product[] = [
     name: "Taj Mahal Keynote Site",
     tagline: "Apple-keynote storytelling for a monument brand",
     description:
-      "The full prompt pack behind our Taj Mahal keynote-style website — cinematic scroll storytelling, section-by-section art direction, and an asset generation pack for imagery. Paste, run, ship.",
-    category: "prompts",
-    price: 2900,
+      "Cinematic scroll storytelling in Apple's keynote language — section-by-section art direction plus an asset generation pack for imagery. Buy the prompt to build it yourself, or grab the complete source.",
+    prices: { prompt: 2900, source: 4900 },
     previewUrl: "/taj-mahal.html",
+    tags: ["landing page", "storytelling", "html/css/js"],
     includes: [
       "Master website prompt (structure, copy voice, motion spec)",
       "Asset generation pack — image prompts for every section",
@@ -50,12 +47,12 @@ export const PRODUCTS: Product[] = [
   {
     slug: "br-velluto-cafe",
     name: "BR Velluto Italian Café",
-    tagline: "A luxury café site prompt with menu & reservation flows",
+    tagline: "A luxury café site with menu & reservation flows",
     description:
-      "Prompt pack for a velvet-dark Italian café website — hero, storia, menu cards, reservation CTA. Includes the exact art-direction language that gets consistent, elegant output.",
-    category: "prompts",
-    price: 2400,
+      "A velvet-dark Italian café website — hero, storia, menu cards, reservation CTA. The prompt pack includes the exact art-direction language that gets consistent, elegant output.",
+    prices: { prompt: 2400, source: 4400 },
     previewUrl: "/cafe.html",
+    tags: ["restaurant", "landing page", "html/css/js"],
     includes: [
       "Master website prompt with full section map",
       "Menu & typography treatment spec",
@@ -69,10 +66,10 @@ export const PRODUCTS: Product[] = [
     name: "IRCTC × Apple Redesign",
     tagline: "Reimagining India's rail booking in Apple's design language",
     description:
-      "The prompt pack that redesigns a legacy government booking flow with Apple-grade restraint — clean IA, generous whitespace, focused booking card. A masterclass in redesign prompting.",
-    category: "prompts",
-    price: 1900,
+      "A legacy government booking flow redesigned with Apple-grade restraint — clean IA, generous whitespace, focused booking card. A masterclass in redesign prompting.",
+    prices: { prompt: 1900, source: 3900 },
     previewUrl: "/irctc-apple-design.html",
+    tags: ["redesign", "booking flow", "html/css/js"],
     includes: [
       "Redesign prompt with before/after framing",
       "Booking-flow UX spec",
@@ -85,10 +82,10 @@ export const PRODUCTS: Product[] = [
     name: "Maison Soléa Perfume",
     tagline: "Fragrance e-commerce with editorial luxury",
     description:
-      "Prompt pack for a high-fashion perfume house site — editorial hero, notes pyramid, product storytelling. Tuned for brands that need to smell expensive on screen.",
-    category: "prompts",
-    price: 2400,
+      "A high-fashion perfume house site — editorial hero, notes pyramid, product storytelling. Tuned for brands that need to smell expensive on screen.",
+    prices: { prompt: 2400, source: 4400 },
     previewUrl: "/pefume-wesbite.html",
+    tags: ["e-commerce", "editorial", "html/css/js"],
     includes: [
       "Master website prompt",
       "Editorial art-direction & photography prompt pack",
@@ -101,10 +98,10 @@ export const PRODUCTS: Product[] = [
     name: "Interactive Sneaker Microsite",
     tagline: "A product-drop page with motion and attitude",
     description:
-      "Prompt pack for a sneaker drop microsite — bold type, 3D-feel product showcase, colorway switcher, hype-drop countdown energy.",
-    category: "prompts",
-    price: 2400,
+      "A sneaker drop microsite — bold type, 3D-feel product showcase, colorway switcher, hype-drop countdown energy.",
+    prices: { prompt: 2400, source: 4400 },
     previewUrl: "/sneaker-prompt.html",
+    tags: ["product drop", "interactive", "html/css/js"],
     includes: [
       "Master microsite prompt",
       "Colorway/interaction spec",
@@ -117,31 +114,31 @@ export const PRODUCTS: Product[] = [
     name: "Violet Hypercar Landing",
     tagline: "Futuristic automotive landing page",
     description:
-      "A dark, neon-violet automotive landing page — spec table, gallery, cinematic hero. Sold as complete source: clean HTML/CSS/JS with no build step, ready to deploy anywhere.",
-    category: "source-code",
-    price: 4900,
+      "A dark, neon-violet automotive experience — cinematic video hero, spec table, gallery. Built around five cinematic clips with liquid-glass UI.",
+    prices: { prompt: 2900, source: 4900 },
     previewUrl: "/violet-car.html",
+    tags: ["automotive", "video-driven", "react + three.js"],
     includes: [
-      "Complete HTML/CSS/JS source",
-      "No build step — deploy to any static host",
-      "Commercial license for one project",
-      "Section-by-section code walkthrough comments",
+      "Full build prompt (Awwwards-grade motion spec)",
+      "Five-clip video structure & shot list",
+      "Complete source on the source tier",
+      "Live reference build",
     ],
     featured: true,
   },
   {
     slug: "rajmahal-palace",
     name: "Rajmahal Palace Hotel",
-    tagline: "Heritage-luxury hotel site, full source",
+    tagline: "Heritage-luxury hotel site",
     description:
-      "A palace-hotel website with royal art direction — rooms, dining, heritage timeline. Complete static source you can reskin for any luxury hospitality brand.",
-    category: "source-code",
-    price: 4900,
+      "A palace-hotel website with royal art direction — rooms, dining, heritage timeline. Reskin it for any luxury hospitality brand.",
+    prices: { prompt: 2400, source: 4900 },
     previewUrl: "/rajmahal-prompt.html",
+    tags: ["hospitality", "landing page", "html/css/js"],
     includes: [
-      "Complete HTML/CSS/JS source",
+      "Master website prompt",
       "Reskin guide (tokens & imagery swap)",
-      "Commercial license for one project",
+      "Complete source on the source tier",
       "Live reference build",
     ],
   },
@@ -151,8 +148,8 @@ export const PRODUCTS: Product[] = [
     tagline: "The gold-on-black visual system behind brandmotion.in",
     description:
       "Our house design system — the dark-luxury token set, gradient recipes, glass surfaces, reveal animations and grid treatments used across every Brand Motion build.",
-    category: "design",
-    price: 1900,
+    prices: { source: 1900 },
+    tags: ["design tokens", "css", "figma-ready"],
     includes: [
       "Full CSS token set (color, type, radius, shadow, easing)",
       "Gradient & glass-surface recipes",
@@ -166,8 +163,4 @@ export const PRODUCTS: Product[] = [
 export const getProduct = (slug: string) =>
   PRODUCTS.find((p) => p.slug === slug);
 
-export const byCategory = (category: Category) =>
-  PRODUCTS.filter((p) => p.category === category);
-
-export const formatPrice = (cents: number) =>
-  `$${(cents / 100).toFixed(0)}`;
+export const formatPrice = (cents: number) => `$${(cents / 100).toFixed(0)}`;

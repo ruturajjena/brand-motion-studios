@@ -1,15 +1,36 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import { CATEGORIES, PRODUCTS, type Category } from "@/lib/products";
+import { ALL_ACCESS, PRODUCTS, formatPrice } from "@/lib/products";
+
+const categories = [
+  {
+    key: "prompts",
+    label: "Prompts",
+    blurb:
+      "Battle-tested AI prompt packs that produce premium, ready-to-ship websites.",
+  },
+  {
+    key: "design",
+    label: "Design",
+    blurb:
+      "Polished visual systems — layouts, tokens and asset packs you can lift straight into your brand.",
+  },
+  {
+    key: "source-code",
+    label: "Source Code",
+    blurb:
+      "Complete, production-ready sites. Clean code you own outright.",
+  },
+];
 
 const steps = [
   {
-    title: "Pick a pack",
-    body: "Every product ships with a live reference build — see exactly what you're buying before you buy it.",
+    title: "Watch the build",
+    body: "Every product opens with a recording of the real website — see exactly what the prompt produces before you pay.",
   },
   {
-    title: "Check out in seconds",
-    body: "Secure Stripe checkout. No account needed, receipt straight to your inbox.",
+    title: "Unlock what you need",
+    body: "Copy the prompt, grab the source code, or subscribe once for All-Access to everything.",
   },
   {
     title: "Ship something premium",
@@ -52,17 +73,17 @@ export default function Home() {
       {/* Categories */}
       <section className="mx-auto w-full max-w-6xl px-6 pb-20">
         <div className="grid gap-5 sm:grid-cols-3">
-          {(Object.keys(CATEGORIES) as Category[]).map((key) => (
+          {categories.map((c) => (
             <Link
-              key={key}
-              href={`/store?category=${key}`}
+              key={c.key}
+              href={`/store?category=${c.key}`}
               className="card rounded-2xl p-7"
             >
               <h2 className="font-display text-2xl font-bold gold-text w-fit">
-                {CATEGORIES[key].label}
+                {c.label}
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-ink-dim">
-                {CATEGORIES[key].blurb}
+                {c.blurb}
               </p>
             </Link>
           ))}
@@ -101,6 +122,25 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* All-Access */}
+      <section className="mx-auto w-full max-w-6xl px-6 pt-20">
+        <div className="card flex flex-col items-start justify-between gap-6 rounded-2xl border-line-strong p-8 sm:flex-row sm:items-center">
+          <div>
+            <h2 className="font-display text-2xl font-bold">
+              <span className="gold-text">{ALL_ACCESS.name}</span> —{" "}
+              {formatPrice(ALL_ACCESS.price)}/mo
+            </h2>
+            <p className="mt-2 max-w-xl text-sm text-ink-dim">{ALL_ACCESS.blurb}</p>
+          </div>
+          <Link
+            href="/store"
+            className="btn-gold shrink-0 rounded-full px-7 py-3 text-sm"
+          >
+            Unlock everything
+          </Link>
         </div>
       </section>
 

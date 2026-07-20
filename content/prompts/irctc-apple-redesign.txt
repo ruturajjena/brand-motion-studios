@@ -1,0 +1,591 @@
+Create a cinematic premium website that imagines:
+
+"What if Apple designed the IRCTC website?"
+
+This is NOT a clone of Apple's website.
+
+Instead, reinterpret Apple's design philosophy:
+- Extreme minimalism
+- Large typography
+- Beautiful whitespace
+- Premium storytelling
+- Scroll-driven interactions
+- Liquid Glass UI
+- Glassmorphism
+- Soft shadows
+- Premium motion design
+- Pixel perfect spacing
+- Product launch quality animations
+
+The experience should feel like an Apple keynote mixed with a futuristic transportation system.
+
+==================================================
+TECH STACK
+==================================================
+
+Use:
+
+Next.js 15
+TypeScript
+Tailwind CSS v4
+Framer Motion
+GSAP + ScrollTrigger
+React Three Fiber
+Three.js
+Spline support if required
+Lenis Smooth Scroll
+Motion One if useful
+Lucide Icons
+
+Images should be generated using Nano Banana.
+
+Every asset should feel Apple quality.
+
+Everything responsive.
+
+Zero cheap UI.
+
+==================================================
+GLOBAL STYLE
+==================================================
+
+Background:
+
+Pure White (#FFFFFF)
+
+Use subtle gradients only where necessary.
+
+No dark mode.
+
+Lots of breathing room.
+
+Rounded corners everywhere.
+
+Use Apple inspired spacing.
+
+Use Apple typography hierarchy.
+
+Use SF Pro Display style fonts.
+
+Large headlines.
+
+Thin elegant subheadings.
+
+Maximum width around 1400px.
+
+Sections occupy almost full viewport.
+
+Micro interactions everywhere.
+
+==================================================
+LIQUID GLASS DESIGN
+==================================================
+
+Navigation
+
+Floating translucent glass navigation
+
+Blur
+
+Saturation
+
+Reflection
+
+Soft border
+
+Animated hover
+
+Glass buttons
+
+Floating CTA
+
+Interactive mouse lighting
+
+Liquid glass cards
+
+Animated reflections
+
+Glass search bar
+
+Glass booking widget
+
+Apple VisionOS inspired materials.
+
+==================================================
+SCROLL EXPERIENCE
+==================================================
+
+This website should tell a story.
+
+Every scroll reveals something.
+
+Nothing appears immediately.
+
+Every section has premium animations.
+
+Examples:
+
+Fade
+
+Scale
+
+Blur
+
+Depth
+
+Parallax
+
+3D rotations
+
+Text reveal
+
+Mask reveal
+
+Video reveal
+
+Image stacking
+
+Pinning
+
+Horizontal scroll
+
+Sticky storytelling
+
+Apple product page style transitions.
+
+Scrolling must feel magical.
+
+==================================================
+HERO SECTION
+==================================================
+
+100vh
+
+Large centered headline
+
+"Travel. Reimagined."
+
+Subheading:
+
+"The future of Indian Railways, imagined through Apple's design philosophy."
+
+Background contains:
+
+Large cinematic 3D Indian high-speed train
+
+White premium environment
+
+Soft sunlight
+
+Minimal architecture
+
+Very subtle floating particles
+
+Train slowly moving
+
+Reflective floor
+
+Camera slowly rotating
+
+Interactive cursor lighting
+
+Train generated using Nano Banana.
+
+CTA buttons:
+
+Book Journey
+
+Explore Experience
+
+Buttons use liquid glass.
+
+As user scrolls:
+
+Train slowly comes closer.
+
+Camera rotates.
+
+Text fades.
+
+==================================================
+SECTION 2
+
+BOOKING REIMAGINED
+==================================================
+
+Sticky section.
+
+Booking card floats.
+
+Everything glass.
+
+Minimal fields.
+
+Origin
+
+Destination
+
+Departure
+
+Return
+
+Passengers
+
+Class
+
+Search
+
+Each input has premium interaction.
+
+Glass keyboard effect.
+
+Animated focus.
+
+Micro haptics.
+
+As user scrolls
+
+Fields assemble one by one.
+
+==================================================
+SECTION 3
+
+THE EXPERIENCE
+==================================================
+
+Pinned storytelling.
+
+Full viewport.
+
+Large 3D train.
+
+Each scroll rotates train.
+
+Cards appear around it.
+
+Features:
+
+Instant Booking
+
+Live Train Tracking
+
+Smart Seat Suggestions
+
+Apple Wallet Tickets
+
+Face ID Login
+
+AI Journey Planner
+
+Delay Prediction
+
+Interactive maps
+
+Cards float in depth.
+
+Glass.
+
+==================================================
+SECTION 4
+
+TRAVEL ACROSS INDIA
+==================================================
+
+Massive India map.
+
+Generated with Nano Banana.
+
+Premium white topographic map.
+
+Cities illuminate.
+
+Animated routes connect.
+
+Train moves along path.
+
+Locations:
+
+Delhi
+
+Mumbai
+
+Bangalore
+
+Chennai
+
+Kolkata
+
+Cuttack
+
+Ahmedabad
+
+Smooth glowing lines.
+
+==================================================
+SECTION 5
+
+APPLE STYLE PRODUCT STORY
+==================================================
+
+Massive typography.
+
+Words animate.
+
+Example:
+
+Fast.
+
+Smooth.
+
+Intelligent.
+
+Reliable.
+
+One word per viewport.
+
+Background animations.
+
+3D transitions.
+
+==================================================
+SECTION 6
+
+TRAIN INSIDE EXPERIENCE
+==================================================
+
+Generate premium futuristic Indian train interior.
+
+White leather.
+
+Wood accents.
+
+Ambient lighting.
+
+Panoramic windows.
+
+Apple Store aesthetics.
+
+As user scrolls
+
+Camera walks through cabin.
+
+==================================================
+SECTION 7
+
+LIVE STATUS
+==================================================
+
+Interactive glass dashboard.
+
+Animated train.
+
+Real-time style indicators.
+
+Speed.
+
+Next station.
+
+Weather.
+
+Delay.
+
+Track.
+
+Everything beautifully animated.
+
+==================================================
+SECTION 8
+
+TICKETS REIMAGINED
+==================================================
+
+Huge Apple Wallet inspired ticket.
+
+Glass.
+
+QR code.
+
+Animated NFC glow.
+
+Ticket flips in 3D.
+
+Very premium.
+
+==================================================
+SECTION 9
+
+DOWNLOAD APP
+==================================================
+
+Floating iPhone mockup.
+
+Generated using Nano Banana.
+
+Phone rotates.
+
+App screens slide.
+
+Liquid reflections.
+
+==================================================
+FINAL SECTION
+==================================================
+
+Massive typography.
+
+"The Future Begins Here."
+
+Background:
+
+Train disappearing into bright white horizon.
+
+Glass button
+
+"Book Your Journey"
+
+Minimal footer.
+
+==================================================
+ANIMATIONS
+==================================================
+
+Every section should contain:
+
+Parallax
+
+Motion blur
+
+Depth
+
+Soft easing
+
+GSAP timelines
+
+ScrollTrigger
+
+Physics
+
+Cursor interactions
+
+Hover lighting
+
+Glass reflections
+
+Animated shadows
+
+Text masking
+
+Image reveals
+
+Progressive blur
+
+Perspective transforms
+
+==================================================
+3D
+==================================================
+
+Use React Three Fiber.
+
+Realistic train.
+
+Reflective materials.
+
+HDR lighting.
+
+Bloom.
+
+Soft AO.
+
+Environment maps.
+
+Scroll-controlled camera.
+
+==================================================
+MICRO INTERACTIONS
+==================================================
+
+Buttons ripple.
+
+Cursor grows.
+
+Cards tilt.
+
+Glass reflects cursor.
+
+Inputs animate.
+
+Icons morph.
+
+Numbers count.
+
+Everything alive.
+
+==================================================
+PERFORMANCE
+==================================================
+
+Lighthouse above 95.
+
+Lazy load assets.
+
+Code splitting.
+
+GPU accelerated animations.
+
+Minimal layout shift.
+
+==================================================
+GENERATED IMAGES
+==================================================
+
+Use Nano Banana to generate:
+
+Luxury futuristic Indian train
+
+Premium train interiors
+
+Topographic India map
+
+Floating iPhone
+
+Apple-style ticket
+
+Glass booking UI assets
+
+Minimal railway illustrations
+
+Soft white environments
+
+==================================================
+DESIGN REFERENCES
+==================================================
+
+Inspiration only:
+
+Apple iPhone pages
+
+Vision Pro website
+
+Apple Watch page
+
+Nothing.tech
+
+Linear.app
+
+Stripe
+
+Arc Browser
+
+Rivian
+
+Tesla
+
+Do NOT copy.
+
+Only inherit the design philosophy.
+
+The final experience should make viewers genuinely believe:
+"If Apple ever redesigned IRCTC, this is exactly how it would feel."
+
+Every pixel should feel intentional.

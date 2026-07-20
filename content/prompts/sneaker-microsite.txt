@@ -1,0 +1,642 @@
+VIDEO 1 — Hero Reveal
+
+Duration:
+10 seconds
+
+Prompt
+
+Ultra cinematic luxury sneaker reveal inside a futuristic black gallery. A premium floating sneaker slowly rotates in mid-air above a glossy black platform while hundreds of tiny glowing particles drift around it. Soft volumetric spotlights reveal every detail of the leather, suede, knit fabric and translucent sole. The camera begins extremely close to the Nike-style swoosh area, then slowly pulls back into a dramatic hero shot. Carbon fiber reflections, liquid chrome highlights, floating dust, premium studio lighting, shallow depth of field, macro realism, slow cinematic movement, luxury commercial aesthetic, Apple Vision Pro quality, Unreal Engine realism, 8K.
+
+⸻
+
+VIDEO 2 — Exploded View
+
+Duration:
+10 seconds
+
+Prompt
+
+A futuristic sneaker explodes into perfectly separated components floating in zero gravity. The outsole, air cushioning, foam midsole, leather panels, knit upper, laces, tongue, heel counter and stitching slowly orbit around the center before smoothly reassembling into the complete sneaker. Black cinematic environment, premium volumetric lighting, floating particles, ultra realistic materials, luxury product commercial, extremely satisfying motion, slow motion, Octane Render, photorealistic, 8K.
+
+⸻
+
+VIDEO 3 — Color Morph
+
+Duration:
+10 seconds
+
+Prompt
+
+A luxury sneaker rotates slowly while continuously morphing between five premium colorways without cutting. Matte black transforms into white, white transitions into crimson red, crimson into electric blue, blue into iridescent purple and finally into a vibrant neon orange. Every transformation ripples naturally across the leather, suede and knit materials like flowing liquid pigment. Premium studio environment, glossy reflections, cinematic camera orbit, floating particles, luxury fashion commercial, photorealistic, ultra premium, 8K.
+
+⸻
+
+VIDEO 4 — Speed Tunnel
+
+Duration:
+10 seconds
+
+Prompt
+
+A futuristic sneaker accelerates through a glowing tunnel of neon light trails at impossible speed while remaining perfectly centered in frame. Electric blue, orange and purple light streaks bend around the shoe creating dynamic reflections across premium leather and translucent rubber. Camera performs smooth orbiting movements while maintaining focus on the sneaker. Motion blur, volumetric fog, premium luxury commercial, cyber luxury aesthetic, Unreal Engine realism, photorealistic, 8K.
+
+⸻
+
+VIDEO 5 — Finale
+
+Duration:
+10 seconds
+
+Prompt
+
+Five premium sneaker colorways slowly descend from darkness and arrange themselves in a perfect circular formation. Each shoe rotates independently while synchronized spotlights illuminate different materials. Floating glass particles, luxury showroom atmosphere, glossy black floor with subtle reflections, cinematic camera crane movement ending in a stunning top-down hero composition. Premium fashion campaign aesthetic, photorealistic, luxury commercial, Apple product launch quality, 8K.
+
+⸻
+
+Images
+
+Generate these as transparent PNG whenever possible.
+
+⸻
+
+Image 1 — Hero Sneaker
+
+Hyper realistic luxury sneaker floating in a black studio environment. Premium leather, suede overlays, knit fabric, translucent air sole, floating particles, dramatic soft spotlight, luxury commercial photography, centered composition, isolated product, photorealistic, 8K, transparent background.
+
+⸻
+
+Image 2 — White Edition
+
+The same futuristic sneaker in premium white leather with silver chrome accents and translucent sole. Floating in a luxury studio environment, dramatic soft shadows, product photography quality, photorealistic, transparent background.
+
+⸻
+
+Image 3 — Red Edition
+
+Premium futuristic sneaker in deep crimson red leather with black suede overlays and subtle carbon fiber detailing. Floating product render, luxury fashion commercial, dramatic lighting, photorealistic, transparent background.
+
+⸻
+
+Image 4 — Blue Edition
+
+Futuristic sneaker in electric blue with glossy navy accents, premium knit upper, translucent air sole, chrome lace loops, floating product photography, ultra realistic, transparent background.
+
+⸻
+
+Image 5 — Orange Edition
+
+Vibrant neon orange luxury sneaker with matte black detailing, translucent sole, premium knit textures, luxury product photography, floating, photorealistic, transparent background.
+
+⸻
+
+Image 6 — Purple Edition
+
+Premium futuristic sneaker in iridescent purple with chrome detailing, translucent sole, luxury studio lighting, floating particles, product photography, photorealistic, transparent background.
+
+⸻
+
+Image 7 — Exploded Components
+
+Every individual sneaker component separated in perfect exploded view including outsole, foam midsole, air cushioning, leather panels, knit upper, laces, tongue, heel counter and stitching. Floating symmetrically on transparent background. Premium industrial product visualization. Photorealistic, 8K.
+
+⸻
+
+Image 8 — Material Close-up
+
+Ultra macro close-up of premium sneaker materials showing leather grain, suede fibers, breathable knit texture, precision stitching, carbon fiber accents and translucent rubber sole. Luxury fashion campaign quality, shallow depth of field, photorealistic.
+
+⸻
+
+Image 9 — Floating Collection
+
+Five luxury sneaker colorways floating together in a circular composition on transparent background. Matte black, white, crimson, electric blue and iridescent purple editions arranged symmetrically with soft studio lighting and premium reflections. Photorealistic, 8K.
+
+---
+
+# BR — Built by Ruturaj
+## Ultra Premium Interactive Sneaker Experience
+Build an ultra-premium sneaker microsite that feels like an Apple keynote combined with Nike's product launch pages. photos are videos are under assets folder. 
+
+The primary goal is NOT ecommerce.
+The goal is to create a website that becomes an Instagram viral scroll video.
+
+Everything must feel cinematic.
+Every scroll should reveal something new.
+No dead sections.
+No boring transitions.
+
+---
+
+# DESIGN LANGUAGE
+
+Theme:
+• Pure White (#FFFFFF) background
+• Premium minimal aesthetic
+• Apple + Nothing + Nike design language
+• Large whitespace
+• Floating objects
+• Glassmorphism only where required
+• Extremely smooth animations
+• 120fps feeling
+• Micro interactions everywhere
+
+Typography
+
+Headings:
+Huge
+Bold
+Elegant
+
+Body:
+Minimal
+Grey
+Luxury spacing
+
+Accent:
+Black
+Very subtle grey
+No colorful UI except the sneakers.
+
+---
+
+# WEBSITE FLOW
+
+There are FIVE sections.
+
+Each section should feel completely different.
+
+Every section should transition naturally into the next.
+
+Never simply fade between sections.
+
+Use:
+• scale
+• depth
+• camera movement
+• masking
+• parallax
+• object morphing
+
+throughout the website.
+
+---
+
+# SECTION 1
+## HERO
+
+Center a floating sneaker.
+
+Assets:
+
+Use every PNG inside
+
+/assets/photos
+
+whose filename contains
+
+-bg
+
+Example
+hero-sneaker-jpeg 
+blue-white-bg.jpeg
+etc.
+
+There are five sneakers.
+
+Only ONE is visible initially.
+
+The sneaker should float naturally. 
+
+Very slow rotation.
+
+Very soft shadow.
+
+Hover
+
+Mouse slightly tilts the shoe.
+
+Cursor creates subtle light distortion.
+
+Mouse movement creates depth.
+
+Click Interaction
+
+Clicking the sneaker smoothly morphs into another sneaker.
+
+Do NOT simply replace.
+
+Morph with:
+
+rotation
+
+scale
+
+motion blur
+
+particle dust
+
+floating transition
+
+Cycle through all five colors infinitely.
+
+At the bottom
+
+Show
+
+"Click to change color"
+
+with tiny animation.
+
+Background
+
+Large abstract soft shadows.
+
+Very subtle floating circles.
+
+Everything should breathe.
+
+When scrolling
+
+Camera zooms toward the sneaker.
+
+Sneaker fills the screen.
+
+Then transitions directly into the exploded animation.
+
+---
+
+# SECTION 2
+## EXPLODED VIEW
+
+Use the exploded animation video placed in
+
+/assets/
+
+The video shows the sneaker exploding into components.
+
+The animation must NOT simply autoplay.
+
+Instead,
+
+bind it to scroll.
+
+As user scrolls
+
+frame by frame
+
+the sneaker slowly explodes.
+
+Every few scrolls
+
+one more layer separates.
+
+Example
+
+Scroll 10%
+
+sole separates
+
+Scroll 20%
+
+foam separates
+
+Scroll 35%
+
+midsole
+
+Scroll 50%
+
+fabric
+
+Scroll 70%
+
+laces
+
+Scroll 90%
+
+complete exploded shoe
+
+Camera slowly rotates while scrolling.
+
+Each component should slightly float.
+
+As each part appears
+
+display a premium floating label.
+
+Examples
+
+Ultra Cushion Foam
+
+Breathable Mesh
+
+Carbon Stability Plate
+
+Performance Outsole
+
+Premium Lacing System
+
+Labels fade beautifully.
+
+Never clutter.
+
+When explosion finishes
+
+camera slowly flies through the shoe.
+
+This transitions into section three.
+
+---
+
+# SECTION 3
+## LACE ANIMATION
+
+Use the lace tying video from
+
+/assets/
+
+The lace animation must also be tied to scroll.
+
+As user scrolls
+
+the lace gradually tightens.
+
+Frame controlled.
+
+Not autoplay.
+
+Background remains white.
+
+While lace tightens
+
+show elegant typography.
+
+Examples
+
+Precision.
+
+Comfort.
+
+Performance.
+
+Crafted to Move.
+
+Each word appears only after another.
+
+Very cinematic.
+
+Once tied,
+
+the completed shoe slowly rotates.
+
+The camera pushes in toward the knot.
+
+This transitions into the collection.
+
+---
+
+# SECTION 4
+## COLLECTIONS
+
+Show all five sneaker colors.
+
+Display as premium floating cards.
+
+Large spacing.
+
+White background.
+
+When scrolling
+
+cards don't simply appear.
+
+Instead
+
+they slide from different depths.
+
+Some rotate.
+
+Some rise.
+
+Some scale.
+
+Hover
+
+Card slightly lifts.
+
+Sneaker rotates.
+
+Shadow grows.
+
+Click
+
+Card expands.
+
+Sneaker becomes hero size.
+
+Smooth morph animation.
+
+Below each
+
+show
+
+Color Name
+
+Minimal short tagline
+
+Example
+
+Midnight Black
+
+Built for Speed
+
+Arctic White
+
+Everyday Motion
+
+Sunset Red
+
+Own the Streets
+
+Do not use buttons.
+
+Everything should feel editorial.
+
+Towards the bottom
+
+The selected sneaker flies upward.
+
+Camera follows.
+
+Transition to final section.
+
+---
+
+# SECTION 5
+## CINEMATIC FINALE
+
+Use all remaining sneaker rotation videos inside
+
+/assets/
+
+Arrange them into an immersive sequence.
+
+Do NOT show videos as rectangles.
+
+Instead,
+
+mask them into elegant layouts.
+
+Ideas
+
+Floating circles
+
+Vertical strips
+
+Split screens
+
+Moving glass panels
+
+Videos should overlap.
+
+Blend beautifully.
+
+Some videos play slower.
+
+Some zoom.
+
+Some rotate.
+
+Camera moves continuously.
+
+Background stays white.
+
+Final message
+
+Move Beyond Motion
+
+Large typography.
+
+Very minimal.
+
+Sneaker lands at center.
+
+Very slow rotation.
+
+Logo appears
+
+BR
+
+Built by Ruturaj
+
+Small elegant text
+
+Designed with Fable 5
+
+Fade everything into white.
+
+---
+
+# GLOBAL SCROLL SYSTEM
+
+No hard cuts.
+
+Every section morphs naturally.
+
+Camera continuously moves.
+
+Objects transform into next section.
+
+Use
+
+depth
+
+motion
+
+rotation
+
+scale
+
+masking
+
+parallax
+
+to make the website feel alive.
+
+Every 10–15% scroll should reveal something new.
+
+No static moments.
+
+---
+
+# MOUSE INTERACTIONS
+
+Soft magnetic cursor.
+
+Cursor glow.
+
+Subtle distortion around cursor.
+
+Sneakers react naturally.
+
+Cards tilt.
+
+Typography slightly shifts.
+
+Glass reflections move with cursor.
+
+Nothing should feel flat.
+
+---
+
+# MOTION
+
+Use premium easing.
+
+No linear animations.
+
+Use spring physics.
+
+Organic movement.
+
+Floating physics.
+
+Momentum.
+
+Inertia.
+
+Luxury pacing.
+
+---
+
+# PERFORMANCE
+
+Lazy load videos.
+
+Preload hero assets.
+
+Use GPU accelerated transforms.
+
+Maintain smooth performance.
+
+Avoid animation jank.
+
+---
+
+# INSTAGRAM VIRAL OPTIMIZATION
+
+The website should create a "wait...what happens next?" feeling.
+
+Every screen recording should contain:
+
+• a reveal
+• a transformation
+• a satisfying scroll interaction
+
+Avoid empty whitespace without motion.
+
+The first 3 seconds must immediately hook viewers with the floating interactive sneaker.
+
+Every following section should increase visual complexity.
+
+The ending should feel like a product launch trailer rather than an ecommerce website.
