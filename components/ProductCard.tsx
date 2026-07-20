@@ -1,30 +1,35 @@
 import Link from "next/link";
+import PreviewThumb from "@/components/PreviewThumb";
 import { CATEGORIES, formatPrice, type Product } from "@/lib/products";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/store/${product.slug}`}
-      className="card group flex flex-col rounded-2xl p-6"
+      className="card group flex flex-col rounded-2xl p-3"
     >
-      <div className="flex items-center justify-between">
-        <span className="rounded-full border border-line px-3 py-1 text-xs uppercase tracking-wider text-ink-faint">
-          {CATEGORIES[product.category].label}
-        </span>
-        <span className="font-display text-lg font-semibold text-gold-bright">
-          {formatPrice(product.price)}
-        </span>
+      <PreviewThumb product={product} />
+      <div className="flex flex-1 flex-col p-3">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="font-display text-lg font-bold leading-snug">
+            {product.name}
+          </h3>
+          <span className="font-display text-lg font-semibold text-gold-bright">
+            {formatPrice(product.price)}
+          </span>
+        </div>
+        <p className="mt-1 flex-1 text-sm text-ink-dim">{product.tagline}</p>
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <span className="rounded-full border border-line px-2.5 py-1 text-[11px] uppercase tracking-wider text-ink-faint">
+            {CATEGORIES[product.category].label}
+          </span>
+          {product.previewUrl && (
+            <span className="rounded-full border border-line px-2.5 py-1 text-[11px] uppercase tracking-wider text-ink-faint">
+              Live preview
+            </span>
+          )}
+        </div>
       </div>
-      <h3 className="mt-4 font-display text-xl font-bold group-hover:grad-text">
-        {product.name}
-      </h3>
-      <p className="mt-1 text-sm text-ink-dim">{product.tagline}</p>
-      <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-faint">
-        {product.description}
-      </p>
-      <span className="mt-5 text-sm font-medium text-gold">
-        View details →
-      </span>
     </Link>
   );
 }
