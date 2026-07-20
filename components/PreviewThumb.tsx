@@ -1,41 +1,35 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
-import type { Product } from "@/lib/products";
+import type { PreviewMedia } from "@/lib/media";
 
 /**
  * Design preview box (getlayers-style thumbnail).
- *
- * Upload a screen recording to public/previews/<slug>.mp4 (or .webm) and it
- * plays automatically (muted loop) — the 1280x800 screenshot in the same
- * folder is the poster/fallback. No recording yet → screenshot only.
+ * Presentational — pass media resolved server-side via getPreviewMedia(slug).
+ * Video (screen recording) auto-plays muted; screenshot is the poster/fallback.
  */
-export default function PreviewThumb({ product }: { product: Product }) {
-  const dir = join(process.cwd(), "public", "previews");
-  const video = [".mp4", ".webm"]
-    .map((ext) => `${product.slug}${ext}`)
-    .find((f) => existsSync(join(dir, f)));
-  const poster = existsSync(join(dir, `${product.slug}.webp`))
-    ? `/previews/${product.slug}.webp`
-    : undefined;
-
+export default function PreviewThumb({
+  name,
+  media,
+}: {
+  name: string;
+  media: PreviewMedia;
+}) {
   return (
     <div className="preview-thumb relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-line bg-black">
-      {video ? (
+      {media.video ? (
         <video
-          src={`/previews/${video}`}
-          poster={poster}
+          src={media.video}
+          poster={media.poster}
           autoPlay
           muted
           loop
           playsInline
           className="h-full w-full object-cover object-top"
         />
-      ) : poster ? (
+      ) : media.poster ? (
         <>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={poster}
-            alt={`${product.name} design preview`}
+            src={media.poster}
+            alt={`${name} design preview`}
             loading="lazy"
             className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
           />

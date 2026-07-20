@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import Link from "next/link";
 import PromptReveal from "@/components/PromptReveal";
-import { ALL_ACCESS, getProduct } from "@/lib/products";
+import { getPlan, getProduct } from "@/lib/products";
 import { getStripe } from "@/lib/stripe";
 
 export const metadata = { title: "Purchase complete" };
@@ -58,14 +58,17 @@ export default async function SuccessPage({
           </div>
           <h1 className="mt-6 font-display text-4xl font-bold">
             <span className="grad-text">
-              {plan === "all-access" ? "Welcome to All-Access." : "You're in."}
+              {plan ? "Welcome to All-Access." : "You're in."}
             </span>
           </h1>
 
-          {plan === "all-access" ? (
+          {plan ? (
             <p className="mt-4 max-w-lg text-ink-dim">
-              Your {ALL_ACCESS.name} is active. {ALL_ACCESS.blurb} We&apos;ll
-              send your access details to{" "}
+              Your All-Access {getPlan(plan)?.name ?? ""} plan is active —
+              every prompt pack and source download in the store, plus
+              everything we release next
+              {plan === "lifetime" ? ", forever" : " while you're subscribed"}.
+              We&apos;ll send your access details to{" "}
               <span className="text-ink">{email ?? "your email"}</span> right
               away.
             </p>

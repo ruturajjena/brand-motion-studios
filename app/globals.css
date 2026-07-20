@@ -99,3 +99,170 @@ h3 {
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
 }
+
+/* ---------- Ambient aurora (fixed, behind everything) ---------- */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.14;
+  will-change: transform;
+}
+.aurora::before {
+  background: radial-gradient(circle, #d4af37 0%, transparent 60%);
+  top: -25vmax;
+  left: -15vmax;
+  animation: drift-a 26s ease-in-out infinite alternate;
+}
+.aurora::after {
+  background: radial-gradient(circle, #8a7bb8 0%, transparent 60%);
+  bottom: -30vmax;
+  right: -18vmax;
+  animation: drift-b 32s ease-in-out infinite alternate;
+}
+@keyframes drift-a {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(12vmax, 8vmax) scale(1.15); }
+}
+@keyframes drift-b {
+  from { transform: translate(0, 0) scale(1.1); }
+  to { transform: translate(-10vmax, -9vmax) scale(0.95); }
+}
+
+/* ---------- Scroll reveal ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  filter: blur(4px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease),
+    filter 0.8s var(--ease);
+  transition-delay: var(--reveal-delay, 0s);
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .aurora::before,
+  .aurora::after {
+    animation: none;
+  }
+}
+
+/* Mount animation for client-filtered grids (plays once per mount) */
+.rise {
+  animation: rise 0.6s var(--ease) both;
+  animation-delay: var(--reveal-delay, 0s);
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+}
+
+/* ---------- 3D tilt cards ---------- */
+.tilt-wrap {
+  perspective: 1000px;
+}
+.tilt {
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+.tilt-wrap:hover .tilt {
+  transition: transform 0.05s linear;
+}
+.tilt .tilt-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    420px circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(240, 212, 136, 0.1),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+.tilt-wrap:hover .tilt-glare {
+  opacity: 1;
+}
+
+/* ---------- Gold shimmer for hero text ---------- */
+.shimmer {
+  background: linear-gradient(
+    110deg,
+    #f0d488 20%,
+    #ffffff 38%,
+    #d4af37 50%,
+    #cdd1d8 65%,
+    #f0d488 80%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-slide 7s linear infinite;
+}
+@keyframes shimmer-slide {
+  from { background-position: 220% 0; }
+  to { background-position: -20% 0; }
+}
+
+/* ---------- Floating hero ring ---------- */
+.hero-ring {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 720px;
+  height: 720px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  mask-image: linear-gradient(to bottom, #000 20%, transparent 75%);
+  animation: ring-spin 40s linear infinite;
+  pointer-events: none;
+}
+.hero-ring::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px dashed rgba(205, 209, 216, 0.1);
+  animation: ring-spin 60s linear infinite reverse;
+}
+@keyframes ring-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}

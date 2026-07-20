@@ -14,12 +14,63 @@ export type Product = {
   featured?: boolean;
 };
 
-/** All-Access subscription — unlocks every prompt & source pack. USD cents / month. */
-export const ALL_ACCESS = {
-  name: "All-Access Pass",
-  price: 1900,
-  blurb: "Every prompt pack and source download, including everything we release while you're subscribed.",
+/** All-Access plans — unlock every prompt & source pack. Prices in USD cents. */
+export type PlanId = "monthly" | "yearly" | "lifetime";
+
+export type Plan = {
+  id: PlanId;
+  name: string;
+  price: number;
+  cadence: string;
+  blurb: string;
+  perks: string[];
+  highlight?: boolean;
 };
+
+export const PLANS: Plan[] = [
+  {
+    id: "monthly",
+    name: "Monthly",
+    price: 1900,
+    cadence: "/month",
+    blurb: "Full access while you're subscribed. Cancel anytime.",
+    perks: [
+      "Every prompt pack unlocked",
+      "Every source download unlocked",
+      "New drops included automatically",
+      "Cancel anytime",
+    ],
+  },
+  {
+    id: "yearly",
+    name: "Yearly",
+    price: 14900,
+    cadence: "/year",
+    blurb: "Two months free versus monthly. Best for regular builders.",
+    perks: [
+      "Everything in Monthly",
+      "≈ $12.4/mo — 2 months free",
+      "Priority email support",
+      "Lock today's price forever",
+    ],
+    highlight: true,
+  },
+  {
+    id: "lifetime",
+    name: "Lifetime",
+    price: 29900,
+    cadence: "one-time",
+    blurb: "Pay once, own access to everything we ever release.",
+    perks: [
+      "Everything in Yearly",
+      "One payment, no renewals",
+      "All future drops forever",
+      "Founding-member badge",
+    ],
+  },
+];
+
+export const getPlan = (id: string) => PLANS.find((p) => p.id === id);
 
 export const ITEM_LABELS: Record<Item, string> = {
   prompt: "Copy prompt",

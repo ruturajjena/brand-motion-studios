@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PreviewThumb from "@/components/PreviewThumb";
 import UnlockButtons from "@/components/UnlockButtons";
+import { getPreviewMedia } from "@/lib/media";
 import { PRODUCTS, formatPrice, getProduct } from "@/lib/products";
 
 export function generateStaticParams() {
@@ -56,8 +57,8 @@ export default async function ProductPage({
             {product.description}
           </p>
 
-          <div className="mt-10">
-            <PreviewThumb product={product} />
+          <div className="mt-10" data-reveal>
+            <PreviewThumb name={product.name} media={getPreviewMedia(product.slug)} />
           </div>
 
           {product.previewUrl && (

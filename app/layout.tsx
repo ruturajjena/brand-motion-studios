@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import FX from "@/components/FX";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -40,6 +41,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${grotesk.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-bg text-ink">
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}`}</style>
+        </noscript>
+        <FX />
         <div className="bg-grid fixed inset-0 -z-10 pointer-events-none" />
         <Navbar />
         <main className="flex-1">{children}</main>

@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import {
-  ALL_ACCESS,
   ITEM_LABELS,
+  PLANS,
   formatPrice,
   type Item,
 } from "@/lib/products";
+
+const monthly = PLANS.find((p) => p.id === "monthly")!;
 
 type Props = {
   slug: string;
@@ -117,22 +119,27 @@ export default function UnlockButtons({ slug, name, prices, size = "sm" }: Props
               </button>
 
               <button
-                onClick={() => checkout({ plan: "all-access" }, "sub")}
+                onClick={() => checkout({ plan: monthly.id }, "sub")}
                 disabled={loading !== null}
                 className="w-full rounded-xl border border-line-strong px-5 py-4 text-left transition hover:bg-surface-2 disabled:opacity-60"
               >
                 <span className="block font-display text-lg font-bold text-gold-bright">
                   {loading === "sub"
                     ? "Redirecting…"
-                    : `${ALL_ACCESS.name} — ${formatPrice(ALL_ACCESS.price)}/mo`}
+                    : `All-Access — ${formatPrice(monthly.price)}/mo`}
                 </span>
-                <span className="text-sm text-ink-dim">{ALL_ACCESS.blurb}</span>
+                <span className="text-sm text-ink-dim">
+                  Every prompt & source in the store, plus new drops.
+                </span>
               </button>
             </div>
 
             {error && <p className="mt-4 text-sm text-red-400">{error}</p>}
             <p className="mt-4 text-center text-xs text-ink-faint">
-              Secure checkout by Stripe · cancel the pass anytime
+              Secure checkout by Stripe · cancel anytime ·{" "}
+              <a href="/pricing" className="text-gold hover:text-gold-bright">
+                yearly & lifetime plans →
+              </a>
             </p>
           </div>
         </div>,

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ALL_ACCESS, getProduct, type Item } from "@/lib/products";
+import { getPlan, getProduct, type Item } from "@/lib/products";
 import { getStripe } from "@/lib/stripe";
 
 const ITEMS: Item[] = ["prompt", "source"];
@@ -18,27 +18,37 @@ export async function POST(req: Request) {
     "https://brandmotion.in";
 
   try {
-    // All-Access subscription
-    if (body.plan === "all-access") {
+    // All-Access plans: monthly / yearly subscriptions, lifetime one-time
+    if (typeof body.plan === "string") {
+      const plan = getPlan(body.plan);
+      if (!plan) {
+        return NextResponse.json({ error: "Unknown plan" }, { status: 404 });
+      }
+      const recurring =
+        plan.id === "monthly"
+          ? { interval: "month" as const }
+          : plan.id === "yearly"
+            ? { interval: "year" as const }
+            : undefined;
       const session = await getStripe().checkout.sessions.create({
-        mode: "subscription",
+        mode: recurring ? "subscription" : "payment",
         line_items: [
           {
             quantity: 1,
             price_data: {
               currency: "usd",
-              unit_amount: ALL_ACCESS.price,
-              recurring: { interval: "month" },
+              unit_amount: plan.price,
+              ...(recurring ? { recurring } : {}),
               product_data: {
-                name: ALL_ACCESS.name,
-                description: ALL_ACCESS.blurb,
+                name: `All-Access — ${plan.name}`,
+                description: plan.blurb,
               },
             },
           },
         ],
-        metadata: { plan: "all-access" },
+        metadata: { plan: plan.id },
         success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${origin}/store`,
+        cancel_url: `${origin}/pricing`,
       });
       return NextResponse.json({ url: session.url });
     }
