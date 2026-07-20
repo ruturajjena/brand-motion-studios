@@ -1,65 +1,119 @@
-import Image from "next/image";
+import Link from "next/link";
+import ProductCard from "@/components/ProductCard";
+import { CATEGORIES, PRODUCTS, type Category } from "@/lib/products";
+
+const steps = [
+  {
+    title: "Pick a pack",
+    body: "Every product ships with a live reference build — see exactly what you're buying before you buy it.",
+  },
+  {
+    title: "Check out in seconds",
+    body: "Secure Stripe checkout. No account needed, receipt straight to your inbox.",
+  },
+  {
+    title: "Ship something premium",
+    body: "Paste the prompt, drop in the code, or apply the design system. You own what you make with it.",
+  },
+];
 
 export default function Home() {
+  const featured = PRODUCTS.filter((p) => p.featured);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <>
+      {/* Hero */}
+      <section className="mx-auto w-full max-w-6xl px-6 pb-20 pt-24 text-center sm:pt-32">
+        <p className="mx-auto w-fit rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-ink-faint">
+          The Brand Motion Store
+        </p>
+        <h1 className="mx-auto mt-6 max-w-3xl font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
+          <span className="grad-text">Prompts, design & code</span>
+          <br />
+          <span className="text-ink">for websites that move.</span>
+        </h1>
+        <p className="mx-auto mt-6 max-w-xl text-lg text-ink-dim">
+          The exact prompt packs, design systems and source code behind our
+          studio builds — packaged so you can ship the same quality yourself.
+        </p>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <Link href="/store" className="btn-gold rounded-full px-8 py-3.5">
+            Browse all products
+          </Link>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/studio.html"
+            className="rounded-full border border-line px-8 py-3.5 text-ink-dim transition hover:border-line-strong hover:text-ink"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Need custom work?
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Categories */}
+      <section className="mx-auto w-full max-w-6xl px-6 pb-20">
+        <div className="grid gap-5 sm:grid-cols-3">
+          {(Object.keys(CATEGORIES) as Category[]).map((key) => (
+            <Link
+              key={key}
+              href={`/store?category=${key}`}
+              className="card rounded-2xl p-7"
+            >
+              <h2 className="font-display text-2xl font-bold gold-text w-fit">
+                {CATEGORIES[key].label}
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-ink-dim">
+                {CATEGORIES[key].blurb}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Featured */}
+      <section className="mx-auto w-full max-w-6xl px-6 pb-20">
+        <div className="mb-8 flex items-end justify-between">
+          <h2 className="font-display text-3xl font-bold">Featured drops</h2>
+          <Link href="/store" className="text-sm text-gold transition hover:text-gold-bright">
+            View all →
+          </Link>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {featured.map((p) => (
+            <ProductCard key={p.slug} product={p} />
+          ))}
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="border-t border-line bg-bg-soft/50">
+        <div className="mx-auto w-full max-w-6xl px-6 py-20">
+          <h2 className="text-center font-display text-3xl font-bold">
+            Simple process. <span className="gold-text">Serious output.</span>
+          </h2>
+          <div className="mt-12 grid gap-5 sm:grid-cols-3">
+            {steps.map((s, i) => (
+              <div key={s.title} className="card rounded-2xl p-7">
+                <span className="font-display text-sm font-bold text-gold">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-3 font-display text-xl font-bold">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-dim">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto w-full max-w-6xl px-6 py-24 text-center">
+        <h2 className="font-display text-4xl font-bold">
+          Ready to make your next build{" "}
+          <span className="grad-text">unmistakably premium?</span>
+        </h2>
+        <Link href="/store" className="btn-gold mt-8 inline-block rounded-full px-8 py-3.5">
+          Start browsing
+        </Link>
+      </section>
+    </>
   );
 }
