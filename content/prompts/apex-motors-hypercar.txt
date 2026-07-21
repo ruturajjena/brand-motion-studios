@@ -1,0 +1,187 @@
+Premium Fable 5 Website Prompt for APEX Motors
+
+Since you're using Fable 5, don't describe how to build it (e.g., "use GSAP, Lenis"). Instead, describe the experience you want. Fable 5 is much better at choosing the implementation when you specify cinematic direction, interactions, and visual language.
+
+Here's a significantly upgraded prompt:
+
+⸻
+
+Design and build an ultra-premium single-page website for a fictional luxury hypercar manufacturer called APEX Motors. The experience should feel like visiting the websites of Bugatti, Koenigsegg, Apple, or Nothing—minimal, cinematic, immersive, and exceptionally smooth.
+
+Use the two provided cinematic videos as the centerpiece of the experience. The website should be scroll-driven, where scrolling controls the pace of the storytelling, making the visitor feel like they are directing a luxury automotive commercial.
+
+=== HERO EXPERIENCE ===
+
+Start with a full-screen cinematic hero section using the first video as the background. The page loads from black with a subtle fade-in. Large elegant typography appears with premium motion:
+
+APEX MOTORS
+Engineering Tomorrow.
+
+As the user scrolls, the typography smoothly scales, fades, and separates while revealing more of the vehicle beneath. The transition should feel luxurious rather than flashy.
+
+⸻
+
+=== SCROLL-DRIVEN CINEMATIC SEQUENCE ===
+
+The first video should remain pinned while the scroll gradually progresses through the footage. Every scroll movement should synchronize naturally with the video's motion, creating the feeling of scrubbing through a luxury automotive commercial.
+
+Overlay minimal floating interface elements that animate into view:
+
+* Top speed
+* Horsepower
+* 0–100 km/h
+* Active aerodynamics
+* Carbon monocoque chassis
+
+Each specification should appear with elegant micro-animations and disappear seamlessly as the story progresses.
+
+⸻
+
+=== PERFORMANCE SHOWCASE ===
+
+Transition into a premium editorial section with oversized typography and animated statistics.
+
+Large numbers should count up smoothly while subtle motion graphics and elegant light streaks reinforce the feeling of speed.
+
+Example:
+
+* 480 km/h
+* 1,850 HP
+* 0–100 in 1.9s
+* 1,200 kg
+
+Every interaction should feel refined, cinematic, and premium.
+
+⸻
+
+=== CINEMATIC COLOR REVEAL ===
+
+Transition into the second cinematic video using an elegant morph instead of a hard cut.
+
+As users continue scrolling, introduce three premium finishes:
+
+* Obsidian Black
+* Crimson Velocity
+* Liquid Titanium
+
+Each color transition should use sophisticated liquid morphing, light sweeps, reflections, and premium motion design rather than simple fades.
+
+⸻
+
+=== ENGINEERING SECTION ===
+
+Use cinematic typography combined with subtle animated diagrams and premium UI cards to showcase:
+
+* Carbon Fiber Monocoque
+* Active Aerodynamics
+* AI-Assisted Performance
+* Electric Torque Vectoring
+* Adaptive Suspension
+
+Cards should gently float using subtle parallax while remaining clean and minimal.
+
+⸻
+
+=== HORIZONTAL SHOWCASE ===
+
+Create a pinned horizontal scrolling section displaying dramatic close-up imagery from the videos, showcasing carbon fiber, headlights, wheels, cockpit, aerodynamics, and body details.
+
+Apply layered parallax, glassmorphism, and premium lighting effects to create depth.
+
+⸻
+
+=== FINAL HERO ===
+
+End with a breathtaking full-screen scene using the closing portion of the second video.
+
+The vehicle slowly settles into a dramatic hero pose while the camera pushes forward.
+
+Display:
+
+THE FUTURE HAS ARRIVED
+Crafted Without Compromise.
+
+Add a premium glowing "Reserve Yours" call-to-action with elegant hover animations.
+
+⸻
+
+=== DESIGN LANGUAGE ===
+
+* Luxury automotive brand aesthetic
+* Apple-level visual polish
+* Ultra-minimal layout
+* Matte black background
+* Glassmorphism panels
+* Premium typography
+* Cinematic spacing
+* HDR-inspired gradients
+* Metallic accents
+* Animated reflections
+* Dynamic light sweeps
+* Soft shadows
+* Smooth motion blur
+* Depth-of-field inspired transitions
+* Elegant cursor interactions
+* Seamless section transitions
+* Premium loading animation
+* Subtle ambient particle effects
+* Micro-interactions throughout
+* Fully responsive
+* Optimized for 60 FPS
+* High-performance rendering
+* No generic templates or stock effects
+
+⸻
+
+The final result should feel like an award-winning Awwwards website and a $10M luxury automotive launch experience, where every scroll delivers a cinematic, premium, emotionally engaging reveal.
+
+---
+
+Gemini Prompt: Two-Part Luxury Hypercar Commercial
+
+That's even better. Two 10-second clips will usually give Gemini Flow better consistency and higher quality than trying to pack everything into one 20-second generation.
+
+=== VIDEO 1 (0–10s) — Hero Reveal + Macro Details ===
+
+Create a 10-second ultra-premium cinematic automotive commercial featuring a futuristic black hypercar inside a dark luxury studio with a glossy reflective floor. The atmosphere is filled with subtle volumetric fog, floating dust particles, and dramatic cinematic lighting.
+
+Start in complete darkness. Thin beams of light slowly reveal the silhouette of the car while the camera glides elegantly across the body. Gradually transition into extreme macro shots that seamlessly flow between premium components:
+
+• Carbon fiber weave with microscopic detail
+• LED headlights performing a futuristic startup animation
+• Forged alloy wheel slowly rotating
+• Carbon ceramic brake rotor and brake caliper
+• Sculpted aerodynamic vents
+• Sharp body lines catching moving reflections
+• Side mirror with glossy reflections
+• Active rear wing beginning to deploy
+
+The camera should continuously move with smooth dolly shots, focus pulls, and cinematic match cuts, making the entire sequence feel like a luxury automotive advertisement.
+
+Style: Hollywood VFX, Bugatti commercial, Pagani craftsmanship, Koenigsegg cinematography, ray-traced reflections, HDR, 8K photorealism, shallow depth of field, anamorphic lens flares, premium product commercial, Unreal Engine 5 quality, physically accurate materials, no people, no text, no logos.
+
+Maintain perfect subject consistency throughout the video. The hypercar must remain identical in design, proportions, wheel design, lighting, environment, and camera quality across every shot. Prioritize cinematic camera motion over fast cuts, with seamless transitions and premium VFX suitable for a luxury automotive commercial.
+
+=== VIDEO 2 (10–20s) — Orbit + Color Morph + Final Hero Shot ===
+
+Continue using the exact same hypercar, maintaining identical proportions, lighting, materials, and visual consistency.
+
+Begin with a smooth cinematic orbit around the vehicle, capturing front three-quarter, side profile, rear, low-angle, and overhead hero perspectives. Use elegant camera choreography with realistic reflections, volumetric light beams, and premium studio lighting.
+
+Midway through the sequence, smoothly transform the vehicle's finish while the camera continues moving:
+
+• Matte Obsidian Black
+• Metallic Crimson Red
+• Liquid Titanium Silver
+
+The transformation should ripple naturally across the paint without changing the design or camera position.
+
+Finish with the car rolling slightly forward before stopping in a dramatic hero pose. The headlights ignite, reflections sweep across the body panels, the rear wing fully deploys, subtle fog drifts around the vehicle, and the camera slowly pushes toward the front emblem before fading to black.
+
+Style: Luxury hypercar commercial, Hollywood VFX, cinematic masterpiece, premium automotive advertisement, Bugatti launch film aesthetic, Pagani detail shots, Koenigsegg lighting, ray-traced reflections, HDR, volumetric fog, shallow depth of field, 8K photorealism, Unreal Engine 5 quality, no people, no text, no watermark.
+
+Maintain perfect subject consistency throughout the video. The hypercar must remain identical in design, proportions, wheel design, lighting, environment, and camera quality across every shot. Prioritize cinematic camera motion over fast cuts, with seamless transitions and premium VFX suitable for a luxury automotive commercial.
+
+=== Pro Tip ===
+
+The consistency instruction at the end of both prompts gives Gemini Flow better subject coherence when stitching the two clips together. This creates a seamless 20-second commercial that feels like a single professional production.

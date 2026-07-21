@@ -22,11 +22,14 @@ const pages = {
   "rajmahal-palace": "rajmahal-prompt.html",
 };
 
-/** Prompts that only ever got a card in the prompts.html library page —
- * no standalone showcase HTML — keyed by the <pre id="..."> to extract. */
+/** Prompts that only ever got a card (or cards) in the prompts.html library
+ * page — no standalone showcase HTML — keyed by the <pre id="..."> to
+ * extract. A slug can list multiple ids to join into one delivered file
+ * (e.g. a commercial-video prompt + the website prompt built around it). */
 const inlineFromLibrary = {
-  "7star-luxury-hotel": "prompt-7star-hotel-website",
-  "luxury-watch-website": "prompt-luxury-watch-website",
+  "7star-luxury-hotel": ["prompt-7star-hotel-website"],
+  "luxury-watch-website": ["prompt-luxury-watch-website"],
+  "apex-motors-hypercar": ["prompt-apex-motors-website", "prompt-apex-car-hypercar"],
 };
 
 const decode = (s) =>
@@ -53,13 +56,18 @@ for (const [slug, file] of Object.entries(pages)) {
 }
 
 const libraryHtml = readFileSync(join(ROOT, "public", "prompts.html"), "utf8");
-for (const [slug, id] of Object.entries(inlineFromLibrary)) {
-  const re = new RegExp(`<pre[^>]*id="${id}"[^>]*>([\\s\\S]*?)</pre>`);
-  const m = libraryHtml.match(re);
-  if (!m) {
-    console.warn(`! ${slug}: id="${id}" not found in prompts.html`);
-    continue;
+for (const [slug, ids] of Object.entries(inlineFromLibrary)) {
+  const blocks = [];
+  for (const id of ids) {
+    const re = new RegExp(`<pre[^>]*id="${id}"[^>]*>([\\s\\S]*?)</pre>`);
+    const m = libraryHtml.match(re);
+    if (!m) {
+      console.warn(`! ${slug}: id="${id}" not found in prompts.html`);
+      continue;
+    }
+    blocks.push(decode(m[1]).trim());
   }
-  writeFileSync(join(OUT, `${slug}.txt`), decode(m[1]).trim() + "\n");
-  console.log(`✓ ${slug} (from prompts.html#${id})`);
+  if (!blocks.length) continue;
+  writeFileSync(join(OUT, `${slug}.txt`), blocks.join("\n\n---\n\n") + "\n");
+  console.log(`✓ ${slug} (from prompts.html, ${blocks.length} block${blocks.length > 1 ? "s" : ""})`);
 }

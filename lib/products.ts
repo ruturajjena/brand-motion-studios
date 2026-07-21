@@ -194,6 +194,21 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
+    slug: "apex-motors-hypercar",
+    name: "APEX Motors Hypercar Website",
+    tagline: "A cinematic hypercar reveal, directed by your scroll",
+    description:
+      "An ultra-premium single-page hypercar site in the language of Bugatti, Koenigsegg and Apple — scroll-driven storytelling built around two cinematic commercial videos. Includes the website prompt plus the two-part Gemini video prompt used to generate the footage.",
+    prices: { prompt: 2900, source: 4900 },
+    tags: ["automotive", "video-driven", "react + three.js"],
+    includes: [
+      "Website prompt + two-part Gemini video commercial prompt (two-in-one pack)",
+      "Hero, macro-detail and orbit shot direction",
+      "Complete source on the source tier",
+      "Preview video of the full scroll experience",
+    ],
+  },
+  {
     slug: "7star-luxury-hotel",
     name: "7-Star Luxury Hotel Website",
     tagline: "A cinematic architectural journey for ultra-luxury hospitality",
