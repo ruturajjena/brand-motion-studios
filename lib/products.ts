@@ -193,22 +193,6 @@ export const PRODUCTS: Product[] = [
       "Live reference build",
     ],
   },
-  {
-    slug: "brandmotion-design-tokens",
-    name: "Brand Motion Design System",
-    tagline: "The gold-on-black visual system behind brandmotion.in",
-    description:
-      "Our house design system — the dark-luxury token set, gradient recipes, glass surfaces, reveal animations and grid treatments used across every Brand Motion build.",
-    prices: { source: 1900 },
-    tags: ["design tokens", "css", "figma-ready"],
-    includes: [
-      "Full CSS token set (color, type, radius, shadow, easing)",
-      "Gradient & glass-surface recipes",
-      "Scroll-reveal animation patterns",
-      "Figma-ready color & type styles",
-    ],
-    featured: true,
-  },
 ];
 
 export const getProduct = (slug: string) =>
