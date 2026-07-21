@@ -14,11 +14,11 @@ export default function ProductCard({
 }) {
   return (
     <TiltCard className="h-full">
-      <div className="card group flex h-full flex-col rounded-2xl p-3">
+      <div className="card group flex h-full flex-col overflow-hidden rounded-2xl">
         <Link href={`/store/${product.slug}`} className="block">
           <PreviewThumb name={product.name} media={media} />
         </Link>
-        <div className="flex flex-1 flex-col p-3">
+        <div className="flex flex-1 flex-col p-5">
           <Link href={`/store/${product.slug}`} className="block">
             <h3 className="font-display text-lg font-bold leading-snug transition-colors group-hover:text-gold-bright">
               {product.name}

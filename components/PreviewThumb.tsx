@@ -1,9 +1,9 @@
 import type { PreviewMedia } from "@/lib/media";
 
 /**
- * Design preview box (getlayers-style thumbnail).
- * Presentational — pass media resolved server-side via getPreviewMedia(slug).
- * Video (screen recording) auto-plays muted; screenshot is the poster/fallback.
+ * Immersive preview media — full-bleed, frameless. Bleeds to the edges of
+ * whatever container it sits in (cards clip it with their own radius); a
+ * bottom scrim blends the footage into the surface below it.
  */
 export default function PreviewThumb({
   name,
@@ -13,7 +13,7 @@ export default function PreviewThumb({
   media: PreviewMedia;
 }) {
   return (
-    <div className="preview-thumb relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-line bg-black">
+    <div className="preview-thumb relative aspect-[16/10] w-full overflow-hidden bg-black">
       {media.video ? (
         <video
           src={media.video}
@@ -25,16 +25,13 @@ export default function PreviewThumb({
           className="h-full w-full object-cover object-top"
         />
       ) : media.poster ? (
-        <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={media.poster}
-            alt={`${name} design preview`}
-            loading="lazy"
-            className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-        </>
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          src={media.poster}
+          alt={`${name} design preview`}
+          loading="lazy"
+          className="h-full w-full object-cover object-top"
+        />
       ) : (
         /* No media yet — token-swatch tile */
         <div className="flex h-full w-full flex-col justify-between bg-[radial-gradient(ellipse_120%_80%_at_50%_-10%,rgba(212,175,55,0.22),transparent_60%)] p-5">
@@ -54,6 +51,7 @@ export default function PreviewThumb({
           </div>
         </div>
       )}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
     </div>
   );
 }
