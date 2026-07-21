@@ -193,6 +193,36 @@ export const PRODUCTS: Product[] = [
       "Live reference build",
     ],
   },
+  {
+    slug: "7star-luxury-hotel",
+    name: "7-Star Luxury Hotel Website",
+    tagline: "A cinematic architectural journey for ultra-luxury hospitality",
+    description:
+      "An Awwwards/FWA-quality hotel site built around three cinematic videos — frame-perfect scroll sync, advanced motion design, minimal UI and 3D overlays. Compares to Apple, Aman, Bulgari, Lexus.",
+    prices: { prompt: 2900, source: 4900 },
+    tags: ["hospitality", "video-driven", "react + three.js"],
+    includes: [
+      "Full build prompt (frame-perfect video-sync motion spec)",
+      "Three-video shot list & section mapping",
+      "Complete source on the source tier",
+      "Preview video of the full scroll experience",
+    ],
+  },
+  {
+    slug: "luxury-watch-website",
+    name: "Luxury Watch Portfolio Film",
+    tagline: "A scroll-driven watch disassembly & reassembly story",
+    description:
+      "An Awwwards-winning personal-brand portfolio — 12 cinematic videos of a watch coming apart and returning home, GSAP/ScrollTrigger animation, 3D transforms. Includes both the website brief and the video storyboard prompt.",
+    prices: { prompt: 2900, source: 4900 },
+    tags: ["portfolio", "video-driven", "html/css/js"],
+    includes: [
+      "Website prompt + video storyboard prompt (two-in-one pack)",
+      "12-clip shot list mapped to scroll sections",
+      "Complete source on the source tier",
+      "Preview video of the full scroll experience",
+    ],
+  },
 ];
 
 export const getProduct = (slug: string) =>

@@ -22,6 +22,13 @@ const pages = {
   "rajmahal-palace": "rajmahal-prompt.html",
 };
 
+/** Prompts that only ever got a card in the prompts.html library page —
+ * no standalone showcase HTML — keyed by the <pre id="..."> to extract. */
+const inlineFromLibrary = {
+  "7star-luxury-hotel": "prompt-7star-hotel-website",
+  "luxury-watch-website": "prompt-luxury-watch-website",
+};
+
 const decode = (s) =>
   s
     .replace(/<[^>]+>/g, "")
@@ -43,4 +50,16 @@ for (const [slug, file] of Object.entries(pages)) {
   }
   writeFileSync(join(OUT, `${slug}.txt`), blocks.join("\n\n---\n\n") + "\n");
   console.log(`✓ ${slug} (${blocks.length} block${blocks.length > 1 ? "s" : ""})`);
+}
+
+const libraryHtml = readFileSync(join(ROOT, "public", "prompts.html"), "utf8");
+for (const [slug, id] of Object.entries(inlineFromLibrary)) {
+  const re = new RegExp(`<pre[^>]*id="${id}"[^>]*>([\\s\\S]*?)</pre>`);
+  const m = libraryHtml.match(re);
+  if (!m) {
+    console.warn(`! ${slug}: id="${id}" not found in prompts.html`);
+    continue;
+  }
+  writeFileSync(join(OUT, `${slug}.txt`), decode(m[1]).trim() + "\n");
+  console.log(`✓ ${slug} (from prompts.html#${id})`);
 }
