@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LiquidGlass from "@/components/LiquidGlass";
 import PlanButton from "@/components/PlanButton";
 import { PLANS, formatPrice } from "@/lib/products";
 
@@ -32,34 +33,38 @@ export default function PricingPage() {
             key={plan.id}
             data-reveal
             style={{ "--reveal-delay": `${i * 0.12}s` } as React.CSSProperties}
-            className={`card relative flex flex-col rounded-2xl p-8 ${
-              plan.highlight ? "border-line-strong" : ""
-            }`}
+            className={plan.highlight ? "lg:-mt-3 lg:mb-3" : ""}
           >
-            {plan.highlight && (
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-gold-bright to-gold px-4 py-1 text-xs font-semibold text-black">
-                Most popular
-              </span>
-            )}
-            <h2 className="font-display text-xl font-bold">{plan.name}</h2>
-            <p className="mt-4 font-display text-5xl font-bold text-gold-bright">
-              {formatPrice(plan.price)}
-              <span className="ml-1 text-base font-normal text-ink-faint">
-                {plan.cadence}
-              </span>
-            </p>
-            <p className="mt-3 text-sm text-ink-dim">{plan.blurb}</p>
-            <ul className="mt-6 flex-1 space-y-3">
-              {plan.perks.map((perk) => (
-                <li key={perk} className="flex gap-3 text-sm text-ink-dim">
-                  <span className="text-gold">✦</span>
-                  {perk}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8">
-              <PlanButton plan={plan.id} highlight={plan.highlight} />
-            </div>
+            <LiquidGlass
+              className={`flex h-full flex-col p-8 ${
+                plan.highlight ? "ring-1 ring-[color:var(--border-strong)]" : ""
+              }`}
+            >
+              {plan.highlight && (
+                <span className="absolute -top-3 left-1/2 z-20 -translate-x-1/2 rounded-full bg-gradient-to-r from-gold-bright to-gold px-4 py-1 text-xs font-semibold text-black">
+                  Most popular
+                </span>
+              )}
+              <h2 className="font-display text-xl font-bold">{plan.name}</h2>
+              <p className="mt-4 font-display text-5xl font-bold text-gold-bright">
+                {formatPrice(plan.price)}
+                <span className="ml-1 text-base font-normal text-ink-faint">
+                  {plan.cadence}
+                </span>
+              </p>
+              <p className="mt-3 text-sm text-ink-dim">{plan.blurb}</p>
+              <ul className="mt-6 flex-1 space-y-3">
+                {plan.perks.map((perk) => (
+                  <li key={perk} className="flex gap-3 text-sm text-ink-dim">
+                    <span className="text-gold">✦</span>
+                    {perk}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <PlanButton plan={plan.id} highlight={plan.highlight} />
+              </div>
+            </LiquidGlass>
           </div>
         ))}
       </div>

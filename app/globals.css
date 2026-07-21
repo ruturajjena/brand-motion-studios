@@ -93,6 +93,112 @@ h3 {
   border-color: var(--border-strong);
 }
 
+/* ---------- Apple-inspired liquid glass ---------- */
+.glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.25),
+    0 20px 50px -20px rgba(0, 0, 0, 0.6);
+}
+/* Specular sheen sweeping the top edge */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(240, 212, 136, 0.35)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+}
+.glass-panel {
+  border-radius: 22px;
+}
+
+/* Interactive liquid blob that follows the cursor over a glass surface */
+.liquid-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+.liquid-sheen::after {
+  content: "";
+  position: absolute;
+  width: 46%;
+  aspect-ratio: 1;
+  left: var(--mx, 50%);
+  top: var(--my, 40%);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(240, 212, 136, 0.28),
+    rgba(205, 209, 216, 0.12) 40%,
+    transparent 70%
+  );
+  filter: blur(24px);
+  transition: opacity 0.4s var(--ease);
+  opacity: 0;
+}
+.liquid-sheen.lit::after {
+  opacity: 1;
+}
+
+/* ---------- Interactive scroll banner ---------- */
+.scroll-banner {
+  position: relative;
+  height: 92vh;
+  min-height: 620px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-banner__layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+}
+.scroll-banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  will-change: transform;
+}
+.scroll-banner__glass {
+  border-radius: 28px;
+  padding: clamp(2rem, 5vw, 4rem);
+  will-change: transform;
+}
+.marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 32s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee { animation: none; }
+}
+
 .bg-grid {
   background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);

@@ -81,7 +81,7 @@ export default function UnlockButtons({ slug, name, prices, size = "sm" }: Props
           onClick={() => item && !loading && setItem(null)}
         >
           <div
-            className="w-full max-w-md rounded-2xl border border-line bg-bg-soft p-7 shadow-2xl"
+            className="glass glass-panel w-full max-w-md p-7"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-4">

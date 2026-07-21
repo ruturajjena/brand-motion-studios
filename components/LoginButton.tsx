@@ -35,7 +35,7 @@ export default function LoginButton() {
             onClick={() => setOpen(false)}
           >
             <div
-              className="w-full max-w-sm rounded-2xl border border-line bg-bg-soft p-7 text-center shadow-2xl"
+              className="glass glass-panel w-full max-w-sm p-7 text-center"
               onClick={(e) => e.stopPropagation()}
             >
               <h3 className="font-display text-xl font-bold">

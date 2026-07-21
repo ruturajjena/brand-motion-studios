@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+import ScrollBanner from "@/components/ScrollBanner";
 import { getPreviewMedia } from "@/lib/media";
 import { PLANS, PRODUCTS, formatPrice } from "@/lib/products";
 
@@ -26,48 +27,8 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative mx-auto w-full max-w-6xl overflow-hidden px-6 pb-24 pt-24 text-center sm:pt-32">
-        <div className="hero-ring" aria-hidden />
-        <p
-          className="mx-auto w-fit rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-ink-faint"
-          data-reveal
-        >
-          The Brand Motion Store
-        </p>
-        <h1
-          className="mx-auto mt-6 max-w-3xl font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl"
-          data-reveal
-          style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}
-        >
-          <span className="shimmer">Prompts, design & code</span>
-          <br />
-          <span className="text-ink">for websites that move.</span>
-        </h1>
-        <p
-          className="mx-auto mt-6 max-w-xl text-lg text-ink-dim"
-          data-reveal
-          style={{ "--reveal-delay": "0.2s" } as React.CSSProperties}
-        >
-          The exact prompt packs, design systems and source code behind our
-          studio builds — packaged so you can ship the same quality yourself.
-        </p>
-        <div
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
-          data-reveal
-          style={{ "--reveal-delay": "0.3s" } as React.CSSProperties}
-        >
-          <Link href="/store" className="btn-gold rounded-full px-8 py-3.5">
-            Browse the store
-          </Link>
-          <Link
-            href="/pricing"
-            className="rounded-full border border-line px-8 py-3.5 text-ink-dim transition hover:border-line-strong hover:text-ink"
-          >
-            See All-Access plans
-          </Link>
-        </div>
-      </section>
+      {/* Interactive scroll banner */}
+      <ScrollBanner />
 
       {/* Featured */}
       <section className="mx-auto w-full max-w-6xl px-6 pb-20">
@@ -125,8 +86,8 @@ export default function Home() {
             <Link
               key={plan.id}
               href="/pricing"
-              className={`card rounded-2xl p-7 text-center ${
-                plan.highlight ? "border-line-strong" : ""
+              className={`glass glass-panel block p-7 text-center transition-transform hover:-translate-y-1 ${
+                plan.highlight ? "ring-1 ring-[color:var(--border-strong)]" : ""
               }`}
               data-reveal
               style={{ "--reveal-delay": `${i * 0.1}s` } as React.CSSProperties}
