@@ -737,3 +737,99 @@ html.intro-lock body {
   .hero-particle,
   .hero-card__sheen { animation: none; }
 }
+
+/* ---------- Editorial hero ---------- */
+.editorial-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: linear-gradient(rgba(212, 175, 55, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.5) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 40%, transparent 80%);
+  will-change: opacity;
+}
+.editorial-light {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 110vmax;
+  height: 110vmax;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.07), rgba(212, 175, 55, 0.02) 30%, transparent 55%);
+  opacity: 0.9;
+  animation: editorial-breathe 14s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+@keyframes editorial-breathe {
+  from { transform: translate(-52%, -50%) scale(1); }
+  to { transform: translate(-48%, -52%) scale(1.06); }
+}
+
+/* Slow masked line reveals on load */
+.hline {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: hline-in 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hline-1 { animation-delay: 0.15s; }
+.hline-2 { animation-delay: 0.3s; }
+.hline-3 { animation-delay: 0.45s; }
+.hline-4 { animation-delay: 0.65s; }
+.hline-5 { animation-delay: 0.8s; }
+@keyframes hline-in {
+  to { opacity: 1; transform: none; }
+}
+
+/* Premium pill buttons — restrained */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 2.1rem;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.5s var(--ease), background 0.5s var(--ease),
+    border-color 0.5s var(--ease), color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+.pill:hover { transform: translateY(-2px); }
+.pill--gold {
+  background: var(--grad);
+  color: #0a0a0a;
+  box-shadow: 0 10px 30px -18px rgba(212, 175, 55, 0.55);
+}
+.pill--gold:hover { box-shadow: 0 14px 34px -18px rgba(212, 175, 55, 0.65); }
+.pill--ghost {
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+.pill--ghost:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+/* Nav links — hairline gold underline */
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s var(--ease);
+}
+.nav-link:hover::after { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .editorial-light { animation: none; }
+  .hline { animation: none; opacity: 1; transform: none; }
+}
