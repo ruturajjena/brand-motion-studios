@@ -28,13 +28,23 @@ export default function SmoothScroll() {
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
-    // let pinned/scrubbed triggers settle after fonts + layout land
-    const refresh = () => ScrollTrigger.refresh();
+    // let pinned/scrubbed triggers settle after fonts + layout land, and
+    // re-measure Lenis with them — a stale limit dead-ends the wheel partway
+    // down the page while the native scrollbar still reaches the bottom.
+    const refresh = () => {
+      lenis.resize();
+      ScrollTrigger.refresh();
+    };
     const t = setTimeout(refresh, 300);
     window.addEventListener("load", refresh);
 
+    // Preview videos and posters land after first paint and grow the page.
+    const ro = new ResizeObserver(() => lenis.resize());
+    ro.observe(document.body);
+
     return () => {
       clearTimeout(t);
+      ro.disconnect();
       window.removeEventListener("load", refresh);
       gsap.ticker.remove(raf);
       lenis.destroy();

@@ -48,6 +48,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Lenis measures the document by watching <html> with a ResizeObserver. The
+ * layout's `h-full` pins that box to 100% of the viewport, so the observer
+ * never fires as the page grows and Lenis keeps a stale scroll limit — the
+ * wheel dead-ends partway down while the native scrollbar still reaches the
+ * bottom. Releasing the height once Lenis is live restores the measurement.
+ * (Same rule Lenis ships in its own stylesheet.) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+/* body's `min-h-full` resolved against <html>; with html back to auto that
+ * would collapse to 0 and let the footer ride up on short pages. */
+html.lenis body {
+  min-height: 100vh;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 h1,
 h2,
 h3 {
