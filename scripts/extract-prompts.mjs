@@ -20,6 +20,7 @@ const pages = {
   "sneaker-microsite": "sneaker-prompt.html",
   "violet-car-landing": "violet-car.html",
   "rajmahal-palace": "rajmahal-prompt.html",
+  "br-constructions-mall": "real-estate.html",
 };
 
 /** Prompts that only ever got a card (or cards) in the prompts.html library

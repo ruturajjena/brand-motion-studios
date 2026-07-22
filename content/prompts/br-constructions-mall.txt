@@ -1,0 +1,720 @@
+Images
+
+Image 1 (Hero)
+
+Purpose
+
+Initial loading screen.
+
+Prompt
+
+Ultra photorealistic aerial view of an enormous empty commercial plot at sunrise, cleared land prepared for construction, survey markers, heavy machinery parked, dramatic golden hour lighting, luxury future shopping mall location, cinematic architecture visualization, drone perspective, volumetric lighting, realistic textures, 8K, premium architectural render, no text, no watermark.
+
+⸻
+
+Image 2 (Ending)
+
+Ultra realistic luxury shopping mall at blue hour, fully completed, enormous glass facade, premium landscape lighting, fountains, LED signage, luxury cars arriving, people entering, cinematic reflections, wet pavement, modern architecture, luxury retail destination, aerial drone shot, 8K, Unreal Engine realism.
+
+⸻
+
+VIDEO 1 (10s)
+
+Plot → Excavation → Foundation
+
+Prompt
+
+Cinematic drone shot beginning over a massive empty commercial construction site during sunrise. Camera slowly pushes forward while excavators begin digging foundations. Concrete trucks arrive. Rebar grids appear naturally. Workers install foundation columns. Dust particles drift through golden light. Massive crane swings into frame. Hyper realistic construction sequence with physically accurate machinery movement. Smooth camera path. No jump cuts. Construction gradually progresses throughout the shot. Ultra photorealistic. Architectural visualization quality. 4K.
+
+⸻
+
+VIDEO 2 (10s)
+
+Foundation → Steel Skeleton
+
+Prompt
+
+Continue seamlessly from completed foundations. Camera maintains the exact same forward movement. Large steel columns rise into place using giant tower cranes. Structural beams connect automatically as workers install them. The skeleton of a luxury shopping mall rapidly grows floor by floor. Concrete slabs appear. Escalator shafts become visible. Construction equipment actively moves around the site. Golden afternoon lighting. Hyper realistic engineering details. Smooth cinematic movement. No cuts. Premium architectural visualization.
+
+⸻
+
+VIDEO 3 (10s)
+
+Exterior Completion
+
+Prompt
+
+Continue from the completed structural frame. Camera slowly moves toward the main entrance while glass curtain walls install themselves panel by panel. Luxury stone cladding appears. Massive LED facade, architectural lighting fixtures, landscaped gardens, fountains, luxury entrance canopy, branded retail storefronts, parking lots fill with premium vehicles. Sunset transitions into blue hour naturally. Photorealistic. Cinematic architectural visualization. Smooth motion. No cuts.
+
+⸻
+
+VIDEO 4 (10s)
+
+Interior + Grand Opening
+
+Prompt
+
+Begin outside the completed luxury shopping mall at blue hour. Camera glides through the main entrance without cutting into an enormous luxury atrium. Premium marble flooring, gigantic skylight, luxury brand storefronts, animated LED displays, glass elevators, escalators, indoor trees, shoppers walking naturally. Continue toward the food court before ending with the camera rising into a dramatic aerial reveal of the illuminated mall exterior at night. Cinematic. Hyper realistic. Luxury commercial architecture visualization. Smooth continuous camera movement.
+
+---
+
+You are an award-winning Creative Developer, Senior Frontend Engineer, Motion Designer, UI/UX Designer and Performance Engineer.
+
+Your objective is to build an Awwwards-quality cinematic storytelling website that showcases the complete construction journey of a luxury shopping mall—from an empty plot of land to the finished mall, followed by a seamless transition into the luxury interior.
+
+The final website should feel comparable to Apple, Tesla, Active Theory, Obys Agency, and other award-winning interactive experiences.
+====================================================
+CORE EXPERIENCE (NON-NEGOTIABLE)
+====================================================
+
+The website is NOT a traditional scrolling website.
+
+It is ONE interactive cinematic experience.
+
+Construction ONLY progresses when the user scrolls.
+
+If scrolling stops,
+the construction instantly stops.
+
+Nothing should continue playing by itself.
+
+NO autoplay.
+
+NO looping videos.
+
+NO timed animations.
+
+The scroll wheel, trackpad and touch gestures become the timeline controller.
+
+Think of scrolling as dragging a movie timeline.
+
+Every pixel scrolled advances the construction.
+
+Every pixel scrolled backwards reverses the construction.
+
+The experience must feel like the user is physically building the shopping mall.
+
+The browser scrollbar becomes the construction progress bar.
+
+Scrolling upward reverses the construction naturally.
+
+Every video frame should map directly to scroll progress.
+
+Movement must be perfectly synchronized.
+
+The user should never feel the videos are "playing."
+
+Instead they are revealing the next frame only because the visitor scrolled.
+
+Apple product pages are a good reference for this interaction.
+Branding - BR - Built By Ruturaj Constuctions 
+Never autoplay videos.====================================================
+VIDEO SCRUBBING
+====================================================
+
+Every MP4 must be controlled entirely through GSAP ScrollTrigger.
+
+Do NOT use HTML autoplay.
+
+Do NOT use HTML controls.
+
+Do NOT use play().
+
+Instead,
+
+video.currentTime must always equal the ScrollTrigger progress.
+
+Example
+
+Scroll 0%
+Video frame 0
+
+Scroll 20%
+Video frame 20%
+
+Scroll 50%
+Video frame 50%
+
+Scroll 90%
+Video frame 90%
+
+Scroll back upward
+
+The video reverses frame-by-frame.
+
+The user should be able to scrub in both directions.
+
+Construction literally rewinds.
+
+Never allow the video to continue playing after scrolling stops.====================================================
+PINNED STORYTELLING
+====================================================
+
+The viewport remains pinned during the entire construction experience.
+
+The browser should not jump between normal sections.
+
+Instead,
+
+One long pinned timeline controls all videos.
+
+The visitor feels like they never leave the scene.
+
+As one video reaches its final frame,
+
+the next video fades in seamlessly.
+
+There should never be a visible page transition.
+
+There should never be black frames.
+
+The camera movement should appear continuous.
+
+The website behaves more like an interactive documentary than a webpage.====================================================
+SCROLL LENGTH
+====================================================
+
+Create a virtual scroll distance of approximately
+
+12000–16000 pixels.
+
+This provides enough distance for visitors to slowly experience the construction.
+
+Avoid rushing through the animations.
+
+The visitor should feel immersed.
+
+The construction should take roughly 15–25 seconds of normal scrolling.
+
+Scrolling faster should still scrub smoothly.
+====================================================
+TECH STACK
+====================================================
+
+Use the latest stable technologies.
+
+• Next.js (App Router)
+• React 19
+• TypeScript
+• Tailwind CSS v4
+• GSAP
+• GSAP ScrollTrigger
+• GSAP Observer
+• Lenis Smooth Scroll
+• Motion
+• Lucide React
+• next/image
+• next/font
+• React Server Components
+• Dynamic Imports
+
+Architecture should be modular, maintainable and production ready.
+
+----------------------------------------------------
+
+PROJECT STRUCTURE
+
+/public/assets/
+
+Before constructions.jpeg
+
+constructions_1.mp4
+
+constructions_2.mp4
+
+constructions_3.mp4
+
+constructions from start to end.mp4
+
+Luxury_shopping_mall_interior_exterior_202607202151.mp4
+
+Final Mall.jpeg
+
+Use the exact filenames above.
+
+====================================================
+WHICH ASSETS TO USE
+====================================================
+
+Desktop Experience
+
+Use
+
+Before constructions.jpeg
+
+↓
+
+constructions_1.mp4
+
+↓
+
+constructions_2.mp4
+
+↓
+
+constructions_3.mp4
+
+↓
+
+Luxury_shopping_mall_interior_exterior_202607202151.mp4
+
+↓
+
+Final Mall.jpeg
+
+The video named
+
+constructions from start to end.mp4
+
+is ONLY a fallback for mobile devices or browsers that cannot smoothly scrub multiple videos.
+
+Desktop should always use the split videos.
+
+====================================================
+WEBSITE FLOW
+====================================================
+
+Loading Screen
+
+↓
+
+Hero Image
+
+↓
+
+Construction Phase 1
+
+↓
+
+Construction Phase 2
+
+↓
+
+Construction Phase 3
+
+↓
+
+Completed Exterior
+
+↓
+
+Luxury Interior Walkthrough
+
+↓
+
+Final Hero Image
+
+====================================================
+LOADING SCREEN
+====================================================
+
+Create a premium loading experience.
+
+Preload
+
+Images
+
+Videos
+
+Fonts
+
+Show loading percentage.
+
+Animate logo.
+
+Fade smoothly into Hero.
+
+====================================================
+HERO
+====================================================
+
+Use
+
+Before constructions.jpeg
+
+Full viewport.
+
+Dark overlay.
+
+Large headline
+
+FROM GROUND
+TO GRANDEUR
+
+Subtitle
+
+Every scroll reveals the next chapter in building a world-class shopping destination.
+
+Small animated text
+
+Scroll to Begin
+
+Animations
+
+Blur
+
+Fade
+
+Character stagger
+
+Scale
+
+====================================================
+SCROLL EXPERIENCE
+====================================================
+
+The website is one long cinematic experience.
+
+Pin the viewport.
+
+Scrolling controls the entire experience.
+
+Videos NEVER autoplay.
+
+Instead,
+
+video.currentTime must always be driven by GSAP ScrollTrigger.
+
+The user should literally scrub through the construction.
+
+Each section pins until its video finishes.
+
+Then transition to the next.
+
+====================================================
+VIDEO SEQUENCE
+====================================================
+
+Section 1
+
+constructions_1.mp4
+
+Represents
+
+Site preparation
+
+Excavation
+
+Foundation
+
+Section 2
+
+constructions_2.mp4
+
+Represents
+
+Columns
+
+Steel framework
+
+Structure
+
+Section 3
+
+constructions_3.mp4
+
+Represents
+
+Glass facade
+
+Exterior completion
+
+Luxury landscape
+
+Section 4
+
+Luxury_shopping_mall_interior_exterior_202607202151.mp4
+
+This video begins from the exterior and naturally moves inside the completed shopping mall.
+
+Use this as the grand finale.
+
+Do NOT interrupt this video.
+
+Allow the entire walkthrough to play with smooth scroll scrubbing.
+
+====================================================
+ENDING
+====================================================
+
+After the interior walkthrough,
+
+Fade beautifully into
+
+Final Mall.jpeg
+
+Display
+
+The Future Begins Here
+
+Button
+
+Book Consultation
+
+Small supporting text
+
+Designed for Tomorrow.
+
+====================================================
+TEXT STORYTELLING
+====================================================
+
+Reveal different titles while the user scrolls.
+
+Examples
+
+Preparing the Site
+
+↓
+
+Engineering the Foundation
+
+↓
+
+Building the Structure
+
+↓
+
+Crafting the Facade
+
+↓
+
+Luxury Takes Shape
+
+↓
+
+Experience the Future
+
+Animate using
+
+Split text
+
+Opacity
+
+Blur
+
+Vertical motion
+
+Character stagger
+
+====================================================
+ANIMATIONS
+====================================================
+
+Use GSAP extensively.
+
+Use
+
+ScrollTrigger
+
+Observer
+
+Timeline
+
+MatchMedia
+
+Include
+
+Parallax
+
+Scale
+
+Fade
+
+Blur
+
+Clip-path reveals
+
+Mask reveals
+
+Video crossfades
+
+Glass morphism
+
+Progress indicator
+
+Chapter indicator
+
+Animated section counter
+
+Mouse movement parallax
+
+Smooth hover effects
+
+Magnetic buttons
+
+Animated cursor (desktop only)
+
+====================================================
+VIDEO TRANSITIONS
+====================================================
+
+The transition between videos must feel invisible.
+
+Preload the next video before the previous ends.
+
+Crossfade opacity.
+
+Sync first frame.
+
+Avoid flashes.
+
+Avoid black frames.
+
+Maintain smooth motion.
+
+====================================================
+SMOOTH SCROLL
+====================================================
+
+Use Lenis.
+
+Synchronize Lenis with GSAP ticker.
+
+Scrolling must feel buttery smooth.
+
+No scroll jank.
+
+====================================================
+NAVIGATION
+====================================================
+
+Minimal floating glass navigation.
+
+Transparent.
+
+Blur background.
+
+Logo left.
+
+Menu right.
+
+Hidden while scrolling down.
+
+Appears while scrolling up.
+
+====================================================
+VISUAL STYLE
+====================================================
+
+Luxury.
+
+Minimal.
+
+Architectural.
+
+Dark.
+
+Premium.
+
+Apple.
+
+Tesla.
+
+BIG Architects.
+
+Foster + Partners.
+
+====================================================
+TYPOGRAPHY
+====================================================
+
+Use Geist.
+
+Large typography.
+
+Generous spacing.
+
+Strong hierarchy.
+
+====================================================
+PERFORMANCE
+====================================================
+
+Optimize everything.
+
+Use
+
+next/image
+
+lazy loading
+
+dynamic imports
+
+GPU transforms
+
+requestAnimationFrame
+
+Intersection Observer
+
+Preload next video
+
+Pause hidden videos
+
+Avoid unnecessary renders
+
+====================================================
+RESPONSIVE
+====================================================
+
+Desktop
+
+Full cinematic storytelling.
+
+Tablet
+
+Maintain pinning.
+
+Mobile
+
+Instead of multiple scrubbed videos,
+
+Use
+
+constructions from start to end.mp4
+
+This provides better performance.
+
+Keep the storytelling intact.
+
+====================================================
+ACCESSIBILITY
+====================================================
+
+Semantic HTML.
+
+Keyboard navigation.
+
+Reduced motion support.
+
+Proper contrast.
+
+====================================================
+SEO
+====================================================
+
+Metadata
+
+Open Graph
+
+Twitter Cards
+
+Canonical URL
+
+Structured Data
+
+Sitemap
+
+Robots
+
+====================================================
+FINAL RESULT
+====================================================
+
+The website should never feel like a traditional landing page.
+
+It should feel like an interactive architectural film where every scroll advances the construction of the mall.
+
+Motion quality, polish, smoothness and premium presentation are more important than adding unnecessary sections.
+
+Aim for an experience worthy of being featured on Awwwards.

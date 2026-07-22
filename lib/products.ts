@@ -238,6 +238,23 @@ export const PRODUCTS: Product[] = [
       "Preview video of the full scroll experience",
     ],
   },
+  {
+    slug: "br-constructions-mall",
+    name: "BR Constructions — Ground to Grandeur",
+    tagline: "Scroll builds the mall, frame by frame",
+    description:
+      "A construction-journey site where nothing plays on its own — the scrollbar becomes the timeline. Every pixel scrolled advances an empty plot toward a finished luxury mall, and scrolling back tears it down again. Includes the full interaction brief plus the video prompts that generated the four cinematic phases.",
+    prices: { prompt: 2900, source: 5400 },
+    previewUrl: "/real-estate.html",
+    tags: ["real estate", "video-driven", "next.js + gsap"],
+    includes: [
+      "Website brief + four-phase video prompt pack (two-in-one)",
+      "Frame-to-scroll scrub spec (no autoplay, fully reversible)",
+      "Phase boundaries, story beats and loading-sequence direction",
+      "Complete source on the source tier",
+    ],
+    featured: true,
+  },
 ];
 
 export const getProduct = (slug: string) =>
