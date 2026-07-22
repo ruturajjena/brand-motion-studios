@@ -21,6 +21,7 @@ const pages = {
   "violet-car-landing": "violet-car.html",
   "rajmahal-palace": "rajmahal-prompt.html",
   "br-constructions-mall": "real-estate.html",
+  "nucleus-ai-theme": "nucleus-design.html",
 };
 
 /** Prompts that only ever got a card (or cards) in the prompts.html library

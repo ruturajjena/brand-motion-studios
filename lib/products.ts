@@ -255,6 +255,22 @@ export const PRODUCTS: Product[] = [
     ],
     featured: true,
   },
+  {
+    slug: "nucleus-ai-theme",
+    name: "Nucleus — AI Startup Theme",
+    tagline: "A resellable landing-page theme built around a WebGL orb",
+    description:
+      "A premium theme for AI and LLM startups, anchored by a 12,000-point GLSL particle orb that reacts to the cursor and shrinks as you scroll. Eleven sections — bento showcase, live token counter, pricing toggle, FAQ — with every colour, metric and shader parameter kept in one config file so a founder can rebrand it in an afternoon.",
+    prices: { prompt: 2900, source: 5900 },
+    previewUrl: "/nucleus-design.html",
+    tags: ["ai startup", "landing page", "react + three.js"],
+    includes: [
+      "Full build prompt — 11 sections, design system, shader spec",
+      "GLSL vertex/fragment direction for the nucleus orb and bloom pass",
+      "Single-file rebrand config so the theme resells cleanly",
+      "Complete source on the source tier",
+    ],
+  },
 ];
 
 export const getProduct = (slug: string) =>
