@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nucleus — AI Startup Theme Prompt | Brand Motion Studios</title>
+  <meta name="description" content="Claude build prompt for Nucleus, an award-winning Next.js 14 & R3F WebGL theme for AI and LLM startups." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#060606" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Brand Motion Studios home">
+        <svg class="brand__mark" viewBox="0 0 62 44" width="48" height="34" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0d488" />
+              <stop offset="1" stop-color="#b8893b" />
+            </linearGradient>
+            <linearGradient id="bm-silver" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef0f3" />
+              <stop offset="1" stop-color="#9aa0a8" />
+            </linearGradient>
+          </defs>
+          <text x="0" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-gold)">B</text>
+          <text x="28" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-silver)">M</text>
+        </svg>
+        <span class="brand__text">Brand Motion<span class="brand__accent"> Studios</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#reels">Reels</a>
+        <a href="prompts.html">Prompt Library</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">Start a project</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="prompt-page">
+    <div class="container">
+      <header class="prompt-page__head reveal">
+        <p class="eyebrow">Internal · Project Brief</p>
+        <h1 class="section__title">Nucleus — <span class="grad-text">AI / LLM theme</span> prompt</h1>
+        <p class="section__lead">A comprehensive developer prompt for building "Nucleus", an Awwwards-level Next.js 14 &amp; WebGL landing page theme for AI startups. Click <strong>Copy</strong> to grab the prompt text.</p>
+      </header>
+
+      <div class="prompt-list">
+
+        <!-- ===== Prompt: nucleus-design-brief ===== -->
+        <article class="prompt-card reveal" id="nucleus-design-brief">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Nucleus AI / LLM Theme Build Spec</span>
+              <span class="prompt-card__tag">Website Brief · Next.js 14 + WebGL / R3F</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-nucleus-design-brief">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Complete specification instructing AI coding agents to build a reusable, cinematic WebGL-powered Next.js theme for AI startups featuring custom GLSL particle orb shaders and glassmorphism UI.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-nucleus-design-brief">You are a senior creative front-end &amp; WebGL engineer who ships award-winning (Awwwards / FWA level) landing pages. Build a premium, sellable landing-page theme called "Nucleus" for AI / LLM startups. This is a reusable template that a founder will buy and rebrand, so keep ALL copy, colors, icons, pricing, metrics, and WebGL parameters in a single config file (`/config/theme.ts`).
+
+## Tech Stack Requirements
+- Next.js 14 (App Router) + TypeScript
+- Tailwind CSS (v3 syntax) for layout and styling
+- Three.js via `@react-three/fiber`, `@react-three/drei`, and `@react-three/postprocessing` for the signature hero orb
+- `framer-motion` for scroll, spring physics, and reveal animations
+- `lenis` for smooth scrolling
+- `lucide-react` for icons
+- No external image assets or API calls required. Fully self-contained.
+
+---
+
+## Design System &amp; Theme Config (`/config/theme.ts`)
+- **Mood**: Dark, cinematic, intelligent, ultra-expensive.
+- **Background**: Near-black `#060507` with a fixed vignette overlay (`::after` radial gradient).
+- **Color Palette**: 
+  - Neon Crimson Red: `#FF0055`
+  - Electric Hot Pink: `#EC4899`
+  - Deep Violet: `#7C3AED`
+- **Surfaces**: Glassmorphic cards with `rgba(255,255,255,0.04)` fill, `rgba(255,255,255,0.08)` border, backdrop blur, 3D cursor tilt, and dynamic cursor spotlight tracking.
+- **Typography**: Inter for body text; tight display font (`-0.03em` or `-0.04em` tracking) for headlines.
+- **Corner Radius**: 18px (`rounded-glass`).
+
+---
+
+## The Signature Element — The Nucleus Orb (`/components/three/`)
+A GPU particle system rendered with custom GLSL shaders inside `@react-three/fiber`:
+
+1. **Geometry &amp; Density**:
+   - Core Fibonacci sphere with **12,000 points** placed at radius R = 1.6.
+   - Concentric outer orbital particle dust ring (**2,500 points**) rotating around the core.
+
+2. **Custom GLSL Shaders**:
+   - **Vertex Shader**: Multi-layered 3D Simplex Noise (`snoise`) with micro-surface displacement (amplitude capped at `0.06` so the orb retains a **crisp, glowing spherical ball shape** without warping out of shape). Includes liquid mouse wave interaction (`uMouse` uniform).
+   - **Fragment Shader**: Multi-tone gradient color ramp mixing `#FF0055` → `#EC4899` → `#7C3AED` based on noise and depth. Smooth circular particle alpha fade (`smoothstep(0.5, 0.0, dist)`) with `AdditiveBlending`.
+
+3. **Motion &amp; Interactivity**:
+   - Smooth liquid mouse interpolation (`0.04` lerp step in frame loop).
+   - Scroll-synced spring physics (`useSpring` in `app/page.tsx` with stiffness `80`, damping `25`) to scale the orb down (1 → 0.48) and drift it upper-right as the user scrolls.
+
+4. **Post-Processing &amp; Fallback**:
+   - `@react-three/postprocessing` `EffectComposer` + `Bloom` (`luminanceThreshold: 0.2`, `intensity: 1.8`, `enableNormalPass={false}`).
+   - Disable Bloom on mobile/reduced-motion.
+   - CSS radial-gradient fallback (`OrbFallback.tsx`) if WebGL is unavailable.
+
+---
+
+## Page Sections Breakdown (11 Standalone Components in `/components/sections/`)
+
+1. **Sticky Navbar (`Navbar.tsx`)**:
+   - Logo left with gradient mark, nav links center with crimson underline hover wipes, glowing pill CTA right, mobile drawer.
+   - Shrinks and adds backdrop blur on scroll using `useMotionValueEvent`.
+
+2. **Hero Section (`Hero.tsx`)**:
+   - Glowing badge pill (`"Nucleus Engine v3.4 Active"`), display headline with crimson-pink gradient text, subhead, dual glowing CTAs.
+   - Live telemetry indicators (`Sub-20ms SLA`, `SOC2 Type II`) and trusted brand marquee preview.
+
+3. **Logo Marquee (`LogoMarquee.tsx`)**:
+   - Infinite horizontal scroll of grayscale brand wordmarks with gradient edge fades, pausing on hover.
+
+4. **Feature Grid (`FeatureGrid.tsx`)**:
+   - 3-column grid of `GlassCard`s with glowing pink Lucide icon badges and 3D cursor tilt.
+
+5. **Bento Showcase (`BentoShowcase.tsx`)**:
+   - Asymmetric bento grid featuring:
+     - Crimson terminal typewriter streaming TypeScript AI code.
+     - Auto Model Routing toggle switch.
+     - Real-time live token counter incrementing in real time.
+     - Dynamic 10-bar latency graph with animated height keyframes.
+     - Multimodal Agent progress meter. Zero green tones!
+
+6. **How It Works (`HowItWorks.tsx`)**:
+   - 3 scroll-pinned steps with glowing crimson step badges. Vertical progress line fills with a Crimson-to-Pink gradient on scroll.
+
+7. **Metrics Band (`MetricsBand.tsx`)**:
+   - Animated count-up text gradient numbers (`18ms`, `99.99%`, `25B+`) inside glass cards.
+
+8. **Pricing (`Pricing.tsx`)**:
+   - 3 tiers with Monthly/Annual billing toggle (save 20%).
+   - Middle plan elevated with neon crimson border aura and `"Most Popular"` badge. Hot pink feature checkmarks.
+
+9. **FAQ (`FAQ.tsx`)**:
+   - Accordion with glowing crimson borders when expanded, smooth `framer-motion` height transitions, rotating chevrons.
+
+10. **Big CTA (`BigCTA.tsx`)**:
+    - Giant radial crimson aura background, huge display headline, glowing primary button.
+
+11. **Footer (`Footer.tsx`)**:
+    - Top rule with `from-transparent via-nucleus-crimson to-transparent`, multi-column links, social hover highlights.
+
+---
+
+## Smooth Scroll &amp; Motion System
+- Wrap `children` in layout with a Lenis provider (`SmoothScrollProvider.tsx`) configured with duration `1.4` and exponential easing curve `(t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t))`.
+- All scroll reveals use staggered blur-up + slide variants (`fadeBlurUp` in `lib/motion.ts`).
+- Respect `prefers-reduced-motion` everywhere.
+
+---
+
+## Implementation Steps
+1. Scaffold Next.js 14 project, install dependencies (`@react-three/fiber`, `@react-three/drei`, `@react-three/postprocessing`, `three`, `framer-motion`, `lenis`, `lucide-react`).
+2. Create `/config/theme.ts` with all text, colors, metrics, and orb configuration.
+3. Configure `globals.css` (with vignette overlay `::after`) and `tailwind.config.ts` (with `nucleus-crimson`, `nucleus-pink`, `nucleus-violet`).
+4. Build `NucleusOrb.tsx`, `Scene.tsx`, and `OrbFallback.tsx`.
+5. Build UI components (`Button.tsx`, `GlassCard.tsx`, `SectionHeading.tsx`, `RevealWrapper.tsx`, `AnimatedCounter.tsx`).
+6. Build all 11 page section components under `/components/sections/`.
+7. Wire page assembly in `app/page.tsx` with `useSpring` progress for orb scaling and dynamic `Scene` import (`ssr: false`).
+8. Run `npm run build` to verify clean build.</pre>
+        </article>
+
+      </div>
+
+      <a href="prompts.html" class="prompt-back">← Back to Prompt Library</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Copy-to-clipboard for prompt cards
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        var text = target.textContent;
+        var label = btn.querySelector('.copy-btn__label');
+        var done = function () {
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+        } else { fallback(text, done); }
+      });
+    });
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>
