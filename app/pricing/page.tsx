@@ -21,9 +21,8 @@ export default function PricingPage() {
           <span className="text-ink">Every design.</span>
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-lg text-ink-dim">
-          Unlock every prompt pack and source download in the store — plus
-          everything we release next. Or buy items one at a time, no pass
-          needed.
+          The only way in. One plan unlocks every prompt pack and source
+          download in the store — plus everything we release next.
         </p>
       </div>
 
@@ -70,7 +69,7 @@ export default function PricingPage() {
       </div>
 
       <p className="mt-10 text-center text-sm text-ink-faint" data-reveal>
-        Prefer a single design? Every item can be bought once from{" "}
+        Browse everything first in{" "}
         <Link href="/store" className="text-gold transition hover:text-gold-bright">
           the store
         </Link>

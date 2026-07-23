@@ -1,22 +1,8 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import Link from "next/link";
-import PromptReveal from "@/components/PromptReveal";
-import { getPlan, getProduct } from "@/lib/products";
+import { getPlan } from "@/lib/products";
 import { getStripe } from "@/lib/stripe";
 
 export const metadata = { title: "Purchase complete" };
-
-async function loadPrompt(slug: string): Promise<string | null> {
-  try {
-    return await readFile(
-      join(process.cwd(), "content", "prompts", `${slug}.txt`),
-      "utf8"
-    );
-  } catch {
-    return null;
-  }
-}
 
 export default async function SuccessPage({
   searchParams,
@@ -28,9 +14,6 @@ export default async function SuccessPage({
   let paid = false;
   let email: string | null = null;
   let plan: string | undefined;
-  let item: string | undefined;
-  let productName: string | null = null;
-  let promptText: string | null = null;
 
   if (session_id) {
     try {
@@ -38,12 +21,6 @@ export default async function SuccessPage({
       paid = session.payment_status === "paid";
       email = session.customer_details?.email ?? null;
       plan = session.metadata?.plan;
-      item = session.metadata?.item;
-      const slug = session.metadata?.slug;
-      if (paid && slug) {
-        productName = getProduct(slug)?.name ?? null;
-        if (item === "prompt") promptText = await loadPrompt(slug);
-      }
     } catch {
       paid = false;
     }
@@ -57,49 +34,16 @@ export default async function SuccessPage({
             ✓
           </div>
           <h1 className="mt-6 font-display text-4xl font-bold">
-            <span className="grad-text">
-              {plan ? "Welcome to All-Access." : "You're in."}
-            </span>
+            <span className="grad-text">Welcome to All-Access.</span>
           </h1>
-
-          {plan ? (
-            <p className="mt-4 max-w-lg text-ink-dim">
-              Your All-Access {getPlan(plan)?.name ?? ""} plan is active —
-              every prompt pack and source download in the store, plus
-              everything we release next
-              {plan === "lifetime" ? ", forever" : " while you're subscribed"}.
-              We&apos;ll send your access details to{" "}
-              <span className="text-ink">{email ?? "your email"}</span> right
-              away.
-            </p>
-          ) : (
-            <p className="mt-4 max-w-lg text-ink-dim">
-              {productName ? (
-                <>
-                  Your purchase of <span className="text-ink">{productName}</span>{" "}
-                  {item === "source" ? "(source code)" : "(prompt pack)"} is
-                  confirmed.
-                </>
-              ) : (
-                "Your purchase is confirmed."
-              )}{" "}
-              {email && (
-                <>
-                  A receipt has been sent to{" "}
-                  <span className="text-ink">{email}</span>.
-                </>
-              )}
-            </p>
-          )}
-
-          {promptText ? (
-            <PromptReveal text={promptText} />
-          ) : paid && item === "source" ? (
-            <p className="mt-2 text-sm text-ink-faint">
-              Your source files will be delivered to the same email within a few
-              hours — usually much faster.
-            </p>
-          ) : null}
+          <p className="mt-4 max-w-lg text-ink-dim">
+            Your All-Access {plan ? (getPlan(plan)?.name ?? "") : ""} plan is
+            active — every prompt pack and source download in the store, plus
+            everything we release next
+            {plan === "lifetime" ? ", forever" : " while you're subscribed"}.
+            Sign in with {email ? <span className="text-ink">{email}</span> : "your account"}{" "}
+            to unlock any project in the store.
+          </p>
         </>
       ) : (
         <>

@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import UnlockButtons from "@/components/UnlockButtons";
+import AccessPanel from "@/components/AccessPanel";
+import { hasAllAccess } from "@/lib/entitlements";
 import { getPreviewMedia } from "@/lib/media";
-import { PRODUCTS, formatPrice, getProduct } from "@/lib/products";
+import { PRODUCTS, getProduct } from "@/lib/products";
+import { loadPrompt } from "@/lib/prompts";
+import { getServerUser } from "@/lib/supabase/server";
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -30,6 +33,10 @@ export default async function ProductPage({
   const product = getProduct(slug);
   if (!product) notFound();
   const media = getPreviewMedia(product.slug);
+
+  const user = await getServerUser();
+  const entitled = user ? await hasAllAccess(user.id) : false;
+  const promptText = entitled ? await loadPrompt(product.slug) : null;
 
   return (
     <>
@@ -116,36 +123,10 @@ export default async function ProductPage({
 
           <aside className="h-fit lg:sticky lg:top-24">
             <div className="card rounded-2xl p-7">
-              <div className="flex items-baseline gap-3">
-                {product.prices.prompt && (
-                  <p className="font-display text-3xl font-bold text-gold-bright">
-                    {formatPrice(product.prices.prompt)}
-                    <span className="ml-1 text-sm font-normal text-ink-faint">
-                      prompt
-                    </span>
-                  </p>
-                )}
-                {product.prices.source && (
-                  <p className="font-display text-3xl font-bold text-silver">
-                    {formatPrice(product.prices.source)}
-                    <span className="ml-1 text-sm font-normal text-ink-faint">
-                      source
-                    </span>
-                  </p>
-                )}
-              </div>
-              <p className="mt-1 text-sm text-ink-faint">
-                One-time purchase or All-Access subscription
+              <p className="text-xs uppercase tracking-[0.2em] text-gold">
+                Included in All-Access
               </p>
-              <div className="mt-6">
-                <UnlockButtons
-                  slug={product.slug}
-                  name={product.name}
-                  prices={product.prices}
-                  size="lg"
-                />
-              </div>
-              <h2 className="mt-8 font-display text-sm font-bold uppercase tracking-wider text-ink-dim">
+              <h2 className="mt-4 font-display text-sm font-bold uppercase tracking-wider text-ink-dim">
                 What&apos;s included
               </h2>
               <ul className="mt-4 space-y-3">
@@ -156,6 +137,13 @@ export default async function ProductPage({
                   </li>
                 ))}
               </ul>
+              <AccessPanel
+                slug={product.slug}
+                name={product.name}
+                signedIn={!!user}
+                entitled={entitled}
+                promptText={promptText}
+              />
             </div>
           </aside>
         </div>

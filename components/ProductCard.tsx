@@ -1,7 +1,6 @@
 import Link from "next/link";
 import PreviewThumb from "@/components/PreviewThumb";
 import TiltCard from "@/components/TiltCard";
-import UnlockButtons from "@/components/UnlockButtons";
 import type { PreviewMedia } from "@/lib/media";
 import type { Product } from "@/lib/products";
 
@@ -35,12 +34,16 @@ export default function ProductCard({
               </span>
             ))}
           </div>
-          <div className="mt-auto pt-4">
-            <UnlockButtons
-              slug={product.slug}
-              name={product.name}
-              prices={product.prices}
-            />
+          <div className="mt-auto flex items-center justify-between gap-3 pt-4">
+            <span className="text-xs uppercase tracking-wider text-gold">
+              All-Access
+            </span>
+            <Link
+              href={`/store/${product.slug}`}
+              className="rounded-full border border-line px-4 py-2 text-sm font-medium text-ink-dim transition hover:border-line-strong hover:text-ink"
+            >
+              View project →
+            </Link>
           </div>
         </div>
       </div>

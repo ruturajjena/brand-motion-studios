@@ -26,8 +26,8 @@ export default function Home() {
               Every idea, <span className="gold-text">in motion.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-ink-dim">
-              Each piece is a living website — copy the prompt behind it, own
-              the source, or unlock everything.
+              Each piece is a living website — one All-Access plan unlocks
+              the prompt and source behind every one of them.
             </p>
           </div>
 

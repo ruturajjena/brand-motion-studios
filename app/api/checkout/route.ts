@@ -1,15 +1,24 @@
 import { NextResponse } from "next/server";
-import { getPlan, getProduct, type Item } from "@/lib/products";
+import { getPlan } from "@/lib/products";
 import { getStripe } from "@/lib/stripe";
-
-const ITEMS: Item[] = ["prompt", "source"];
+import { getServerUser } from "@/lib/supabase/server";
 
 export async function POST(req: Request) {
-  let body: { slug?: unknown; item?: unknown; plan?: unknown };
+  let body: { plan?: unknown };
   try {
     body = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+  }
+
+  const plan = typeof body.plan === "string" ? getPlan(body.plan) : undefined;
+  if (!plan) {
+    return NextResponse.json({ error: "Unknown plan" }, { status: 404 });
+  }
+
+  const user = await getServerUser();
+  if (!user) {
+    return NextResponse.json({ error: "Sign in first" }, { status: 401 });
   }
 
   const origin =
@@ -18,70 +27,35 @@ export async function POST(req: Request) {
     "https://brandmotion.in";
 
   try {
-    // All-Access plans: monthly / yearly subscriptions, lifetime one-time
-    if (typeof body.plan === "string") {
-      const plan = getPlan(body.plan);
-      if (!plan) {
-        return NextResponse.json({ error: "Unknown plan" }, { status: 404 });
-      }
-      const recurring =
-        plan.id === "monthly"
-          ? { interval: "month" as const }
-          : plan.id === "yearly"
-            ? { interval: "year" as const }
-            : undefined;
-      const session = await getStripe().checkout.sessions.create({
-        mode: recurring ? "subscription" : "payment",
-        line_items: [
-          {
-            quantity: 1,
-            price_data: {
-              currency: "usd",
-              unit_amount: plan.price,
-              ...(recurring ? { recurring } : {}),
-              product_data: {
-                name: `All-Access — ${plan.name}`,
-                description: plan.blurb,
-              },
-            },
-          },
-        ],
-        metadata: { plan: plan.id },
-        success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${origin}/pricing`,
-      });
-      return NextResponse.json({ url: session.url });
-    }
-
-    // One-time item purchase
-    const product =
-      typeof body.slug === "string" ? getProduct(body.slug) : undefined;
-    const item = ITEMS.includes(body.item as Item)
-      ? (body.item as Item)
-      : undefined;
-    const price = product && item ? product.prices[item] : undefined;
-    if (!product || !item || !price) {
-      return NextResponse.json({ error: "Unknown product" }, { status: 404 });
-    }
+    const recurring =
+      plan.id === "monthly"
+        ? { interval: "month" as const }
+        : plan.id === "yearly"
+          ? { interval: "year" as const }
+          : undefined;
 
     const session = await getStripe().checkout.sessions.create({
-      mode: "payment",
+      mode: recurring ? "subscription" : "payment",
+      client_reference_id: user.id,
+      customer_email: user.email,
       line_items: [
         {
           quantity: 1,
           price_data: {
             currency: "usd",
-            unit_amount: price,
+            unit_amount: plan.price,
+            ...(recurring ? { recurring } : {}),
             product_data: {
-              name: `${product.name} — ${item === "prompt" ? "Prompt pack" : "Source code"}`,
-              description: product.tagline,
+              name: `All-Access — ${plan.name}`,
+              description: plan.blurb,
             },
           },
         },
       ],
-      metadata: { slug: product.slug, item },
+      metadata: { plan: plan.id, supabase_user_id: user.id },
+      subscription_data: recurring ? { metadata: { plan: plan.id, supabase_user_id: user.id } } : undefined,
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/store/${product.slug}`,
+      cancel_url: `${origin}/pricing`,
     });
     return NextResponse.json({ url: session.url });
   } catch (e) {

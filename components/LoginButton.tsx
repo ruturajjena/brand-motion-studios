@@ -1,14 +1,65 @@
 "use client";
 
-import { useState } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
+import type { User } from "@supabase/supabase-js";
+import SignInModal from "@/components/auth/SignInModal";
+import { getSupabaseBrowserClient, supabaseConfigured } from "@/lib/supabase/client";
 
-/**
- * Sign-in entry point (top-left). Accounts aren't live yet — the modal says
- * so honestly and routes people to their purchase email / All-Access plans.
- */
 export default function LoginButton() {
+  const [user, setUser] = useState<User | null>(null);
+  const [ready, setReady] = useState(!supabaseConfigured);
   const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!supabaseConfigured) return;
+    const supabase = getSupabaseBrowserClient();
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user);
+      setReady(true);
+    });
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  async function signOut() {
+    await getSupabaseBrowserClient().auth.signOut();
+    setMenuOpen(false);
+  }
+
+  if (!ready) {
+    return <div className="h-8 w-20 rounded-full border border-line" aria-hidden />;
+  }
+
+  if (user) {
+    const initial = (user.email ?? "?")[0]!.toUpperCase();
+    return (
+      <div className="relative">
+        <button
+          onClick={() => setMenuOpen((v) => !v)}
+          className="flex h-8 w-8 items-center justify-center rounded-full border border-line-strong text-sm font-semibold text-ink transition hover:border-line-strong/80"
+          aria-label="Account menu"
+        >
+          {initial}
+        </button>
+        {menuOpen && (
+          <div className="absolute right-0 top-10 z-50 w-56 rounded-xl border border-line bg-surface p-3 shadow-xl">
+            <p className="truncate px-1 text-xs text-ink-faint">{user.email}</p>
+            <button
+              onClick={signOut}
+              className="mt-2 w-full rounded-lg px-2 py-1.5 text-left text-sm text-ink-dim transition hover:bg-surface-2 hover:text-ink"
+            >
+              Sign out
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <>
@@ -27,41 +78,7 @@ export default function LoginButton() {
         </svg>
         Sign in
       </button>
-
-      {open &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
-            onClick={() => setOpen(false)}
-          >
-            <div
-              className="glass glass-panel w-full max-w-sm p-7 text-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <h3 className="font-display text-xl font-bold">
-                <span className="grad-text">Accounts are coming soon</span>
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-dim">
-                All-Access members will sign in here to unlock everything in one
-                place. Until then, every purchase is delivered instantly on the
-                success page and to your email receipt.
-              </p>
-              <a
-                href="/pricing"
-                className="btn-gold mt-6 inline-block rounded-full px-6 py-2.5 text-sm"
-              >
-                See All-Access plans
-              </a>
-              <button
-                onClick={() => setOpen(false)}
-                className="mt-4 block w-full text-xs text-ink-faint transition hover:text-ink"
-              >
-                Close
-              </button>
-            </div>
-          </div>,
-          document.body
-        )}
+      <SignInModal open={open} onClose={() => setOpen(false)} />
     </>
   );
 }

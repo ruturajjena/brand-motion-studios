@@ -2,12 +2,12 @@ export const metadata = { title: "FAQ" };
 
 const faqs = [
   {
-    q: "What exactly do I get when I buy a prompt pack?",
-    a: "The complete, unabridged prompt behind the website you previewed — structure, copy voice, art direction and motion spec — shown instantly on the success page with a copy button, plus your Stripe email receipt. Paste it into your AI tool of choice and build.",
+    q: "How do I get access to a prompt pack?",
+    a: "Sign in (Google, Apple, or email) and subscribe to All-Access. Every product page then shows the complete, unabridged prompt behind that website — structure, copy voice, art direction and motion spec — with a copy button, instantly, for as long as your plan is active.",
   },
   {
-    q: "What does a source code purchase include?",
-    a: "The complete build of that website — clean, commented code you own outright, delivered to your purchase email. Most builds are static HTML/CSS/JS with no build step, deployable on any host.",
+    q: "What about source code?",
+    a: "All-Access covers the source too. Once you're subscribed, every product page has a \"Request the source code\" button — email us and we'll send the complete, commented build you own outright.",
   },
   {
     q: "What's the difference between Monthly, Yearly and Lifetime?",
@@ -15,19 +15,19 @@ const faqs = [
   },
   {
     q: "Can I use what I buy in client and commercial projects?",
-    a: "Yes — every purchase includes a commercial license for your own or one client project. Reselling or redistributing the prompts or source files themselves is not allowed.",
+    a: "Yes — All-Access includes a commercial license for your own or client projects. Reselling or redistributing the prompts or source files themselves is not allowed.",
   },
   {
     q: "Do I need an account?",
-    a: "Not yet. Purchases deliver instantly via the success page and email. Member accounts for All-Access holders are coming soon — your purchase email will be your key.",
+    a: "Yes — sign in with Google, Apple, or email before subscribing. Your account is what ties your All-Access plan to the store, so anything unlocked shows up the moment you're signed in on any device.",
   },
   {
     q: "What if a prompt doesn't give me the same result?",
-    a: "AI output varies between tools and runs — that's the nature of it. Every pack includes the reference build to steer against, and the art-direction language that gets consistent results. If a pack is broken or missing content, email us and we'll fix it or refund you.",
+    a: "AI output varies between tools and runs — that's the nature of it. Every pack includes the reference build to steer against, and the art-direction language that gets consistent results. If a pack is broken or missing content, email us and we'll fix it.",
   },
   {
-    q: "How do refunds work?",
-    a: "Digital goods are delivered instantly, so all sales are generally final. If something is genuinely wrong — broken delivery, missing files, double charge — email studiosbrandmotion@gmail.com within 7 days and we'll make it right.",
+    q: "How do refunds and cancellations work?",
+    a: "Cancel Monthly or Yearly anytime — you keep access until the current period ends, no refund for time already used. Lifetime is a one-time purchase; if something is genuinely wrong — broken delivery, double charge — email studiosbrandmotion@gmail.com within 7 days and we'll make it right.",
   },
 ];
 

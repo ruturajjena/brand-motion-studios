@@ -1,12 +1,8 @@
-export type Item = "prompt" | "source";
-
 export type Product = {
   slug: string;
   name: string;
   tagline: string;
   description: string;
-  /** Prices in USD cents per purchasable item. Omit an item to hide its button. */
-  prices: { prompt?: number; source?: number };
   /** Live demo built from this product — legacy pages served from /public. */
   previewUrl?: string;
   tags: string[];
@@ -14,7 +10,7 @@ export type Product = {
   featured?: boolean;
 };
 
-/** All-Access plans — unlock every prompt & source pack. Prices in USD cents. */
+/** All-Access plans — the only thing for sale. Prices in USD cents. */
 export type PlanId = "monthly" | "yearly" | "lifetime";
 
 export type Plan = {
@@ -72,19 +68,13 @@ export const PLANS: Plan[] = [
 
 export const getPlan = (id: string) => PLANS.find((p) => p.id === id);
 
-export const ITEM_LABELS: Record<Item, string> = {
-  prompt: "Copy prompt",
-  source: "Source code",
-};
-
 export const PRODUCTS: Product[] = [
   {
     slug: "taj-mahal-keynote",
     name: "Taj Mahal Keynote Site",
     tagline: "Apple-keynote storytelling for a monument brand",
     description:
-      "Cinematic scroll storytelling in Apple's keynote language — section-by-section art direction plus an asset generation pack for imagery. Buy the prompt to build it yourself, or grab the complete source.",
-    prices: { prompt: 2900, source: 4900 },
+      "Cinematic scroll storytelling in Apple's keynote language — section-by-section art direction plus an asset generation pack for imagery. Included in full with All-Access: the prompt and the complete source.",
     previewUrl: "/taj-mahal.html",
     tags: ["landing page", "storytelling", "html/css/js"],
     includes: [
@@ -101,7 +91,6 @@ export const PRODUCTS: Product[] = [
     tagline: "A luxury café site with menu & reservation flows",
     description:
       "A velvet-dark Italian café website — hero, storia, menu cards, reservation CTA. The prompt pack includes the exact art-direction language that gets consistent, elegant output.",
-    prices: { prompt: 2400, source: 4400 },
     previewUrl: "/cafe.html",
     tags: ["restaurant", "landing page", "html/css/js"],
     includes: [
@@ -118,7 +107,6 @@ export const PRODUCTS: Product[] = [
     tagline: "Reimagining India's rail booking in Apple's design language",
     description:
       "A legacy government booking flow redesigned with Apple-grade restraint — clean IA, generous whitespace, focused booking card. A masterclass in redesign prompting.",
-    prices: { prompt: 1900, source: 3900 },
     previewUrl: "/irctc-apple-design.html",
     tags: ["redesign", "booking flow", "html/css/js"],
     includes: [
@@ -134,7 +122,6 @@ export const PRODUCTS: Product[] = [
     tagline: "Fragrance e-commerce with editorial luxury",
     description:
       "A high-fashion perfume house site — editorial hero, notes pyramid, product storytelling. Tuned for brands that need to smell expensive on screen.",
-    prices: { prompt: 2400, source: 4400 },
     previewUrl: "/pefume-wesbite.html",
     tags: ["e-commerce", "editorial", "html/css/js"],
     includes: [
@@ -150,7 +137,6 @@ export const PRODUCTS: Product[] = [
     tagline: "A product-drop page with motion and attitude",
     description:
       "A sneaker drop microsite — bold type, 3D-feel product showcase, colorway switcher, hype-drop countdown energy.",
-    prices: { prompt: 2400, source: 4400 },
     previewUrl: "/sneaker-prompt.html",
     tags: ["product drop", "interactive", "html/css/js"],
     includes: [
@@ -166,13 +152,12 @@ export const PRODUCTS: Product[] = [
     tagline: "Futuristic automotive landing page",
     description:
       "A dark, neon-violet automotive experience — cinematic video hero, spec table, gallery. Built around five cinematic clips with liquid-glass UI.",
-    prices: { prompt: 2900, source: 4900 },
     previewUrl: "/violet-car.html",
     tags: ["automotive", "video-driven", "react + three.js"],
     includes: [
       "Full build prompt (Awwwards-grade motion spec)",
       "Five-clip video structure & shot list",
-      "Complete source on the source tier",
+      "Complete source included",
       "Live reference build",
     ],
     featured: true,
@@ -183,13 +168,12 @@ export const PRODUCTS: Product[] = [
     tagline: "Heritage-luxury hotel site",
     description:
       "A palace-hotel website with royal art direction — rooms, dining, heritage timeline. Reskin it for any luxury hospitality brand.",
-    prices: { prompt: 2400, source: 4900 },
     previewUrl: "/rajmahal-prompt.html",
     tags: ["hospitality", "landing page", "html/css/js"],
     includes: [
       "Master website prompt",
       "Reskin guide (tokens & imagery swap)",
-      "Complete source on the source tier",
+      "Complete source included",
       "Live reference build",
     ],
   },
@@ -199,12 +183,11 @@ export const PRODUCTS: Product[] = [
     tagline: "A cinematic hypercar reveal, directed by your scroll",
     description:
       "An ultra-premium single-page hypercar site in the language of Bugatti, Koenigsegg and Apple — scroll-driven storytelling built around two cinematic commercial videos. Includes the website prompt plus the two-part Gemini video prompt used to generate the footage.",
-    prices: { prompt: 2900, source: 4900 },
     tags: ["automotive", "video-driven", "react + three.js"],
     includes: [
       "Website prompt + two-part Gemini video commercial prompt (two-in-one pack)",
       "Hero, macro-detail and orbit shot direction",
-      "Complete source on the source tier",
+      "Complete source included",
       "Preview video of the full scroll experience",
     ],
   },
@@ -214,12 +197,11 @@ export const PRODUCTS: Product[] = [
     tagline: "A cinematic architectural journey for ultra-luxury hospitality",
     description:
       "An Awwwards/FWA-quality hotel site built around three cinematic videos — frame-perfect scroll sync, advanced motion design, minimal UI and 3D overlays. Compares to Apple, Aman, Bulgari, Lexus.",
-    prices: { prompt: 2900, source: 4900 },
     tags: ["hospitality", "video-driven", "react + three.js"],
     includes: [
       "Full build prompt (frame-perfect video-sync motion spec)",
       "Three-video shot list & section mapping",
-      "Complete source on the source tier",
+      "Complete source included",
       "Preview video of the full scroll experience",
     ],
   },
@@ -229,12 +211,11 @@ export const PRODUCTS: Product[] = [
     tagline: "A scroll-driven watch disassembly & reassembly story",
     description:
       "An Awwwards-winning personal-brand portfolio — 12 cinematic videos of a watch coming apart and returning home, GSAP/ScrollTrigger animation, 3D transforms. Includes both the website brief and the video storyboard prompt.",
-    prices: { prompt: 2900, source: 4900 },
     tags: ["portfolio", "video-driven", "html/css/js"],
     includes: [
       "Website prompt + video storyboard prompt (two-in-one pack)",
       "12-clip shot list mapped to scroll sections",
-      "Complete source on the source tier",
+      "Complete source included",
       "Preview video of the full scroll experience",
     ],
   },
@@ -244,14 +225,13 @@ export const PRODUCTS: Product[] = [
     tagline: "Scroll builds the mall, frame by frame",
     description:
       "A construction-journey site where nothing plays on its own — the scrollbar becomes the timeline. Every pixel scrolled advances an empty plot toward a finished luxury mall, and scrolling back tears it down again. Includes the full interaction brief plus the video prompts that generated the four cinematic phases.",
-    prices: { prompt: 2900, source: 5400 },
     previewUrl: "/real-estate.html",
     tags: ["real estate", "video-driven", "next.js + gsap"],
     includes: [
       "Website brief + four-phase video prompt pack (two-in-one)",
       "Frame-to-scroll scrub spec (no autoplay, fully reversible)",
       "Phase boundaries, story beats and loading-sequence direction",
-      "Complete source on the source tier",
+      "Complete source included",
     ],
     featured: true,
   },
@@ -261,14 +241,13 @@ export const PRODUCTS: Product[] = [
     tagline: "A resellable landing-page theme built around a WebGL orb",
     description:
       "A premium theme for AI and LLM startups, anchored by a 12,000-point GLSL particle orb that reacts to the cursor and shrinks as you scroll. Eleven sections — bento showcase, live token counter, pricing toggle, FAQ — with every colour, metric and shader parameter kept in one config file so a founder can rebrand it in an afternoon.",
-    prices: { prompt: 2900, source: 5900 },
     previewUrl: "/nucleus-design.html",
     tags: ["ai startup", "landing page", "react + three.js"],
     includes: [
       "Full build prompt — 11 sections, design system, shader spec",
       "GLSL vertex/fragment direction for the nucleus orb and bloom pass",
       "Single-file rebrand config so the theme resells cleanly",
-      "Complete source on the source tier",
+      "Complete source included",
     ],
   },
   {
@@ -277,13 +256,12 @@ export const PRODUCTS: Product[] = [
     tagline: "A scroll-driven 3D product page for gadgets and hardware",
     description:
       "A resellable landing-page theme for hardware startups, built around a scroll-pinned 3D turntable — the product rotates 360° as you scroll, then explodes into labeled parts with drawn-on callout lines. The procedural gadget ships with zero asset files, and a live color configurator lets buyers preview material swaps in real time. Swap in a real .glb by editing one path in config.",
-    prices: { prompt: 2900, source: 5900 },
     tags: ["hardware", "landing page", "react + three.js"],
     includes: [
       "Full build prompt — 11 sections, motion spec, StudioStage lighting rig",
       "Scroll-pinned rotation + exploded-view choreography, with callout-line direction",
       "Single-file rebrand config, including the one-line .glb swap slot",
-      "Complete source on the source tier",
+      "Complete source included",
     ],
   },
   {
@@ -292,13 +270,12 @@ export const PRODUCTS: Product[] = [
     tagline: "A futuristic FWA-grade portfolio, built to not look AI-made",
     description:
       "A resellable agency/portfolio theme built around a custom cursor that morphs into 'Drag' and 'View' labels, and a pinned horizontal gallery where each project tile ripples under a WebGL hover-distortion shader. Kinetic type, a word-by-word manifesto reveal, and a magnetic contact CTA round it out — one acid-green accent, everything else restrained.",
-    prices: { prompt: 2900, source: 5900 },
     tags: ["agency", "landing page", "react + three.js"],
     includes: [
       "Full build prompt — 10 sections, custom-cursor and shader spec",
       "WebGL hover-distortion shader direction + horizontal-gallery choreography",
       "Matching Google Flow prompts for all 6 project thumbnails + 3 video loops",
-      "Complete source on the source tier",
+      "Complete source included",
     ],
   },
 ];

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SignInModal from "@/components/auth/SignInModal";
 import type { PlanId } from "@/lib/products";
 
 export default function PlanButton({
@@ -12,6 +13,7 @@ export default function PlanButton({
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [needsSignIn, setNeedsSignIn] = useState(false);
 
   async function checkout() {
     setLoading(true);
@@ -22,6 +24,11 @@ export default function PlanButton({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ plan }),
       });
+      if (res.status === 401) {
+        setNeedsSignIn(true);
+        setLoading(false);
+        return;
+      }
       const data = await res.json();
       if (!res.ok || !data.url) throw new Error(data.error ?? "Checkout failed");
       window.location.assign(data.url);
@@ -45,6 +52,14 @@ export default function PlanButton({
         {loading ? "Redirecting…" : "Get started"}
       </button>
       {error && <p className="mt-2 text-center text-sm text-red-400">{error}</p>}
+      <SignInModal
+        open={needsSignIn}
+        onClose={() => setNeedsSignIn(false)}
+        onSignedIn={() => {
+          setNeedsSignIn(false);
+          checkout();
+        }}
+      />
     </div>
   );
 }

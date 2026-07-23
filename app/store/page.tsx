@@ -17,8 +17,9 @@ export default function StorePage() {
           <span className="grad-text">Everything in the store</span>
         </h1>
         <p className="mt-3 max-w-xl text-ink-dim">
-          Every website comes with a preview of the real build — unlock the
-          prompt behind it, the complete source code, or go All-Access.
+          Every website comes with a preview of the real build. One
+          All-Access plan unlocks the prompt and complete source behind
+          every one of them.
         </p>
       </div>
       <div className="mt-10">
