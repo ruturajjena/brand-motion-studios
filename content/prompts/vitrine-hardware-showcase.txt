@@ -1,0 +1,63 @@
+You are a senior creative front-end engineer who ships award-winning (Awwwards / FWA level) product pages. Build a premium, sellable landing-page theme called "Vitrine" — a scroll-driven 3D product showcase for a hardware / gadget / physical-product startup. This is a reusable template a buyer will rebrand, so keep all copy, colors, and the model path in a single config file. Prioritize motion quality, lighting, and performance.
+
+## Tech stack
+
+- Next.js 14 (App Router) + TypeScript
+- Tailwind CSS for layout
+- Three.js via `@react-three/fiber` + `@react-three/drei`
+- `@react-three/postprocessing` for bloom + subtle depth of field
+- `framer-motion` + `lenis` for scroll orchestration
+- `lucide-react` for icons
+- No required asset files. The hero product is procedural. Structure it so a real `.glb` can replace it by editing one path in config.
+
+## Design system (`/config/theme.ts`)
+
+- Mood: premium industrial, gallery-like, "expensive hardware." Think Apple product page × Teenage Engineering × Nothing.
+- Two switchable palettes in config: Light gallery (`#F5F5F3` bg, charcoal text, one accent) and Dark studio (`#0A0A0B` bg, white text, neon accent). Default to Dark studio.
+- Accent: single configurable color (default warm amber `#FF8A3D`); use for callout lines and CTA only.
+- Type: tight display font for headlines (Geist / Neue Haas feel), clean body. Generous negative space, product is the hero.
+- All strings, feature callouts, specs, colors, and the model path live in `theme.ts`.
+
+## The signature element — scroll-pinned rotating product
+
+- A StudioStage component: the product sits on an invisible turntable in a soft studio-lit environment (`Environment` preset "studio" or custom HDRI-less 3-point lighting with area lights + soft shadows via `ContactShadows`).
+- Placeholder product (default): build a convincing gadget from primitives — a rounded-cube body (bevelled via `RoundedBox`), a circular speaker grille or screen face, a metallic knob/button, a subtle emissive indicator light. Use physically-based materials (`meshPhysicalMaterial`: metalness, roughness, clearcoat) so it reads as real hardware, not a toy.
+- Model swap slot: in `theme.ts` expose `product: { type: 'procedural' | 'glb', glbPath?: string }`. If `glb`, load with `useGLTF` and auto-center/auto-scale it. Ship with `procedural` as default so it runs with no files.
+- Scroll-pinned rotation: pin the canvas for the length of the showcase. As the user scrolls, the product rotates 360°+ on Y (and a slight X tilt), driven by scroll progress — not time. Smooth via Lenis + damped lerp so it never feels jittery.
+- Exploded view: at a defined scroll point, the product's parts separate along their normals (body, top, internals) with a smooth spring, revealing labeled feature callouts. Scrolling back reassembles it.
+- Idle micro-motion when not scrolling: gentle float + slow auto-rotate so it's never dead.
+- Bloom on the emissive indicator, subtle DoF so the product is crisp and the background falls off.
+- `prefers-reduced-motion`: static hero, no exploded animation. Mobile: simplify lighting, cap pixel ratio at 2, disable DoF.
+
+## Page sections (in order)
+
+1. Sticky nav — logo, links (Product, Specs, Pricing, Buy), a solid accent "Buy now" button. Blurs on scroll.
+2. Hero — the product front-and-center on the studio stage, big product name, one-line tagline, price + "Buy" CTA. Headline reveals with blur-up + slide; product fades/scales in on load.
+3. Scroll-rotate showcase (pinned) — the tall pinned section where the product turns as you scroll. Short feature lines fade in on the side, synced to rotation angle (front → "Feature A", side → "Feature B", back → "Feature C").
+4. Exploded-view section — product separates into parts with animated callout lines pointing to each (materials, chip, battery, sensor). Lines draw in; labels are glass chips.
+5. Spec grid — bento-style technical specs (dimensions, weight, battery, connectivity) with animated number counters and tiny looping micro-diagrams (CSS/canvas, no images).
+6. Materials / detail band — extreme "macro" framing: camera pushes close to a surface detail, text describes build quality. (Move the camera, not the product.)
+7. In-context / lifestyle — a stylized scene or gradient environment change showing the product "in use" (swap the stage environment tint + add a subtle floor reflection). No photos required.
+8. Pricing / configurator — color/variant switcher that changes the product's material color live in the 3D view (this is a wow moment — buyers love it). Below it, price and CTA.
+9. Reviews / trust — short quote cards, a rating row, press logos marquee (SVG/text).
+10. Big CTA — product reappears with a strong "Buy now" and shipping line.
+11. Footer — columns, socials, "Built with Vitrine" credit, thin accent rule.
+
+## Motion rules (this is what justifies the price)
+
+- Everything reveals — blur(8px)→0, translateY(24px)→0, staggered, `ease:[0.16,1,0.3,1]`.
+- The product rotation is scroll-driven and damped — buttery, never linear/janky. This is the make-or-break detail; spend time here.
+- The variant color-switch animates the material (lerp the color), doesn't hard-cut.
+- Callout lines in the exploded view draw on (SVG path length animation or drei `Line` with progress).
+- Respect `prefers-reduced-motion`.
+
+## Performance & quality bar
+
+- Lazy-load the canvas; dynamic-import with `ssr:false`. Suspense fallback = a blurred accent glow.
+- Lighthouse 90+ desktop, no layout shift, `next/font`.
+- Fully responsive at 375 / 768 / 1440 — on mobile the pinned section still works but with lighter lighting and lower particle/shadow cost.
+- Clean, typed, commented. One component per section under `/components/sections`, the 3D under `/components/stage`. Single `theme.ts`. A `README.md` telling a buyer how to: change colors, swap in their `.glb` (one line), edit specs, deploy to Vercel.
+
+## Deliverable
+
+A runnable Next.js repo. `npm run dev` shows the full page with the live rotating procedural product, exploded view, and working color configurator — no asset files needed. Make it feel like a $250 premium hardware template. Scaffold the project + `theme.ts` first, then the StudioStage + procedural product, then the pinned scroll-rotate, then the remaining sections.

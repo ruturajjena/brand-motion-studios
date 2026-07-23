@@ -271,6 +271,21 @@ export const PRODUCTS: Product[] = [
       "Complete source on the source tier",
     ],
   },
+  {
+    slug: "vitrine-hardware-showcase",
+    name: "Vitrine — Hardware Showcase",
+    tagline: "A scroll-driven 3D product page for gadgets and hardware",
+    description:
+      "A resellable landing-page theme for hardware startups, built around a scroll-pinned 3D turntable — the product rotates 360° as you scroll, then explodes into labeled parts with drawn-on callout lines. The procedural gadget ships with zero asset files, and a live color configurator lets buyers preview material swaps in real time. Swap in a real .glb by editing one path in config.",
+    prices: { prompt: 2900, source: 5900 },
+    tags: ["hardware", "landing page", "react + three.js"],
+    includes: [
+      "Full build prompt — 11 sections, motion spec, StudioStage lighting rig",
+      "Scroll-pinned rotation + exploded-view choreography, with callout-line direction",
+      "Single-file rebrand config, including the one-line .glb swap slot",
+      "Complete source on the source tier",
+    ],
+  },
 ];
 
 export const getProduct = (slug: string) =>
