@@ -1,0 +1,68 @@
+You are a senior creative front-end engineer who ships award-winning (Awwwards level) developer-product sites. Build a premium, sellable landing-page theme called "Mesh" for an AI agent / automation / workflow (n8n / MCP / agent-orchestration) startup. This is a reusable template a founder will rebrand, so keep all copy, colors, and node/graph config in a single config file. The signature feature is a living node-graph that reacts to scroll. Prioritize that motion and overall performance.
+
+## Tech stack
+
+- Next.js 14 (App Router) + TypeScript
+- Tailwind for layout
+- The node-graph: HTML5 Canvas 2D (preferred for crisp lines + performance) OR `@react-three/fiber` if you go WebGL — pick Canvas 2D for reliability and sharp edges.
+- `framer-motion` for section reveals + scroll progress, `lenis` for smooth scroll
+- `lucide-react` for icons
+- No asset files. No external APIs. Self-contained.
+
+## Design system (`/config/theme.ts`)
+
+- Mood: technical, precise, "intelligent infrastructure." Think n8n × Linear × Vercel × a network diagram.
+- Background: deep blue-black `#08090D` with a faint grid or dotted backdrop.
+- Accent gradient: emerald `#34D399` → cyan `#22D3EE` for the "active" data flow; inactive nodes are muted slate. A secondary violet `#8B5CF6` for a second agent "type."
+- Surfaces: glass cards, `1px` hairline borders `rgba(255,255,255,0.08)`, backdrop-blur, 14–18px radius.
+- Type: clean grotesk (Inter/Geist), plus a monospace (`Geist Mono`) for node labels, code, and technical accents. Monospace is a key part of the "automation" feel.
+- All strings, nav, features, node labels, pricing, colors in `theme.ts`.
+
+## THE signature element — the living node-graph
+
+Build a reusable `NodeGraph` canvas component:
+
+- Nodes: rounded rectangles or circles with a small monospace label + icon (e.g. "Trigger", "LLM", "HTTP", "Filter", "Agent", "Output") and a status dot. Positioned in a loose left-to-right workflow layout.
+- Edges: smooth bezier curves between nodes (n8n-style orthogonal-ish or curved connectors).
+- Flowing pulses: small glowing dots travel along the edges from source → target on a loop, in the accent gradient — this is the "workflow is running" effect. Vary speed slightly per edge.
+- Glow: nodes emit a soft bloom; active nodes (currently receiving a pulse) brighten momentarily.
+- Scroll reactivity (the premium part): as the user scrolls the page, the graph builds and animates — early scroll: a couple nodes + one edge draw in; deeper scroll: more nodes appear, more edges connect, pulses accelerate, the whole workflow "comes alive." Tie graph state to scroll progress. Scrolling back reverses it.
+- Cursor parallax: the graph drifts subtly with the mouse for depth. Nodes near the cursor lift/glow slightly.
+- Performance: requestAnimationFrame, offscreen when out of view, cap node count on mobile (~8 nodes vs ~16 desktop), devicePixelRatio-aware crisp rendering.
+- Reduced motion: static graph, no pulses.
+- Expose node/edge data in `theme.ts` so a buyer edits the workflow labels/shape without touching canvas code.
+
+## Page sections (in order)
+
+1. Sticky nav — logo, links (Product, Integrations, Docs, Pricing), a glowing "Start building" pill. Blur on scroll.
+2. Hero — the node-graph is the background/right-side visual, building as it loads. Headline ("Ship agents that actually do the work" / configurable), monospace subhead, two CTAs. A small "connects with 100+ tools" line + integration logo marquee (SVG/text).
+3. Integration marquee — infinite scroll of tool names/logos (Slack, Gmail, Notion, GitHub, etc. as text/SVG placeholders), grayscale, color on hover.
+4. How it works (scroll-pinned) — 3 steps (Trigger → Reason → Act). As the user scrolls, the relevant node in a focused mini-graph highlights and a pulse runs through it. Text explains each step beside it.
+5. Feature grid — glass cards with monospace headers: "Multi-step agents", "Human-in-the-loop", "Observability", "Self-hosted / MCP". Icons, border-glow follows cursor.
+6. Live workflow showcase (bento) — an asymmetric bento where the big cell shows a larger interactive-looking workflow graph running, smaller cells show: a streaming-token text effect, a toggle, a live log feed (fake, animated monospace lines), a latency counter.
+7. Code / MCP block — a dark code card with syntax-highlighted, "typing" config or an MCP snippet, a copy button. Speaks to the developer audience.
+8. Metrics band — animated counters ("2.4M tasks automated", "120ms median step", "99.9% uptime").
+9. Pricing — 3 tiers, middle elevated with accent glow + "Most popular", monthly/annual toggle, a "self-hosted / open-source" tier (fits this audience).
+10. FAQ — accordion, smooth height.
+11. Big CTA — the full node-graph reappears faint and fully "running" behind a huge headline + button.
+12. Footer — columns, socials, status-page link, "Built with Mesh" credit, a thin gradient rule.
+
+## Motion rules
+
+- Everything reveals — blur(8px)→0, translateY(24px)→0, staggered, `ease:[0.16,1,0.3,1]`.
+- The graph is the star: pulses always flowing, graph building on scroll — never static/dead.
+- Micro-interactions: buttons glow-sweep, cards tilt + border-glow, code block copy feedback, log feed auto-scrolls.
+- Monospace numbers count up on scroll-in.
+- Lenis-synced scroll progress drives graph state.
+- Full `prefers-reduced-motion` path.
+
+## Performance & quality bar
+
+- Canvas graph on its own rAF loop, paused when offscreen; lazy-mount heavy sections.
+- Lighthouse 90+ desktop, no layout shift, `next/font`.
+- Responsive at 375 / 768 / 1440 — mobile uses a simpler graph (fewer nodes, slower pulses, no cursor parallax).
+- Clean, typed, commented. Sections under `/components/sections`, graph under `/components/graph` (with a `NodeGraph.tsx` + `graph.config.ts`). Single `theme.ts`. `README.md`: how to edit the workflow (node/edge array), change colors, deploy to Vercel.
+
+## Deliverable
+
+A runnable Next.js repo. `npm run dev` shows the node-graph building on scroll, flowing pulses, and all sections — no asset files. Make it feel like a $250 premium template. Scaffold project + `theme.ts` + the `NodeGraph` canvas component first (get pulses + scroll-build working and smooth), then the hero, then remaining sections.

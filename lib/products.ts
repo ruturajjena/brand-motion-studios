@@ -278,6 +278,20 @@ export const PRODUCTS: Product[] = [
       "Complete source included",
     ],
   },
+  {
+    slug: "mesh-agent-workflow",
+    name: "Mesh — AI Agent Workflow Theme",
+    tagline: "A living node-graph that builds as you scroll",
+    description:
+      "A resellable landing-page theme for AI agent, automation and MCP startups — n8n × Linear × Vercel. Its signature is a Canvas 2D node-graph that builds node-by-node as you scroll, with glowing pulses flowing along the edges like a workflow that's actually running. Twelve sections, a live 'watch it run' bento, and an MCP code block — every node, edge and colour lives in one config file so a founder can rewire the workflow without touching canvas code.",
+    tags: ["ai agents", "landing page", "next.js + canvas"],
+    includes: [
+      "Full build prompt — 12 sections, NodeGraph canvas spec, motion rules",
+      "Scroll-driven graph-build + flowing-pulse direction with cursor parallax",
+      "Single-file node/edge config so the workflow rewires without canvas code",
+      "Complete source included",
+    ],
+  },
 ];
 
 export const getProduct = (slug: string) =>
