@@ -286,6 +286,21 @@ export const PRODUCTS: Product[] = [
       "Complete source on the source tier",
     ],
   },
+  {
+    slug: "studio-creative-agency",
+    name: "Studio — Creative Agency Theme",
+    tagline: "A futuristic FWA-grade portfolio, built to not look AI-made",
+    description:
+      "A resellable agency/portfolio theme built around a custom cursor that morphs into 'Drag' and 'View' labels, and a pinned horizontal gallery where each project tile ripples under a WebGL hover-distortion shader. Kinetic type, a word-by-word manifesto reveal, and a magnetic contact CTA round it out — one acid-green accent, everything else restrained.",
+    prices: { prompt: 2900, source: 5900 },
+    tags: ["agency", "landing page", "react + three.js"],
+    includes: [
+      "Full build prompt — 10 sections, custom-cursor and shader spec",
+      "WebGL hover-distortion shader direction + horizontal-gallery choreography",
+      "Matching Google Flow prompts for all 6 project thumbnails + 3 video loops",
+      "Complete source on the source tier",
+    ],
+  },
 ];
 
 export const getProduct = (slug: string) =>

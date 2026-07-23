@@ -1,0 +1,81 @@
+You are a senior creative developer who wins Awwwards / FWA Site of the Day. Build a premium, sellable agency/creative-portfolio theme called "Studio" — futuristic, editorial, heavily scroll-animated. This is a reusable template a design studio will rebrand, so keep all copy, colors, and project data in a single config file. The bar is: it must NOT look like an AI-generated site. Motion, typography, and restraint are everything.
+
+## Tech stack
+
+- Next.js 14 (App Router) + TypeScript
+- Tailwind for layout, but typography is bespoke (custom scale, not default)
+- `lenis` for smooth scroll; `framer-motion` for reveals and scroll progress
+- Three.js via `@react-three/fiber` + custom GLSL shaders for the image hover-distortion and transitions
+- `lucide-react` sparingly
+- Assets live in `/public/projects/`; all project entries (title, category, year, image/video path) live in `theme.ts` so a buyer swaps their own work by editing one array.
+
+## Design system (`/config/theme.ts`)
+
+- Mood: futuristic gallery, high-fashion tech, "expensive studio." Think Obys / Locomotive / Active Theory.
+- Palette: near-black `#0B0B0D` bg, off-white `#EDEBE7` text, ONE electric accent (default acid green `#C8FF3D`) used only for the cursor, hovers, and small marks.
+- Type: an oversized display face (variable, tight tracking, e.g. `Clash Display` / `Neue Montreal`) for kinetic headlines; a clean grotesk for body. Headlines can hit 12–20vw. Type IS the design.
+- Grid: asymmetric editorial grid, wide margins, intentional whitespace, thin rules.
+- All copy, nav, projects, colors, cursor style in `theme.ts`.
+
+## Signature elements (these justify the premium price)
+
+1. Custom cursor — a small circle that scales up on hover over projects, morphs into a "View" / "Drag" label over the gallery, inverts color over dark/light sections. Smooth trailing lerp, hidden native cursor. Reduced-motion + touch fallback to native cursor.
+2. WebGL image hover-distortion — each project tile is a Three.js plane with the image as texture. On hover, a shader ripples / RGB-shifts / liquid-warps the image toward the cursor; on mouse-leave it settles. This is the headline feature — make it smooth and tasteful, not gimmicky.
+3. Horizontal-scroll project gallery — a pinned section where vertical scroll drives horizontal movement through the projects (Lenis + transform). Projects scale/parallax slightly as they enter center. The custom cursor shows "Drag" here.
+4. Kinetic type — headlines that animate on scroll: mask-reveal per line, letters sliding up, a marquee of the studio name, and a big scroll-velocity-reactive headline (skews/stretches with scroll speed).
+5. Page transitions — a full-screen wipe/curtain (accent color) between hero → work → about, with the incoming section revealing beneath.
+
+## Page sections (in order)
+
+1. Preloader — studio name assembling + a 0→100 counter, then a curtain lifts into the hero. (Keep it under ~1.5s.)
+2. Hero — oversized kinetic headline ("We design the future" / studio tagline), studio name marquee, a scroll cue. One featured video loop plays subtly in a masked shape behind/beside the type.
+3. Intro / manifesto — a large statement paragraph where words highlight in the accent color as they scroll into view (word-by-word reveal).
+4. Selected work (horizontal-scroll gallery) — the pinned horizontal gallery of the 6 projects with WebGL hover-distortion. Each tile: image/video, title, category, year. Cursor shows "View".
+5. Featured project spotlight — one large project with an autoplay video loop, big title, scroll-parallax, and a "next project" hint.
+6. Services / capabilities — an interactive list (Design, Motion, 3D, Development) where hovering a row reveals a related visual and shifts the layout. Big type, thin dividers.
+7. About / team — editorial two-column, a marquee of clients (SVG/text logos), an animated stat row (counters).
+8. Awards / recognition — a clean list with hover states, accent marks.
+9. Contact / big CTA — enormous "Let's talk" headline that reacts to the cursor, an email link with a magnetic hover button (button pulls toward cursor).
+10. Footer — studio name marquee again, socials, local time clock, "Built with Studio" credit.
+
+## Motion rules
+
+- Nothing pops in — line-mask reveals, blur-up, staggered. `ease:[0.16,1,0.3,1]`.
+- Scroll-velocity affects hero type (skew/scale) — subtle, premium.
+- Magnetic hovers on buttons + project tiles.
+- One strong moment per viewport; lots of breathing room between.
+- Everything synced through Lenis scroll progress.
+- Full `prefers-reduced-motion` path: disable distortion/curtains, keep simple fades. Touch devices: horizontal gallery becomes swipe, custom cursor off.
+
+## Performance & quality bar
+
+- Lazy-load all WebGL; dynamic-import `ssr:false`; compress textures; cap DPR at 2.
+- Videos: muted, `playsInline`, `loop`, lazy, poster fallback.
+- Lighthouse 85+ desktop despite the WebGL (be smart: only render shaders in view).
+- Responsive at 375 / 768 / 1440 — mobile keeps the vibe with lighter effects.
+- Clean, typed, commented. Sections under `/components/sections`, WebGL under `/components/gl`, shaders in `/shaders`. Single `theme.ts`. `README.md`: how to swap projects (edit the array + drop files in `/public/projects/`), change accent color, deploy to Vercel.
+
+## Deliverable
+
+A runnable Next.js repo. `npm run dev` shows the preloader → kinetic hero → horizontal gallery with working hover-distortion → all sections, using the placeholder assets in `/public/projects/`. Make it feel like a $300+ premium agency template. Scaffold project + `theme.ts` + Lenis/cursor first, then the hero + kinetic type, then the WebGL gallery + distortion shader, then remaining sections.
+
+---
+
+## ASSETS — Google Flow prompts
+
+Generate all of these in the SAME art direction so they look like one studio's portfolio. Shared style tokens to keep in every prompt: "dark futuristic, cinematic, acid-green accent light, high detail, no text, no watermark, editorial."
+
+### 6 project thumbnails (images) — 4:5 portrait
+
+1. Futuristic abstract product visual, a chrome liquid-metal sculpture floating over a dark studio background, single acid-green rim light, cinematic, ultra sharp, editorial, no text — 4:5 portrait.
+2. Cinematic architecture render, a brutalist concrete structure at dusk with glowing acid-green interior light, moody fog, futuristic, high detail, no text — 4:5 portrait.
+3. Macro shot of iridescent holographic material folding and rippling, dark background, neon green highlights, premium abstract texture, no text — 4:5 portrait.
+4. Futuristic wearable tech gadget on a matte dark surface, soft studio light with a green accent glow, industrial design, sharp focus, no text — 4:5 portrait.
+5. Abstract 3D typographic sculpture made of glossy black and chrome shapes floating in dark space, acid-green edge lighting, cinematic, no readable text — 4:5 portrait.
+6. Dark editorial fashion-tech portrait lit with a single green light, reflective visor, futuristic, high contrast, cinematic, no text — 4:5 portrait.
+
+### 2–3 featured video loops — ~10s seamless, muted
+
+1. (Hero) — Slow cinematic push through swirling chrome liquid metal in dark space with drifting acid-green light reflections, seamless loop, no text, 16:9, 10 seconds.
+2. (Featured project) — A holographic iridescent surface slowly rippling and morphing, dark background, subtle green glow, seamless loop, no text, 4:5, 10 seconds.
+3. (Optional) — Slow orbit around a futuristic matte-black gadget on a studio pedestal, single green rim light, shallow depth of field, seamless loop, no text, 16:9, 10 seconds.
