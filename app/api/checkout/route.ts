@@ -18,7 +18,16 @@ export async function POST(req: Request) {
 
   const user = await getServerUser();
   if (!user) {
-    return NextResponse.json({ error: "Sign in first" }, { status: 401 });
+    return NextResponse.json(
+      {
+        error: "Sign in first",
+        debug: {
+          hasUrl: Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL),
+          hasAnon: Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
+        },
+      },
+      { status: 401 }
+    );
   }
 
   const origin =
