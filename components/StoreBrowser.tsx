@@ -1,11 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import ProductCard from "@/components/ProductCard";
-import type { PreviewMedia } from "@/lib/media";
-import type { Product } from "@/lib/products";
-
-type Entry = { product: Product; media: PreviewMedia };
+import ProductGrid, { type Entry } from "@/components/ProductGrid";
 
 /** Lowercase + strip accents so "cafe" matches "Café". */
 const fold = (s: string) =>
@@ -15,10 +11,17 @@ const fold = (s: string) =>
     .replace(/[̀-ͯ]/g, "");
 
 /**
- * Store layout: sticky left sidebar (search + categories from tags) and the
- * product grid on the right.
+ * Store layout: a filter bar on top (category pills left, search right) and
+ * the product grid below. Clicking a card opens the product in a modal in
+ * place rather than navigating to a detail page.
  */
-export default function StoreBrowser({ entries }: { entries: Entry[] }) {
+export default function StoreBrowser({
+  entries,
+  signedIn,
+}: {
+  entries: Entry[];
+  signedIn: boolean;
+}) {
   const [query, setQuery] = useState("");
   const [tag, setTag] = useState<string | null>(null);
 
@@ -41,65 +44,57 @@ export default function StoreBrowser({ entries }: { entries: Entry[] }) {
     return true;
   });
 
-  const itemBtn = (active: boolean) =>
-    `flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition ${
+  const pill = (active: boolean) =>
+    `shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-sm transition ${
       active
-        ? "bg-surface-2 text-gold-bright"
-        : "text-ink-dim hover:bg-surface hover:text-ink"
+        ? "border-gold/50 bg-surface-2 text-gold-bright"
+        : "border-line text-ink-dim hover:border-line-strong hover:text-ink"
     }`;
 
   return (
-    <div className="flex flex-col gap-10 lg:flex-row">
-      {/* Sidebar */}
-      <aside className="w-full shrink-0 lg:sticky lg:top-24 lg:h-fit lg:w-60">
-        <label className="relative block">
-          <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-faint">
-            ⌕
-          </span>
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search designs…"
-            className="w-full rounded-xl border border-line bg-surface px-9 py-2.5 text-sm text-ink outline-none transition placeholder:text-ink-faint focus:border-line-strong"
-          />
-        </label>
-
-        <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-faint">
-          Categories
-        </p>
-        <div className="mt-2 space-y-1">
-          <button onClick={() => setTag(null)} className={itemBtn(tag === null)}>
-            <span>All</span>
-            <span className="text-xs text-ink-faint">{entries.length}</span>
+    <div>
+      {/* Filter bar — pills left, search right; stacks on mobile */}
+      <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 sm:pb-0">
+          <button onClick={() => setTag(null)} className={pill(tag === null)}>
+            All <span className="text-ink-faint">{entries.length}</span>
           </button>
           {tags.map(([t, count]) => (
             <button
               key={t}
               onClick={() => setTag(tag === t ? null : t)}
-              className={`${itemBtn(tag === t)} capitalize`}
+              className={`${pill(tag === t)} capitalize`}
             >
-              <span>{t}</span>
-              <span className="text-xs text-ink-faint">{count}</span>
+              {t} <span className="text-ink-faint">{count}</span>
             </button>
           ))}
         </div>
-      </aside>
+
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="flex shrink-0 items-center gap-2 rounded-xl border border-line bg-surface px-2 py-1.5 transition focus-within:border-line-strong sm:w-64"
+        >
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search designs…"
+            className="min-w-0 flex-1 bg-transparent px-2 text-sm text-ink outline-none placeholder:text-ink-faint"
+          />
+          <button
+            type="submit"
+            aria-label="Search"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-surface-2 text-ink-dim transition hover:text-gold-bright"
+          >
+            ⌕
+          </button>
+        </form>
+      </div>
 
       {/* Grid */}
-      <div className="min-w-0 flex-1">
+      <div className="mt-8">
         {filtered.length ? (
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {filtered.map(({ product, media }, i) => (
-              <div
-                key={product.slug}
-                className="rise"
-                style={{ "--reveal-delay": `${(i % 3) * 0.08}s` } as React.CSSProperties}
-              >
-                <ProductCard product={product} media={media} />
-              </div>
-            ))}
-          </div>
+          <ProductGrid entries={filtered} signedIn={signedIn} />
         ) : (
           <div className="flex flex-col items-center rounded-2xl border border-line py-24 text-center">
             <p className="font-display text-xl font-bold text-ink-dim">

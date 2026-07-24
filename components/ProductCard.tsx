@@ -1,4 +1,3 @@
-import Link from "next/link";
 import PreviewThumb from "@/components/PreviewThumb";
 import TiltCard from "@/components/TiltCard";
 import type { PreviewMedia } from "@/lib/media";
@@ -7,23 +6,25 @@ import type { Product } from "@/lib/products";
 export default function ProductCard({
   product,
   media,
+  onOpen,
 }: {
   product: Product;
   media: PreviewMedia;
+  onOpen: () => void;
 }) {
   return (
     <TiltCard className="h-full">
-      <div className="card group flex h-full flex-col overflow-hidden rounded-2xl">
-        <Link href={`/store/${product.slug}`} className="block">
-          <PreviewThumb name={product.name} media={media} />
-        </Link>
+      <button
+        type="button"
+        onClick={onOpen}
+        className="card group flex h-full w-full flex-col overflow-hidden rounded-2xl text-left"
+      >
+        <PreviewThumb name={product.name} media={media} />
         <div className="flex flex-1 flex-col p-5">
-          <Link href={`/store/${product.slug}`} className="block">
-            <h3 className="font-display text-lg font-bold leading-snug transition-colors group-hover:text-gold-bright">
-              {product.name}
-            </h3>
-            <p className="mt-1 text-sm text-ink-dim">{product.tagline}</p>
-          </Link>
+          <h3 className="font-display text-lg font-bold leading-snug transition-colors group-hover:text-gold-bright">
+            {product.name}
+          </h3>
+          <p className="mt-1 text-sm text-ink-dim">{product.tagline}</p>
           <div className="mt-3 flex flex-wrap gap-1.5">
             {product.tags.map((t) => (
               <span
@@ -38,15 +39,12 @@ export default function ProductCard({
             <span className="text-xs uppercase tracking-wider text-gold">
               All-Access
             </span>
-            <Link
-              href={`/store/${product.slug}`}
-              className="rounded-full border border-line px-4 py-2 text-sm font-medium text-ink-dim transition hover:border-line-strong hover:text-ink"
-            >
+            <span className="rounded-full border border-line px-4 py-2 text-sm font-medium text-ink-dim transition group-hover:border-line-strong group-hover:text-ink">
               View project →
-            </Link>
+            </span>
           </div>
         </div>
-      </div>
+      </button>
     </TiltCard>
   );
 }

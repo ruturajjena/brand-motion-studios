@@ -1,14 +1,17 @@
 import StoreBrowser from "@/components/StoreBrowser";
 import { getPreviewMedia } from "@/lib/media";
 import { PRODUCTS } from "@/lib/products";
+import { getServerUser } from "@/lib/supabase/server";
 
 export const metadata = { title: "Store" };
 
-export default function StorePage() {
+export default async function StorePage() {
   const entries = PRODUCTS.map((product) => ({
     product,
     media: getPreviewMedia(product.slug),
   }));
+
+  const user = await getServerUser();
 
   return (
     <div className="mx-auto w-full max-w-7xl px-6 py-14">
@@ -23,7 +26,7 @@ export default function StorePage() {
         </p>
       </div>
       <div className="mt-10">
-        <StoreBrowser entries={entries} />
+        <StoreBrowser entries={entries} signedIn={!!user} />
       </div>
     </div>
   );

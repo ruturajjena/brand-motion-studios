@@ -1,14 +1,17 @@
 import Link from "next/link";
 import EditorialHero from "@/components/experience/EditorialHero";
-import ProductCard from "@/components/ProductCard";
+import ProductGrid from "@/components/ProductGrid";
 import { getPreviewMedia } from "@/lib/media";
 import { PLANS, PRODUCTS, formatPrice } from "@/lib/products";
+import { getServerUser } from "@/lib/supabase/server";
 
-export default function Home() {
+export default async function Home() {
   const entries = PRODUCTS.map((product) => ({
     product,
     media: getPreviewMedia(product.slug),
   }));
+
+  const user = await getServerUser();
 
   return (
     <>
@@ -31,16 +34,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {entries.map(({ product, media }, i) => (
-              <div
-                key={product.slug}
-                data-reveal
-                style={{ "--reveal-delay": `${(i % 3) * 0.08}s` } as React.CSSProperties}
-              >
-                <ProductCard product={product} media={media} />
-              </div>
-            ))}
+          <div className="mt-16">
+            <ProductGrid
+              entries={entries}
+              signedIn={!!user}
+              reveal="reveal"
+              gapClass="gap-6"
+            />
           </div>
 
           <div className="mt-14 flex justify-center" data-reveal>
