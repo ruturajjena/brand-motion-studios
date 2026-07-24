@@ -1,0 +1,64 @@
+You are a senior creative front-end engineer who ships award-winning app-landing pages. Build a premium, sellable landing-page theme called "Handset" for a mobile app (consumer or productivity). This is a reusable template a founder will rebrand, so keep all copy, colors, and screen content in a single config file. The signature feature is a scroll-pinned phone whose screen changes as the user scrolls. Prioritize that interaction and performance.
+
+## Tech stack
+
+- Next.js 14 (App Router) + TypeScript
+- Tailwind CSS for layout
+- `framer-motion` for scroll orchestration + reveals, `lenis` for smooth scroll
+- `lucide-react` for icons
+- No asset files. The phone frame is CSS/SVG; app screens are HTML/CSS components. Use official App Store / Google Play badge SVGs (inline).
+- All copy, colors, screen definitions, and feature data live in `theme.ts`.
+
+## Design system (`/config/theme.ts`)
+
+- Mood: clean, friendly, modern consumer app. Think Apple App Store × Linear × a polished fintech/health app. (Provide a light default + optional dark variant.)
+- Background: soft off-white `#FAFAFB` (light) with gentle gradient blooms in the brand accent; dark variant `#0B0B0F`.
+- Accent: single configurable brand color (default indigo `#6366F1`) with a soft secondary for gradients.
+- Surfaces: rounded cards (20–24px), soft shadows, glassy floating UI chips.
+- Type: friendly modern sans (Inter/Geist), large rounded headlines, generous spacing.
+- All strings, nav, features, screen configs, colors in `theme.ts`.
+
+## THE signature element — scroll-pinned phone
+
+Build a reusable `PhoneShowcase` component:
+
+- Device frame: a realistic phone built in CSS/SVG — rounded corners, thin bezel, notch/dynamic-island, side buttons, subtle screen reflection/gloss. Not an image.
+- Screen content: real HTML/CSS "app screens" rendered inside the frame (e.g. Onboarding → Home feed → Detail → Success). Each screen is a small component with realistic UI (nav bar, cards, buttons, avatars, charts) styled in the brand color.
+- Scroll-driven screen changes: pin the phone for a tall section. As the user scrolls, the phone screen transitions between app screens (crossfade + slide-up, like navigating the app). Sync screen index to scroll progress. Optionally a subtle phone tilt/parallax as it pins and unpins.
+- Floating UI cards: small glass chips float around the phone (a notification, a stat, a rating, a message bubble) that animate in/out and parallax with scroll — reinforcing each feature as its screen shows.
+- Idle motion: gentle float so the phone is never static.
+- Reduced motion: phone shows one static screen, no transitions. Mobile: the phone scales to fit and screens still change on scroll, floating cards reduced.
+- Expose the screen list + card content in `theme.ts` so a buyer edits screens/copy without touching the mechanics.
+
+## Page sections (in order)
+
+1. Sticky nav — logo, links (Features, Pricing, Reviews, Download), a filled accent "Download" button. Blur on scroll.
+2. Hero — headline + subhead left, the phone (first app screen) right with a couple floating cards; App Store + Google Play badges; a "4.9 ★ on the App Store" trust line. Headline reveals blur-up + slide; phone floats in.
+3. Logo / press strip — "As seen in" or download-count marquee (text/SVG).
+4. Scroll-pinned feature walkthrough — the pinned phone section. 3–4 features; as each scrolls in, the phone switches to that screen, a floating card highlights it, and a short headline + line explains it beside the phone. This is the centerpiece.
+5. Feature grid — glass cards with icons for secondary features (Sync, Offline, Privacy, Notifications).
+6. How it works — 3 steps (Download → Set up → Go), simple numbered flow with micro-animations.
+7. Social proof — review cards (star ratings, avatars via initials, quotes), an animated rating summary + counter (downloads, ratings).
+8. Pricing / plans — Free vs Pro toggle (monthly/annual), the Pro tier elevated with accent glow; or a single "Free to download" CTA block if freemium.
+9. FAQ — accordion, smooth height.
+10. Big download CTA — the phone reappears with the success screen, huge headline, both store badges, a QR-code-style block (CSS placeholder) for "scan to download".
+11. Footer — columns, socials, store badges again, "Built with Handset" credit, thin gradient rule.
+
+## Motion rules
+
+- Everything reveals — blur(8px)→0, translateY(24px)→0, staggered, `ease:[0.16,1,0.3,1]`.
+- The pinned phone screen-changes are the star — smooth crossfade/slide, synced to scroll, never janky.
+- Floating cards parallax + spring in/out per feature.
+- Buttons have press/hover states; store badges lift on hover.
+- Counters count up on scroll-in.
+- Lenis-synced scroll progress. Full `prefers-reduced-motion` path.
+
+## Performance & quality bar
+
+- Lightweight — no WebGL needed, so aim Lighthouse 95+ desktop, no layout shift, `next/font`.
+- Responsive at 375 / 768 / 1440 — on mobile the phone-in-phone still works and stays legible.
+- Clean, typed, commented. Sections under `/components/sections`, device under `/components/phone` (`PhoneShowcase.tsx` + `screens/`). Single `theme.ts`. `README.md`: how to edit app screens + copy, change accent, swap store links.
+
+## Deliverable
+
+A runnable Next.js repo. `npm run dev` shows the hero phone, the scroll-pinned walkthrough with screens changing, floating cards, and all sections — no asset files. Make it feel like a $250 premium app-landing template. Scaffold project + `theme.ts` + `PhoneShowcase` (device frame + screen-change-on-scroll) first, then the hero, then remaining sections.

@@ -292,6 +292,20 @@ export const PRODUCTS: Product[] = [
       "Complete source included",
     ],
   },
+  {
+    slug: "lumen-app-landing",
+    name: "Lumen — Mobile App Landing Theme",
+    tagline: "A scroll-pinned phone whose screen changes as you scroll",
+    description:
+      "A resellable app-landing theme built around a pure-CSS/SVG phone — no image assets — whose screen navigates itself as you scroll: onboarding, home dashboard, insights, goal-reached. Glass notification chips float in and parallax alongside each screen, and every screen, card and colour lives in one config file so a founder can reskin it for any consumer or fintech app. Shown here as 'Lumen', a calm money app.",
+    tags: ["mobile app", "landing page", "next.js + framer"],
+    includes: [
+      "Full build prompt — 11 sections, PhoneShowcase spec, motion rules",
+      "Scroll-pinned screen-change mechanic + floating-card parallax direction",
+      "Single-file screen/copy config so the phone reskins without touching mechanics",
+      "Complete source included",
+    ],
+  },
 ];
 
 export const getProduct = (slug: string) =>
