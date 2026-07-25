@@ -307,6 +307,20 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
+    slug: "monolith-type-orbital",
+    name: "Monolith Type — ORBITAL Variable Type Foundry",
+    tagline: "Zero images. The typeface itself is the entire visual system.",
+    description:
+      "A premium type-foundry launch site for a fictional variable display face — every visual is typography, CSS, SVG or canvas, no image or video assets at all. Its centerpiece pins the word ORBITAL full-screen and morphs its weight, softness and optical size live off scroll progress, with a technical wght/SOFT/opsz readout beside it. A live type tester with styled axis sliders, a magnetic-hover glyph grid, and a zero-image 'type in use' gallery (magazine, poster, editorial spread, album cover — all built from CSS) round it out.",
+    tags: ["type foundry", "landing page", "vite + gsap"],
+    includes: [
+      "Full build prompt — Vite + Tailwind v4 + GSAP/SplitText + Lenis stack, 7 sections",
+      "Pinned scroll-scrubbed variable-font axis morph spec (wght/SOFT/opsz), with performance guardrails",
+      "Live type-tester + glyph-grid + zero-image 'type in use' gallery direction",
+      "Complete source included",
+    ],
+  },
+  {
     slug: "lumen-app-landing",
     name: "Lumen — Mobile App Landing Theme",
     tagline: "A scroll-pinned phone whose screen changes as you scroll",

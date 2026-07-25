@@ -1,0 +1,136 @@
+CLAUDE CODE BUILD PROMPT — "MONOLITH TYPE" Type Foundry
+
+Full modern stack: Node · npm · Vite · Tailwind v4 · GSAP · Lenis
+Zero image/video assets. The typeface is the product.
+
+Copy everything below the line into Claude Code.
+
+Build me a premium, single-page, scroll-animated website for a fictional type foundry called MONOLITH TYPE, launching a new variable display typeface called ORBITAL. This is a portfolio/demo piece meant to look like a $20k foundry launch site — it will be screen-recorded for an Instagram Reel, so every scroll moment must land as a visible "wow" beat within 1–2 seconds on camera.
+
+Hard constraint: ZERO image and ZERO video files. Every visual is typography, CSS, SVG, or canvas. That constraint is the concept — never reach for placeholder images, stock photos, or raster icon sets. If a section seems to need an image, solve it with type instead.
+
+1. TECH STACK — set this up properly from scratch
+
+Scaffold a real project. Node 20+ and npm.
+
+npm create vite@latest monolith-type -- --template vanilla
+cd monolith-type
+npm install
+npm install -D tailwindcss @tailwindcss/vite
+npm install gsap lenis
+npm install -D prettier prettier-plugin-tailwindcss
+
+Stack decisions I want:
+
+- Vite as the build tool and dev server (HMR matters — I iterate fast).
+- Tailwind CSS v4 installed via the official @tailwindcss/vite plugin. Use the v4 CSS-first approach: @import "tailwindcss"; in the stylesheet and a @theme { } block for design tokens. Do not create a tailwind.config.js — that's the v3 pattern and I don't want it.
+- GSAP + ScrollTrigger for all scroll animation. Note: as of GSAP 3.13 all plugins are free, including SplitText — use the real SplitText plugin for the character reveals rather than hand-rolling a splitter.
+- Lenis (package name is lenis, not the old @studio-freight/lenis) for smooth inertia scrolling, wired into GSAP's ticker so ScrollTrigger stays in sync.
+- Prettier with prettier-plugin-tailwindcss for consistent class ordering.
+- Vanilla JS modules — no React. This site is animation-driven, not state-driven, and React adds nothing here but reconciliation overhead against GSAP.
+
+Project structure:
+
+src/
+  main.js              — entry, imports styles + all modules
+  style.css            — @import "tailwindcss" + @theme tokens + component layer
+  modules/
+    lenis.js           — smooth scroll setup + GSAP ticker sync
+    hero.js            — cursor-reactive letterform + SplitText reveal
+    weightMorph.js     — the pinned scroll-scrub axis animation
+    typeTester.js      — live sliders + contenteditable specimen
+    glyphGrid.js        — glyph set, magnetic hover, fullscreen overlay
+    horizontalScroll.js — "type in use" panels
+    cursor.js           — custom cursor
+    themeToggle.js      — dark/light invert
+index.html
+
+Important honest constraint — where Tailwind stops: Tailwind handles layout, spacing, grid, and the type scale. It should not own the variable-font machinery. font-variation-settings can't be meaningfully animated through utility classes (GSAP writes inline styles anyway), so keep all axis animation in plain JS/CSS inside the modules. Don't contort Tailwind arbitrary-value syntax to do something it isn't for. Use @layer components in style.css for the few genuinely custom pieces (sliders, cursor, grain overlay). Deploy target is Vercel — make sure npm run build produces a clean static dist/.
+
+2. THE TYPEFACE (the most important technical decision — read carefully)
+
+Everything depends on a variable font with dramatic, animatable axes. Use Fraunces (Google Fonts) as "ORBITAL" — axes wght 100–900, SOFT 0–100, WONK 0–1, opsz 9–144. Its SOFT and WONK axes produce a far more striking morph than a plain weight change, which is what sells the Reel. (Alternatives if Fraunces misbehaves: Recursive for shape-shifting axes, Bricolage Grotesque for a modern grotesque.)
+
+- Self-host the variable woff2 in /public/fonts/ and declare it with @font-face including the full font-variation-settings ranges — self-hosting avoids a render-blocking third-party request and gives me a real Lighthouse score.
+- <link rel="preload" as="font" type="font/woff2" crossorigin> it.
+- Gate all hero animation behind document.fonts.ready so the giant type never flashes a fallback.
+- Register the font family and the type scale as Tailwind v4 @theme tokens so I can use font-display / text-display utilities across the site.
+- Inter (also self-hosted, variable) for small UI text, labels, and body copy. The contrast between display face and neutral UI face is what makes it read as a real foundry.
+
+3. VISUAL SYSTEM
+
+Define all of this as @theme tokens in style.css so it's a real design system, not scattered hex values:
+
+- Default mode: near-black #0C0C0D, off-white type #F2F0EB, single acid accent #CCFF00 used sparingly for interactive elements, active states, and axis labels.
+- Light/dark invert toggle in the top-right nav — implement with a data-theme attribute on <html> and CSS custom properties, transitioning smoothly (~400ms), not a hard swap. Foundries always have one, and it gives me two distinct looks from one screen recording.
+- Type-first layout: enormous display sizes (hero clamp(4rem, 18vw, 20rem)), generous negative space, hairline dividers (1px at 15% opacity), a visible baseline-grid feel.
+- Small uppercase UI labels with wide tracking (0.2em) for axis names and section numbers — "01 / SPECIMEN", "WGHT 100–900".
+- Subtle noise/grain overlay at 2–3% opacity site-wide (CSS-generated or inline SVG feTurbulence — not a PNG) so flat black doesn't look sterile.
+- No border-radius anywhere except interactive controls. Sharp, editorial, engineered.
+
+4. SECTION-BY-SECTION BUILD SPEC
+
+A. Preloader
+Percentage counter 0–100 in the display face plus a hairline progress rule. On completion the counter scales up and wipes away to reveal the hero. Under 1.5s. Tie real progress to document.fonts.ready so it's honest, not faked.
+
+B. Hero — the letterform
+- Full viewport. One giant letterform (R or Q — whichever has more character in Fraunces) centered, massive.
+- On load it animates in by morphing its axes from thin/wide to bold/tight via font-variation-settings, easing over ~1.2s.
+- "ORBITAL" overlaid as a SplitText character stagger reveal.
+- Kicker above in Inter uppercase: MONOLITH TYPE — VARIABLE DISPLAY — 2026
+- The letterform reacts to the cursor: mouse X drives wght, mouse Y drives SOFT, damped with a lerp on GSAP's ticker. This is the best micro-interaction on the site and the thing Reel commenters will ask about.
+- Thin pulsing scroll indicator, bottom-center.
+
+C. Section 01 — WEIGHT MORPH (signature moment — build with the most care)
+- Pin the section: ScrollTrigger.create({ pin: true, scrub: 1 }).
+- The word "ORBITAL" held large and centered. Scroll progress maps directly onto font-variation-settings: wght 100 → 900, SOFT 0 → 100, opsz shifting with it. Scrolling up reverses perfectly.
+- Beside it, a live monospace readout updating as you scroll: wght 412 · SOFT 38 · opsz 96. This readout is what makes it look technical and expensive rather than "text getting bigger."
+- Performance — handle properly: animating font-variation-settings on very large text triggers layout every frame. Mitigate by (a) fixed container width + text-align: center so reflow doesn't shift the page, (b) will-change: font-variation-settings on that element only, removed after, (c) updating via GSAP's ticker / quickSetter, never raw scroll events. If it still stutters, stop and tell me with a proposed fallback — don't silently simplify it.
+
+D. Section 02 — LIVE TYPE TESTER
+- contenteditable specimen line defaulting to something with character (Handgloves & Quartz).
+- Custom-styled range sliders for wght, SOFT, opsz, plus font-size — thin track, acid-accent thumb. Default browser sliders will kill the premium feel; style them in @layer components.
+- A live monospace code block showing the resulting CSS as I drag — font-variation-settings: "wght" 620, "SOFT" 44; — with a copy button and a brief "copied" state.
+- This section is what convinces a viewer it's a real product.
+
+E. Section 03 — GLYPH SET
+- Full character set (A–Z, a–z, 0–9, punctuation) on a tight Tailwind grid with hairline dividers.
+- Each glyph scales and shifts weight on hover, neighbours subtly dimmed/pushed — magnetic hover.
+- On scroll into view, glyphs reveal in a staggered wave (diagonal or randomised, never plain top-to-bottom).
+- Click a glyph → fullscreen overlay with its Unicode value and axis readout; Escape to dismiss.
+
+F. Section 04 — TYPE IN USE (zero images — this is the flex)
+Four "mockups" built entirely from CSS and type, presented in a GSAP horizontal-scroll gallery driven by vertical page scroll, each panel with subtle parallax and a monospace caption:
+1. Magazine cover — full-bleed color block, masthead in the display face, cover lines, issue number.
+2. Poster — huge rotated word with an oversized number, brutalist layout.
+3. Editorial spread — two-column justified text. Write real copy about type design and letterform anatomy; no lorem ipsum.
+4. Album cover — square, hard geometric CSS shape via clip-path, display type.
+
+G. Section 05 — SPECIMEN PARAGRAPHS
+- The same paragraph at descending sizes (96 / 48 / 24 / 14px) with opsz adjusting correctly at each, demonstrating optical sizing.
+- Each block fades and slides in on a stagger. Real copy about the foundry's philosophy.
+
+H. Section 06 — LICENSING / CTA
+- Minimal pricing table: Desktop / Web / Variable Complete. Three columns, hairline dividers, feature lists, rows animating in on a stagger.
+- Primary CTA "GET ORBITAL" — acid-accent button with a fill-sweep hover, not a plain color change.
+- Footer, typographically confident (large, not a tiny afterthought): Built by Ruturaj | BR in small-caps plus social links, Instagram primary.
+
+5. THE "STOP THE SCROLL" LAYER
+- Front-load the payoff. The weight-morph section must be reachable within 3–4 seconds of a recording starting at the hero. Keep preloader and hero tight.
+- No dead scroll zones. If 200px of scroll produces no visible motion anywhere, tighten or cut that section.
+- Contrast before the reveal. Let the hero settle into stillness right before the morph section so the transformation reads as a bigger payoff.
+- Interactivity is the retention hook. With no images, responsiveness is the spectacle — cursor-reactive hero, live sliders, magnetic glyph hover, the invert toggle. These drive rewatches and comments.
+- Micro-interactions everywhere: custom cursor (dot that grows into a ring near interactive elements), underline-draw on links, magnetic buttons, a thin fixed scroll-progress rule at the top of the viewport.
+- Everything resolves cleanly. Scrubbed sections must look deliberate scrubbed backward, never glitchy.
+
+6. PERFORMANCE / POLISH CHECKLIST
+- Self-hosted preloaded variable fonts; hero animation gated on document.fonts.ready.
+- will-change only on actively animating elements, removed after.
+- Kill all ScrollTriggers and Lenis RAF properly on teardown; guard ScrollTrigger.refresh() on resize with a debounce.
+- Respect prefers-reduced-motion — fade-only fallback, sliders and hover states still fully functional.
+- Keyboard accessible: sliders tabbable, glyph overlay Escape-dismissible, visible focus states.
+- Semantic HTML with a real heading hierarchy. A foundry site that isn't accessible is embarrassing.
+- Target 95+ Lighthouse across the board and tell me the actual scores when you're done.
+
+7. BUILD ORDER
+Incremental so I can review: (1) project scaffold + Tailwind v4 theme tokens + font loading, (2) Lenis + GSAP ticker sync, (3) hero with cursor-reactive letterform, (4) the pinned weight-morph section — riskiest and most important, (5) live type tester, (6) remaining sections, (7) polish pass on cursor, invert toggle, micro-interactions. Run npm run dev and confirm it builds cleanly at each stage. If the variable font axes misbehave, or font-variation-settings animation stutters on the pinned section, stop and tell me rather than silently simplifying — those two things are the entire site.
