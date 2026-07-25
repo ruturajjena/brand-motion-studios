@@ -92,7 +92,8 @@ export default function ProductModal({ product, media, signedIn, onClose }: Prop
 
   return createPortal(
     <div
-      className={`fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto bg-black/75 p-3 backdrop-blur-sm transition-opacity duration-200 sm:p-6 ${
+      data-lenis-prevent
+      className={`fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/75 p-3 backdrop-blur-sm transition-opacity duration-200 sm:p-6 ${
         mounted ? "opacity-100" : "opacity-0"
       }`}
       onClick={onClose}
