@@ -1,0 +1,594 @@
+# PROJECT
+
+Create a cinematic futuristic landing page called
+
+"Inside Intelligence"
+
+The entire experience should feel like opening the mind of an AI robot.
+
+The page should be built using
+
+- Next.js
+- TailwindCSS
+- GSAP
+- ScrollTrigger
+- Lenis Smooth Scroll
+
+The experience must run at 60FPS.
+
+Everything should feel premium.
+
+No clutter.
+
+No gradients everywhere.
+
+No neon overload.
+
+Think Apple Event meets OpenAI meets sci-fi movie.
+
+---
+
+# CORE IDEA
+
+The user scrolls through the anatomy of an AI.
+
+The robot slowly reveals itself.
+
+Every scroll progresses the story.
+
+Scrolling back perfectly reverses every animation.
+
+Nothing should simply fade.
+
+Everything should move physically.
+
+---
+
+# VIDEOS AVAILABLE in this folder
+
+BodyExplode.mp4
+
+Robot standing normally.
+
+As the video progresses the body explodes revealing internal components.
+
+HeadExplode.mp4
+
+Robot head moves left.
+
+Then explodes revealing camera, processor, circuits and glowing cables.
+
+---
+
+# VERY IMPORTANT
+
+Do NOT autoplay these videos.
+
+Instead use them as scroll-controlled animations.
+
+The video's currentTime must be directly linked to ScrollTrigger progress.
+
+Example
+
+Scroll top
+
+video.currentTime = 0
+
+Middle
+
+video.currentTime = 50%
+
+Bottom
+
+video.currentTime = duration
+
+Scrolling upward should rewind perfectly.
+
+No looping.
+
+No play button.
+
+No controls.
+
+The visitor should feel like THEY are operating the robot.
+
+---
+
+# WEBSITE STRUCTURE
+
+SECTION 1
+Hero
+
+Full viewport.
+
+Robot standing.
+
+Very subtle floating animation.
+
+Soft moving volumetric light.
+
+Tiny particles.
+
+Headline fades upward.
+
+Large title
+
+INSIDE
+INTELLIGENCE
+
+Subtitle
+
+Every intelligent system hides a universe beneath its surface.
+
+Button
+
+Explore the Machine
+
+Arrow bouncing slowly.
+
+Continue indicator.
+
+---
+
+SECTION 2
+
+Body Reveal
+
+Entire viewport dedicated to BodyExplode.mp4
+
+Pin this section.
+
+The page must stop scrolling normally.
+
+Instead scrolling controls video progress.
+
+As body explodes
+
+Add floating labels connected with glowing lines.
+
+Examples
+
+Neural Core
+
+Power Distribution
+
+Vision Engine
+
+Servo Network
+
+Memory Architecture
+
+Adaptive Processing Unit
+
+Each label should animate independently.
+
+Fade
+
+Slide
+
+Glow
+
+Scale
+
+No sudden appearance.
+
+Everything synchronized.
+
+Background slowly pulses.
+
+---
+
+SECTION 3
+
+Information Block
+
+Dark section.
+
+Split layout.
+
+Large typography.
+
+Small animated divider.
+
+Text
+
+Machines aren't intelligent because of power.
+
+They're intelligent because of architecture.
+
+Every sensor.
+
+Every processor.
+
+Every wire.
+
+Every decision.
+
+Works together as one living system.
+
+Cards appear one by one.
+
+Cards
+
+Adaptive Learning
+
+Real-time Perception
+
+Decision Systems
+
+Sensor Fusion
+
+Each card glows softly on hover.
+
+---
+
+SECTION 4
+
+Pinned Head Reveal
+
+Use HeadExplode.mp4
+
+Pin entire section.
+
+Again
+
+Scroll controls video.
+
+Robot head shifts.
+
+Front shell separates.
+
+Processor revealed.
+
+Camera revealed.
+
+Circuitry lights.
+
+Glowing cables.
+
+Add animated labels.
+
+Vision Module
+
+AI Processor
+
+Memory Stack
+
+Thermal Layer
+
+Signal Routing
+
+Power Matrix
+
+Each connection line draws itself.
+
+Labels animate with GSAP.
+
+---
+
+SECTION 5
+
+Horizontal Scroll
+
+Now reveal internal technologies.
+
+As user scrolls vertically
+
+A huge horizontal timeline moves.
+
+Cards
+
+Vision
+
+Memory
+
+Reasoning
+
+Learning
+
+Prediction
+
+Execution
+
+Each card
+
+Glassmorphism
+
+Glow
+
+Mouse parallax
+
+Subtle rotation.
+
+---
+
+SECTION 6
+
+Huge Quote
+
+Centered.
+
+Minimal.
+
+"Every breakthrough begins inside."
+
+Below
+
+Small paragraph
+
+Artificial intelligence isn't magic.
+
+It's beautifully engineered complexity.
+
+Animated underline.
+
+---
+
+SECTION 7
+
+Ending
+
+Robot reconstructed.
+
+Everything assembled again.
+
+Robot looks directly toward visitor.
+
+Headline
+
+Built From Intelligence.
+
+Powered By Imagination.
+
+CTA button
+
+Replay Experience
+
+Scroll to top smoothly.
+
+---
+
+# SCROLL ANIMATION RULES
+
+Every section must use GSAP ScrollTrigger.
+
+Pinned sections.
+
+Smooth scrubbing.
+
+No jump.
+
+No lag.
+
+Reverse perfectly.
+
+Timeline based.
+
+Animations must feel physical.
+
+No excessive easing.
+
+Use scrub values.
+
+Everything linked together.
+
+---
+
+# MICRO ANIMATIONS
+
+Buttons
+
+Soft magnetic hover
+
+Glow increase
+
+Tiny scale
+
+Cards
+
+Lift
+
+Border glow
+
+Light sweep
+
+Labels
+
+Draw SVG lines
+
+Fade
+
+Scale
+
+Glow pulse
+
+Background
+
+Floating particles
+
+Moving light beams
+
+Tiny sparks
+
+Noise texture
+
+---
+
+# TYPOGRAPHY
+
+Primary Font
+
+Space Grotesk
+
+Secondary Font
+
+IBM Plex Mono
+
+Large headings
+
+120px desktop
+
+Responsive scaling
+
+Thin tracking
+
+Uppercase
+
+Body text
+
+18px
+
+High readability
+
+Line height 1.8
+
+---
+
+# COLOR PALETTE
+
+Background
+
+#050608
+
+Secondary Background
+
+#0B1016
+
+Surface
+
+#121A23
+
+Primary Glow
+
+#52D6FF
+
+Secondary Glow
+
+#79E7FF
+
+Highlight
+
+#B8F4FF
+
+Muted Text
+
+#8FA6B7
+
+Primary Text
+
+#F4FAFF
+
+Border
+
+rgba(82,214,255,0.18)
+
+Glass
+
+rgba(255,255,255,0.05)
+
+Glow Shadow
+
+rgba(82,214,255,0.35)
+
+---
+
+# LIGHTING
+
+Strong vignette.
+
+Moving spotlight.
+
+Blue volumetric light.
+
+Subtle bloom.
+
+Soft reflections.
+
+Never overexposed.
+
+---
+
+# DESIGN STYLE
+
+Minimal.
+
+Premium.
+
+Futuristic.
+
+Elegant.
+
+Cinematic.
+
+No gaming UI.
+
+No cyberpunk overload.
+
+More Apple than gaming.
+
+---
+
+# PERFORMANCE
+
+Lazy load sections.
+
+GPU accelerated transforms.
+
+Use translate3d.
+
+Will-change where required.
+
+Avoid layout thrashing.
+
+Optimize videos.
+
+Use requestAnimationFrame when necessary.
+
+Maintain 60FPS.
+
+---
+
+# MOBILE
+
+Everything fully responsive.
+
+Pinned sections preserved.
+
+Videos scale correctly.
+
+Text remains readable.
+
+Touch scrolling controls videos exactly like desktop.
+
+---
+
+# FINAL FEELING
+
+The visitor should feel like they are opening and inspecting the mind of a futuristic AI.
+
+Every scroll should reveal another layer of engineering.
+
+When the visitor reaches the end, they should immediately want to scroll back up just to watch the entire reconstruction animation in reverse.
+
+This website should feel worthy of being featured on Awwwards and should instantly hook viewers in an Instagram reel within the first 3 seconds.
+
+=== Google Flow Asset & Skill Prompts ===
+
+Skill reference links and Google Flow asset prompts for generating the 4 high-resolution robot images and 2 exploded video transitions used above.
+
+UI-Ux Pro link - https://ui-ux-pro-max-skill.nextlevelbuilder.io
+FramerMotion link - https://claudemarketplaces.com/skills/dylantarre/animation-principles/framer-motion
+
+Google Flow assets prompt:-
+
+Image 1 - Deep matte charcoal-black studio background, dramatic single-source key lighting from above and slightly behind, soft cyan rim light tracing the robot's silhouette, subtle haze/atmosphere in the air catching the light, high-end tech product film cinematography, tack-sharp focus, photorealistic. A sleek humanoid robot with a matte graphite-white segmented chassis, smooth rounded shoulder and joint housings, a minimal featureless dark visor-style head with a single thin horizontal glowing cyan light strip where the eyes would be, glowing cyan light lines running along the seams of its chest core and forearms, no visible logos or text on the body, standing in a poised neutral stance, standing centered, front-facing, full body visible head to feet, symmetrical pose, dramatic single-source top-down key light, soft cyan rim light on both silhouette edges. Photorealistic, tack-sharp, high-end tech product photography. No text, no watermark.
+
+Image 2 - An exploded technical arrangement of the components of attached image — head, shoulder joints, chest core, forearms, hand assemblies, leg/hip units — each suspended and separated in space at different depths, subtle cyan glow from each seam, symmetrical technical-diagram composition. No text. Transparent body showing the internal components inside the robot.
+
+Video 1 from Image 1 and 2 - Generate a smoothing transition of Image 1 of completed robo to exploded robo. Keep the background same but focus on detailing. The goal is to show case the robo in a website where scrolling will explode it into different parts.
+
+Image 3 - Close-up portrait of the head/visor of the attached image, the thin cyan eye-strip glowing, dramatic top-down light, shallow depth of field, photorealistic macro detail. No text.
+
+Image 4 - Exploded image of the attached head where head is exploded to show different components used inside it like the camera chip glowing cable but should match the current image.
+
+Video 2 from Image 3 and 4 - Generate a video where image 1 of head is exploded to become image 3 but first move the head towards right, make it transparent so that inside is visible, and then start exploding the head to become image 4.

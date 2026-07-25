@@ -293,6 +293,20 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
+    slug: "inside-intelligence-robot",
+    name: "Inside Intelligence — AI Robot Anatomy",
+    tagline: "Scroll to operate: the robot explodes into its own anatomy",
+    description:
+      "A scroll-controlled AI robot anatomy site where two videos are scrubbed frame-by-frame off scroll position, not autoplayed — the body and then the head explode into labeled components as you scroll, and reverse perfectly on the way back up. A horizontal card timeline (Vision, Memory, Reasoning, Learning, Prediction, Execution) closes the story before the robot reassembles.",
+    tags: ["ai", "landing page", "next.js + gsap"],
+    includes: [
+      "Full build prompt — 7 sections, scroll-scrubbed video spec, motion + color system",
+      "Google Flow asset pack — 4 image prompts + 2 exploded-transition video prompts (two-in-one)",
+      "Scroll-to-video-currentTime wiring so playback never autoplays and always reverses",
+      "Complete source included",
+    ],
+  },
+  {
     slug: "lumen-app-landing",
     name: "Lumen — Mobile App Landing Theme",
     tagline: "A scroll-pinned phone whose screen changes as you scroll",
