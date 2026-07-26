@@ -321,6 +321,20 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
+    slug: "spider-beyond-human",
+    name: "Beyond Human — Spider Vigilante Suit",
+    tagline: "An interactive movie, not a landing page",
+    description:
+      "A cinematic, scroll-driven suit-reveal site for a futuristic spider-inspired vigilante — four videos (hero, spider-sense, swing, web-shooter) are pinned and scrubbed by scroll rather than autoplayed, crossfading into a live telemetry HUD, a danger-vector matrix, an exploded CAD breakdown with animated leader lines, and a hoverable interactive blueprint. Built with React Three Fiber, GSAP/ScrollTrigger and Lenis, with a custom stretch cursor and magnetic buttons throughout.",
+    tags: ["superhero", "landing page", "react + r3f + gsap"],
+    includes: [
+      "Full build prompt — 7 cinematic sections, 4-video pin/scrub spec, micro-interaction system",
+      "Golden-hour reveal video-generation prompt (two-in-one)",
+      "Scroll-to-video-currentTime wiring across 4 videos, all reversible",
+      "Complete source included",
+    ],
+  },
+  {
     slug: "lumen-app-landing",
     name: "Lumen — Mobile App Landing Theme",
     tagline: "A scroll-pinned phone whose screen changes as you scroll",

@@ -1,0 +1,480 @@
+You are an award-winning creative developer with expertise in Three.js, GSAP, Lenis, Framer Motion, React, Tailwind CSS v4, Vite, and modern cinematic web experiences.
+
+Your task is to build an ultra-premium, award-worthy, Apple-level interactive website inspired by a futuristic spider-inspired vigilante.
+
+This is NOT a normal landing page.
+
+It should feel like an interactive movie.
+
+────────────────────────
+TECH STACK
+────────────────────────
+
+Use only modern technologies.
+
+• React 19
+• Vite
+• Tailwind CSS v4
+• GSAP
+• ScrollTrigger
+• Lenis smooth scrolling
+• Framer Motion
+• React Three Fiber wherever beneficial
+• Drei
+• Motion One if needed
+• Lucide Icons
+• npm package ecosystem only
+
+Organize the code cleanly.
+
+Use reusable components.
+
+Separate assets folder.
+
+Responsive.
+
+Optimized.
+
+Lazy load every video.
+
+Use requestAnimationFrame properly.
+
+Maintain 60 FPS whenever possible.
+
+Avoid unnecessary rerenders.
+
+────────────────────────
+DESIGN LANGUAGE
+────────────────────────
+
+Imagine if Apple designed a superhero movie website.
+
+Minimal.
+
+Premium.
+
+Dark.
+
+Elegant.
+
+Not flashy.
+
+No clutter.
+
+Huge cinematic typography.
+
+Luxury spacing.
+
+Everything breathes.
+
+Every section feels handcrafted.
+
+Background:
+#050505
+
+Accent:
+Electric Blue
+Crimson Red
+
+Glassmorphism only where appropriate.
+
+Use subtle noise textures.
+
+Soft bloom.
+
+Light rays.
+
+Animated gradients.
+
+Particle effects.
+
+Volumetric lighting.
+
+Moving fog.
+
+Depth everywhere.
+
+────────────────────────
+OVERALL EXPERIENCE
+────────────────────────
+
+The website should tell a story while scrolling.
+
+No obvious page breaks.
+
+Everything flows naturally.
+
+Every scroll reveals something.
+
+No section should simply fade in.
+
+Every section must have cinematic transitions.
+
+The visitor should continuously think:
+
+"How is this even a website?"
+
+────────────────────────
+VIDEO ASSETS
+────────────────────────
+
+The following videos already exist.
+
+Use them creatively.
+
+Hero.mp4
+
+SpiderSense.mp4
+
+Swing.mp4
+
+WebShooter.mp4
+
+Treat them as cinematic sequences.
+
+Blend them together.
+
+Do NOT simply stack videos vertically.
+
+────────────────────────
+SCROLL EXPERIENCE
+────────────────────────
+
+Create long cinematic scroll sections.
+
+Pin videos.
+
+Scrub videos with scroll.
+
+Reverse animations.
+
+Crossfade scenes.
+
+Zoom camera.
+
+Scale typography.
+
+Rotate layers.
+
+Animate depth.
+
+Everything should react to scroll.
+
+Every section should have:
+
+• parallax
+• reveal animation
+• layered movement
+• staggered elements
+• masks
+• blur transitions
+• scaling
+• opacity changes
+
+No static sections.
+
+────────────────────────
+SECTION 1
+
+Black screen.
+
+Tiny blinking cursor.
+
+"Initializing Neural Interface..."
+
+Typing animation.
+
+Background particles begin appearing.
+
+Subtle ambient audio visualization.
+
+The Hero video slowly fades into view.
+
+Video is pinned.
+
+Massive title appears:
+
+Beyond Human
+
+Letters reveal individually.
+
+Background slowly zooms.
+
+────────────────────────
+SECTION 2
+
+Hero video continues.
+
+Massive floating headlines.
+
+Glass cards reveal.
+
+Statistics animate.
+
+Everything follows mouse movement.
+
+Parallax everywhere.
+
+Fog slowly moves.
+
+Lighting reacts.
+
+────────────────────────
+SECTION 3
+
+Transition into SpiderSense video.
+
+Entire website slows.
+
+Everything freezes.
+
+Background desaturates.
+
+Massive red pulse expands.
+
+Circular ripple distortion.
+
+Typography shakes slightly.
+
+Data overlays appear.
+
+Use SVG masks.
+
+Animate scan lines.
+
+Scroll controls the pulse progression.
+
+────────────────────────
+SECTION 4
+
+Swing video.
+
+This is the most cinematic section.
+
+Video pinned.
+
+Foreground buildings move faster than background.
+
+Multi-layer parallax.
+
+Dynamic motion blur.
+
+Mouse slightly changes viewing angle.
+
+Huge typography slides behind buildings.
+
+Floating particles.
+
+Rain effect.
+
+Lens flare.
+
+Speed lines.
+
+Camera feels alive.
+
+────────────────────────
+SECTION 5
+
+Transition into WebShooter video.
+
+Exploded components.
+
+Every component receives animated labels.
+
+Leader lines animate.
+
+Technical HUD overlays.
+
+Component cards appear while scrolling.
+
+Cards animate from random directions.
+
+Everything connected with elegant SVG paths.
+
+────────────────────────
+SECTION 6
+
+Interactive section.
+
+Create a futuristic blueprint.
+
+Hovering over each component highlights it.
+
+Background glows.
+
+Mouse movement changes lighting.
+
+Cards smoothly expand.
+
+Everything animated.
+
+────────────────────────
+SECTION 7
+
+Huge cinematic quote.
+
+Pinned section.
+
+Typography scales from tiny to gigantic.
+
+Background slowly rotates.
+
+Particles move upward.
+
+Spotlight sweeps across screen.
+
+Minimal.
+
+Elegant.
+
+────────────────────────
+FINAL SECTION
+
+Dark background.
+
+Hero video loops.
+
+Huge glowing CTA.
+
+"Experience the Impossible."
+
+Button has magnetic hover.
+
+Background particles.
+
+Light beams.
+
+Animated borders.
+
+Footer fades in.
+
+────────────────────────
+SCROLL ANIMATIONS
+────────────────────────
+
+Every section must include:
+
+GSAP timelines
+
+ScrollTrigger pinning
+
+scrub animations
+
+clip-path reveals
+
+image masking
+
+staggered text
+
+split text animation
+
+3D transforms
+
+opacity transitions
+
+blur interpolation
+
+parallax
+
+smooth scaling
+
+SVG path animation
+
+animated gradients
+
+layered depth
+
+sticky transitions
+
+horizontal movement where appropriate
+
+camera zoom simulation
+
+Never repeat the same animation twice.
+
+────────────────────────
+MICRO INTERACTIONS
+────────────────────────
+
+Buttons:
+
+Magnetic hover
+
+Ripple effect
+
+Glow
+
+Mouse trail
+
+Cards:
+
+3D tilt
+
+Reflection
+
+Depth
+
+Soft shadow
+
+Images:
+
+Zoom on hover
+
+Mask reveal
+
+Smooth easing
+
+Cursor:
+
+Custom cursor
+
+Outer ring
+
+Inner dot
+
+Stretch effect
+
+Interactive scaling
+
+────────────────────────
+PERFORMANCE
+────────────────────────
+
+Compress assets.
+
+Lazy load.
+
+Code split.
+
+Tree shaking.
+
+Avoid layout shift.
+
+Maintain smooth scrolling.
+
+Optimize GSAP timelines.
+
+Use IntersectionObserver where needed.
+
+────────────────────────
+GOAL
+────────────────────────
+
+Build something that looks worthy of:
+
+Awwwards Site of the Day
+
+FWA
+
+CSS Design Awards
+
+The final result should feel closer to an interactive cinematic experience than a traditional website.
+
+Every scroll should create a "wow" moment.
+
+Absolutely no generic templates.
+
+=== Asset Generation Prompt ===
+
+[Paste Golden Hour Light Block] Wide establishing shot of a grand Indian luxury heritage hotel building, its exact architectural form — domed roofline, archways, tower silhouette — clearly visible underneath because it is entirely draped in a single continuous sheet of natural cotton cloth, like a dust-sheet over a monument, the fabric closely following and revealing the shape of the domes and arches beneath it, gently rippling in the breeze. Around the building, the surrounding grounds are fully visible and NOT covered: manicured gardens, stone pathways, palm trees, an open driveway, warm golden hour sunlight and long shadows across the lawns, clear warm sky. Slowly and smoothly, the cotton cloth lifts upward and away from the building from bottom to top, as if rising off it, gradually revealing the real sandstone-and-marble facade underneath — carved jaali lattice windows, brass fittings, arched entrance — while the grounds around it remain completely unchanged throughout. The cloth's motion is slow, continuous, and linear from start to finish, fully lifting clear of the building by the end of the clip. Camera locked off, wide static shot, no camera movement — the cloth lifting is the only motion. Cinematic, magical, warm. No text, no logos, no watermark, no people.
