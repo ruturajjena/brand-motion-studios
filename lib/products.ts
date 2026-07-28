@@ -335,6 +335,20 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
+    slug: "audi-f1-engineering",
+    name: "Audi Sport F1 — Engineered Beyond Limits",
+    tagline: "A Formula 1 car, assembled by your scroll",
+    description:
+      "A Swiss-editorial, scroll-driven documentary for a Formula 1 car — three videos (360° rotation, exploded assembly, macro inspection) are treated as interactive timelines, never autoplayed, and scrubbed frame-by-frame by ScrollTrigger progress with perfect reverse. A pinned hero rotates the car through front/side/rear/top views, an exploded blueprint section labels every module (front wing, halo, floor, gearbox, diffuser), and a horizontal timeline closes out the build story from design to race day.",
+    tags: ["automotive", "landing page", "react + gsap"],
+    includes: [
+      "Full build prompt — 9 sections, 3-video scroll-scrub spec, Swiss-editorial design system",
+      "Google Flow asset prompt — 360° / exploded / zoomed-inspection video generation",
+      "Scroll-to-video-currentTime wiring across 3 videos, all reversible",
+      "Complete source included",
+    ],
+  },
+  {
     slug: "lumen-app-landing",
     name: "Lumen — Mobile App Landing Theme",
     tagline: "A scroll-pinned phone whose screen changes as you scroll",

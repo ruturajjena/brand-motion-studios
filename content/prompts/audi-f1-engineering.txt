@@ -1,0 +1,281 @@
+You are an award-winning creative developer and Awwwards-winning
+frontend engineer. All the videos are under assets folder.
+
+Build an immersive Formula 1 storytelling website inspired by Swiss
+editorial design, Apple product pages, Porsche configurator experiences
+and Audi Motorsport.
+
+This is **not** a traditional landing page.
+
+The entire experience is a cinematic, scroll-driven documentary where
+the user assembles and explores a Formula 1 car. Generate any required image using nano-banana if needed.
+
+## Tech Stack
+
+-   React 19
+-   Vite
+-   Tailwind CSS v4
+-   GSAP
+-   GSAP ScrollTrigger
+-   Lenis
+-   Framer Motion
+-   SplitType
+-   Lucide Icons
+
+## Assets
+
+-   Hero.mp4 --- rotating Formula 1 car
+-   Exploded.mp4 --- exploded assembly animation
+-   zoomed.mp4 --- camera inspection animation
+
+## Design Language
+
+-   White background
+-   Audi red accents (#D90429)
+-   Charcoal (#111111)
+-   Light grey (#F5F5F5)
+-   Carbon fiber black (#1A1A1A)
+
+Typography: - Headings: Bebas Neue / Anton - Body: Inter / Space Grotesk
+
+Use large editorial typography, lots of whitespace, subtle grid systems
+and engineering labels.
+
+------------------------------------------------------------------------
+
+# GLOBAL ANIMATION RULES
+
+-   Use Lenis smooth scrolling.
+-   Every animation uses GSAP + ScrollTrigger.
+-   Every section has motion.
+-   Mouse movement adds subtle parallax.
+-   No autoplay anywhere.
+-   All videos are scrubbed by scroll.
+-   Scrolling backwards reverses animations perfectly.
+
+## Video Control System
+
+Treat videos as interactive timelines, never background videos.
+
+Requirements:
+
+-   preload="metadata"
+-   pause all videos immediately
+-   disable autoplay
+-   disable looping
+-   map ScrollTrigger progress to currentTime
+-   use requestAnimationFrame for smooth updates
+-   scrolling upward reverses the animation
+
+The experience should feel like rotating a 3D object with the mouse
+wheel.
+
+------------------------------------------------------------------------
+
+# SECTION 1 --- HERO
+
+Pin the hero for 300vh.
+
+Hero.mp4 remains paused until scrolling begins.
+
+Scroll directly controls the video timeline.
+
+The Formula 1 car rotates while the camera stays fixed.
+
+Editorial typography fades between viewing angles.
+
+Front: - AUDI SPORT
+
+Side: - 1000+ HP - 798 KG
+
+Rear: - Hybrid V6 - ERS
+
+Top: - Carbon Monocoque - Titanium Halo
+
+Only the car rotates.
+
+Background remains white.
+
+Add subtle floating engineering labels and a telemetry-inspired vertical
+progress indicator.
+
+------------------------------------------------------------------------
+
+# SECTION 2 --- THE DNA OF SPEED
+
+White editorial section.
+
+Headline: THE DNA OF SPEED
+
+Animated metric cards:
+
+-   1000+ HP
+-   798 KG
+-   360 KM/H
+-   Ground Effect
+-   Hybrid Power Unit
+
+Cards reveal with staggered animations.
+
+------------------------------------------------------------------------
+
+# SECTION 3 --- EXPLODED ENGINEERING
+
+Pin section.
+
+Use Exploded.mp4.
+
+Do not autoplay.
+
+Scroll scrubs the video.
+
+Forward scroll explodes the car.
+
+Reverse scroll reassembles it.
+
+Animate SVG connector lines.
+
+Label: - Front Wing - Halo - Floor - Rear Suspension - Hybrid V6 -
+Gearbox - Battery - Diffuser
+
+Blueprint aesthetic.
+
+------------------------------------------------------------------------
+
+# SECTION 4 --- POWER UNIT
+
+Split layout.
+
+Left: Large heading.
+
+Right: Animated power unit diagram.
+
+Animate: - ICE - Turbo - MGU-H - MGU-K - Battery - Gearbox
+
+------------------------------------------------------------------------
+
+# SECTION 5 --- AERODYNAMICS
+
+Create animated airflow particles.
+
+Headline:
+
+AIR DOESN'T TOUCH. IT OBEYS.
+
+Particles wrap around the vehicle using SVG paths.
+
+------------------------------------------------------------------------
+
+# SECTION 6 --- MICRO ENGINEERING
+
+Pin section.
+
+Use zoomed.mp4.
+
+Scroll controls camera movement.
+
+Pause naturally at:
+
+-   Front Wing
+-   Cockpit
+-   Halo
+-   Suspension
+-   Diffuser
+
+Display premium floating glass specification cards.
+
+------------------------------------------------------------------------
+
+# SECTION 7 --- TIMELINE
+
+Horizontal scroll.
+
+Stages:
+
+Design
+
+Simulation
+
+Wind Tunnel
+
+Prototype
+
+Testing
+
+Race Day
+
+------------------------------------------------------------------------
+
+# SECTION 8 --- PERFORMANCE
+
+Animated counters.
+
+-   Horsepower
+-   Top Speed
+-   Weight
+-   Downforce
+-   Braking Force
+-   Energy Recovery
+
+------------------------------------------------------------------------
+
+# SECTION 9 --- FINAL HERO
+
+Massive reveal.
+
+Completed Formula 1 car.
+
+Large headline:
+
+ENGINEERED BEYOND LIMITS.
+
+Minimal CTA.
+
+------------------------------------------------------------------------
+
+# Loading Screen
+
+White background.
+
+Audi red progress bar.
+
+Text:
+
+Initializing Race Simulation...
+
+Draw the silhouette of the car before revealing the hero.
+
+------------------------------------------------------------------------
+
+# Cursor
+
+Red circular cursor.
+
+Hover reveals.
+
+Magnetic buttons.
+
+------------------------------------------------------------------------
+
+# Performance
+
+-   Lazy load videos
+-   Modular React components
+-   60 FPS target
+-   requestAnimationFrame
+-   Optimized GSAP timelines
+-   Responsive desktop/tablet/mobile
+
+------------------------------------------------------------------------
+
+# Final Goal
+
+The finished website should feel like an Awwwards-winning interactive
+engineering documentary that combines Apple-level polish, Swiss
+editorial design, and Formula 1 precision. No template aesthetics, no
+autoplaying backgrounds, and every major interaction must be driven by
+the user's scroll.
+
+=== Asset Generation Prompt ===
+
+Add any car to Google Flow — generate 3 videos: 1. 360 view, 2. Exploded view, and 3. Zoomed-in view of all components.
