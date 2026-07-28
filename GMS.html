@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Maps Scraper Guide & Prompt — GMS | Brand Motion Studios</title>
+  <meta name="description" content="Step-by-step guide to set up Google Maps Scraper skill with Claude Code and Docker, including the full website build prompt." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#060606" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Brand Motion Studios home">
+        <svg class="brand__mark" viewBox="0 0 62 44" width="48" height="34" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0d488" />
+              <stop offset="1" stop-color="#b8893b" />
+            </linearGradient>
+            <linearGradient id="bm-silver" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef0f3" />
+              <stop offset="1" stop-color="#9aa0a8" />
+            </linearGradient>
+          </defs>
+          <text x="0" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-gold)">B</text>
+          <text x="28" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-silver)">M</text>
+        </svg>
+        <span class="brand__text">Brand Motion<span class="brand__accent"> Studios</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#reels">Reels</a>
+        <a href="prompts.html">Prompt Library</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">Start a project</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="prompt-page">
+    <div class="container">
+      <header class="prompt-page__head reveal">
+        <p class="eyebrow">Internal · Setup &amp; Build Guide</p>
+        <h1 class="section__title">Google Maps Scraper — <span class="grad-text">Claude Code Guide</span></h1>
+        <p class="section__lead">A complete 3-step setup guide to use the Google Maps Scraper skill with Claude Code and Docker to build location-based data scraping websites.</p>
+      </header>
+
+      <div class="prompt-list">
+
+        <!-- ===== Card 1: Setup Steps ===== -->
+        <article class="prompt-card reveal" id="gms-setup-guide">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Google Maps Scraper Setup Steps</span>
+              <span class="prompt-card__tag">Setup Guide · Skill Installation</span>
+            </div>
+            <p class="prompt-card__desc">Follow these 3 prerequisites to prepare your local environment before running the Claude Code build prompt.</p>
+          </div>
+          <div class="prompt-card__body" style="white-space: normal; color: var(--text-dim); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.8;">
+            <p style="margin-bottom: 16px;"><strong style="color: #fff;">Step 1 — Download Claude Code &amp; Install the Skill:</strong><br />
+            Download Claude Code and install the official Google Maps Scraper skill from <a href="https://claudemarketplaces.com/skills/gosom/google-maps-scraper/google-maps-scraper" target="_blank" rel="noopener noreferrer" style="color: var(--gold-bright); text-decoration: underline;">Claude Marketplace — Google Maps Scraper Skill</a>.</p>
+
+            <p style="margin-bottom: 16px;"><strong style="color: #fff;">Step 2 — Download &amp; Launch Docker Desktop:</strong><br />
+            Ensure Docker is running locally by downloading it from <a href="https://www.docker.com/get-started/" target="_blank" rel="noopener noreferrer" style="color: var(--gold-bright); text-decoration: underline;">Docker Official Get Started Guide</a>.</p>
+
+            <p style="margin-bottom: 0;"><strong style="color: #fff;">Step 3 — Run the Prompt:</strong><br />
+            Copy the prompt below and paste it directly into Claude Code to generate the web scraper application.</p>
+          </div>
+        </article>
+
+        <!-- ===== Card 2: Claude Code Prompt ===== -->
+        <article class="prompt-card reveal" id="gms-claude-prompt">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Claude Code Build Prompt</span>
+              <span class="prompt-card__tag">Website Brief · Scraper App</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-gms-claude-prompt">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Paste this command and prompt into Claude Code once the skill and Docker Desktop are active.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-gms-claude-prompt">/google-maps-scraper
+Build a website using this skill which can get the specific details of entered location like if some one needs hotels, parks, malls  you can keep on adding stuff which usually available on google maps and their contact details, etcs which can be scarpped.</pre>
+        </article>
+
+      </div>
+
+      <a href="prompts.html" class="prompt-back">← Back to Prompt Library</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Copy-to-clipboard for prompt cards
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        var text = target.textContent;
+        var label = btn.querySelector('.copy-btn__label');
+        var done = function () {
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+        } else { fallback(text, done); }
+      });
+    });
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>
