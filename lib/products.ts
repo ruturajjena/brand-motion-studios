@@ -207,11 +207,11 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "luxury-watch-website",
-    name: "Luxury Watch Portfolio Film",
-    tagline: "A scroll-driven watch disassembly & reassembly story",
+    name: "AURELIAN Calibre 01 — Skeleton Automatic",
+    tagline: "Time, Engineered. Pinned storytelling & canvas frame scrubbing",
     description:
-      "An Awwwards-winning personal-brand portfolio — 12 cinematic videos of a watch coming apart and returning home, GSAP/ScrollTrigger animation, 3D transforms. Includes both the website brief and the video storyboard prompt.",
-    tags: ["portfolio", "video-driven", "html/css/js"],
+      "A cinematic, scroll-driven product launch experience for a skeleton automatic wristwatch — eight chapters, pinned storytelling, scrubbed 120-frame WebP sequence rendering on 2D canvas, React 19, Tailwind v4, Lenis smooth scroll, and GSAP ScrollTrigger.",
+    tags: ["luxury watch", "react 19", "gsap", "canvas 2d"],
     includes: [
       "Website prompt + video storyboard prompt (two-in-one pack)",
       "12-clip shot list mapped to scroll sections",
