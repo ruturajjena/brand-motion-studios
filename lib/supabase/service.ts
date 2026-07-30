@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 /**
  * Service-role Supabase client — bypasses Row Level Security. Only ever
  * import this from server-only code that must write entitlements on the
- * user's behalf (the Stripe webhook). Never expose this key to the client.
+ * user's behalf (the Lemon Squeezy webhook). Never expose this key to the client.
  */
 export function getSupabaseServiceClient() {
   return createClient(

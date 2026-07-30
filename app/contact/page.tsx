@@ -3,7 +3,7 @@ export const metadata = { title: "Contact Us" };
 const channels = [
   {
     title: "Purchases & support",
-    body: "Delivery issues, refunds, license questions — include your Stripe receipt email.",
+    body: "Delivery issues, refunds, license questions — include your order receipt email.",
     action: "studiosbrandmotion@gmail.com",
     href: "mailto:studiosbrandmotion@gmail.com?subject=Store%20support",
   },

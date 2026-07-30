@@ -1,6 +1,7 @@
+import { createCheckout } from "@lemonsqueezy/lemonsqueezy.js";
 import { NextResponse } from "next/server";
 import { getPlan } from "@/lib/products";
-import { getStripe } from "@/lib/stripe";
+import { ensureLemonSqueezy, getStoreId, getVariantId } from "@/lib/lemonsqueezy";
 import { getServerUser } from "@/lib/supabase/server";
 
 export async function POST(req: Request) {
@@ -27,41 +28,24 @@ export async function POST(req: Request) {
     "https://brandmotion.in";
 
   try {
-    const recurring =
-      plan.id === "monthly"
-        ? { interval: "month" as const }
-        : plan.id === "yearly"
-          ? { interval: "year" as const }
-          : undefined;
-
-    const session = await getStripe().checkout.sessions.create({
-      mode: recurring ? "subscription" : "payment",
-      client_reference_id: user.id,
-      customer_email: user.email,
-      line_items: [
-        {
-          quantity: 1,
-          price_data: {
-            currency: "usd",
-            unit_amount: plan.price,
-            ...(recurring ? { recurring } : {}),
-            product_data: {
-              name: `All-Access — ${plan.name}`,
-              description: plan.blurb,
-            },
-          },
-        },
-      ],
-      metadata: { plan: plan.id, supabase_user_id: user.id },
-      subscription_data: recurring ? { metadata: { plan: plan.id, supabase_user_id: user.id } } : undefined,
-      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/pricing`,
+    ensureLemonSqueezy();
+    const { data, error } = await createCheckout(getStoreId(), getVariantId(plan.id), {
+      checkoutData: {
+        email: user.email,
+        custom: { supabase_user_id: user.id, plan: plan.id },
+      },
+      productOptions: {
+        redirectUrl: `${origin}/success?order_id={order_id}&plan=${plan.id}`,
+      },
     });
-    return NextResponse.json({ url: session.url });
+    if (error || !data?.data.attributes.url) {
+      throw error ?? new Error("No checkout URL returned");
+    }
+    return NextResponse.json({ url: data.data.attributes.url });
   } catch (e) {
-    console.error("Stripe checkout error:", e);
+    console.error("Lemon Squeezy checkout error:", e);
     const message =
-      e instanceof Error && e.message.includes("STRIPE_SECRET_KEY")
+      e instanceof Error && e.message.includes("LEMONSQUEEZY")
         ? "Payments are not configured yet"
         : "Could not start checkout";
     return NextResponse.json({ error: message }, { status: 500 });

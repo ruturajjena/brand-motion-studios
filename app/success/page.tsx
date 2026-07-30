@@ -1,30 +1,32 @@
+import { getOrder } from "@lemonsqueezy/lemonsqueezy.js";
 import Link from "next/link";
 import { getPlan } from "@/lib/products";
-import { getStripe } from "@/lib/stripe";
+import { ensureLemonSqueezy } from "@/lib/lemonsqueezy";
 
 export const metadata = { title: "Purchase complete" };
 
 export default async function SuccessPage({
   searchParams,
 }: {
-  searchParams: Promise<{ session_id?: string }>;
+  searchParams: Promise<{ order_id?: string; plan?: string }>;
 }) {
-  const { session_id } = await searchParams;
+  const { order_id, plan: planId } = await searchParams;
 
   let paid = false;
   let email: string | null = null;
-  let plan: string | undefined;
 
-  if (session_id) {
+  if (order_id) {
     try {
-      const session = await getStripe().checkout.sessions.retrieve(session_id);
-      paid = session.payment_status === "paid";
-      email = session.customer_details?.email ?? null;
-      plan = session.metadata?.plan;
+      ensureLemonSqueezy();
+      const { data } = await getOrder(order_id);
+      paid = data?.data.attributes.status === "paid";
+      email = data?.data.attributes.user_email ?? null;
     } catch {
       paid = false;
     }
   }
+
+  const plan = planId ? getPlan(planId) : undefined;
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col items-center px-6 py-24 text-center">
@@ -37,10 +39,10 @@ export default async function SuccessPage({
             <span className="grad-text">Welcome to All-Access.</span>
           </h1>
           <p className="mt-4 max-w-lg text-ink-dim">
-            Your All-Access {plan ? (getPlan(plan)?.name ?? "") : ""} plan is
-            active — every prompt pack and source download in the store, plus
-            everything we release next
-            {plan === "lifetime" ? ", forever" : " while you're subscribed"}.
+            Your All-Access {plan ? plan.name : ""} plan is active — every
+            prompt pack and source download in the store, plus everything we
+            release next
+            {planId === "lifetime" ? ", forever" : " while you're subscribed"}.
             Sign in with {email ? <span className="text-ink">{email}</span> : "your account"}{" "}
             to unlock any project in the store.
           </p>
@@ -49,7 +51,7 @@ export default async function SuccessPage({
         <>
           <h1 className="font-display text-4xl font-bold">Hmm, nothing here.</h1>
           <p className="mt-4 text-ink-dim">
-            We couldn&apos;t verify a completed payment for this session.
+            We couldn&apos;t verify a completed payment for this order.
           </p>
         </>
       )}

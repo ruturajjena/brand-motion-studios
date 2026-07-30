@@ -3,16 +3,16 @@
 The Brand Motion Studios storefront — selling **AI prompt packs, design systems
 and production-ready source code** for websites that move.
 
-Built with **Next.js 16 (App Router) + Tailwind CSS v4 + Stripe Checkout**.
+Built with **Next.js 16 (App Router) + Tailwind CSS v4 + Lemon Squeezy Checkout**.
 
 ## Structure
 
 | Path | Purpose |
 |------|---------|
 | `app/` | Storefront pages — home, `/store`, `/store/[slug]`, `/success` |
-| `app/api/checkout/` | Creates Stripe Checkout sessions |
+| `app/api/checkout/` | Creates Lemon Squeezy checkouts |
 | `lib/products.ts` | The product catalog (edit here to add/remove products) |
-| `lib/stripe.ts` | Stripe client |
+| `lib/lemonsqueezy.ts` | Lemon Squeezy client + plan↔variant mapping |
 | `components/` | Navbar, Footer, ProductCard, BuyButton |
 | `public/` | Legacy static site — old URLs like `/taj-mahal.html` still work; the old studio homepage lives at `/studio.html` |
 
@@ -20,11 +20,11 @@ Built with **Next.js 16 (App Router) + Tailwind CSS v4 + Stripe Checkout**.
 
 ```bash
 npm install
-cp .env.example .env.local   # add your Stripe secret key
+cp .env.example .env.local   # add your Lemon Squeezy API key
 npm run dev                  # http://localhost:3000
 ```
 
-Without `STRIPE_SECRET_KEY` the site runs fine; the Buy button reports
+Without `LEMONSQUEEZY_API_KEY` the site runs fine; the Buy button reports
 "Payments are not configured yet".
 
 ## The model
@@ -59,7 +59,10 @@ After adding a recording, rebuild/redeploy for it to be picked up.
 ## Deploy (Vercel)
 
 1. Import the repo at vercel.com, framework auto-detects Next.js.
-2. Set env vars: `STRIPE_SECRET_KEY`, `NEXT_PUBLIC_SITE_URL=https://brandmotion.in`.
+2. Set env vars: `LEMONSQUEEZY_API_KEY`, `LEMONSQUEEZY_WEBHOOK_SECRET`,
+   `LEMONSQUEEZY_STORE_ID`, `LEMONSQUEEZY_VARIANT_MONTHLY`,
+   `LEMONSQUEEZY_VARIANT_YEARLY`, `LEMONSQUEEZY_VARIANT_LIFETIME`,
+   `NEXT_PUBLIC_SITE_URL=https://brandmotion.in`.
 3. Add `brandmotion.in` under Project → Domains and update DNS as Vercel
    instructs (this replaces the old GitHub Pages A-records).
 
