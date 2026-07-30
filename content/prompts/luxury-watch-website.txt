@@ -1,392 +1,798 @@
-====== CLAUDE PROMPT: WEBSITE ======
+====== 1. ASSET GENERATION PROMPTS (GOOGLE FLOW / GEMINI) ======
 
-Build an Awwwards-winning interactive website experience for my personal brand "Built By Ruturaj".
+1. Asset generation :- Since you’re using Google Flow with a reference image of the watch, every prompt should preserve the exact geometry, proportions, dial layout, bracelet, bezel, crown, branding placement, materials, and colors of the uploaded watch. The prompts should only animate the product—not redesign it.
 
-This is NOT a traditional landing page.
-
-The website should feel like an immersive digital product film where the user's scroll physically disassembles and explores an ultra-luxury mechanical watch before reassembling it.
-
-The storytelling style should be comparable to Apple, Rolex, Patek Philippe, Nothing, Tesla product launches, and modern award-winning WebGL experiences.
+The idea is to generate assets that feel like they belong in a Richard Mille × Apple × Rolls-Royce style luxury product launch website.
 
 ⸻
 
+MASTER STYLE (Apply to Every Prompt)
+
+Reference the uploaded luxury watch image.
+Maintain 100% visual fidelity to the uploaded watch:
+- identical case geometry
+- identical dial
+- identical bracelet/strap
+- identical materials
+- identical colors
+- identical reflections
+- identical proportions
+- no redesign
+- no added complications
+- no missing components
+Visual style:
+Ultra luxury Swiss watch advertisement.
+Shot on a premium cinematic virtual studio.
+Black infinity background.
+Soft volumetric lighting.
+Studio-quality ray-traced reflections.
+Macro product cinematography.
+8K photorealistic.
+Crisp polished metal.
+Premium sapphire crystal reflections.
+Luxury commercial quality.
+No text.
+No watermark.
+No logo overlays.
+
+⸻
+
+VIDEO 1 — Hero Rotation (10 sec)
+
+Reference the uploaded luxury watch image.
+Create a premium hero reveal.
+Duration: 10 seconds.
+The watch slowly floats in the center of a black infinity studio.
+The camera begins close to the dial.
+The watch performs one perfectly smooth 360° rotation around its vertical axis while remaining centered.
+The camera subtly pushes in as the rotation progresses.
+Every polished metal surface produces luxurious moving highlights.
+The sapphire crystal catches elegant reflections.
+Micro dust particles float through the light beams.
+At the final second the rotation stops exactly at the front-facing angle identical to the reference image.
+No sudden movements.
+Luxury Apple keynote pacing.
+No text.
+No extra objects.
+Ultra photorealistic.
+
+⸻
+
+VIDEO 2 — Exploded Components (10 sec)
+
+Reference the uploaded luxury watch image.
+Duration: 10 seconds.
+The watch begins fully assembled.
+The camera slowly rotates around the watch.
+Beginning from the front:
+The sapphire crystal separates upward.
+The bezel lifts.
+The dial gently moves forward.
+Hour markers float.
+Hands separate individually.
+Movement layers reveal themselves.
+Gears, bridges, springs and rotor slowly expand outward while remaining perfectly aligned.
+Every component hovers elegantly.
+Nothing spins rapidly.
+The animation should feel engineered rather than explosive.
+After reaching maximum separation the camera slowly moves through the floating components before stopping.
+Luxury cinematic lighting.
+Black infinity background.
+Perfect symmetry.
+Ultra photorealistic.
+No text.
+
+⸻
+
+VIDEO 3 — Internal Engineering Explosion (10 sec)
+
+Reference the uploaded luxury watch image.
+Duration: 10 seconds.
+The watch remains stationary.
+Beginning from the center movement:
+Hundreds of precision-engineered components gradually separate.
+Tiny gears.
+Jewels.
+Bridges.
+Balance wheel.
+Escapement.
+Rotor.
+Main spring.
+Screws.
+Every component expands outward in concentric layers while preserving engineering alignment.
+The camera flies through the exploded movement revealing incredible mechanical depth.
+The lighting emphasizes polished steel, gold accents and ruby jewels.
+Nothing leaves the frame.
+The animation remains slow, premium and controlled.
+Black infinity studio.
+No text.
+Ultra photorealistic.
+Luxury Swiss commercial quality.
+
+⸻
+
+VIDEO 4 — Assembly Reverse Explosion (10 sec)
+
+Reference the uploaded luxury watch image.
+Duration: 10 seconds.
+Start with every watch component floating separately in perfect alignment.
+The camera slowly circles around the exploded watch.
+One by one every component assembles itself:
+Movement.
+Dial.
+Hands.
+Crystal.
+Bezel.
+Case.
+Bracelet.
+Each piece magnetically glides into position with satisfying precision.
+Final lock-in produces a subtle premium metallic click.
+The camera finishes with a close-up hero shot of the completed watch.
+Luxury lighting.
+Perfect reflections.
+Black infinity background.
+Ultra photorealistic.
+No text.
+Apple keynote style pacing.
+
+⸻
+
+IMAGE 1 — Hero Front
+
+Reference the uploaded luxury watch image.
+Generate a perfectly centered front-facing luxury studio product photograph.
+Black infinity background.
+Soft volumetric lighting.
+Mirror-polished reflections.
+Macro photography.
+Extremely sharp.
+8K.
+Commercial Swiss watch advertisement.
+No text.
+
+⸻
+
+IMAGE 2 — Three Quarter View
+
+Reference the uploaded luxury watch image.
+Generate a premium three-quarter perspective showing the depth of the case, bezel and bracelet.
+Luxury black studio.
+Beautiful rim lighting.
+High contrast reflections.
+Ultra realistic.
+No text.
+
+⸻
+
+IMAGE 3 — Side Profile
+
+Reference the uploaded luxury watch image.
+Generate a side profile highlighting the case thickness, crown, pushers and premium finishing.
+Black luxury studio.
+Macro lighting.
+Ultra detailed.
+Swiss advertisement quality.
+No text.
+
+⸻
+
+IMAGE 4 — Macro Dial
+
+Reference the uploaded luxury watch image.
+Generate an extreme macro close-up of the dial.
+Focus on:
+- hands
+- indices
+- texture
+- sapphire reflections
+- mechanical detailing
+Ultra shallow depth of field.
+Luxury commercial lighting.
+8K realism.
+No text.
+
+⸻
+
+IMAGE 5 — Product Catalogue Shot
+
+Reference the uploaded luxury watch image.
+Generate a premium catalogue product image.
+The watch is centered on a matte black pedestal with subtle reflections.
+Black gradient background.
+Balanced studio lighting.
+Minimal composition.
+Luxury retail catalogue quality.
+Perfect for an e-commerce product page.
+No text.
+Ultra photorealistic.
+
+These 9 assets are designed to work together in a scroll-driven website. A natural sequence would be:
+
+1. Hero section with the 360° rotating watch.
+2. Scroll-triggered transition into the exploded exterior.
+3. Deep dive into the mechanical movement explosion.
+4. Scroll-controlled reassembly ending in the finished watch.
+5. Product gallery sections using the five high-resolution images to showcase different angles and details, creating a cohesive luxury product experience.
+
+
+====== 2. WEBSITE SPECIFICATION & BUILD PROMPT (CLAUDE / ANTIGRAVITY) ======
+
+2. Claude/Antigravity - You are a senior creative front-end engineer and award-winning interactive experience designer specializing in premium product launch websites (Apple, Rolex, Richard Mille, Porsche, Tesla-level experiences).
+
+Your task is to build a production-ready scroll-animated luxury watch website using the provided assets.
+
+The final result should feel like an Awwwards Site of the Day winner—not a template.
+
+========================================================
 OBJECTIVE
+========================================================
 
-The user should feel like they are inside the watch.
-Every scroll must reveal something new.
-No static sections.
-No template layouts.
-No boring stacked content.
-Every scroll should feel like a new cinematic scene.
-The website should be memorable enough to win Awwwards.
+Create a premium storytelling experience that reveals the watch through cinematic scroll animations.
 
-⸻
+The website should feel expensive, elegant and engineered.
 
-BRANDING
+Every section should transition seamlessly into the next.
 
-Brand: Built By Ruturaj
-Tagline: Crafting Premium AI Experiences.
+Avoid ordinary ecommerce layouts.
 
-The watch symbolizes precision engineering, craftsmanship, software architecture and attention to detail.
+Do NOT use cards everywhere.
 
-The website should communicate that my work is engineered—not simply designed.
+Build an immersive product experience.
 
-⸻
+The user should feel like they are watching a luxury product launch.
 
-LOOK & FEEL
+========================================================
+TECH STACK
+========================================================
 
-Luxury.
-Minimal.
-Black background.
-Swiss watch aesthetic.
-Apple keynote quality.
-Highly cinematic.
+Use the latest stable ecosystem.
 
+• React 19
+• Vite
+• TypeScript
+• Tailwind CSS v4
+• GSAP
+• GSAP ScrollTrigger
+• Lenis (smooth scrolling)
+• Framer Motion (micro interactions only)
+• Lucide Icons
+• Motion One where beneficial
+• React Three Fiber only if absolutely necessary (keep performance high)
+• CSS Variables
+• Responsive Layout
+• Lazy loading
+• Optimized asset loading
+
+Project must be production ready.
+
+========================================================
+PERFORMANCE
+========================================================
+
+Target
+
+60 FPS
+
+Lighthouse
+
+95+
+
+Accessibility
+
+90+
+
+SEO
+
+95+
+
+Performance
+
+95+
+
+Do NOT animate expensive properties.
+
+Animate only
+
+transform
+
+opacity
+
+clip-path
+
+filter (sparingly)
+
+scale
+
+rotation
+
+translate
+
+Use GPU acceleration.
+
+Preload hero assets.
+
+========================================================
+COLOR PALETTE
+========================================================
+
+Primary
+#000000
+
+Secondary
+#0F0F0F
+
+Accent
+#C7A66A
+
+Text
+#FFFFFF
+
+Muted
+#9F9F9F
+
+Divider
+rgba(255,255,255,.08)
+
+========================================================
+TYPOGRAPHY
+========================================================
+
+Headings
+
+Bodoni Moda
+
+Subtitles
+
+Manrope
+
+Body
+
+Inter
+
+Very large typography.
+
+Elegant spacing.
+
+Premium feel.
+
+========================================================
+PAGE STRUCTURE
+========================================================
+
+1.
+Hero
+
+2.
+Precision
+
+3.
+Engineering
+
+4.
+Movement
+
+5.
 Materials
 
-• black titanium
-• sapphire glass
-• brushed aluminum
-• polished steel
-• subtle gold accents
-• premium reflections
+6.
+Gallery
 
-Typography
+7.
+Specifications
 
-Large bold headlines
-Lots of whitespace
-Minimal UI
-Elegant animations
+8.
+Final CTA
 
-⸻
+========================================================
+GLOBAL EXPERIENCE
+========================================================
 
-VIDEO INTEGRATION
+Enable Lenis smooth scrolling.
 
-I already have multiple cinematic watch videos.
+Every section fades naturally.
 
-Use every video as part of the storytelling.
+Every image parallaxes.
 
-Do NOT simply autoplay videos.
+Every heading reveals line-by-line.
 
-Instead:
+Letters slightly stagger.
 
-Freeze specific frames
-Blend between videos
-Crossfade seamlessly
-Animate masking
-Animate clipping
-Animate scale
-Animate camera transitions
-Synchronize videos with scrolling
+Sections overlap.
 
-The transition between videos should be invisible.
+Luxury pacing.
 
-⸻
+No abrupt changes.
 
-SCROLL EXPERIENCE
+Mouse movement creates tiny depth.
 
-Each scroll should reveal another engineering layer.
+Subtle grain overlay.
 
-Scene 01 — Hero
+Tiny floating dust particles.
 
-Only silhouette of watch
-Tiny glow
-Huge typography
-Scroll hint
-Subtle particles
-Mouse movement causes reflections.
+Moving soft spotlight behind the watch.
 
-⸻
+========================================================
+SECTION 1
+HERO
+========================================================
 
-Scene 02 — 3D Rotation
+Use Video 1.
 
-Watch rotates in 3D
-Entire screen occupied by watch
-Background moves slower than foreground
-Parallax lighting
-Dynamic shadows
+Fullscreen.
 
-⸻
+Black background.
 
-Scene 03 — Crystal Lift
+Video pinned.
 
-Sapphire crystal slowly lifts away
-As the user scrolls
-Glass separates
-Reflections animate
-Camera slowly zooms inward
-
-⸻
-
-Scene 04 — Bezel Separation
-
-Bezel separates
-Tiny screws emerge
-Everything floats in zero gravity
-Camera rotates
-
-⸻
-
-Scene 05 — Dial Disassembly
-
-Dial opens
-Hour markers
-Hands
-Chapter ring
-Date wheel
-Separate one after another
-Every component animates independently.
-
-⸻
-
-Scene 06 — Inside the Movement
-
-Camera travels INSIDE the movement.
-The user should feel microscopic.
-Massive gears rotate.
-Balance wheel oscillates.
-Escapement ticks.
-Beautiful macro lighting.
-
-⸻
-
-Scene 07 — Exploded Engineering View
-
-Exploded view with hundreds of components floating.
-Depth everywhere.
-Mouse movement changes perspective.
-
-⸻
-
-Scene 08 — Feature Storytelling
-
-Each scroll highlights one feature:
-
-Power Reserve
-Automatic Rotor
-Titanium Case
-Sapphire Crystal
-Precision Engineering
-Shock Resistance
-Water Resistance
-
-Each feature becomes the hero.
-Other parts become darker.
-
-⸻
-
-Scene 09 — Cross-Section Visualization
-
-Watch sliced open.
-Camera moves through layers.
-Each layer beautifully animated.
-
-⸻
-
-Scene 10 — Reassembly
-
-Everything begins reassembling.
-Components magnetically align.
-Tiny screws tighten.
-Rotor spins.
-Hands align perfectly.
-Extremely satisfying.
-
-⸻
-
-Scene 11 — Final Hero
-
-Completed luxury watch.
-Slow cinematic orbit.
-Beautiful reflections.
-
-⸻
-
-Scene 12 — Brand Reveal
-
-Built By Ruturaj
-
-Large elegant typography appears.
+Large typography.
 
 Headline
-"Precision. Crafted in Code."
 
-Subheadline
-AI Websites
-AI Automation
-Creative Engineering
-3D Digital Experiences
+TIME,
+ENGINEERED.
+
+Subheading
+
+Crafted for those who appreciate perfection.
+
+Watch rotates continuously.
+
+As user scrolls
+
+video progresses naturally.
+
+Headline scales down.
+
+Background darkens.
+
+Small gold highlight follows cursor.
+
+Huge cinematic feel.
+
+========================================================
+SECTION 2
+PRECISION
+========================================================
+
+Pinned section.
+
+Use Image 1.
+
+Massive typography appears.
+
+"Swiss Precision."
+
+Image slowly zooms.
+
+Camera-like movement.
+
+Numbers count upward
+
+100+
+
+Components
+
+0.01mm
+
+Tolerance
+
+120
+
+Hours Assembly
+
+Each counter animates.
+
+========================================================
+SECTION 3
+ENGINEERING
+========================================================
+
+Pinned.
+
+Video 2.
+
+Watch explodes apart.
+
+Scroll controls timeline.
+
+Each component highlighted.
+
+Text appears beside components.
+
+Case
+
+Bezel
+
+Crystal
+
+Movement
+
+Dial
+
+Hands
+
+Bracelet
+
+Lines animate toward components.
+
+Everything synchronized with scroll.
+
+========================================================
+SECTION 4
+THE HEART
+========================================================
+
+Video 3.
+
+Dark environment.
+
+Huge title
+
+Inside Every Second.
+
+Camera follows exploded movement.
+
+Paragraph fades.
+
+Background glows subtly.
+
+Particles increase.
+
+Mechanical components receive animated highlights.
+
+========================================================
+SECTION 5
+MATERIALS
+========================================================
+
+Horizontal scroll.
+
+Three panels.
+
+Image 2
+
+Image 3
+
+Image 4
+
+Each panel occupies full viewport.
+
+Parallax movement.
+
+Text slides independently.
+
+Glass morphing overlays.
+
+Tiny reflections animate.
+
+========================================================
+SECTION 6
+GALLERY
+========================================================
+
+Pinterest inspired layout.
+
+Image 5
+
+plus previous images reused.
+
+Large image.
+
+Small image.
+
+Offset grid.
+
+Hover
+
+Scale
+
+Tilt
+
+Light reflection sweep.
+
+Each image opens into fullscreen modal.
+
+Elegant animation.
+
+========================================================
+SECTION 7
+SPECIFICATIONS
+========================================================
+
+Minimal.
+
+Huge typography.
+
+Thin dividers.
+
+Animated specification reveal.
+
+Diameter
+
+Case Material
+
+Crystal
+
+Movement
+
+Power Reserve
+
+Water Resistance
+
+Bracelet
+
+Each row animates individually.
+
+========================================================
+SECTION 8
+FINAL
+========================================================
+
+Video 4.
+
+Watch assembles while scrolling.
+
+Ends perfectly assembled.
+
+Huge centered typography.
+
+"CRAFTED TO OUTLAST TIME."
 
 CTA
-Book a Project
-View My Work
 
-Social icons appear elegantly.
+Explore Collection
 
-⸻
+Button hover
 
-ANIMATION QUALITY
+Luxury magnetic interaction.
 
-This website should feel alive.
+Background spotlight slowly rotates.
 
-Use:
+========================================================
+ANIMATIONS
+========================================================
 
-GSAP
-ScrollTrigger
-Lenis
-SplitType
-Motion Path
-Clip-path animations
-SVG masking
-Blend modes
-3D transforms
-Layered parallax
-Physics-based easing
-Spring animations
-Momentum
-Elastic transitions
-Continuous motion
-Smooth interpolation
-Mouse reactive lighting
-Depth of field effects
-Subtle floating motion
+Every section has
 
-⸻
+ScrollTrigger timelines.
 
-VISUAL EFFECTS
+Pinned storytelling.
 
-Glass morphism (very subtle)
-Moving reflections
-Specular highlights
-Glow bloom
-Noise textures
-Volumetric lighting
-Dust particles
-Soft fog
-Lens distortion
-Depth blur
-Ambient occlusion
-Moving shadows
-Dynamic gradients
+Scrub animations.
 
-⸻
+Parallax.
 
-INTERACTION
+Scale.
 
-Mouse movement changes lighting.
-Cursor subtly influences reflections.
-Hover states feel magnetic.
-Buttons deform slightly.
-Cards float.
-Everything has inertia.
+Clip reveal.
 
-⸻
+Opacity.
 
-PERFORMANCE
+Mask transitions.
 
-Maintain 60 FPS.
-Lazy load videos.
-Optimize rendering.
-GPU accelerated transforms.
-No scroll lag.
-Responsive.
+Text split animations.
+
+Image reveal.
+
+Rotation.
+
+Perspective movement.
+
+Mouse parallax.
+
+Hover tilt.
+
+Floating reflections.
+
+========================================================
+NAVIGATION
+========================================================
+
+Transparent initially.
+
+Becomes blurred after scrolling.
+
+Logo left.
+
+Menu right.
+
+Smooth active indicator.
+
+Scroll progress bar on top.
+
+========================================================
+LOADING SCREEN
+========================================================
+
+Luxury loading animation.
+
+Black background.
+
+Thin gold progress line.
+
+Percentage counter.
+
+Watch outline drawn using SVG.
+
+Website appears through fade.
+
+========================================================
+FOOTER
+========================================================
+
+Minimal.
+
+Black.
+
+Thin gold divider.
+
+Social icons.
+
+Copyright.
+
+Newsletter.
+
+========================================================
+RESPONSIVE
+========================================================
+
 Desktop first.
-Excellent mobile fallback.
 
-⸻
+Perfect Tablet.
 
-DESIGN GOAL
+Perfect Mobile.
 
-Someone visiting this website should think: "I've never seen a portfolio like this."
+On mobile:
 
-Every scroll should create surprise.
-Every animation should reveal another engineering layer.
-The experience should feel closer to an interactive luxury product launch than a website.
-Avoid templates completely.
-Do not use generic portfolio layouts.
-The entire experience should revolve around cinematic storytelling through the watch, ending with the Built By Ruturaj brand reveal.
-Create something worthy of Awwwards, FWA, and CSS Design Awards.
+Replace horizontal scrolling with stacked sections.
 
-⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+Reduce animation intensity.
 
-====== GEMINI PROMPT: VIDEO STORYBOARD (12-Video Sequence) ======
+Maintain premium feel.
 
-Video 1 – Hero Reveal
+========================================================
+ASSETS
+========================================================
 
-Ultra-photorealistic CGI of a luxury Swiss mechanical wristwatch emerging from complete darkness inside a premium black studio. Only a thin rim light reveals the silhouette at first. The camera performs a slow cinematic dolly-in with a subtle orbit. As reflections glide across the sapphire crystal and polished titanium case, more of the watch becomes visible. Soft volumetric lighting, ray-traced reflections, Apple-style product film, Rolex commercial quality, perfectly smooth camera movement, no text, no logo, black background. The final frame is a centered front-facing watch ready for the next scene.
+Videos
 
-⸻
+/assets/videos/video1.mp4
+/assets/videos/video2.mp4
+/assets/videos/video3.mp4
+/assets/videos/video4.mp4
 
-Video 2 – Crystal & Bezel Separation
+Images
 
-Continue from the previous shot. The camera slowly pushes closer toward the watch. The sapphire crystal gently lifts upward while the bezel separates with perfectly smooth mechanical precision. Tiny screws remain aligned as if suspended in zero gravity. Macro cinematic camera orbit with premium studio lighting. Components float only a few centimeters apart. End with the crystal and bezel fully separated while the dial remains intact.
+/assets/images/image1.jpg
+/assets/images/image2.jpg
+/assets/images/image3.jpg
+/assets/images/image4.jpg
+/assets/images/image5.jpg
 
-⸻
+========================================================
+DELIVERABLE
+========================================================
 
-Video 3 – Dial Exploded View
+Generate the complete project with:
 
-Continue seamlessly. The camera moves through the opening created by the lifted crystal. The dial, hour markers, hands, chapter ring, and date wheel separate into floating layers while remaining perfectly aligned. Every component rotates slightly to reveal thickness and craftsmanship. Slow orbital camera with macro close-ups, black void background, Swiss luxury engineering aesthetic. End with all dial components suspended in space.
+• Production folder structure
+• Modular React components
+• TypeScript throughout
+• Tailwind v4 configuration
+• GSAP animation hooks
+• Lenis integration
+• ScrollTrigger setup
+• Responsive design
+• Optimized asset loading
+• Reusable animation utilities
+• SEO metadata
+• Accessibility improvements
+• Clean architecture
+• Zero placeholder code
+• Zero lorem ipsum
+• Fully working production-ready website that can be run immediately with:
 
-⸻
+npm install
+npm run dev
 
-Video 4 – Journey into the Movement
-
-Continue from the exploded dial. The camera flies smoothly through the floating components and enters the heart of the mechanical movement. Hundreds of polished gears, bridges, ruby jewel bearings, springs, and screws become visible. Every gear rotates naturally. Beautiful macro cinematography with shallow depth of field and ray-traced reflections. End with the balance wheel centered in frame.
-
-⸻
-
-Video 5 – Escapement & Balance Wheel
-
-Extreme macro cinematic shot of the balance wheel oscillating with incredible precision. The escapement ticks realistically while surrounding gears rotate in synchronized motion. Camera performs a slow circular orbit around the balance assembly. Metallic reflections sweep across polished surfaces. Premium Swiss craftsmanship. End with the camera moving toward the mainspring barrel.
-
-⸻
-
-Video 6 – Power System Reveal
-
-Continue into the mainspring barrel. The barrel opens in a beautiful exploded animation, revealing the tightly coiled mainspring storing energy. The power flows visually through the gear train as components rotate together. Camera performs a slow spiral movement around the mechanism. Premium CGI, ultra detailed engineering visualization. End focused on the automatic rotor.
-
-⸻
-
-Video 7 – Automatic Rotor
-
-The camera transitions to the back side of the watch movement. The automatic rotor begins rotating smoothly while transferring energy into the movement. Internal gears engage naturally. Floating cinematic camera circles the rotor while polished metal catches moving highlights. Black studio environment, luxury product film. End with the camera pulling back to reveal the full movement.
-
-⸻
-
-Video 8 – Complete Exploded View
-
-Pull the camera backward while every mechanical component separates into a dramatic exploded view. Reveal the sapphire crystal, bezel, dial, hands, movement, bridges, gear train, escapement, rotor, screws, crown, stem, case, and case back floating in perfect alignment. Every component remains visible with equal spacing. Elegant anti-gravity motion. Finish with the fully exploded watch centered in frame.
-
-⸻
-
-Video 9 – Cross Section
-
-Transform the exploded watch into a precision engineering cross-section. The watch slices vertically while maintaining photorealistic materials. The camera slowly tracks sideways through each layer, revealing sapphire crystal, dial, movement, gear train, rotor, and case construction. Architectural visualization quality with premium lighting. End on the rear case.
-
-⸻
-
-Video 10 – Feature Showcase
-
-Components remain assembled in cross-section while individual engineering features illuminate one by one. Sapphire crystal glows subtly, ceramic bezel becomes highlighted, movement precision is emphasized, jewel bearings sparkle, automatic rotor rotates, water resistance layers appear, titanium case reflects premium light. The camera smoothly orbits around each highlighted feature. End with the watch beginning to reassemble.
-
-⸻
-
-Video 11 – Reassembly
-
-Every floating component moves back into position with satisfying mechanical precision. Tiny screws tighten automatically. Hands align perfectly. The bezel locks into place. The sapphire crystal settles gently onto the case. The camera slowly circles the assembly during the entire process. Ultra-premium CGI with perfect motion. End with the fully assembled watch.
-
-⸻
-
-Video 12 – Final Hero Shot
-
-Fully assembled luxury mechanical watch slowly rotates on a black reflective surface. The camera performs an elegant 360-degree orbit followed by a slow push-in toward the dial. Beautiful reflections glide across sapphire crystal and polished titanium. Soft volumetric lighting, Apple keynote quality, Swiss luxury advertising aesthetic, ray-traced reflections, black background, no text, no logos. Finish with an iconic centered hero composition suitable for the final section of a premium scroll-driven website.
-
-⸻
-
-PRO TIP FOR SEAMLESS WEBSITE SCROLLING
-
-For every prompt, append these continuity instructions:
-
-Maintain visual continuity with the previous clip. Use the last frame as the starting composition. Keep the same watch design, materials, lighting, camera direction, focal length, and black studio environment. Ensure the first and last frames are stable to allow seamless transitions between clips in a GSAP/ScrollTrigger scroll-driven website.
-
-This structure gives you about 120 seconds of unique, high-quality footage, with each 10-second clip mapping naturally to a separate scroll section on the website.
+The final experience should feel comparable to the product launch pages of Apple, Richard Mille, Rolex, or Porsche, with cinematic storytelling, ultra-smooth scroll interactions, premium typography, and flawless performance.
