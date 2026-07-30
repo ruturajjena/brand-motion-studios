@@ -70,6 +70,21 @@ export const getPlan = (id: string) => PLANS.find((p) => p.id === id);
 
 export const PRODUCTS: Product[] = [
   {
+    slug: "luxury-watch-website",
+    name: "AURELIAN Calibre 01 — Skeleton Automatic",
+    tagline: "Time, Engineered. Pinned storytelling & canvas frame scrubbing",
+    description:
+      "A cinematic, scroll-driven product launch experience for a skeleton automatic wristwatch — eight chapters, pinned storytelling, scrubbed 120-frame WebP sequence rendering on 2D canvas, React 19, Tailwind v4, Lenis smooth scroll, and GSAP ScrollTrigger.",
+    tags: ["luxury watch", "react 19", "gsap", "canvas 2d"],
+    includes: [
+      "Website prompt + video storyboard prompt (two-in-one pack)",
+      "12-clip shot list mapped to scroll sections",
+      "Complete source included",
+      "Preview video of the full scroll experience",
+    ],
+    featured: true,
+  },
+  {
     slug: "taj-mahal-keynote",
     name: "Taj Mahal Keynote Site",
     tagline: "Apple-keynote storytelling for a monument brand",
@@ -201,20 +216,6 @@ export const PRODUCTS: Product[] = [
     includes: [
       "Full build prompt (frame-perfect video-sync motion spec)",
       "Three-video shot list & section mapping",
-      "Complete source included",
-      "Preview video of the full scroll experience",
-    ],
-  },
-  {
-    slug: "luxury-watch-website",
-    name: "AURELIAN Calibre 01 — Skeleton Automatic",
-    tagline: "Time, Engineered. Pinned storytelling & canvas frame scrubbing",
-    description:
-      "A cinematic, scroll-driven product launch experience for a skeleton automatic wristwatch — eight chapters, pinned storytelling, scrubbed 120-frame WebP sequence rendering on 2D canvas, React 19, Tailwind v4, Lenis smooth scroll, and GSAP ScrollTrigger.",
-    tags: ["luxury watch", "react 19", "gsap", "canvas 2d"],
-    includes: [
-      "Website prompt + video storyboard prompt (two-in-one pack)",
-      "12-clip shot list mapped to scroll sections",
       "Complete source included",
       "Preview video of the full scroll experience",
     ],
