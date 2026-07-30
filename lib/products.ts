@@ -85,6 +85,22 @@ export const PRODUCTS: Product[] = [
     featured: true,
   },
   {
+    slug: "br-constructions-mall",
+    name: "AETHERIS Residences — Skyline Luxury",
+    tagline: "Not Just A Home. A New Skyline.",
+    description:
+      "A cinematic architectural journey for a vertical luxury community — 80+ amenities, three acres of landscape, pinned video storytelling, interactive floorplan reveals, React 19, Tailwind v4, and GSAP ScrollTrigger.",
+    previewUrl: "/real-estate.html",
+    tags: ["real estate", "architecture", "react 19", "gsap"],
+    includes: [
+      "Website brief + asset generation prompt pack (two-in-one)",
+      "Pin-to-scroll video storytelling & amenity specs",
+      "Interactive floorplan & specification modules",
+      "Complete source included",
+    ],
+    featured: true,
+  },
+  {
     slug: "taj-mahal-keynote",
     name: "Taj Mahal Keynote Site",
     tagline: "Apple-keynote storytelling for a monument brand",
@@ -219,22 +235,6 @@ export const PRODUCTS: Product[] = [
       "Complete source included",
       "Preview video of the full scroll experience",
     ],
-  },
-  {
-    slug: "br-constructions-mall",
-    name: "BR Constructions — Ground to Grandeur",
-    tagline: "Scroll builds the mall, frame by frame",
-    description:
-      "A construction-journey site where nothing plays on its own — the scrollbar becomes the timeline. Every pixel scrolled advances an empty plot toward a finished luxury mall, and scrolling back tears it down again. Includes the full interaction brief plus the video prompts that generated the four cinematic phases.",
-    previewUrl: "/real-estate.html",
-    tags: ["real estate", "video-driven", "next.js + gsap"],
-    includes: [
-      "Website brief + four-phase video prompt pack (two-in-one)",
-      "Frame-to-scroll scrub spec (no autoplay, fully reversible)",
-      "Phase boundaries, story beats and loading-sequence direction",
-      "Complete source included",
-    ],
-    featured: true,
   },
   {
     slug: "nucleus-ai-theme",
