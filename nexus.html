@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXUS Personal AI Assistant — Industrial Spatial OS Guide | Brand Motion Studios</title>
+  <meta name="description" content="4-phase architecture guide and master prompts for building NEXUS: an Industrial Spatial Computing AI assistant with R3F, MediaPipe hand tracking, Gemini voice streaming, and dynamic 3D environments." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#060606" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Brand Motion Studios home">
+        <svg class="brand__mark" viewBox="0 0 62 44" width="48" height="34" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0d488" />
+              <stop offset="1" stop-color="#b8893b" />
+            </linearGradient>
+            <linearGradient id="bm-silver" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef0f3" />
+              <stop offset="1" stop-color="#9aa0a8" />
+            </linearGradient>
+          </defs>
+          <text x="0" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-gold)">B</text>
+          <text x="28" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-silver)">M</text>
+        </svg>
+        <span class="brand__text">Brand Motion<span class="brand__accent"> Studios</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#reels">Reels</a>
+        <a href="prompts.html">Prompt Library</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">Start a project</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="prompt-page">
+    <div class="container">
+      <header class="prompt-page__head reveal">
+        <p class="eyebrow">Internal · AI Architecture Guide</p>
+        <h1 class="section__title">NEXUS Personal AI Assistant — <span class="grad-text">Industrial Spatial OS</span></h1>
+        <p class="section__lead">A 4-phase iterative framework to build <strong>NEXUS</strong>: an Awwwards-caliber personal spatial computing assistant. <em>Do not build "Iron Man UI"—build "Industrial Spatial Computing"</em> (combining Apple Vision Pro, Teenage Engineering, Nothing, Linear, and FUI aesthetics). Click <strong>Copy</strong> on any card to grab the prompt text.</p>
+      </header>
+
+      <div class="prompt-list">
+
+        <!-- ===== Prompt: nexus-phase-1 ===== -->
+        <article class="prompt-card reveal" id="nexus-phase-1">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 1 — Foundation + Spatial Interface + Hand Tracking</span>
+              <span class="prompt-card__tag">Architecture Prompt · Next.js 15 / R3F / MediaPipe / Rapier</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-nexus-phase-1">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Builds the 3D rendering engine, infinite volumetric environment, gesture-controlled floating glass carousel orbit, Rapier physics, and MediaPipe hand tracking (no voice or AI yet).</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-nexus-phase-1">You are a Principal Creative Technologist, Graphics Engineer and Senior Frontend Architect.
+
+Build a production-quality futuristic spatial computing web application called NEXUS.
+
+This is NOT a dashboard.
+This is NOT a website.
+This should feel like an operating system.
+
+========================
+TECH STACK
+========================
+
+Use:
+• Next.js 15
+• React 19
+• TypeScript
+• Tailwind CSS v4
+• React Three Fiber
+• Three.js
+• Drei
+• GSAP
+• Framer Motion
+• React Spring
+• Rapier Physics
+• MediaPipe Tasks Vision
+• Zustand
+• Valtio if useful
+• Lenis
+• WebGL with graceful fallback
+• Postprocessing (Bloom, DOF, God Rays if suitable)
+
+Everything must be modular.
+No monolithic components.
+Architecture should scale for future AI modules.
+
+========================
+DESIGN LANGUAGE
+========================
+
+Do NOT copy Iron Man.
+Design language should combine:
+- Apple Vision Pro
+- Nothing
+- Linear
+- Teenage Engineering
+- FUI (Fictional UI)
+- Spatial Computing
+- Glassmorphism
+- Industrial Minimalism
+
+Dark Environment.
+Blue and white holographic lighting.
+Very subtle orange accents only for warnings.
+Background is an infinite procedural environment.
+No stars. No galaxies.
+Think volumetric fog with moving particles.
+The world should feel alive.
+
+========================
+SCENE
+========================
+
+Create one large 3D room.
+No walls.
+Just atmospheric depth.
+Soft volumetric lighting.
+Floating particles.
+Moving light beams.
+Very subtle camera drift.
+The camera should feel like floating.
+
+========================
+MAIN OBJECTS
+========================
+
+Create floating holographic cards.
+Cards represent future modules:
+- Instagram
+- Stocks
+- Projects
+- Sports
+- Calendar
+- Weather
+- AI
+- News
+- Music
+- System
+
+Arrange them in a circular orbit around the user.
+Each card should slowly float independently.
+Very subtle idle movement.
+Cards have glass material.
+Depth.
+Rounded corners.
+Reflections.
+Soft glow.
+
+========================
+INTERACTION
+========================
+
+Mouse should only exist as fallback.
+Primary interaction is hand tracking.
+Integrate MediaPipe.
+Track:
+- Palm
+- Pinch
+- Finger positions
+- Swipe
+- Open hand
+- Closed hand
+
+========================
+GESTURES
+========================
+
+Swipe Left: Rotate carousel left.
+Swipe Right: Rotate carousel right.
+Pinch: Grab card.
+Released pinch: Drop card with physics.
+Pull toward camera: Expand card.
+Push away: Collapse card.
+Palm held still: Freeze movement.
+Circle gesture: Reserved for future AI.
+
+========================
+ANIMATION
+========================
+
+Every interaction must use spring physics.
+No linear movement.
+Everything should feel physical.
+Cards slightly lag behind hand.
+Momentum.
+Overshoot.
+Elasticity.
+
+========================
+CARD STATES
+========================
+
+Idle
+Hovered
+Selected
+Expanded
+Focused
+Dragging
+
+Every state should have unique animation.
+
+========================
+VISUAL FX
+========================
+
+Bloom
+Particle trails
+Glow
+Light streaks
+Glass reflections
+Animated borders
+Energy pulse when selected
+
+========================
+AUDIO
+========================
+
+No voice.
+Only ambient sounds.
+Soft UI sounds.
+Very subtle synth pad.
+Gesture confirmation sounds.
+
+========================
+HUD
+========================
+
+Very minimal.
+
+Top Left: System Status, FPS, Tracking, GPU
+Bottom Right: Gesture detected, Confidence
+Top Right: Clock, Date
+Bottom Left: System log
+
+========================
+PERFORMANCE
+========================
+
+Target 60 FPS.
+Adaptive quality.
+Lazy load assets.
+GPU optimized.
+
+========================
+PROJECT STRUCTURE
+========================
+
+Follow clean architecture.
+Separate:
+- Rendering
+- Physics
+- Gesture Engine
+- Animations
+- Scene Graph
+- Components
+- Utilities
+- Hooks
+- Stores
+
+========================
+DELIVERABLE
+========================
+
+At the end of Phase 1 I should have a beautiful futuristic operating system where I can rotate floating holographic cards entirely using hand gestures with premium animations and physics.
+
+No Gemini.
+No speech.
+No AI yet.</pre>
+        </article>
+
+        <!-- ===== Prompt: nexus-phase-2 ===== -->
+        <article class="prompt-card reveal" id="nexus-phase-2">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 2 — AI Brain + Voice + Command Engine</span>
+              <span class="prompt-card__tag">Architecture Prompt · Gemini API / Speech Recognition / Spatial Audio</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-nexus-phase-2">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Integrates Gemini API streaming, SpeechRecognition, Text-to-Speech, "Nexus" wake phrase, circle hand gesture activation, spatial audio, and floating particle-assembled holographic responses.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-nexus-phase-2">Continue from Phase 1.
+Do not rewrite existing architecture.
+Only extend it.
+
+========================
+OBJECTIVE
+========================
+
+Turn NEXUS into an AI assistant.
+Use Gemini API.
+All communication must stream.
+
+========================
+VOICE
+========================
+
+Use SpeechRecognition.
+Use streaming Gemini responses.
+Use high-quality Text-to-Speech.
+Speech must feel conversational.
+Support interruption:
+If user speaks while AI speaks, AI immediately stops.
+
+========================
+WAKE SYSTEM
+========================
+
+Wake phrase: "Nexus" OR Circle hand gesture.
+When activated:
+- Entire interface glows.
+- Wave animation spreads across scene.
+- Microphone appears.
+
+========================
+COMMAND ENGINE
+========================
+
+Examples:
+- Open Instagram
+- Show Projects
+- Rotate Left
+- Show Calendar
+- Latest AI News
+- How is Nvidia today?
+- Open Stocks
+- What's my schedule?
+- Summarize today's AI news
+- Search YouTube
+- Explain MCP
+
+========================
+STREAMING
+========================
+
+Gemini should stream tokens.
+Response appears word-by-word.
+Speech begins before completion.
+
+========================
+MEMORY
+========================
+
+Conversation history.
+Context awareness.
+Current module awareness:
+If Stocks module is open and user says "Explain this", Gemini understands.
+
+========================
+VISUALIZATION
+========================
+
+Instead of chat bubbles:
+Generate floating holographic text.
+AI responses appear in space.
+Sentences assemble from particles.
+
+========================
+AUDIO
+========================
+
+Spatial audio.
+Voice should come from center.
+UI sounds react to speech.
+
+========================
+STATUS
+========================
+
+Listening
+Thinking
+Speaking
+Interrupted
+Offline
+Streaming</pre>
+        </article>
+
+        <!-- ===== Prompt: nexus-phase-3 ===== -->
+        <article class="prompt-card reveal" id="nexus-phase-3">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 3 — Personal Knowledge Engine</span>
+              <span class="prompt-card__tag">Architecture Prompt · Data Integration / 3D Charts / Particle Weather</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-nexus-phase-3">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Converts generic placeholders into real interactive personal modules: 3D Instagram charts, live Stock tickers, Project 3D worlds, Sports scores, Weather particle simulations, and System diagnostics.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-nexus-phase-3">Continue from Phase 2.
+
+========================
+OBJECTIVE
+========================
+
+Every module becomes real.
+No placeholders.
+
+========================
+MODULES
+========================
+
+Instagram
+Stocks
+Projects
+Calendar
+Weather
+Sports
+News
+Music
+System
+AI
+
+========================
+INSTAGRAM
+========================
+
+Show:
+- Followers
+- Reach
+- Reels
+- Growth
+- Top content
+- Engagement
+Charts animate in 3D.
+AI explains trends.
+
+========================
+STOCKS
+========================
+
+Portfolio
+Live prices
+Performance
+Allocation
+Profit / Loss
+Sector exposure
+Animated graphs.
+
+========================
+PROJECTS
+========================
+
+Every project becomes a floating world.
+Each contains:
+- Videos
+- Images
+- Descriptions
+- Prompt history
+- GitHub links
+
+========================
+SPORTS
+========================
+
+Live scores.
+Fixtures.
+Standings.
+Voice summaries.
+
+========================
+NEWS
+========================
+
+AI summarizes.
+Cards stack.
+Swipe through articles.
+
+========================
+WEATHER
+========================
+
+Environment changes:
+Rain / Clouds / Fog / Sun
+
+========================
+SYSTEM
+========================
+
+CPU / GPU / Battery / Network / Memory / Storage
+Animated diagnostics.
+
+========================
+AI
+========================
+
+Knowledge search.
+Reasoning.
+Summaries.
+Code help.</pre>
+        </article>
+
+        <!-- ===== Prompt: nexus-phase-4 ===== -->
+        <article class="prompt-card reveal" id="nexus-phase-4">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 4 — Award-Winning Experience</span>
+              <span class="prompt-card__tag">Architecture Prompt · Dynamic Environments / Two-Hand Gestures / Awwwards Polish</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-nexus-phase-4">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Adds dynamic environments (Minimal Studio, Dark Lab, Glass Observatory, Industrial Command Center, Ocean Platform, Fog Chamber), two-hand gestures, light trails, and Awwwards-level polish.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-nexus-phase-4">Continue from Phase 3.
+
+This phase is entirely about delight.
+
+========================
+OBJECTIVE
+========================
+
+Transform NEXUS into a cinematic spatial computing experience.
+
+========================
+ENVIRONMENTS
+========================
+
+Switch environments dynamically:
+- Minimal Studio
+- Dark Lab
+- Glass Observatory
+- Industrial Command Center
+- Ocean Platform
+- Fog Chamber
+
+========================
+TRANSITIONS
+========================
+
+Module transitions become cinematic.
+Entire world morphs.
+Camera choreography.
+Particle simulations.
+Lighting changes.
+
+========================
+AI WORLDS
+========================
+
+When opening Projects: Environment transforms.
+When opening Stocks: Floor becomes animated market grid.
+When opening Weather: Entire world reflects weather.
+
+========================
+MICROINTERACTIONS
+========================
+
+Every gesture leaves light trails.
+Cards ripple.
+Particles react.
+Glass bends.
+Ambient light responds.
+
+========================
+ADVANCED GESTURES
+========================
+
+Two-hand interactions:
+- Zoom
+- Throw cards
+- Group cards
+- Split cards
+- Multi-select
+
+========================
+FINAL EXPERIENCE
+========================
+
+Opening NEXUS should feel like booting into a futuristic operating system rather than opening a web application.
+
+The application should be visually polished enough to qualify as an Awwwards-level interactive experience while maintaining excellent performance, accessibility fallbacks, and a clean, extensible architecture suitable for future modules and AI capabilities.</pre>
+        </article>
+
+      </div>
+
+      <a href="prompts.html" class="prompt-back">← Back to Prompt Library</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Copy-to-clipboard for prompt cards
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        var text = target.textContent;
+        var label = btn.querySelector('.copy-btn__label');
+        var done = function () {
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+        } else { fallback(text, done); }
+      });
+    });
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>
