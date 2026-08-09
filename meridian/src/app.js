@@ -6,6 +6,10 @@ import { OIL_PRODUCTS, METAL_PRODUCTS } from './content.js';
 gsap.registerPlugin(ScrollTrigger);
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const smoothstep = (e0, e1, x) => {
+  const t = clamp((x - e0) / (e1 - e0));
+  return t * t * (3 - 2 * t);
+};
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ── logo mark ──────────────────────────────────────────────────
@@ -186,6 +190,24 @@ function trackSection(el, apply, end = 'bottom bottom') {
 
 trackSection(sections.hero, (p) => { stage.progress.hero = p; }, 'bottom top');
 
+/**
+ * The section intro is a lead-in, not a peer of the product copy: it rises
+ * under the title, then clears out as the first product panel arrives so two
+ * paragraphs never compete for the same space over the wireframes.
+ *
+ * Driven by hand rather than by a GSAP tween because it has to hand over to
+ * `drivePanels` at an exact progress value.
+ */
+function driveIntro(section, p) {
+  const intro = section.querySelector('.product-intro');
+  const inA = smoothstep(0.01, 0.07, p);
+  const o = Math.min(inA, 1 - smoothstep(0.1, 0.2, p));
+
+  intro.style.opacity = o.toFixed(3);
+  intro.style.transform = `translate3d(0, ${((1 - inA) * 22).toFixed(2)}px, 0)`;
+  intro.style.filter = REDUCED ? 'none' : `blur(${((1 - o) * 6).toFixed(2)}px)`;
+}
+
 /* A sticky pin holds its content right up to the moment the section scrolls
    away, which leaves the last frame hanging on screen during the handover.
    Dissolving the whole pinned layer over the final slice of the section hides
@@ -203,12 +225,14 @@ trackSection(sections.statement, (p) => {
 trackSection(sections.oil, (p) => {
   stage.progress.oil = p;
   drivePanels(oilPanels, oilTicks, p);
+  driveIntro(sections.oil, p);
   fadePin(sections.oil, p);
 });
 
 trackSection(sections.metals, (p) => {
   stage.progress.metals = p;
   drivePanels(metalPanels, metalTicks, p);
+  driveIntro(sections.metals, p);
   fadePin(sections.metals, p);
 });
 
@@ -281,12 +305,13 @@ document.querySelectorAll('.product-section').forEach((section) => {
   const title = section.querySelector('.product-title');
   revealChars(title, section, { start: 'top top', end: '14% top', each: 0.035 });
 
-  gsap.from(section.querySelectorAll('.eyebrow, .product-intro'), {
+  // The intro is excluded here — driveIntro owns it, and two writers fighting
+  // over the same opacity would stutter.
+  gsap.from(section.querySelector('.eyebrow'), {
     scrollTrigger: { trigger: section, start: 'top top', end: '16% top', scrub: 0.6 },
     y: 26,
     opacity: 0,
     filter: REDUCED ? 'none' : 'blur(6px)',
-    stagger: 0.1,
     ease: 'none',
   });
 });
