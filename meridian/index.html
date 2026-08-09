@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Meridian Trading — Global Commodity Trading</title>
+<meta name="description" content="Meridian Trading moves crude oil, refined products, gas, petrochemicals and metals across global markets — operating efficiently, leading with innovation." />
+<meta name="theme-color" content="#050a16" />
+<link rel="preload" href="assets/bundle.js" as="script" />
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050a16'/%3E%3Cpath d='M16 5l9 11-9 11-9-11z' fill='none' stroke='%233d9bff' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='2.4' fill='%233d9bff'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- Single WebGL surface behind everything. Scenes are swapped by scroll. -->
+<canvas id="gl"></canvas>
+<div id="vignette" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+
+<!-- ───────────────────────────── nav ───────────────────────────── -->
+<header id="nav">
+  <nav class="nav-brands" aria-label="Meridian group companies">
+    <a href="#" class="nav-brand">Meridian Group</a>
+    <a href="#" class="nav-brand is-active">Meridian Trading<span class="nav-underline"></span></a>
+    <a href="#" class="nav-brand">Meridian Capital</a>
+    <a href="#" class="nav-brand">Meridian Maritime</a>
+    <a href="#" class="nav-brand">Meridian Energy</a>
+  </nav>
+  <div class="nav-utility">
+    <a href="#" class="nav-link">News</a>
+    <button class="nav-globe" aria-label="Change region">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3.2 9h17.6M3.2 15h17.6"/></svg>
+    </button>
+    <button class="nav-menu" aria-label="Open menu">
+      <span>Menu</span>
+      <span class="nav-menu-bars"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ─────────────────────────── hero ─────────────────────────── -->
+  <section id="hero" class="section">
+    <div class="hero-inner">
+      <div class="hero-lockup">
+        <svg class="hero-mark" viewBox="0 0 120 120" aria-hidden="true">
+          <g class="mark-dots"></g>
+        </svg>
+        <span class="hero-rule"></span>
+        <h1 class="hero-word">Meridian Trading</h1>
+      </div>
+      <p class="hero-tag">Global commodity trading &middot; Energy, metals and freight</p>
+    </div>
+    <div class="hero-cue">
+      <span>Scroll</span>
+      <span class="cue-line"><i></i></span>
+    </div>
+  </section>
+
+  <!-- ──────────────────────── statement ──────────────────────── -->
+  <section id="statement" class="section section--tall">
+    <div class="pin">
+      <div class="statement-inner">
+        <h2 class="statement-head" data-split>Operating efficiently, leading with innovation.</h2>
+        <div class="statement-body">
+          <p>Meridian Trading manages a diverse portfolio of products and services, safely and
+             responsibly, all over the world. Our desks operate around the clock and across every
+             time zone, moving physical commodities to where they are needed most.</p>
+          <div class="stat-row">
+            <div class="stat"><b data-count="65">0</b><span>Million tonnes traded annually</span></div>
+            <div class="stat"><b data-count="42">0</b><span>Countries of operation</span></div>
+            <div class="stat"><b data-count="18">0</b><span>Global trading offices</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────────────── oil ─────────────────────────── -->
+  <section id="oil" class="section product-section" data-scene="barrels">
+    <div class="pin">
+      <div class="product-head">
+        <p class="eyebrow">Explore Our<br />Products:</p>
+        <h2 class="product-title" data-split>Oil</h2>
+        <p class="product-intro">
+          From wellhead to end user, our oil desk keeps crude and refined products moving through
+          every major hub — chartering, storing and blending to meet demand wherever it appears.
+        </p>
+      </div>
+
+      <div class="product-stack" id="oil-stack">
+        <!-- panels injected -->
+      </div>
+
+      <div class="product-progress" id="oil-progress" aria-hidden="true"></div>
+      <div class="product-cue"><i></i></div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── metals ───────────────────────── -->
+  <section id="metals" class="section product-section" data-scene="beams">
+    <div class="pin">
+      <div class="product-head">
+        <p class="eyebrow">Explore Our<br />Products:</p>
+        <h2 class="product-title" data-split>Metals</h2>
+        <p class="product-intro">
+          Our metals, minerals and dry bulk division operates on a global scale, managing the
+          transportation, storage and supply of a broad portfolio of products from source to
+          end consumer.
+        </p>
+      </div>
+
+      <div class="product-stack" id="metals-stack"></div>
+
+      <div class="product-progress" id="metals-progress" aria-hidden="true"></div>
+      <div class="product-cue"><i></i></div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── closing ──────────────────────── -->
+  <section id="closing" class="section">
+    <div class="closing-inner">
+      <p class="eyebrow">Meridian Trading</p>
+      <h2 class="closing-head" data-split>Moving what the world runs on.</h2>
+      <a class="closing-cta" href="#hero">
+        <span>Back to top</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <svg class="footer-mark" viewBox="0 0 120 120" aria-hidden="true"><g class="mark-dots"></g></svg>
+      <span>Meridian Trading</span>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#oil">Oil</a>
+      <a href="#metals">Metals</a>
+      <a href="#statement">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact</a>
+    </nav>
+    <p class="footer-note">
+      A fictional brand built as a scroll-animation study. No affiliation with any real company.
+    </p>
+  </div>
+</footer>
+
+<button id="to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="assets/bundle.js"></script>
+</body>
+</html>
