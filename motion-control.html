@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOTION / FORM — Gesture-Controlled Exploded 3D Gallery Guide | Brand Motion Studios</title>
+  <meta name="description" content="Asset generation guide for Grok &amp; Google Flow exploded 3D videos, plus Claude Code prompt to build MOTION / FORM: a gesture-controlled React gallery powered by MediaPipe hand tracking and pinch video scrubbing." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#060606" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Brand Motion Studios home">
+        <svg class="brand__mark" viewBox="0 0 62 44" width="48" height="34" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0d488" />
+              <stop offset="1" stop-color="#b8893b" />
+            </linearGradient>
+            <linearGradient id="bm-silver" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef0f3" />
+              <stop offset="1" stop-color="#9aa0a8" />
+            </linearGradient>
+          </defs>
+          <text x="0" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-gold)">B</text>
+          <text x="28" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-silver)">M</text>
+        </svg>
+        <span class="brand__text">Brand Motion<span class="brand__accent"> Studios</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#reels">Reels</a>
+        <a href="prompts.html">Prompt Library</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">Start a project</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="prompt-page">
+    <div class="container">
+      <header class="prompt-page__head reveal">
+        <p class="eyebrow">Internal · Project Workflow</p>
+        <h1 class="section__title">MOTION / FORM — <span class="grad-text">Gesture-Controlled</span> Exploded Gallery</h1>
+        <p class="section__lead">A 2-step workflow for creating 3D exploded video assets using Grok or Google Flow and building a hand-tracking spatial gallery application with React, Vite, MediaPipe, and pinch-distance video scrubbing. Click <strong>Copy</strong> on either card to grab the prompt text.</p>
+      </header>
+
+      <div class="prompt-list">
+
+        <!-- ===== Prompt: motion-control-step-1 ===== -->
+        <article class="prompt-card reveal" id="motion-control-step-1">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Step 1 — Grok / Google Flow 3D Exploded Asset Prompts</span>
+              <span class="prompt-card__tag">Media Generation · Grok / Google Flow / Runway Gen-3</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-motion-control-step-1">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Detailed instructions and 5 video generation prompts to generate 0% to 100% linear exploded video assets with locked camera coordinates for interactive frame scrubbing.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-motion-control-step-1">Step 1 — Create Exploded 3D Assets using Grok or Google Flow
+
+Asset Generation Guidelines:
+1. Locked Camera Coordinates: Ensure camera remains 100% static (no panning, zooming, rotation, orbit, or handheld camera shake).
+2. Direct Time-Mapping: The 10-second video must represent a clean linear transition from 0% (fully assembled object) to 100% (fully exploded object with separated floating layers).
+3. Clean Studio Environment: Use a dark charcoal/slate void or off-white architectural background with dramatic rim lighting and zero background clutter or text.
+4. Output Settings: Render in 60fps, 4K resolution, photorealistic Octane/Unreal Engine 5 quality.
+
+---
+
+Prompts for the 5 Experience Cards:
+
+Card 1: Kinetic GT — “Precision, unbound”
+Prompt: Cinematic 3D product render video of a futuristic high-performance electric hypercar expanding into a floating exploded view in mid-air. Static camera locked in perspective. 0s: fully assembled sleek carbon-fiber vehicle. 1s–10s: carbon body panels, aerodynamic wing, titanium suspension, electric motor drives, lithium battery pack, and custom wheels smoothly separate into parallel floating layers along the central axis. Dark slate background, soft studio rim lighting, 60fps, ultra-clean industrial design visualization, photorealistic, 4K, no text, no camera motion.
+
+Card 2: Orbital Habitat — “Architecture without gravity”
+Prompt: Ultra-realistic 3D architectural visualization of a modular ring-shaped space habitat expanding into an exploded view layout. Static camera locked in position. 0s: fully sealed metallic space station ring. 1s–10s: solar array wings, docking bays, pressurized habitat pods, life support conduits, and central hub separate vertically into floating layers with precise spacing. Volumetric dark void background, soft earth-glow rim lighting, Octane render, 60fps, 4K, no camera movement.
+
+Card 3: Botanical Clock — “Time, taken apart”
+Prompt: High-end 3D product film of a sculptural mechanical timepiece with living botanical elements disassembling into layers. Static locked camera. 0s: complete timepiece with brass casing and glass dome. 1s–10s: hand-carved brass gears, Tourbillon escapement cage, balance wheel, frosted glass face, and internal moss terrarium separate outwards with floating spacing. Dark charcoal matte background, warm soft key light, hyper-detailed mechanical aesthetic, 60fps, 4K, static camera.
+
+Card 4: Analogue Sound Machine — “The anatomy of sound”
+Prompt: Precision 3D exploded view animation of a high-end audiophile vacuum tube synthesizer and turntable. Static camera locked on 85mm lens. 0s: pristine assembled matte-black and brass turntable. 1s–10s: glowing vacuum tubes, tonearm assembly, heavy brass platter, PCB circuit board, custom knobs, and acoustic dampening base separate into floating layers. Dark slate background, subtle warm audio glow, photorealistic, 60fps, 4K, no camera motion.
+
+Card 5: Future City Block — “A city in layers”
+Prompt: Architectural cross-section exploded view animation of an ultra-modern sustainable skyscraper and urban city block. Static locked camera. 0s: complete futuristic skyscraper standing in a dark architectural void. 1s–10s: subterranean transit levels, steel structural core, modular apartment units, vertical forest skygardens, and solar roof canopy lift upward and separate into floating architectural tiers. Minimal dark background, soft volumetric fog, 60fps, 4K, static camera.</pre>
+        </article>
+
+        <!-- ===== Prompt: motion-control-step-2 ===== -->
+        <article class="prompt-card reveal" id="motion-control-step-2">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Step 2 — Claude Code Master Prompt (“MOTION / FORM”)</span>
+              <span class="prompt-card__tag">Website Brief · React + TypeScript + Vite / MediaPipe</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-motion-control-step-2">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Full developer prompt to build MOTION / FORM: a gesture-controlled React application with MediaPipe hand tracking, open-palm card entry, and pinch-distance video scrubbing.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-motion-control-step-2">Build a polished, production-ready React + TypeScript + Vite website called “MOTION / FORM”.
+
+Concept:
+A full-screen gesture-controlled gallery of five cinematic transformation films. Users swipe through cards. Showing an open palm opens the selected card into an immersive experience. Pinch distance continuously scrubs the video:
+- fingers close together / pinch in = 0% timeline = fully assembled object
+- fingers move apart / pinch out = 100% timeline = fully exploded object
+The video must never autoplay as a normal linear video while gesture control is active.
+
+Use:
+- React, TypeScript, Vite
+- @mediapipe/tasks-vision for browser-based hand landmark tracking
+- Pure CSS; no component library
+- Use the local MP4 files at assets folder in this directory.
+
+Create these cards:
+1. Kinetic GT — “Precision, unbound”
+2. Orbital Habitat — “Architecture without gravity”
+3. Botanical Clock — “Time, taken apart”
+4. Analogue Sound Machine — “The anatomy of sound”
+5. Future City Block — “A city in layers”
+
+Interaction requirements:
+1. Landing/gallery
+   - Full-screen dark editorial interface.
+   - Horizontal card carousel with touch/mouse swipe, trackpad support, keyboard Left/Right keys, and visible but subtle previous/next controls.
+   - One active large card, with neighboring cards partially visible.
+   - Each card shows its title, index (01–05), short line, and a poster-frame video preview.
+   - Do not use gradients, generic glassmorphism, excessive rounded cards, or stock UI aesthetics.
+
+2. Gesture onboarding
+   - On first use, request webcam permission through a deliberate “Enable gesture control” button.
+   - Show a compact live camera preview and hand-tracking status only after permission is granted.
+   - Explain: “Open palm to enter. Pinch to assemble / explode.”
+   - If permission is denied or camera is unavailable, retain a fully usable fallback: drag the scrubber, mouse wheel, keyboard Up/Down, and a range input.
+
+3. Open-palm behavior
+   - Recognize a stable open palm only when five fingers are extended and the gesture remains stable for 450ms.
+   - Trigger a short visual confirmation, then open the currently active card.
+   - Prevent repeated triggers using a cooldown.
+   - Escape closes the experience. Also include a clearly labeled Close control.
+
+4. Immersive experience
+   - The chosen video fills most of the viewport, with the title and a small “ASSEMBLED ← PINCH → EXPLODED” control indicator.
+   - Load video metadata, then set `video.currentTime` directly from pinch progress.
+   - Calculate pinch distance from thumb-tip to index-finger-tip, normalized using hand size (for example wrist to middle-finger MCP distance).
+   - Smooth with an exponential moving average to prevent jitter.
+   - Calibrate near/far thresholds sensibly, clamp values to 0–1, and map:
+     `video.currentTime = progress * video.duration`
+   - Provide a reset-to-assembled button.
+   - Do not use a fake gesture animation: the camera data must control the actual video timeline.
+
+5. Design
+   - Sophisticated black, charcoal, bone-white, and one muted acid-lime accent.
+   - Typography should feel editorial and technical: large condensed-like display styling with small monospaced labels.
+   - Include restrained motion: card entrance, a pinch progress ring, and subtle grain/noise implemented in CSS.
+   - Respect `prefers-reduced-motion`.
+   - Responsive from 375px mobile to wide desktop.
+
+6. Engineering quality
+   - Organize components cleanly: `App`, `Gallery`, `Experience`, `GestureController`, `useHandGestures`, and data-driven `experiences`.
+   - Thoroughly clean up MediaPipe, animation frames, webcam tracks, and event listeners on unmount.
+   - Handle loading, video errors, camera errors, and absent hand detection gracefully.
+   - Make all controls accessible with labels, keyboard support, contrast, and visible focus states.
+   - Include a concise README covering install, development, where to add videos, gesture calibration constants, and fallback controls.
+
+Before finishing, run the build and fix all TypeScript, lint, and build errors.</pre>
+        </article>
+
+      </div>
+
+      <a href="prompts.html" class="prompt-back">← Back to Prompt Library</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Copy-to-clipboard for prompt cards
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        var text = target.textContent;
+        var label = btn.querySelector('.copy-btn__label');
+        var done = function () {
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+        } else { fallback(text, done); }
+      });
+    });
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>
