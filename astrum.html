@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASTRUM-OS — Futuristic Celestial AI Agent Prompts | Brand Motion Studios</title>
+  <meta name="description" content="5-phase architecture guide and master prompts for building ASTRUM-OS: a voice-controlled holographic celestial AI agent combining JARVIS UI, Three.js 3D Armillary spheres, and Gemini/Claude astrological intelligence." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#020208" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Brand Motion Studios home">
+        <svg class="brand__mark" viewBox="0 0 62 44" width="48" height="34" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0d488" />
+              <stop offset="1" stop-color="#b8893b" />
+            </linearGradient>
+            <linearGradient id="bm-silver" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef0f3" />
+              <stop offset="1" stop-color="#9aa0a8" />
+            </linearGradient>
+          </defs>
+          <text x="0" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-gold)">B</text>
+          <text x="28" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-silver)">M</text>
+        </svg>
+        <span class="brand__text">Brand Motion<span class="brand__accent"> Studios</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#reels">Reels</a>
+        <a href="prompts.html">Prompt Library</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">Start a project</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="prompt-page">
+    <div class="container">
+      <header class="prompt-page__head reveal">
+        <p class="eyebrow">Internal · AI OS Architecture</p>
+        <h1 class="section__title">ASTRUM-OS — <span class="grad-text">Voice Celestial AI</span> Agent</h1>
+        <p class="section__lead">A complete 5-phase breakdown to build <strong>ASTRUM-OS</strong>: an ultra-futuristic, voice-controlled astrological neural intelligence. Inspired by J.A.R.V.I.S. meets 3D cosmic spatial computing. Click <strong>Copy</strong> on any phase to feed directly into Claude Code.</p>
+      </header>
+
+      <div class="prompt-list">
+
+        <!-- ===== Prompt: astrum-phase-1 ===== -->
+        <article class="prompt-card reveal" id="astrum-phase-1">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 1 — Project Foundation &amp; Glassmorphic FUI Design System</span>
+              <span class="prompt-card__tag">Architecture Prompt · Next.js 15 / Tailwind v4 / Glass FUI</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-astrum-phase-1">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Initializes Next.js 15 App Router, TypeScript, and the core holographic FUI design system (Void Black, Holographic Cyan, Astral Gold, Nebula Purple, glassmorphic containers, telemetry fonts, and animated corner brackets).</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-astrum-phase-1">You are a Principal Frontend Architect and Lead Creative Technologist.
+
+Task: Build Phase 1 of ASTRUM-OS — an ultra-futuristic, voice-controlled holographic celestial AI web application.
+
+================================
+1. TECH STACK & SETUP
+================================
+- Framework: Next.js 15 (App Router, React 19, TypeScript)
+- Styling: Tailwind CSS v4 + Custom Glassmorphic FUI CSS variables
+- Icons: Lucide React
+- Fonts: JetBrains Mono / Space Grotesk for technical telemetry HUD text
+
+================================
+2. COLOR PALETTE & DESIGN SYSTEM
+================================
+Define CSS variables and Tailwind utility classes for:
+- Deep Void Black: #020208
+- Holographic Cyan: #00F0FF
+- Astral Gold: #E5C158
+- Nebula Purple: #8B5CF6
+
+================================
+3. UI COMPONENTS TO CREATED
+================================
+1. `app/layout.tsx`: Dark background (#020208), scanline overlay, ambient glow particles, and custom typography setup.
+2. `components/ui/GlassCard.tsx`: Reusable holographic glass panel featuring sub-pixel cyan borders, backdrop blur (`backdrop-blur-xl`), animated corner brackets (`+` or `L` bracket accents), and subtle inner glow.
+3. `components/ui/TelemetryBadge.tsx`: Small monospaced FUI readout badge displaying system status, coordinates, and live metrics.
+4. `app/page.tsx`: Full-screen spatial layout container structured for the upcoming 3D canvas, top telemetry bar, center voice orb, and bottom expandable drawers.
+
+Deliverable: Clean, compilation-ready Next.js 15 layout with working glassmorphic CSS tokens and responsive dark FUI structure.</pre>
+        </article>
+
+        <!-- ===== Prompt: astrum-phase-2 ===== -->
+        <article class="prompt-card reveal" id="astrum-phase-2">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 2 — Three.js 3D Celestial Canvas &amp; Stellar Core</span>
+              <span class="prompt-card__tag">Architecture Prompt · React Three Fiber / Drei / Shaders</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-astrum-phase-2">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Builds `components/canvas/CelestialScene.tsx` using R3F and Drei: 12 concentric glowing Zodiac rings, floating vertex-displaced nebula starlight particle field, and central audio-reactive Stellar Core.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-astrum-phase-2">Continue from Phase 1. Build Phase 2: The Three.js 3D Celestial Canvas.
+
+================================
+1. TECH STACK
+================================
+- `@react-three/fiber`
+- `@react-three/drei`
+- `three` & `@types/three`
+
+================================
+2. COMPONENT: components/canvas/CelestialScene.tsx
+================================
+Create a full-screen interactive 3D scene containing:
+
+1. 12 Concentric Zodiac Rings (Armillary Sphere):
+   - Glowing 3D torus/ring geometries rendered with emissive materials (#00F0FF & #8B5CF6).
+   - Each ring slowly rotates along independent axes (X, Y, Z).
+   - Rings subtly tilt and react to mouse movement and scroll position.
+
+2. Floating Nebula Particle Field:
+   - 2,000+ starlight particles using custom vertex shader displacement or instanced points.
+   - Particles drift gently through space with subtle color shifts between cyan, purple, and gold.
+
+3. Central Stellar Core:
+   - Floating 3D mesh at scene origin representing the AI's core consciousness.
+   - Accepts an `audioIntensity` prop (0.0 to 1.0).
+   - Core scales, pulses, and alters noise displacement when audio activity is detected.
+
+4. Performance & Fallback:
+   - Responsive canvas scaling, DPR optimization, and WebGL context loss handling.
+
+Deliverable: Working 3D Canvas component integrated seamlessly into `app/page.tsx` behind the glass HUD layout.</pre>
+        </article>
+
+        <!-- ===== Prompt: astrum-phase-3 ===== -->
+        <article class="prompt-card reveal" id="astrum-phase-3">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 3 — Voice Interface Engine (STT, Audio Frequency &amp; TTS)</span>
+              <span class="prompt-card__tag">Architecture Prompt · Web Speech API / Web Audio Analyser</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-astrum-phase-3">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Implements `hooks/useVoiceAgent.ts`: browser Speech-to-Text transcript HUD, microphone AnalyserNode audio frequency array for the 3D core, and low-pitch spatial Speech Synthesis TTS playback.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-astrum-phase-3">Continue from Phase 2. Build Phase 3: The Voice Interface Engine.
+
+================================
+1. HOOK: hooks/useVoiceAgent.ts
+================================
+Implement a comprehensive voice control hook managing Speech-to-Text, Audio Analysis, and Text-to-Speech:
+
+1. Speech-to-Text (STT):
+   - Use browser Web Speech API (`SpeechRecognition` / `webkitSpeechRecognition`).
+   - Capture real-time user speech input and return live transcript string.
+   - Handle permissions, speech start/end events, and error states gracefully.
+
+2. Web Audio Analyser:
+   - Request microphone audio stream via `navigator.mediaDevices.getUserMedia`.
+   - Create AudioContext and `AnalyserNode` to compute frequency data array (`getByteFrequencyData`).
+   - Output normalized audio intensity value (0-1) to feed the 3D Stellar Core in `CelestialScene.tsx`.
+
+3. Text-to-Speech (TTS):
+   - Use Web Speech Synthesis API (`window.speechSynthesis`).
+   - Configure voice parameters: lower pitch (0.85), steady rate (0.95), and select crisp English synthetic voice (resembling J.A.R.V.I.S. / ethereal AI).
+   - Expose `speak(text: string)` function with callback triggers when speech starts and finishes.
+
+Deliverable: Fully typed React hook managing STT transcription, real-time microphone frequency data, and spoken AI audio playback.</pre>
+        </article>
+
+        <!-- ===== Prompt: astrum-phase-4 ===== -->
+        <article class="prompt-card reveal" id="astrum-phase-4">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 4 — Astrological Knowledge &amp; AI Brain API Route</span>
+              <span class="prompt-card__tag">Architecture Prompt · Next.js API Route / Gemini &amp; Claude AI</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-astrum-phase-4">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Creates `app/api/oracle/route.ts` with System Prompt for "ASTRUM, The Celestial Intelligence" (Western &amp; Vedic synthesis, Sun/Moon/Rising, Transits, Karmic Nodes) returning structured JSON.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-astrum-phase-4">Continue from Phase 3. Build Phase 4: Astrological Knowledge & AI Brain.
+
+================================
+1. API ROUTE: app/api/oracle/route.ts
+================================
+Create a Next.js App Router POST endpoint connecting user voice/text queries to the AI LLM (Claude / Gemini API).
+
+================================
+2. SYSTEM PROMPT: ASTRUM, The Celestial Intelligence
+================================
+Synthesize Western and Vedic astrological principles:
+- Birth Chart Dynamics: Sun (Core Ego), Moon (Emotional Memory), Rising/Ascendant (Outer Horizon).
+- 12 Astrological Houses & Planetary Transits (Saturn Returns, Mercury Retrogrades, Jupiter Expansions).
+- Karmic Nodes: North Node (Future Horizon / Destiny) vs. South Node (Past Life Patterns).
+- Tone: Tactical, authoritative, ethereal, and JARVIS-like sci-fi precision.
+
+================================
+3. STRUCTURED JSON OUTPUT SCHEME
+================================
+The API route must return JSON matching this TypeScript interface:
+```ts
+export interface OracleResponse {
+  voiceSummary: string; // 2-3 sentence JARVIS-style spoken brief
+  chartMetrics: {
+    dominantTransit: string;
+    intuitionScore: number; // 0-100
+    powerScore: number;     // 0-100
+    transformationScore: number; // 0-100
+  };
+  pastAnalysis: {
+    karmicPattern: string;
+    lessonLearned: string;
+  };
+  presentTransits: Array<{
+    planet: string;
+    house: string;
+    impact: string;
+  }>;
+  futureTimeline: Array<{
+    dateWindow: string;
+    eventForecast: string;
+  }>;
+}
+```
+
+Deliverable: Production-ready API route with system prompt, schema validation, and fallback mock generator for offline/testing mode.</pre>
+        </article>
+
+        <!-- ===== Prompt: astrum-phase-5 ===== -->
+        <article class="prompt-card reveal" id="astrum-phase-5">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 5 — UI HUD Layout, Timeline Drawers &amp; Motion Polish</span>
+              <span class="prompt-card__tag">Architecture Prompt · HUD.tsx / Framer Motion / Audio Waveform</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-astrum-phase-5">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Assembles `components/ui/HUD.tsx`: top telemetry navbar, central voice activation orb button ("HOLD TO COMMUNE / CLICK TO LISTEN"), bottom expandable glass drawers, real-time waveform visualizer bar, and Framer Motion stagger transitions.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-astrum-phase-5">Continue from Phase 4. Build Phase 5: UI HUD Layout & Motion Polish.
+
+================================
+1. COMPONENT: components/ui/HUD.tsx
+================================
+Assemble the complete FUI HUD overlay:
+
+1. Top Telemetry Navigation:
+   - Header title: "ASTRUM-OS v2.6 // CELESTIAL NEURAL FEED".
+   - Real-time UTC digital clock.
+   - Live astronomical coordinates display (e.g., "RA 05h 35m / DEC +09°").
+
+2. Center Viewport Voice Button:
+   - Glowing holographic Orb Button ("HOLD TO COMMUNE / CLICK TO LISTEN").
+   - Multi-state visual changes:
+     * Idle: Soft cyan pulse (#00F0FF).
+     * Listening: Rapid expansion + Live transcript HUD overlay.
+     * Processing: Cyan/Purple warp effect + telemetry number count-up.
+     * Speaking: Pulsing gold/cyan core synchronized with SpeechSynthesis.
+
+3. Audio Waveform Visualizer Bar:
+   - Canvas element rendering real-time audio frequencies from `useVoiceAgent`.
+
+4. Bottom Expandable Glass Drawer:
+   - 3 Expandable Cards: "Past Reflection", "Present Transits", and "Future Horizon".
+   - Unmasks automatically when Oracle API returns data with Framer Motion staggered kinetic text entry.
+   - Animate energy score meters (0-100) for Intuition, Power, and Transformation.
+
+Deliverable: Fully integrated, Awwwards-quality futuristic voice HUD application ready to launch locally via `npm run dev`.</pre>
+        </article>
+
+        <!-- ===== Prompt: astrum-master-brief ===== -->
+        <article class="prompt-card reveal" id="astrum-master-brief">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Master Prompt — Complete ASTRUM-OS Specification</span>
+              <span class="prompt-card__tag">Full Specification · All 5 Phases Combined</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-astrum-master-brief">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Single master prompt combining all 5 phases for end-to-end generation in Claude Code.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-astrum-master-brief">Build a complete, production-ready Next.js 15 (React 19, TypeScript, Tailwind CSS v4) web application named "ASTRUM-OS" — an ultra-futuristic, voice-controlled astrological agent.
+
+### 1. CORE CONCEPT & AESTHETIC
+- Aesthetic: Sci-Fi Holographic Celestial Interface (Iron Man JARVIS meets cosmic astrology).
+- Color Palette: Deep Void Black (#020208), Holographic Cyan (#00F0FF), Astral Gold (#E5C158), and Nebula Purple (#8B5CF6).
+- UI Structure: Dark glassmorphic floating HUD panels, telemetry coordinates, animated scanlines, radial orbital rings, and glowing corner brackets.
+
+### 2. THREE.JS 3D CELESTIAL CANVAS (components/canvas/CelestialScene.tsx)
+- Render a 3D Armillary Sphere / Zodiac Galaxy using @react-three/fiber and @react-three/drei.
+- 12 Concentric glowing rings representing the Zodiac houses that subtly rotate on mouse move and scroll.
+- Floating particle field (starlight/nebula dust) with vertex shader displacement.
+- Central glowing Stellar Core that scales and pulses dynamically when the voice listener or text-to-speech is active.
+
+### 3. VOICE INTERFACE ENGINE (hooks/useVoiceAgent.ts)
+- Use Web Speech API (SpeechRecognition / webkitSpeechRecognition) to capture user audio input.
+- Real-time Speech-to-Text HUD showing live transcript as the user speaks.
+- Web Audio API AnalyserNode listening to the microphone stream to output an audio-frequency array for the 3D visualizer core.
+- Text-to-Speech (TTS) response playback using Web Speech Synthesis API (configured with low pitch, steady rate, and ethereal reverb/spatial depth effect) or an API endpoint.
+
+### 4. ASTROLOGICAL KNOWLEDGE & AI BRAIN (app/api/oracle/route.ts)
+- Create a Next.js API route that interfaces with the AI LLM (Claude / Gemini API).
+- Implement a comprehensive Astrology System Prompt acting as "ASTRUM, The Celestial Intelligence".
+- System Knowledge: Western & Vedic astrology synthesis, Birth Chart calculations (Sun, Moon, Rising/Ascendant), 12 Houses, Planetary Transits (Saturn Returns, Mercury Retrogrades, Jupiter Expansions), Karmic North/South Nodes, and Temporal Timeline Projections (Past Life Patterns vs. Future Horizons).
+- Response Format: Return structured JSON with:
+  1. `voiceSummary`: 2-3 sentence J.A.R.V.I.S.-style spoken brief (e.g., "Transit detected: Saturn entering your 8th house. Past burdens are dissolving; prepare for financial recalibration in Q3.").
+  2. `chartMetrics`: Current dominant planetary alignment, energy scores (0-100 for Intuition, Power, Transformation).
+  3. `pastAnalysis`: Deep reading of past karmic loops and lessons learned.
+  4. `futureTimeline`: Key upcoming dates and astrological window forecast.
+
+### 5. UI HUD LAYOUT (components/ui/HUD.tsx)
+- Top Navigation: "ASTRUM-OS v2.6 // CELESTIAL NEURAL FEED", Live UTC Clock, Astro Coordinates (e.g., "RA 05h 35m / DEC +09°").
+- Center Viewport: Interactive 3D Canvas + Voice Activation Orb Button ("HOLD TO COMMUNE / CLICK TO LISTEN").
+- Bottom Glass Drawer: Floating expandable HUD cards for "Past Reflection", "Present Transits", and "Future Horizon".
+- Audio Waveform Bar: Real-time canvas waveform visualizer tracking voice input.
+
+### 6. INTERACTIONS & ANIMATIONS
+- Transition states handled via Framer Motion & GSAP.
+- When user finishes speaking:
+  1. Orb shifts color to Cyan/Purple warp effect.
+  2. Telemetry numbers count up rapidly.
+  3. Oracle voice response triggers automatically while corresponding HUD cards unmask with staggered kinetic text animations.
+
+Setup the project structure cleanly with all component files, API routes, type definitions, and CSS glassmorphism styles ready to run locally via `npm run dev`.</pre>
+        </article>
+
+      </div>
+
+      <a href="prompts.html" class="prompt-back">← Back to Prompt Library</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Copy-to-clipboard for prompt cards
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        var text = target.textContent;
+        var label = btn.querySelector('.copy-btn__label');
+        var done = function () {
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+        } else { fallback(text, done); }
+      });
+    });
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>
