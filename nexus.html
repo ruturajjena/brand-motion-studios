@@ -56,7 +56,7 @@
       <header class="prompt-page__head reveal">
         <p class="eyebrow">Internal · AI Architecture Guide</p>
         <h1 class="section__title">NEXUS Personal AI Assistant — <span class="grad-text">Industrial Spatial OS</span></h1>
-        <p class="section__lead">A 4-phase iterative framework to build <strong>NEXUS</strong>: an Awwwards-caliber personal spatial computing assistant. <em>Do not build "Iron Man UI"—build "Industrial Spatial Computing"</em> (combining Apple Vision Pro, Teenage Engineering, Nothing, Linear, and FUI aesthetics). Click <strong>Copy</strong> on any card to grab the prompt text.</p>
+        <p class="section__lead">A 6-phase iterative framework to build <strong>NEXUS</strong>: an Awwwards-caliber personal spatial computing assistant. <em>Do not build "Iron Man UI"—build "Industrial Spatial Computing"</em> (combining Apple Vision Pro, Teenage Engineering, Nothing, Linear, and FUI aesthetics). Click <strong>Copy</strong> on any card to grab the prompt text.</p>
       </header>
 
       <div class="prompt-list">
@@ -599,6 +599,156 @@ FINAL EXPERIENCE
 Opening NEXUS should feel like booting into a futuristic operating system rather than opening a web application.
 
 The application should be visually polished enough to qualify as an Awwwards-level interactive experience while maintaining excellent performance, accessibility fallbacks, and a clean, extensible architecture suitable for future modules and AI capabilities.</pre>
+        </article>
+
+        <!-- ===== Prompt: nexus-phase-5 ===== -->
+        <article class="prompt-card reveal" id="nexus-phase-5">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 5 — OS Desktop Bridge &amp; Personal Telemetry</span>
+              <span class="prompt-card__tag">Architecture Prompt · macOS Bridge / RCE Defense / ⌘K Palette</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-nexus-phase-5">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Connects NEXUS to local macOS system controls with strict RCE defenses, dedicated dual-monitor window positioning, ⌘K command palette, and personal Instagram telemetry resolution.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-nexus-phase-5">Continue from Phase 4. Do not rewrite existing architecture. Only extend it.
+
+OBJECTIVE: NEXUS stops being confined to the browser tab. It gains control of the machine it is served from, and it learns who the user actually is.
+
+========================
+DESKTOP BRIDGE & SECURITY
+========================
+
+NEXUS runs in a browser, and a browser cannot launch Spotify. Build a local API that the server shells out from. macOS only; every other platform returns 501 cleanly and the rest of the environment is unaffected.
+
+Capabilities: launch installed apps by spoken name · open websites in the real browser · media transport · system volume · screen capture · clipboard read and write · hide others, quit an app, lock screen, sleep display, Do Not Disturb · create Notes and Reminders.
+
+TREAT THIS AS A REMOTE CODE EXECUTION SURFACE, BECAUSE IT IS ONE:
+1. `execFile`, never `exec`. No shell is spawned, so shell metacharacters in any argument are inert data. This removes the entire injection class.
+2. Verbs are an enum with hand-written implementations. No code path may run a caller-supplied command string.
+3. Applications resolve against a live scan. An app that is not installed cannot be named.
+4. Loopback only. Refuse any non-loopback Host with 403.
+5. Same-origin only — a cross-origin page can still reach a loopback server.
+6. Off unless an explicit environment flag is set.
+
+Do NOT implement shutdown, restart, or file deletion. A misheard word must not be able to destroy unsaved work. Quit gracefully, never kill. Adding a verb must be a type error until it is implemented.
+
+========================
+MACOS PERMISSIONS & ERROR TRANSLATION
+========================
+
+The process needing the grant is the terminal running the dev server, not the browser. Translate every permission error into the exact setting to change (e.g. "could not create image from display" -> Screen Recording grant, -1743 -> Automation refusal).
+
+========================
+BROWSER WINDOWS & MULTI-DISPLAY TARGETING
+========================
+
+Links open in a DEDICATED WINDOW ON A SECOND DISPLAY, not a background tab.
+- Chrome: Use CLI `--new-window` flag (AppleScript URL assignment on new windows is ignored by Chrome). Diff window IDs to prevent frontmost window stealing.
+- Safari: Use `make new document with properties {URL:...}` in AppleScript.
+- Coordinates: Convert NSScreen Cocoa coordinates (bottom-left, Y up) to AppleScript Carbon bounds (top-left, Y down).
+- Display Naming: Enumerate displays with real macOS names ("on your LG ULTRAWIDE", "on your laptop").
+
+========================
+⌘K LAUNCHER PALETTE
+========================
+
+A ⌘K palette combining apps and websites in ONE list with source tags.
+Rank ranking algorithm: prefix-first -> initials -> word boundary -> substring.
+Mount outside the HUD visibility gate so it remains accessible when HUD is hidden.
+
+========================
+PERSONAL DESTINATIONS & INSTAGRAM TELEMETRY
+========================
+
+- Resolve personal phrasing ("open my reels", "show my profile") dynamically FROM THE LIVE FEED. Never hardcode profile URLs.
+- Instagram API Token Prefix Detection:
+  * `IGAA`: Instagram Login (`graph.instagram.com`, addressed as "me").
+  * `EAA`: Facebook path (`graph.facebook.com`, explicit business account id).
+- Follower chart calculation: The follower endpoint returns daily deltas, not running totals. Back-accumulate from current total to reconstruct the true historical curve.
+
+========================
+DELIVERABLE
+========================
+
+Every capability reachable by voice AND ⌘K. Every failure explains what to do about it. Demonstrate that an injected command string resolves to "no such application" rather than executing.</pre>
+        </article>
+
+        <!-- ===== Prompt: nexus-phase-6 ===== -->
+        <article class="prompt-card reveal" id="nexus-phase-6">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Phase 6 — Measured Stillness, Cinematic Sequencing &amp; Filmic Color Grading</span>
+              <span class="prompt-card__tag">Architecture Prompt · Motion Stability / LUT Grading / Gold Center Rule</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-nexus-phase-6">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Refines NEXUS for long-session usability: measured zero-drift stillness, unmounting physics simulations, master clock TARGETING → APPROACH → SETTLE choreography, 6 world color grades, and gold center glow rules.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-nexus-phase-6">Continue from Phase 5. Do not rewrite existing architecture. Only extend it.
+
+OBJECTIVE: Phase 6 is about what NEXUS feels like to use for an hour, not what it looks like in a five-second clip. Three things: hold still, show me where I am, and grade the whole room like film.
+
+========================
+MEASURED STILLNESS & MOTION GATING
+========================
+
+- Turn ambient motion OFF by default.
+- Gate motion on a 0..1 multiplier rather than a boolean so toggling settles the scene smoothly over ~1 second instead of stopping dead mid-drift.
+- Verify zero input drift: Carousel angle drift and camera position/rotation drift over several seconds of zero input must be EXACTLY zero.
+- Expose a LOCKED / DRIFT control indicator showing its own consequence.
+
+========================
+NO MORE THROWING (PHYSICS ENGINE CLEANUP)
+========================
+
+- Released cards return directly to their orbit slot on the orbit spring. Cards are NEVER handed to a physics simulation.
+- Remove all unreachable physics code: rigid bodies, collision floor, thrown/recalling regimes, and imperative registries.
+
+========================
+CINEMATIC PRESENTATION (MASTER CLOCK)
+========================
+
+Opening a module triggers a timed sequence on ONE master clock (zero desynchronization):
+1. TARGETING: Ring turns, quad-based FUI bracket converges from outside frame, unrelated cards step back.
+2. APPROACH: Card commits and flies to reading position as camera pushes along the VIEW AXIS to meet it. Hard-edged scan line sweeps down card face.
+3. SETTLE: Bracket locks and dissolves, push relaxes, control returns.
+- Asymmetric timings: targeting brisk, approach carries distance, settle slow enough that text is readable before motion stops.
+- Deliberate gestures immediately cancel the sequence while committing the pending open.
+
+========================
+CINEMATIC COLOR GRADE & WORLD LUTS
+========================
+
+- Full-screen color grade splitting the ends of the blue luminance ramp: violet into shadows, warm white into highlights, mid-tones untouched, filmic contrast pivoting at 18% grey, and halation.
+- 6 World-Specific Grades:
+  * Industrial Deck: Sodium-warm and hard.
+  * Open Water: Negative warmth for blue hour.
+  * Fog Chamber: Maximum bleed and sub-1.0 contrast.
+  * Spike split and halation at crossover points so world changes read as cinematic cuts.
+- Widen module accent spectrum across violet -> blue -> cyan so modules are recognizable in peripheral vision mid-rotation.
+
+========================
+GOLD AT THE CENTER (RULES)
+========================
+
+Centered cards glow gold (frame, glass emissive, background light throw) adhering to 2 counter-intuitive rules:
+1. Gold MUST NOT read as Warning Orange (~18° apart). A warned card is NEVER allowed to go gold — gate the gold term entirely on the warning flag.
+2. Gold MUST be drawn dimmer than blue to read as gold. Avoid border multipliers > 1.0 (which clip red/green to white). Prominence comes from hue + wider outer bloom.
+3. Earned Gold: Fade gold in continuously based on centered position using a power curve.
+
+========================
+MOTION VOCABULARY
+========================
+
+Replace scattered inline magic-number animations with named curves encoding INTENT (arriving, leaving, acknowledging, reporting, drifting) and a single composed boot choreography beat constant.
+
+DELIVERABLE: Measured stillness, master clock presentation, 6 world color grades, and verified gold/warning alert isolation.</pre>
         </article>
 
       </div>
