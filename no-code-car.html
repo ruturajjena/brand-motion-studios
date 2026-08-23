@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultra-Premium 3D Automotive Experience — CAD Assembly Prompts | Brand Motion Studios</title>
+  <meta name="description" content="3D CAD assembly prompts and Claude Code scroll-driven website specification for building an Apple and Porsche inspired interactive 3D automotive launch web application with Three.js, R3F, and GSAP." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#060606" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Brand Motion Studios home">
+        <svg class="brand__mark" viewBox="0 0 62 44" width="48" height="34" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0d488" />
+              <stop offset="1" stop-color="#b8893b" />
+            </linearGradient>
+            <linearGradient id="bm-silver" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef0f3" />
+              <stop offset="1" stop-color="#9aa0a8" />
+            </linearGradient>
+          </defs>
+          <text x="0" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-gold)">B</text>
+          <text x="28" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-silver)">M</text>
+        </svg>
+        <span class="brand__text">Brand Motion<span class="brand__accent"> Studios</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#reels">Reels</a>
+        <a href="prompts.html">Prompt Library</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">Start a project</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="prompt-page">
+    <div class="container">
+      <header class="prompt-page__head reveal">
+        <p class="eyebrow">Internal · Automotive Showcase Brief</p>
+        <h1 class="section__title">Ultra-Premium 3D Automotive — <span class="grad-text">CAD Assembly</span> Prompts</h1>
+        <p class="section__lead">A comprehensive 3D web engineering brief and master Claude Code specification for building an Apple, Porsche, and Nothing inspired interactive 3D automotive launch experience with R3F, GSAP ScrollTrigger, and continuous CAD part explosion. Click <strong>Copy</strong> on either card to grab the prompt text.</p>
+      </header>
+
+      <div class="prompt-list">
+
+        <!-- ===== Prompt: no-code-car-3d-spec ===== -->
+        <article class="prompt-card reveal" id="no-code-car-3d-spec">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Modular 3D CAD Component Architecture</span>
+              <span class="prompt-card__tag">3D Spec · 25+ Discrete CAD Meshes</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-no-code-car-3d-spec">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Detailed 3D mesh breakdown requiring 25+ individual, unmerged CAD objects (Chassis, Body, Battery, Suspension, Brakes, Electric Motors, Glass, Interior) with procedural fallback modelling guidelines.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-no-code-car-3d-spec">Modular 3D Automotive CAD Requirements
+
+Every vehicle component must exist as an independent 3D object with individual transform controls. Nothing should be a single merged mesh.
+
+3D Component List (25+ Unmerged CAD Meshes):
+- Chassis & Structural Monocoque
+- Outer Body Shell (Front, Mid, Rear panels)
+- Articulating Hood & Trunk Lid
+- Left & Right Gullwing / Frameless Doors
+- Front Bumper & Active Aerodynamic Splitter
+- Rear Bumper & Carbon Diffuser
+- Panoramic Solar / Electrochromic Roof
+- LED Projector Headlights & Daytime Running Light Strips
+- OLED Rear Light Bar & Sequential Indicators
+- Digital Dashboard, Instrument Cluster & HUD Display
+- Tactile Steering Wheel & Column
+- Ergonomic Carbon Fiber Bucket Seats
+- Alloy Wheels (4x)
+- High-Performance Low-Profile Tires (4x)
+- Ventilated Carbon-Ceramic Brake Discs (4x)
+- Multi-Piston Anodized Brake Calipers (4x)
+- Active Adaptive Air Suspension & Shock Absorbers
+- Dual Exhaust / Cooling Vents
+- High-Voltage Modular Battery Pack Array
+- Front & Rear High-RPM Electric Motors
+- Single-Speed Planetary Transmission
+- Reinforced Laminated Glass Windows & Windshield
+- Digital Side Mirror Cameras & Housings
+- Premium Leather & Alcantara Interior Door Panels
+
+Procedural / Fallback Mesh Generation:
+If external GLTF/GLB CAD assets are missing, generate premium procedural 3D geometries (using Three.js ExtrudeGeometry, CylinderGeometry, and custom shader materials) that preserve the exact industrial design language.</pre>
+        </article>
+
+        <!-- ===== Prompt: no-code-car-website-brief ===== -->
+        <article class="prompt-card reveal" id="no-code-car-website-brief">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Claude Code Master Website Specification (Apple / Porsche Style)</span>
+              <span class="prompt-card__tag">Website Brief · Next.js / R3F / GSAP ScrollTrigger</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-no-code-car-website-brief">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Master developer prompt instructing Claude Code to build a 9-chapter scroll-driven 3D product launch experience with dynamic camera choreography, kinetic part explosion, and studio configurator CTA.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-no-code-car-website-brief">Build an Ultra-Premium 3D Automotive Website
+
+You are an award-winning creative developer and 3D web engineer. Build an ultra-premium, Apple-level interactive automotive website using the attached design system and the provided single exploded car animation/video as the primary inspiration. This is not a traditional landing page. It should feel like an immersive product launch experience where the user scrolls through a cinematic story.
+
+Core Objective:
+Create a smooth scroll-driven 3D experience where every section reveals another part of the car. The website should feel comparable to:
+- Apple Product pages
+- Porsche Configurator
+- Mercedes EQ launch pages
+- BMW Vision concept pages
+- Nothing product websites
+
+The experience should feel expensive, futuristic and engineered.
+
+Tech Stack:
+- React
+- Next.js 15
+- TypeScript
+- Three.js
+- React Three Fiber (@react-three/fiber)
+- Drei (@react-three/drei)
+- GSAP 3
+- ScrollTrigger
+- Lenis Smooth Scroll
+- Framer Motion
+- TailwindCSS
+
+Optimize heavily for performance (60+ FPS target).
+
+IMPORTANT:
+The provided video is only one exploded animation inspiration. Do not simply replay that video. Instead, study the explosion sequence and recreate the entire experience using actual 3D components. Generate additional missing components using AI or procedural modelling where required. If assets are unavailable, generate premium placeholder 3D meshes that match the design language. The website should feel like it was built from an actual CAD assembly.
+
+==================================================
+3D REQUIREMENTS & COMPONENT BREAKDOWN
+==================================================
+Create a complete modular car consisting of unmerged 3D objects:
+Chassis, Body Shell, Hood, Doors, Front Bumper, Rear Bumper, Roof, Headlights, Tail Lights, Dashboard, Steering Wheel, Seats, Wheels, Tires, Brake Discs, Brake Calipers, Suspension, Exhaust, Battery Pack, Electric Motor, Transmission, Glass, Mirrors, Interior Panels.
+
+Every component should exist as its own 3D object. Nothing should be one merged mesh.
+
+==================================================
+9-CHAPTER SCROLL EXPERIENCE NARRATIVE
+==================================================
+
+Hero (Scene 1):
+Car slowly emerges from darkness. Only headlights illuminate. Tiny floating dust particles. Minimal typography. Camera slowly rotates around front quarter.
+
+Section 2 (Full CAD Explosion):
+As scrolling begins, the entire car explodes into hundreds of perfectly aligned parts. Every part floats with smooth physics. Camera moves between components. Text explains precision engineering.
+
+Section 3 (Body Shell & Aerodynamics):
+Body shell rotates. Doors float outward. Glass lifts. Roof separates. Panels reveal internal titanium spaceframe structure.
+
+Section 4 (Battery Pack & Powertrain Reveal):
+Battery pack slides out from underneath. Electric motors rotate along axis. Energy pulses travel through high-voltage cables with animated glowing energy lines.
+
+Section 5 (Suspension & Brake Kinetics):
+Suspension breakdown. Wheel assembly separates. Brake discs rotate. Calipers animate clamping action. Shock absorbers expand. Micro interactions on every component.
+
+Section 6 (Interior Architecture & Tech):
+Interior reveal. Seats rise. Dashboard unfolds. Ambient LED lighting appears. Steering wheel rotates into place. Digital screens activate with boot sequence.
+
+Section 7 (Performance Core):
+Performance section. Camera enters engine bay. Mechanical components animate at high speed. Exploded assembly reforms. Particles follow movement vectors.
+
+Section 8 (Synchronized Vehicle Rebuild):
+Entire vehicle rebuilds itself. Every single component flies back together with perfect synchronization in slow motion with a premium cinematic camera push.
+
+Final Section (Studio Showcase & Configurator CTA):
+Finished vehicle rotates slowly. Background transforms into an endless premium studio with a reflection floor, soft volumetric lights, and interactive CTA button ("CONFIGURE YOUR VEHICLE").
+
+==================================================
+DYNAMIC CAMERA SYSTEM
+==================================================
+Camera must never remain static. Implement:
+- Dolly movements
+- Orbit movements
+- Crane shots
+- Close-up transitions
+- Depth of field (DOF)
+- Cinematic easing curves
+- Dynamic framing
+- Perspective changes
+
+Every scroll movement should move the camera naturally through 3D space.
+
+==================================================
+ANIMATIONS & MICRO-INTERACTIONS
+==================================================
+Everything should animate:
+- Continuous wheel rotation
+- Headlight & lightbar pulse/glow
+- Real-time glass reflections & refraction
+- Interactive component hovering with floating telemetry callout cards
+
+Deliver a complete, production-ready, TypeScript-strictly-typed codebase ready to run locally via `npm run dev`.</pre>
+        </article>
+
+      </div>
+
+      <a href="prompts.html" class="prompt-back">← Back to Prompt Library</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Copy-to-clipboard for prompt cards
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        var text = target.textContent;
+        var label = btn.querySelector('.copy-btn__label');
+        var done = function () {
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+        } else { fallback(text, done); }
+      });
+    });
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>
