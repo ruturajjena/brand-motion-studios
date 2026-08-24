@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chai Theory — Indian Café Website Prompts | Brand Motion Studios</title>
+  <meta name="description" content="Asset mapping and Claude Code scroll-animated website specification for Chai Theory: a high-key, modern Indian café web application built for Instagram Reels and screen-recordings." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#FAFAF8" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Brand Motion Studios home">
+        <svg class="brand__mark" viewBox="0 0 62 44" width="48" height="34" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0d488" />
+              <stop offset="1" stop-color="#b8893b" />
+            </linearGradient>
+            <linearGradient id="bm-silver" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef0f3" />
+              <stop offset="1" stop-color="#9aa0a8" />
+            </linearGradient>
+          </defs>
+          <text x="0" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-gold)">B</text>
+          <text x="28" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-silver)">M</text>
+        </svg>
+        <span class="brand__text">Brand Motion<span class="brand__accent"> Studios</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#reels">Reels</a>
+        <a href="prompts.html">Prompt Library</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">Start a project</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="prompt-page">
+    <div class="container">
+      <header class="prompt-page__head reveal">
+        <p class="eyebrow">Internal · Culinary Experience Brief</p>
+        <h1 class="section__title">Chai Theory — <span class="grad-text">Modern Indian Café</span> Prompts</h1>
+        <p class="section__lead">Asset guidelines and master Claude Code specification for <strong>"Chai Theory — Built By Ruturaj"</strong>: a high-key, scroll-animated modern Indian café website designed specifically for Instagram Reels with GSAP ScrollTrigger video scrubbing and vibrant section-by-section color reveals. Click <strong>Copy</strong> on either card to grab the prompt text.</p>
+      </header>
+
+      <div class="prompt-list">
+
+        <!-- ===== Prompt: indian-cafe-assets-spec ===== -->
+        <article class="prompt-card reveal" id="indian-cafe-assets-spec">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Chai Theory Asset Mapping &amp; High-Key Visual System</span>
+              <span class="prompt-card__tag">Asset &amp; Visual Spec · High-Key Daylight Palette</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-indian-cafe-assets-spec">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Complete asset path directory mapping (`/assets/video/` and `/assets/images/`) and high-key daylight color palette specification popping against off-white `#FAFAF8`.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-indian-cafe-assets-spec">Chai Theory — Asset Mapping & Visual System Guidelines
+
+1. MEDIA ASSETS PATH MAPPING:
+Videos (/assets/video/):
+- `hero-chai-pour.mp4`
+- `filter-coffee-pour.mp4`
+- `exploded-thali.mp4`
+- `exploded-samosa.mp4`
+- `sweets-macro.mp4`
+- `lassi-matcha-pour.mp4`
+- `finale-table-spread.mp4`
+
+Images (/assets/images/):
+- `img-kulhad-hero.jpg`, `img-filter-coffee.jpg`, `img-samosa.jpg`, `img-pani-puri.jpg`, `img-jalebi.jpg`, `img-gulab-jamun.jpg`, `img-mango-lassi.jpg`, `img-matcha-latte.jpg`, `img-spices-flatlay.jpg`, `img-tea-leaves.jpg`, `img-cutting-chai.jpg`, `img-poster.jpg`
+
+*Note: Any missing file must be handled gracefully with a warm-white placeholder div labeled in code without breaking layout.
+
+---
+
+2. VISUAL SYSTEM & COLOR PALETTE:
+- Background: Pure bright off-white (#FAFAF8) throughout. High-key daylight café feel (opposite of moody agency dark mode).
+- Body Text: Warm Charcoal (#2B2320) — never pure black.
+- Section Heading Accents (Popping off white background):
+  * Hero title -> Chai Brown (#6B3F1D)
+  * "Our Coffee" -> Roasted Tan (#8A5A2B)
+  * "What We Serve" (Thali/Spice section) -> Saffron Orange (#E38A2C)
+  * Samosa / Street-food section -> Chili Red (#C23B22)
+  * Sweets section -> Turmeric Gold (#D9A441)
+  * Cold & Fusion Drinks -> Split Matcha Green (#5C8A3A) / Mango Orange (#F2994A)
+  * CTA / Footer -> Chili Red (#C23B22)
+- Typography: Fraunces / Canela / Cormorant Garamond serif headings (6-10vw editorial sizing) paired with Inter / General Sans body copy. No cliché Devanagari or paisley fonts.
+- Texture: 2-3% noise/grain overlay across canvas.</pre>
+        </article>
+
+        <!-- ===== Prompt: indian-cafe-website-brief ===== -->
+        <article class="prompt-card reveal" id="indian-cafe-website-brief">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">Chai Theory Website Specification (Claude Code Prompt)</span>
+              <span class="prompt-card__tag">Website Brief · GSAP ScrollTrigger / Video Scrubbing</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-indian-cafe-website-brief">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Master developer prompt instructing Claude Code to build "Chai Theory — Built By Ruturaj" with GSAP, Lenis, exploded thali &amp; samosa video scrubbing, and Instagram Reel stop-the-scroll principles.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-indian-cafe-website-brief">Build a premium, scroll-animated website for an Indian café called "Chai Theory — Built By Ruturaj". The website will be screen-recorded for an Instagram Reel, so every scroll moment needs to read as a "wow" beat within 1-2 seconds on camera.
+
+==================================================
+1. TECH STACK & ASSETS
+==================================================
+- Single-page HTML/CSS/JS or React with GSAP 3 + ScrollTrigger.
+- Smooth Scroll: Lenis or GSAP ScrollSmoother for buttery inertia.
+- Responsive for 1920x1080 desktop screen-recording.
+- Media Assets (stored in /assets/video/ and /assets/images/):
+  * `hero-chai-pour.mp4`, `filter-coffee-pour.mp4`, `exploded-thali.mp4`, `exploded-samosa.mp4`, `sweets-macro.mp4`, `lassi-matcha-pour.mp4`, `finale-table-spread.mp4`
+  * `img-kulhad-hero.jpg`, `img-filter-coffee.jpg`, `img-samosa.jpg`, `img-pani-puri.jpg`, `img-jalebi.jpg`, `img-gulab-jamun.jpg`, `img-mango-lassi.jpg`, `img-matcha-latte.jpg`, `img-spices-flatlay.jpg`, `img-tea-leaves.jpg`, `img-cutting-chai.jpg`, `img-poster.jpg`
+
+==================================================
+2. VISUAL SYSTEM (HIGH-KEY DAYLIGHT BRAND)
+==================================================
+- Background: Pure off-white (#FAFAF8) throughout.
+- Body Copy: Warm Charcoal (#2B2320).
+- Accent Colors per Section:
+  * Hero -> Chai Brown #6B3F1D
+  * Coffee -> Roasted Tan #8A5A2B
+  * Thali -> Saffron Orange #E38A2C
+  * Street Food -> Chili Red #C23B22
+  * Sweets -> Turmeric Gold #D9A441
+  * Cold & Fusion -> Matcha Green #5C8A3A & Mango Orange #F2994A
+  * Footer -> Chili Red #C23B22
+- Typography: Fraunces / Cormorant Garamond serif headings + Inter sans body copy.
+- Subtle 2-3% grain/noise canvas overlay.
+
+==================================================
+3. SECTION-BY-SECTION SPECIFICATION
+==================================================
+
+A. Preloader (<1.5s):
+"CHAI THEORY - Built By Ruturaj" letter-by-letter fade in, thin saffron progress bar, smooth transition to hero.
+
+B. Hero Section:
+Full-viewport `hero-chai-pour.mp4` background video (autoplay/muted/loop). "CHAI THEORY" in Chai Brown serif with character-by-character SplitText stagger reveal synced to steam rising. Saffron kicker: "MASALA CHAI · FILTER COFFEE · STREET FOOD". Pulsing scroll indicator. Parallax zoom-out on scroll start.
+
+C. "Our Coffee" — Filter Coffee Showcase:
+Split-screen layout with `filter-coffee-pour.mp4` on one side, Roasted Tan heading + copy on the other. Staggered stat callouts ("Slow-brewed · South Indian style · Since 2026").
+
+D. "What We Serve" — THE EXPLODED SCROLL MOMENT (HERO INTERACTION):
+- Pinned section (`ScrollTrigger.create({ pin: true, scrub: 1 })`).
+- Bind `video.currentTime = scrollProgress * video.duration` for `exploded-thali.mp4` (ingredients assemble on scroll down, explode on scroll up).
+- Animate pop labels in Saffron Orange as food items settle ("MASALA DOSA", "SAMBAR", "MEDU VADA", "COCONUT CHUTNEY").
+- Repeat pin+scrub treatment for `exploded-samosa.mp4` directly after with Chili Red heading: "STREET FOOD, ELEVATED."
+
+E. "Our Sweets":
+`sweets-macro.mp4` large panel with Turmeric Gold heading "OUR SWEETS". Horizontal scrub-linked card gallery featuring `img-jalebi.jpg` and `img-gulab-jamun.jpg`.
+
+F. "Cold & Fusion Drinks":
+Split panel with `lassi-matcha-pour.mp4`. Side-by-side headings: "MANGO LASSI" (Mango Orange) and "MATCHA CHAI FUSION" (Matcha Green).
+
+G. Ingredient/Texture Gallery:
+GSAP horizontal scroll gallery (`img-samosa.jpg`, `img-pani-puri.jpg`, `img-spices-flatlay.jpg`, `img-tea-leaves.jpg`, `img-cutting-chai.jpg`) with parallax movement and one-word captions.
+
+H. Finale / CTA:
+`finale-table-spread.mp4` background parallax. Large Chili Red button ("RESERVE YOUR TABLE") with fill hover effect. Minimal footer: "Built by Ruturaj | BR".
+
+==================================================
+4. REEL "STOP THE SCROLL" PRINCIPLES
+==================================================
+- Front-load the best interaction (Exploded Thali reachable within first 3-4 seconds).
+- Zero dead scrolling: Every scroll increment must visibly trigger motion.
+- Calming contrast beat before the Thali explosion payoff.
+- Section-by-section accent color shifts as retention hooks.
+- Micro-interactions: Magnetic button hover, custom ring cursor.</pre>
+        </article>
+
+      </div>
+
+      <a href="prompts.html" class="prompt-back">← Back to Prompt Library</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Copy-to-clipboard for prompt cards
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        var text = target.textContent;
+        var label = btn.querySelector('.copy-btn__label');
+        var done = function () {
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+        } else { fallback(text, done); }
+      });
+    });
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>
