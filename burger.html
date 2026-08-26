@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BR-Burger — Cinematic Fast-Food Commercial &amp; Website Prompts | Brand Motion Studios</title>
+  <meta name="description" content="Asset generation guide and Claude Code scroll-controlled website specification for BR-Burger: an ultra-premium, Apple-keynote-meets-luxury-food interactive web experience." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#F8F6F2" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav scrolled" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="Brand Motion Studios home">
+        <svg class="brand__mark" viewBox="0 0 62 44" width="48" height="34" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0d488" />
+              <stop offset="1" stop-color="#b8893b" />
+            </linearGradient>
+            <linearGradient id="bm-silver" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef0f3" />
+              <stop offset="1" stop-color="#9aa0a8" />
+            </linearGradient>
+          </defs>
+          <text x="0" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-gold)">B</text>
+          <text x="28" y="35" font-family="'Playfair Display', serif" font-size="44" font-weight="700" fill="url(#bm-silver)">M</text>
+        </svg>
+        <span class="brand__text">Brand Motion<span class="brand__accent"> Studios</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#reels">Reels</a>
+        <a href="prompts.html">Prompt Library</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">Start a project</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="prompt-page">
+    <div class="container">
+      <header class="prompt-page__head reveal">
+        <p class="eyebrow">Internal · Luxury Food &amp; Beverage Brief</p>
+        <h1 class="section__title">BR-Burger — <span class="grad-text">Cinematic Fast Food</span> Prompts</h1>
+        <p class="section__lead">Asset generation prompts and master Claude Code specification for <strong>BR-Burger</strong>: an ultra-premium, scroll-driven interactive culinary showcase blending Apple keynote elegance, GSAP video scrubbing, and living typography. Click <strong>Copy</strong> on either card to grab the prompt text.</p>
+      </header>
+
+      <div class="prompt-list">
+
+        <!-- ===== Prompt: burger-asset-prompts ===== -->
+        <article class="prompt-card reveal" id="burger-asset-prompts">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">7 Continuous Google Flow Video Generation Prompts</span>
+              <span class="prompt-card__tag">Media Prompts · 16:9 Macro Food Cinematography</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-burger-asset-prompts">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Complete 7-part continuous video prompt suite with shared master style (macro texture, warm key, orange rim, matte studio #F8F7F4 background, 120fps feel, and seamless start/end frame alignment).</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-burger-asset-prompts">MASTER STYLE (Use this at the beginning of EVERY Google Flow prompt)
+
+Ultra-premium fast-food cinematic commercial for the brand "BR-Burger".
+
+Photorealistic food with macro-level texture detail, ray-traced lighting, HDR, shallow depth of field, studio-quality reflections, physically accurate materials, slow cinematic movement.
+
+Environment:
+Minimal premium studio.
+Pure matte off-white (#F8F7F4) background.
+No restaurant.
+No kitchen.
+No tables.
+No distracting props.
+Only subtle soft shadows beneath objects.
+Everything floating in clean space.
+
+Lighting:
+Large softbox lighting.
+Warm key light.
+Subtle orange rim light.
+Soft ambient bounce.
+Luxury product photography.
+
+Camera:
+50mm cinematic lens.
+Ultra smooth dolly movement.
+No shaky motion.
+Slow elegant motion.
+120fps feel.
+Everything designed for scroll-controlled website animation.
+
+Animation:
+Every ingredient floats naturally.
+No sudden cuts.
+Everything moves with elegant physics.
+Luxury motion design.
+Apple keynote quality.
+Minimal but premium.
+
+Aspect Ratio:
+16:9
+
+Length:
+8–10 seconds
+
+The ending frame MUST perfectly align with the beginning frame of the next shot so multiple videos can be stitched into one continuous sequence.
+
+No humans.
+No text.
+No watermark.
+No logos except BR-Burger branding where requested.
+
+---
+
+VIDEO 1 — HERO (Exploded Burger Assembly)
+Start with every burger ingredient floating separately across the frame:
+Sesame bun, sauce, fresh lettuce, tomato, red onion, avocado, cheddar cheese, grilled beef patty, crispy chicken layer, smoked bacon, pickles, bottom bun.
+
+The camera slowly pushes forward. As the camera moves, every ingredient elegantly aligns itself. Nothing snaps. Everything floats gracefully. Tiny crumbs, tiny sauce particles, micro seasoning. Slow motion. Finally the burger completes itself into one premium BR-Burger signature burger. The burger slowly rotates 20 degrees. Camera stops.
+
+End frame: Perfect completed burger centered.
+
+---
+
+VIDEO 2 — Burger transforms into Chicken Taco
+Begin exactly where previous video ended: completed burger floating.
+
+Camera slowly circles around it. As camera rotates, the burger gently disassembles. Ingredients stretch into flowing ribbons. Those ribbons morph into a premium crispy chicken taco: golden tortilla, crunchy fried chicken, purple cabbage, fresh lettuce, chipotle sauce, cheddar, tomatoes. Everything assembles mid-air. No cuts. Only continuous transformation.
+
+End frame: Luxury chicken taco floating in center.
+
+---
+
+VIDEO 3 — Taco transforms into Cold Drink + Fries
+Begin with taco floating. Camera slowly moves downward.
+
+The taco dissolves into flowing food particles. Particles swirl around and become premium crispy fries. Then fries rotate around a floating branded cold drink. Large condensation droplets, ice cubes rotating inside drink, tiny bubbles, golden fries, soft reflections. Premium fast-food commercial.
+
+End frame: Drink center, fries orbiting around it.
+
+---
+
+VIDEO 4 — Brand Packaging Reveal
+Start from drink and fries. Camera slowly pulls backward.
+
+Fries fly into a premium BR-Burger fries container. Drink slides into branded cup. Burger enters premium burger wrapper. Chicken taco folds into luxury taco wrap. Everything flies elegantly toward the center. A premium matte BR-Burger take-away package appears: burger box, drink, fries, taco, sauce cup. Everything packs itself automatically. The package closes slowly with a soft magnetic close.
+
+End frame: Premium BR-Burger meal package floating.
+
+---
+
+VIDEO 5 — Menu Explosion
+Start with closed BR-Burger package. Camera slowly zooms in.
+
+The package opens automatically. Products burst outward in slow motion: premium burgers, chicken burger, double cheese burger, spicy burger, BBQ burger, loaded fries, onion rings, chicken nuggets, wraps, tacos, cold drinks, milkshake, dessert. Everything rotates around the camera in a beautiful circular motion like an Apple product ecosystem reveal. Each product has premium lighting, no clutter, generous negative space.
+
+End frame: Products floating symmetrically.
+
+---
+
+VIDEO 6 — Premium Ingredient Journey
+Camera moves through floating ingredients: fresh lettuce, tomatoes, onions, cheese, sauce, pepper, sesame, grilled patties, crispy chicken.
+
+Everything passes beside the camera. The final destination reveals another premium burger. Slow luxurious movement, macro food cinematography, ultra realistic textures, beautiful food physics.
+
+End frame: Hero burger on pedestal.
+
+---
+
+VIDEO 7 — Grand Finale
+Begin with hero burger. Camera slowly pulls back.
+
+Entire BR-Burger premium food lineup assembles: burger, chicken burger, taco, wrap, fries, drink, milkshake, dessert, packaging, sauces. Everything arranged perfectly. Camera keeps pulling back under soft studio lighting and minimal white background. A subtle premium platform appears beneath products. The BR-Burger package moves to the center as the hero object while products form a balanced arc around it. End with a clean composition leaving generous negative space for headline and call-to-action.</pre>
+        </article>
+
+        <!-- ===== Prompt: burger-website-brief ===== -->
+        <article class="prompt-card reveal" id="burger-website-brief">
+          <div class="prompt-card__head">
+            <div class="prompt-card__meta">
+              <span class="prompt-card__name">BR-Burger Website Specification (Claude Code Prompt)</span>
+              <span class="prompt-card__tag">Website Brief · Next.js / GSAP ScrollTrigger / Lenis</span>
+            </div>
+            <button class="copy-btn" data-copy-target="prompt-burger-website-brief">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-btn__label">Copy</span>
+            </button>
+            <p class="prompt-card__desc">Master developer prompt instructing Claude Code to build BR-Burger with Next.js App Router, GSAP ScrollTrigger, Lenis, living multi-colored typography, and 7 scroll-scrubbed video sections.</p>
+          </div>
+          <pre class="prompt-card__body" id="prompt-burger-website-brief">You are an award-winning creative developer.
+
+You think like the teams behind Apple, Active Theory, Bruno Simon, Resn, Locomotive, Dogstudio and Awwwards Site of the Day winners.
+
+Your task is to build a world-class cinematic website for a fictional premium fast food brand named
+
+BR-Burger
+
+The website must NOT feel like an ecommerce website. It should feel like an interactive movie where the entire experience is controlled by scrolling with buttery-smooth physics. No generic sections, no bootstrap grids, no cards everywhere. This should feel like a luxury product launch.
+
+==================================================
+1. TECH STACK
+==================================================
+- Next.js latest (App Router)
+- TypeScript
+- Tailwind CSS
+- GSAP 3 & GSAP ScrollTrigger
+- Lenis smooth scroll
+- Framer Motion
+- React Three Fiber (@react-three/fiber) & Drei (@react-three/drei)
+- MotionPathPlugin
+- SplitType
+- React Icons
+
+==================================================
+2. DESIGN SYSTEM & PALETTE
+==================================================
+- Minimal, premium, luxury editorial (Apple keynote meets Nike campaign meets luxury food commercial).
+- Base Background: Soft warm cream (#F8F6F2) and Warm White (#FCFBF8) with sections subtly shifting to warm beige, soft orange, and soft peach.
+- Brand Colors:
+  * Cream: #F8F6F2
+  * Warm White: #FCFBF8
+  * Orange: #FF8A00
+  * Golden: #FFC44D
+  * Tomato: #FF5630
+  * Leaf Green: #43A047
+  * Deep Charcoal: #1B1B1B
+  * Brown: #5C4033
+- Typography: Clash Display / General Sans for huge headlines, Satoshi / Inter for body and micro labels.
+
+==================================================
+3. LIVING, MULTI-COLORED TYPOGRAPHY
+==================================================
+- Typography must feel alive: split into characters using SplitType, with characters independently rotating, scaling, sliding, fading, and reacting to scroll velocity.
+- Multi-colored artistic headline styling:
+  * "CRAFTED" (orange) / "TO" (thin outline) / "PERFECTION" (gold)
+  * "DOUBLE" (orange) / "CHEESE" (gold) / "BURGER" (charcoal)
+  * "Crispy" (orange gradient) / "Chicken" (gold gradient) / "Taco" (green)
+  * "Fresh" (green) / "Ingredients" (orange)
+  * "Perfect" (cream) / "Every" (gold) / "Bite" (tomato)
+- Layered editorial typography: giant 200px watermark outline text behind food, vertical labels, ultra-thin and bold pairings.
+
+==================================================
+4. VIDEO SYSTEM & SCROLL-SCRUBBING
+==================================================
+Videos stored in `assets/videos/`:
+- `01-hero-burger.mp4`
+- `02-taco.mp4`
+- `03-drink-fries.mp4`
+- `04-packaging.mp4`
+- `05-menu.mp4`
+- `06-ingredients.mp4`
+- `07-finale.mp4`
+
+All videos fill the viewport with pinned GSAP ScrollTrigger sections. Video progress (`video.currentTime`) is strictly bound to scroll progress. No autoplay, no native controls, no audio.
+
+==================================================
+5. 7 SCROLL CHAPTERS
+==================================================
+
+SECTION 1 — HERO:
+Pinned `01-hero-burger.mp4`. Headline: "CRAFTED TO PERFECTION" (Crafted = orange, To = thin outline, Perfection = gold). Subtitle: "Every layer tells a story." CTA: "Explore Menu". Background outline typography: "BURGER" (200px, 10% opacity). Burger slowly assembles while scrolling with floating sesame and sauce particles.
+
+SECTION 2 — CHICKEN TACO:
+Pinned `02-taco.mp4`. Headline: "MEET THE CRUNCH" ("Crunch" in yellow). Staggered rotating ingredient callouts: Lettuce, Chicken, Cheese, Chipotle, Fresh.
+
+SECTION 3 — FRIES + DRINK:
+Pinned `03-drink-fries.mp4`. Headline: "ICE COLD, PERFECTLY CRISPY". Animated condensation bubbles, floating fries, glass reflections, and animated metrics ("100% Fresh", "0% Artificial Taste").
+
+SECTION 4 — PACKAGING:
+Pinned `04-packaging.mp4`. Luxury packaging reveal. Headline: "Wrapped With Love" with soft shadows and rotating meal box.
+
+SECTION 5 — MENU:
+Pinned `05-menu.mp4`. Split editorial layout with 3D rotating cards, parallax depth, and hover states for Classic Burger, Double Cheese, Chicken Burger, BBQ Burger, Spicy Burger, Chicken Taco, Loaded Fries, Nuggets, Milkshake, Cold Coffee.
+
+SECTION 6 — INGREDIENTS:
+Pinned `06-ingredients.mp4`. Macro photography. Huge typography behind ingredients: "ONLY REAL INGREDIENTS" with letters expanding outward on scroll with floating herbs.
+
+SECTION 7 — GRAND FINALE:
+Pinned `07-finale.mp4`. Entire product lineup assembled. Centered animated headline: "EVERY BITE MATTERS". Button: "Order Now" with minimal footer.
+
+==================================================
+6. MICRO-INTERACTIONS & PERFORMANCE
+==================================================
+- Custom magnetic cursor with expansion over clickable targets.
+- Magnetic buttons with ripple fills and deformed hover physics.
+- Subtle canvas noise texture and floating crumbs.
+- Preloader: Burger ingredients assemble with animated percentage counter.
+- 100+ Lighthouse performance: lazy loaded videos, IntersectionObserver preloading, GPU acceleration, and responsive desktop/tablet/mobile layouts.
+
+Deliver a production-ready, clean TypeScript codebase ready to run locally via `npm run dev`.</pre>
+        </article>
+
+      </div>
+
+      <a href="prompts.html" class="prompt-back">← Back to Prompt Library</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Copy-to-clipboard for prompt cards
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.getAttribute('data-copy-target'));
+        if (!target) return;
+        var text = target.textContent;
+        var label = btn.querySelector('.copy-btn__label');
+        var done = function () {
+          btn.classList.add('copied');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.classList.remove('copied');
+            if (label) label.textContent = 'Copy';
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+        } else { fallback(text, done); }
+      });
+    });
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>
