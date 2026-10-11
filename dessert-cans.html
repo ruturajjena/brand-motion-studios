@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velvetspoon — Desserts in a Can</title>
+  <meta name="description" content="Velvetspoon: chilled desserts in a can — Alphonso mango cream, midnight cocoa mousse and berry cheesecake. An interactive product showcase by Brand Motion Studios." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#6e4426" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    :root {
+      --white: #fff;
+      --ink: #1b120c;
+      --muted: rgba(255,255,255,.78);
+      --glass: rgba(255,255,255,.14);
+      --gutter: clamp(16px, 3.4vw, 48px);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--white);
+      background: #3a2314;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+    .app { position: relative; width: 100%; height: 100svh; min-height: 560px; overflow: hidden; }
+
+    /* ---------- background ---------- */
+    .bg { position: absolute; inset: 0; z-index: 0; }
+    .bg__layer { position: absolute; inset: 0; }
+    .vignette {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(0,0,0,.28) 100%);
+    }
+
+    /* ---------- header ---------- */
+    .nav {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px var(--gutter);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .logo { font-family: 'Anton', sans-serif; font-size: 24px; letter-spacing: .5px; text-decoration: none; color: var(--white); }
+    .logo span { opacity: .7; }
+    .pill {
+      display: flex; gap: 2px; padding: 4px;
+      background: var(--glass); border-radius: 999px;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .pill a {
+      padding: 6px 18px; border-radius: 999px; font-size: 13px; color: var(--white);
+      text-decoration: none; transition: background .25s, color .25s;
+    }
+    .pill a:hover { background: rgba(255,255,255,.18); }
+    .pill a.is-active { background: var(--white); color: var(--ink); font-weight: 500; }
+    .user {
+      position: relative; width: 38px; height: 38px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--glass);
+    }
+    .user svg { width: 16px; height: 16px; }
+    .badge {
+      position: absolute; top: -4px; right: -4px; min-width: 18px; height: 18px; padding: 0 5px;
+      border-radius: 9px; background: var(--white); color: var(--ink);
+      font-size: 11px; font-weight: 600; display: grid; place-items: center;
+      transform: scale(0); transition: transform .3s cubic-bezier(.3,1.6,.5,1);
+    }
+    .badge.is-on { transform: scale(1); }
+
+    /* ---------- stage ---------- */
+    .stage { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+    .slide { position: absolute; inset: 0; }
+    .word {
+      position: absolute; left: 50%; top: 44%;
+      translate: -50% -50%;
+      font-family: 'Anton', sans-serif; text-transform: uppercase;
+      line-height: .9; white-space: nowrap; letter-spacing: -.01em;
+      font-size: min(var(--fit), 34vh);
+      text-shadow: 0 24px 40px rgba(0,0,0,.28);
+      z-index: 2;
+    }
+    .word__inner { display: inline-block; }
+    .can {
+      position: absolute; left: 50%; top: 44%;
+      width: min(26vw, 46vh); aspect-ratio: 240 / 380;
+      translate: -50% -50%;
+      z-index: 3;
+    }
+    .can__float { width: 100%; height: 100%; animation: bob 5s ease-in-out infinite; }
+    .can svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 40px 40px rgba(0,0,0,.35)); }
+    .ing { position: absolute; z-index: 4; }
+    .ing.is-back { z-index: 1; filter: blur(3px); opacity: .85; }
+    .ing__float { width: 100%; height: 100%; animation: drift 6s ease-in-out infinite; }
+    .ing svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 18px 18px rgba(0,0,0,.3)); }
+    .shadow {
+      position: absolute; left: 50%; top: 84%; width: min(18vw, 30vh); height: 26px;
+      translate: -50% -50%; border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(0,0,0,.35), transparent);
+      z-index: 1; animation: shadow 5s ease-in-out infinite;
+    }
+    @keyframes bob { 0%,100% { transform: translateY(-10px) rotate(-1deg); } 50% { transform: translateY(12px) rotate(1.5deg); } }
+    @keyframes drift { 0%,100% { transform: translate(0,0) rotate(0); } 50% { transform: translate(6px,-14px) rotate(8deg); } }
+    @keyframes shadow { 0%,100% { scale: .9; opacity: .8; } 50% { scale: 1.05; opacity: 1; } }
+
+    /* ---------- info ---------- */
+    .info {
+      position: absolute; z-index: 10; left: var(--gutter); bottom: clamp(24px, 6vh, 56px);
+      width: min(300px, 40vw);
+    }
+    .info__name { font-size: clamp(22px, 2vw, 30px); font-weight: 400; line-height: 1.1; }
+    .info__meta { margin-top: 12px; font-size: 12px; display: flex; gap: 10px; align-items: baseline; }
+    .info__meta s { opacity: .6; }
+    .info__desc { margin-top: 10px; font-size: 12px; line-height: 1.55; color: var(--muted); }
+    .btn {
+      margin-top: 20px; padding: 12px 38px; border-radius: 999px;
+      background: var(--white); color: var(--ink); font-size: 13px; font-weight: 500;
+      pointer-events: auto; transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.25); }
+    .price {
+      position: absolute; z-index: 10; left: 44%; bottom: clamp(24px, 6vh, 56px);
+      font-size: clamp(22px, 2.2vw, 32px); font-weight: 500;
+    }
+
+    /* ---------- controls ---------- */
+    .controls {
+      position: absolute; z-index: 10; right: var(--gutter); bottom: clamp(24px, 6vh, 56px);
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .arrows, .thumbs, .qty { display: flex; gap: 10px; align-items: center; }
+    .arrow {
+      width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+      background: rgba(0,0,0,.25); transition: background .25s, color .25s, transform .2s;
+    }
+    .arrow:hover { background: var(--white); color: var(--ink); }
+    .arrow:active { transform: scale(.92); }
+    .arrow svg { width: 16px; height: 16px; }
+    .thumb {
+      width: 42px; height: 42px; border-radius: 10px; overflow: hidden; position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.25); transition: transform .25s;
+    }
+    .thumb:hover { transform: translateY(-3px); }
+    .thumb svg { position: absolute; left: 50%; top: 58%; width: 70%; transform: translate(-50%,-50%) rotate(12deg); }
+    .qty { font-size: 14px; gap: 16px; }
+    .qty button {
+      width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.45); font-size: 14px; line-height: 1;
+    }
+    .qty button:hover { background: rgba(255,255,255,.2); }
+    .qty output { min-width: 14px; text-align: center; }
+
+    .dots { position: absolute; z-index: 10; left: 50%; top: 88px; transform: translateX(-50%); display: none; gap: 6px; }
+    .dots i { width: 6px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.4); transition: width .3s, background .3s; }
+    .dots i.is-on { width: 18px; background: var(--white); }
+
+    .toast {
+      position: absolute; z-index: 30; left: 50%; top: 84px; transform: translate(-50%, -20px);
+      padding: 10px 18px; border-radius: 999px; background: var(--white); color: var(--ink);
+      font-size: 13px; font-weight: 500; opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .3s; box-shadow: 0 12px 30px rgba(0,0,0,.2);
+    }
+    .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 760px) {
+      .pill { display: none; }
+      .logo { font-size: 22px; }
+      .word { top: 36%; font-size: min(var(--fit), 26vh); }
+      .can { top: 38%; width: min(46vw, 34vh); }
+      .shadow { top: 64%; width: 34vw; }
+      .info { left: 16px; right: 16px; width: auto; bottom: 24px; }
+      .info__desc { display: none; }
+      .price { left: auto; right: 16px; bottom: 34px; }
+      .controls { right: 16px; bottom: auto; top: 70%; transform: translateY(-50%); flex-direction: row; gap: 14px; }
+      .controls .thumbs { display: none; }
+      .dots { display: flex; }
+    }
+    @media (max-width: 760px) and (max-height: 640px) { .controls { top: 66%; } }
+    @media (prefers-reduced-motion: reduce) {
+      .can__float, .ing__float, .shadow { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app" id="app">
+    <div class="bg" id="bg"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header class="nav">
+      <a class="logo" href="#" aria-label="Velvetspoon home">Velvet<span>spoon</span></a>
+      <nav class="pill" aria-label="Primary">
+        <a href="#" class="is-active">Menu</a>
+        <a href="#">About</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+      </nav>
+      <button class="user" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        <span class="badge" id="badge">0</span>
+      </button>
+    </header>
+
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <div class="stage" id="stage" aria-live="polite"></div>
+
+    <section class="info" id="info">
+      <h1 class="info__name" id="name"></h1>
+      <p class="info__meta" id="meta"></p>
+      <p class="info__desc" id="desc"></p>
+      <button class="btn" id="shop">Shop now</button>
+    </section>
+    <div class="price" id="price"></div>
+
+    <div class="controls">
+      <div class="arrows">
+        <button class="arrow" id="prev" aria-label="Previous flavour">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="arrow" id="next" aria-label="Next flavour">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+      <div class="qty">
+        <button id="minus" aria-label="Decrease quantity">−</button>
+        <output id="qty">1</output>
+        <button id="plus" aria-label="Increase quantity">+</button>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+  </main>
+
+  <script>
+  (() => {
+    /* ================= product data ================= */
+    const PRODUCTS = [
+      {
+        word: 'Mango', name: ['Alphonso', 'Cream'], sub: 'Mango Pudding', price: 14.5, old: 29.5,
+        desc: 'Silky Alphonso mango cream folded over buttery crumble. Sunshine in every spoonful, chilled and ready wherever you are.',
+        bg: ['#f8ad34', '#e48a12'],
+        can: { body: '#f6b10f', bodyDark: '#b86e05', label: '#fde8c2', ink: '#d9620b', fill: '#ffb627', fillTop: '#ffd35c', topper: 'straw', topperColor: '#f5b400', tilt: 16 },
+        ing: [
+          { t: 'mango', x: 22, y: 20, s: 9, r: -25 },
+          { t: 'mango', x: 76, y: 14, s: 11, r: 30 },
+          { t: 'mango', x: 66, y: 62, s: 10, r: 15 },
+          { t: 'mangoSlice', x: 12, y: 58, s: 7, r: -40, back: true },
+          { t: 'mango', x: 88, y: 46, s: 6, r: 60, back: true }
+        ]
+      },
+      {
+        word: 'Chocolate', name: ['Midnight', 'Cocoa'], sub: 'Belgian Mousse', price: 15.9, old: 31.0,
+        desc: 'Dark Belgian chocolate mousse with a whisper of roasted coffee. Deep, velvety and dangerously spoonable.',
+        bg: ['#74482a', '#22140b'],
+        can: { body: '#2b1912', bodyDark: '#0d0705', label: '#e4ddd3', ink: '#3b2216', fill: '#4a2817', fillTop: '#6e3d22', topper: 'spoon', topperColor: '#d9d9de', tilt: 12 },
+        ing: [
+          { t: 'bean', x: 18, y: 22, s: 6, r: -30 },
+          { t: 'bean', x: 22, y: 34, s: 5, r: 40 },
+          { t: 'chunk', x: 78, y: 18, s: 7, r: 20 },
+          { t: 'chunk', x: 84, y: 30, s: 4, r: -35 },
+          { t: 'bean', x: 70, y: 66, s: 6, r: 25 },
+          { t: 'bean', x: 76, y: 60, s: 5, r: -50 },
+          { t: 'chunk', x: 10, y: 66, s: 5, r: 10, back: true }
+        ]
+      },
+      {
+        word: 'Cheesecake', name: ['Berry', 'Cheesecake'], sub: 'Dessert Jar', price: 16.5, old: 32.0,
+        desc: 'Whipped vanilla cheesecake on a toasted almond base, crowned with wild blueberry compote. Sealed fresh in every jar.',
+        bg: ['#cf9659', '#7a4a22'],
+        can: { body: '#4b1620', bodyDark: '#1f070c', label: '#f6ede0', ink: '#7a1d2c', fill: '#f2e6d3', fillTop: '#fff8ec', topper: 'ring', topperColor: '#d6d8dc', tilt: -14 },
+        ing: [
+          { t: 'almond', x: 14, y: 22, s: 7, r: -40 },
+          { t: 'almond', x: 78, y: 16, s: 8, r: 35 },
+          { t: 'berry', x: 84, y: 34, s: 4, r: 0 },
+          { t: 'almond', x: 70, y: 66, s: 6, r: -15 },
+          { t: 'berry', x: 24, y: 64, s: 4, r: 0 },
+          { t: 'berry', x: 30, y: 16, s: 3, r: 0, back: true }
+        ]
+      }
+    ];
+
+    /* ================= SVG builders ================= */
+    let uid = 0;
+
+    function canSVG(c, opts = {}) {
+      const id = 'c' + (uid++);
+      const metal = `<linearGradient id="${id}m" x1="0" x2="1"><stop offset="0" stop-color="#8d8f94"/><stop offset=".3" stop-color="#f4f5f7"/><stop offset=".55" stop-color="#b9bcc2"/><stop offset="1" stop-color="#6c6e73"/></linearGradient>`;
+      const body = `<linearGradient id="${id}b" x1="0" x2="1"><stop offset="0" stop-color="${c.bodyDark}"/><stop offset=".3" stop-color="${c.body}"/><stop offset=".7" stop-color="${c.body}"/><stop offset="1" stop-color="${c.bodyDark}"/></linearGradient>`;
+      const shade = `<linearGradient id="${id}s" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".45"/><stop offset=".14" stop-color="#000" stop-opacity="0"/><stop offset=".26" stop-color="#fff" stop-opacity=".42"/><stop offset=".36" stop-color="#fff" stop-opacity="0"/><stop offset=".78" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></linearGradient>`;
+      const fill = `<radialGradient id="${id}f" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="${c.fillTop}"/><stop offset="1" stop-color="${c.fill}"/></radialGradient>`;
+      const bodyPath = 'M30,40 L30,270 A70,16 0 0 0 170,270 L170,40 Z';
+      const labelPath = 'M30,92 A70,16 0 0 0 170,92 L170,238 A70,16 0 0 1 30,238 Z';
+
+      let topper = '', back = '';
+      if (c.topper === 'straw') {
+        back = `<g transform="rotate(14 100 30)"><rect x="92" y="-90" width="16" height="140" rx="4" fill="${c.topperColor}"/><rect x="95" y="-90" width="4" height="140" fill="#fff" opacity=".45"/></g>`;
+      } else if (c.topper === 'spoon') {
+        back = `<g transform="rotate(10 100 30)"><rect x="96" y="-95" width="8" height="128" rx="4" fill="url(#${id}m)"/></g>`;
+      }
+      let top;
+      if (c.topper === 'ring') {
+        top = `<ellipse cx="100" cy="40" rx="70" ry="16" fill="url(#${id}m)"/>
+               <ellipse cx="100" cy="40" rx="62" ry="12" fill="none" stroke="#9a9ca1" stroke-width="2"/>
+               <ellipse cx="100" cy="40" rx="50" ry="8" fill="#e6e7ea" opacity=".7"/>
+               <g transform="rotate(-8 112 30)"><ellipse cx="118" cy="28" rx="20" ry="10" fill="none" stroke="url(#${id}m)" stroke-width="7"/><rect x="92" y="32" width="20" height="8" rx="3" fill="#bfc1c6"/></g>`;
+      } else {
+        const dollop = c.topper === 'straw'
+          ? `<path d="M52,40 C54,18 76,8 92,16 C102,4 128,6 138,20 C150,22 152,34 148,42 Z" fill="url(#${id}f)"/><path d="M70,22 C80,14 96,16 100,22" stroke="#fff" stroke-opacity=".55" stroke-width="4" fill="none" stroke-linecap="round"/>`
+          : `<path d="M50,42 C56,26 80,22 96,28 C110,16 138,22 146,40 Z" fill="url(#${id}f)"/>`;
+        top = `<ellipse cx="100" cy="40" rx="70" ry="16" fill="url(#${id}m)"/>
+               <ellipse cx="100" cy="41" rx="63" ry="12" fill="${c.fill}"/>
+               ${dollop}
+               ${c.topper === 'spoon' ? `<ellipse cx="102" cy="34" rx="16" ry="10" fill="url(#${id}m)" transform="rotate(-6 102 34)" opacity=".95"/>` : ''}
+               <ellipse cx="100" cy="40" rx="70" ry="16" fill="none" stroke="url(#${id}m)" stroke-width="5"/>`;
+      }
+
+      const bars = opts.mini ? '' : Array.from({ length: 16 }, (_, i) =>
+        `<rect x="${112 + i * 2.6}" y="206" width="${i % 3 ? 1.2 : 2}" height="20" fill="#222"/>`).join('');
+      const labelArt = opts.mini ? '' : `
+          <text x="100" y="122" text-anchor="middle" font-family="'Playfair Display', serif" font-style="italic" font-weight="700" font-size="20" fill="${c.ink}">Velvetspoon</text>
+          <text x="100" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" letter-spacing="3" fill="${c.ink}" opacity=".8">DESSERT CO.</text>
+          <rect x="54" y="148" width="92" height="22" rx="4" fill="${c.ink}"/>
+          <text x="100" y="164" text-anchor="middle" font-family="Anton, sans-serif" font-size="14" letter-spacing="1.5" fill="${c.label}"${opts.word.length > 7 ? ' textLength="82" lengthAdjust="spacingAndGlyphs"' : ''}>${opts.word.toUpperCase()}</text>
+          <circle cx="76" cy="200" r="14" fill="${c.fill}" stroke="${c.ink}" stroke-width="2"/>
+          <circle cx="72" cy="196" r="4" fill="#fff" opacity=".6"/>
+          <rect x="108" y="200" width="48" height="32" rx="3" fill="#fff"/>${bars}
+          <text x="60" y="228" font-family="Inter, sans-serif" font-size="6" fill="${c.ink}" opacity=".7">Net wt. 180g</text>`;
+
+      return `<svg viewBox="-20 -100 240 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>${metal}${body}${shade}${fill}<clipPath id="${id}k"><path d="${bodyPath}"/></clipPath></defs>
+        ${back}
+        <path d="${bodyPath}" fill="url(#${id}b)"/>
+        <g clip-path="url(#${id}k)">
+          <path d="${labelPath}" fill="${c.label}"/>
+          ${labelArt}
+          <path d="${bodyPath}" fill="url(#${id}s)"/>
+        </g>
+        <path d="M30,262 A70,16 0 0 0 170,262 L170,272 A70,16 0 0 1 30,272 Z" fill="url(#${id}m)"/>
+        ${top}
+      </svg>`;
+    }
+
+    const ING = {
+      mango(id) {
+        const cubes = [];
+        for (let i = -4; i <= 4; i++) for (let j = -4; j <= 4; j++)
+          cubes.push(`<rect x="${50 + i * 13 - 5.5}" y="${50 + j * 13 - 5.5}" width="11" height="11" rx="3"/>`);
+        return `<svg viewBox="0 0 100 100"><defs>
+          <radialGradient id="${id}g" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#ffe169"/><stop offset=".55" stop-color="#ffab1f"/><stop offset="1" stop-color="#e96d0c"/></radialGradient>
+          <clipPath id="${id}c"><ellipse cx="50" cy="48" rx="40" ry="34"/></clipPath></defs>
+          <path d="M8,52 C10,82 38,96 54,94 C78,92 94,74 92,52 Z" fill="#c9410f"/>
+          <path d="M14,70 C26,90 58,98 80,82" stroke="#6a8f2a" stroke-width="5" fill="none" opacity=".75"/>
+          <ellipse cx="50" cy="48" rx="40" ry="34" fill="#c75a0a"/>
+          <g clip-path="url(#${id}c)" fill="url(#${id}g)"><g transform="rotate(45 50 50)">${cubes.join('')}</g></g>
+        </svg>`;
+      },
+      mangoSlice(id) {
+        return `<svg viewBox="0 0 100 100"><defs><radialGradient id="${id}g" cx=".4" cy=".35"><stop offset="0" stop-color="#ffd84a"/><stop offset="1" stop-color="#f08a0e"/></radialGradient></defs>
+          <path d="M10,50 C10,20 40,6 62,10 C86,14 96,40 90,62 C82,88 50,96 30,86 C16,78 10,66 10,50 Z" fill="#b8390c"/>
+          <path d="M16,50 C16,26 42,14 62,17 C82,21 90,42 84,60 C77,82 50,88 33,80 C21,73 16,63 16,50 Z" fill="url(#${id}g)"/>
+          <path d="M30,36 C42,26 60,26 70,34" stroke="#fff" stroke-opacity=".5" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>`;
+      },
+      bean(id) {
+        return `<svg viewBox="0 0 100 100"><defs><radialGradient id="${id}g" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#a8673b"/><stop offset=".6" stop-color="#6a3a1d"/><stop offset="1" stop-color="#341a0b"/></radialGradient></defs>
+          <ellipse cx="50" cy="50" rx="32" ry="44" fill="url(#${id}g)"/>
+          <path d="M50,8 C36,32 64,62 50,92" stroke="#2a1208" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <ellipse cx="38" cy="30" rx="6" ry="12" fill="#fff" opacity=".22" transform="rotate(-18 38 30)"/>
+        </svg>`;
+      },
+      chunk(id) {
+        return `<svg viewBox="0 0 100 100">
+          <path d="M14,34 L46,12 L88,26 L84,70 L48,90 L12,72 Z" fill="#2c160c"/>
+          <path d="M14,34 L46,12 L88,26 L52,44 Z" fill="#6b3a20"/>
+          <path d="M52,44 L88,26 L84,70 L48,90 Z" fill="#43230f"/>
+          <path d="M46,12 L88,26" stroke="#a1683f" stroke-width="2"/>
+          <rect x="26" y="52" width="14" height="10" rx="2" fill="#3a1d0f" transform="rotate(10 33 57)"/>
+        </svg>`;
+      },
+      almond(id) {
+        return `<svg viewBox="0 0 100 100"><defs><radialGradient id="${id}g" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#e2a066"/><stop offset=".6" stop-color="#b26b33"/><stop offset="1" stop-color="#6e3d17"/></radialGradient></defs>
+          <path d="M50,4 C82,24 86,70 50,96 C14,70 18,24 50,4 Z" fill="url(#${id}g)"/>
+          <path d="M50,14 C46,40 54,64 50,88 M38,26 C34,48 38,70 42,84 M62,26 C66,48 62,70 58,84" stroke="#7b4419" stroke-opacity=".45" stroke-width="2" fill="none"/>
+          <path d="M50,4 C66,14 74,30 76,46 C64,40 56,38 50,40 Z" fill="#f6e2c6" opacity=".85"/>
+        </svg>`;
+      },
+      berry(id) {
+        return `<svg viewBox="0 0 100 100"><defs><radialGradient id="${id}g" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#7d8fd6"/><stop offset=".55" stop-color="#3a4790"/><stop offset="1" stop-color="#171c45"/></radialGradient></defs>
+          <circle cx="50" cy="52" r="42" fill="url(#${id}g)"/>
+          <path d="M50,18 L55,26 L64,24 L59,32 L64,40 L54,37 L50,45 L46,37 L36,40 L41,32 L36,24 L45,26 Z" fill="#1a1d3d"/>
+          <circle cx="36" cy="40" r="10" fill="#fff" opacity=".18"/>
+        </svg>`;
+      }
+    };
+
+    /* ================= DOM ================= */
+    const $ = (s) => document.querySelector(s);
+    const stage = $('#stage'), bg = $('#bg'), thumbs = $('#thumbs'), dots = $('#dots');
+    const nameEl = $('#name'), metaEl = $('#meta'), descEl = $('#desc'), priceEl = $('#price'), qtyEl = $('#qty');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let index = 0, qty = 1, cart = 0, busy = false, current = null;
+
+    const money = (n) => '$' + n.toFixed(2);
+    const fitFor = (w) => Math.min(30, 92 / (w.length * 0.46)) + 'vw';
+
+    function buildSlide(p) {
+      const el = document.createElement('div');
+      el.className = 'slide';
+      el.innerHTML = `
+        <div class="shadow"></div>
+        <div class="word" style="--fit:${fitFor(p.word)}"><span class="word__inner">${p.word}</span></div>
+        <div class="can" style="rotate:${p.can.tilt}deg"><div class="can__float">${canSVG(p.can, { word: p.word })}</div></div>
+        ${p.ing.map((g, i) => `
+          <div class="ing${g.back ? ' is-back' : ''}" style="left:${g.x}%;top:${g.y}%;width:${g.s}vw;min-width:${g.s * 5}px;aspect-ratio:1;rotate:${g.r}deg">
+            <div class="ing__float" style="animation-delay:${-i * 1.3}s;animation-duration:${5 + (i % 3)}s">${ING[g.t]('i' + (uid++))}</div>
+          </div>`).join('')}`;
+      return el;
+    }
+
+    function setBackground(p, animate) {
+      const layer = document.createElement('div');
+      layer.className = 'bg__layer';
+      layer.style.background = `radial-gradient(70% 80% at 50% 42%, ${p.bg[0]} 0%, ${p.bg[1]} 100%)`;
+      bg.appendChild(layer);
+      document.querySelector('meta[name="theme-color"]').content = p.bg[1];
+      if (!animate) return;
+      gsap.fromTo(layer, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'power2.inOut',
+        onComplete: () => { while (bg.children.length > 1) bg.firstChild.remove(); } });
+    }
+
+    function renderInfo(p) {
+      nameEl.innerHTML = p.name.join('<br>');
+      metaEl.innerHTML = `<span>${p.sub}</span><span>${money(p.price)}</span><s>${money(p.old)}</s>`;
+      descEl.textContent = p.desc;
+      renderPrice();
+    }
+    function renderPrice() { priceEl.textContent = money(PRODUCTS[index].price * qty); qtyEl.textContent = qty; }
+
+    function renderThumbs() {
+      thumbs.innerHTML = '';
+      [1, 2].forEach((off) => {
+        const i = (index + off) % PRODUCTS.length, p = PRODUCTS[i];
+        const b = document.createElement('button');
+        b.className = 'thumb';
+        b.setAttribute('aria-label', 'Show ' + p.name.join(' '));
+        b.style.background = `radial-gradient(circle at 50% 40%, ${p.bg[0]}, ${p.bg[1]})`;
+        b.innerHTML = canSVG(p.can, { mini: true });
+        b.addEventListener('click', () => go(i, 1));
+        thumbs.appendChild(b);
+      });
+      dots.innerHTML = PRODUCTS.map((_, i) => `<i class="${i === index ? 'is-on' : ''}"></i>`).join('');
+    }
+
+    function intro() {
+      const p = PRODUCTS[index];
+      setBackground(p, false);
+      current = buildSlide(p);
+      stage.appendChild(current);
+      renderInfo(p);
+      renderThumbs();
+      if (reduce) return;
+      const q = (s) => current.querySelectorAll(s);
+      gsap.timeline({ defaults: { ease: 'power3.out' } })
+        .from(q('.word__inner'), { yPercent: 60, opacity: 0, duration: 1 })
+        .from(q('.can'), { y: '-80vh', duration: 1.1, ease: 'back.out(1.1)' }, 0.1)
+        .from(q('.ing'), { scale: 0, opacity: 0, duration: .8, stagger: .06, ease: 'back.out(1.6)' }, 0.5)
+        .from('#info > *, .price, .controls', { y: 24, opacity: 0, duration: .7, stagger: .06 }, 0.4)
+        .from('.nav', { y: -20, opacity: 0, duration: .7 }, 0.2);
+    }
+
+    function go(to, dir) {
+      if (busy || to === index) return;
+      busy = true;
+      const prevSlide = current;
+      index = (to + PRODUCTS.length) % PRODUCTS.length;
+      const p = PRODUCTS[index];
+      qty = 1;
+
+      setBackground(p, !reduce);
+      current = buildSlide(p);
+      stage.appendChild(current);
+      renderThumbs();
+
+      if (reduce) {
+        prevSlide.remove(); renderInfo(p); busy = false; return;
+      }
+
+      const out = (s) => prevSlide.querySelectorAll(s);
+      const inn = (s) => current.querySelectorAll(s);
+      const scatter = (el, k) => {
+        const r = el.getBoundingClientRect();
+        const dx = r.left + r.width / 2 - innerWidth / 2, dy = r.top + r.height / 2 - innerHeight / 2;
+        return { x: dx * k, y: dy * k };
+      };
+
+      const tl = gsap.timeline({ defaults: { ease: 'power3.inOut' },
+        onComplete: () => { prevSlide.remove(); busy = false; } });
+
+      // outgoing
+      tl.to(out('.word__inner'), { xPercent: -dir * 70, opacity: 0, duration: .7 }, 0)
+        .to(out('.can'), { y: dir > 0 ? '-110vh' : '110vh', rotate: '+=' + (dir * 25), duration: .8, ease: 'power3.in' }, 0)
+        .to(out('.shadow'), { opacity: 0, duration: .4 }, 0)
+        .to(out('.ing'), { x: (i, el) => scatter(el, 1.4).x, y: (i, el) => scatter(el, 1.4).y, scale: .4, opacity: 0, duration: .6, stagger: .03, ease: 'power2.in' }, 0)
+        .to('#info > :not(.btn), .price', { y: -14, opacity: 0, duration: .3, stagger: .04, ease: 'power2.in',
+          onComplete: () => renderInfo(p) }, 0);
+
+      // incoming
+      tl.from(inn('.word__inner'), { xPercent: dir * 70, opacity: 0, duration: .9, ease: 'power3.out' }, .45)
+        .from(inn('.can'), { y: dir > 0 ? '110vh' : '-110vh', rotate: '-=' + (dir * 30), duration: 1.1, ease: 'back.out(1.05)' }, .35)
+        .from(inn('.shadow'), { opacity: 0, scale: .3, duration: .8 }, .8)
+        .from(inn('.ing'), { x: (i, el) => scatter(el, .9).x, y: (i, el) => scatter(el, .9).y, scale: 1.6, opacity: 0, duration: .9, stagger: .05, ease: 'power3.out' }, .55)
+        .to('#info > :not(.btn), .price', { y: 0, opacity: 1, duration: .5, stagger: .05, ease: 'power3.out' }, .75);
+    }
+
+    /* ================= events ================= */
+    $('#next').addEventListener('click', () => go(index + 1, 1));
+    $('#prev').addEventListener('click', () => go(index - 1, -1));
+    $('#plus').addEventListener('click', () => { qty = Math.min(qty + 1, 20); renderPrice(); });
+    $('#minus').addEventListener('click', () => { qty = Math.max(qty - 1, 1); renderPrice(); });
+
+    const toast = $('#toast'), badge = $('#badge');
+    let toastTimer;
+    $('#shop').addEventListener('click', () => {
+      cart += qty;
+      badge.textContent = cart;
+      badge.classList.add('is-on');
+      toast.textContent = `${qty} × ${PRODUCTS[index].name.join(' ')} added to cart`;
+      toast.classList.add('is-on');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-on'), 2200);
+    });
+
+    addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') go(index + 1, 1);
+      if (e.key === 'ArrowLeft') go(index - 1, -1);
+    });
+
+    let sx = null, sy = null;
+    const app = $('#app');
+    app.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    app.addEventListener('touchend', (e) => {
+      if (sx === null) return;
+      const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) dx < 0 ? go(index + 1, 1) : go(index - 1, -1);
+      sx = null;
+    });
+
+    let wheelLock = 0;
+    app.addEventListener('wheel', (e) => {
+      const now = Date.now();
+      if (now - wheelLock < 1300 || Math.abs(e.deltaY) < 20) return;
+      wheelLock = now;
+      e.deltaY > 0 ? go(index + 1, 1) : go(index - 1, -1);
+    }, { passive: true });
+
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(intro); else intro();
+  })();
+  </script>
+</body>
+</html>
